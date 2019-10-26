@@ -1,4 +1,4 @@
-# MyRuler_WebProject-1
+# HereRuler_WebProject-1
 
 ### 기능 설명
 온라인 쇼핑몰에서 구입하려는 의류 아이템이 개인의 체형에 맞는지 알려주는 웹 서비스
