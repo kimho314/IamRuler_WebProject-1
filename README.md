@@ -8,7 +8,8 @@
 
 ### 초기 소스 설명
 
-1. 공통 디자인 폰트 : 에스코어드림(2-9)  -> font-family:'S-CoreDream-숫자(2-9)' (두꺼울수록 숫자커짐)
+1. 공통 디자인 폰트 : 에스코어드림(2-9)  
+font-family:'S-CoreDream-숫자(2-9)' (두꺼울수록 숫자커짐)
 
 2. 템플릿 소스는 모두 /assets/ 경로에 있으며, 수정은 "지양"
 
@@ -19,6 +20,6 @@
 4. 템플릿 디자인 스타일 :  /elements.html 
 
 5. 작업 편의를 위해 css 분기하여 /css/main.css에 모두 import됨  
-> /css/
-> woo.css(우근씨), yoon.css(정윤씨), young.css(수영씨),sun.css(은선씨),seop(호섭씨)
+> /css/  
+woo.css(우근씨), yoon.css(정윤씨), young.css(수영씨),sun.css(은선씨),seop(호섭씨)
 각 파일별로 각자 맡은 페이지의 스타일을 작성해주세요.
