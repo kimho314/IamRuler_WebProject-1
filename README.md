@@ -21,5 +21,9 @@ font-family:'S-CoreDream-숫자(2-9)' (두꺼울수록 숫자커짐)
 
 5. 작업 편의를 위해 css 분기하여 /css/main.css에 모두 import됨  
 > /css/  
-woo.css(우근씨), yoon.css(정윤씨), young.css(수영씨),sun.css(은선씨),seop(호섭씨)
-각 파일별로 각자 맡은 페이지의 스타일을 작성해주세요.
+└─ woo.css(우근씨)  
+└─ yoon.css(정윤씨)  
+└─ young.css(수영씨)  
+└─ sun.css(은선씨)  
+└─ seop(호섭씨)  
+__각 파일별로 각자 맡은 페이지의 스타일을 작성해주세요.
