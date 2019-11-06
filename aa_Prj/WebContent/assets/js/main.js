@@ -5,7 +5,7 @@
 */
 
 (function($) {
-
+	
 	skel.breakpoints({
 		xlarge: '(max-width: 1680px)',
 		large: '(max-width: 1280px)',
@@ -17,7 +17,11 @@
 	});
 
 	$(function() {
-
+		//su popup동작 추가 
+		$(".mask, .popup .close").click(function(){
+			$(".mask,.popup").fadeOut();
+		});	
+		
 		var	$window = $(window),
 			$head = $('head'),
 			$body = $('body');
@@ -281,5 +285,5 @@
 				});
 
 	});
-
+	
 })(jQuery);

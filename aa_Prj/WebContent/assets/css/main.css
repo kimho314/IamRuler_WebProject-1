@@ -1,26 +1,26 @@
 @import url(font-awesome.min.css);
 @font-face { font-family: 'S-CoreDream-9'; 
-	src: url('../font/SCDream9.woff') format('woff'); 
+	src: url('../fonts/SCDream9.woff') format('woff'); 
 	font-weight: normal; font-style: normal; 
 }
 @font-face { font-family: 'S-CoreDream-8'; 
-	src: url('../font/SCDream8.woff') format('woff'); 
+	src: url('../fonts/SCDream8.woff') format('woff'); 
 	font-weight: normal; font-style: normal; 
 }
 @font-face { font-family: 'S-CoreDream-7'; 
-	src: url('../font/SCDream7.woff') format('woff'); 
+	src: url('../fonts/SCDream7.woff') format('woff'); 
 	font-weight: normal; font-style: normal; 
 }
 @font-face { font-family: 'S-CoreDream-5'; 
-	src: url('../font/SCDream5.woff') format('woff'); 
+	src: url('../fonts/SCDream5.woff') format('woff'); 
 	font-weight: normal; font-style: normal; 
 }
 @font-face { font-family: 'S-CoreDream-3'; 
-	src: url('../font/SCDream3.woff') format('woff'); 
+	src: url('../fonts/SCDream3.woff') format('woff'); 
 	font-weight: normal; font-style: normal; 
 }
 @font-face { font-family: 'S-CoreDream-2'; 
-	src: url('../font/SCDream2.woff') format('woff'); 
+	src: url('../fonts/SCDream2.woff') format('woff'); 
 	font-weight: normal; font-style: normal; 
 }
 
@@ -2701,11 +2701,14 @@
 				text-decoration: none;
 				border-top: solid 1px rgba(210, 215, 217, 0.75);
 				margin: 1.5em 0 0 0;
-				padding: 1.5em 0 0 3em;
+				padding: 1.5em 0 0 0;
 				position: relative;
+				line-height:2em;
+				vertical-align:middle
 			}
 
-				ul.contact li:before {
+				ul.contact li:before,
+				ul.contact li .icon {
 					-moz-osx-font-smoothing: grayscale;
 					-webkit-font-smoothing: antialiased;
 					font-family: FontAwesome;
@@ -2714,19 +2717,20 @@
 					text-transform: none !important;
 				}
 
-				ul.contact li:before {
+				ul.contact li:before,
+				ul.contact li .icon {
 					color: #ff6600;
 					display: inline-block;
 					font-size: 1.5em;
 					height: 1.125em;
-					left: 0;
+					/* left: 0; */
 					line-height: 1.125em;
-					position: absolute;
+					/* position: absolute; */
 					text-align: center;
-					top: 1em;
+					/* top: 1em; */
 					width: 1.5em;
 				}
-
+				ul.contact li .icon {margin:0.3em .5em 0 0 }
 				ul.contact li:first-child {
 					border-top: 0;
 					margin-top: 0;
@@ -3624,7 +3628,7 @@
 			#sidebar > .inner > * {
 				border-bottom: solid 2px rgba(210, 215, 217, 0.75);
 				margin: 0 0 3.5em 0;
-				padding: 0 0 3.5em 0;
+				padding: 0 0 2em 0;
 			}
 
 				#sidebar > .inner > * > :last-child {
@@ -4113,3 +4117,11 @@ h1 img{width:100%}
 		transform: rotate(90deg)
 	}
 }
+#sidebar .toggle{z-index:0}
+.mask{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5)}
+.popup{position:absolute;top:0;left:0;width:100%;height:1px;z-index:1}
+.popup .contents{margin:10% auto;width:25em;padding:2em 1em;background:#fff;border-radius:5px;z-index:2}
+.popup .contents p{text-align:center}
+.popup .contents .btn{width:100%;text-align:center;padding:1em 0 0;border-top:1px solid #dfdfdf}
+.popup .contents .fa-grin-hearts{font-size:5em;color:#f60;margin: 0 0 .1em}
+.popup .contents .title{font-weight:bold;font-family:'S-CoreDream-8';color:#000;font-size:1.5em;margin:0 0 .5em}
