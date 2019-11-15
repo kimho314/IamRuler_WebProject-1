@@ -1,0 +1,27 @@
+#로그인테이블 {
+  padding: 4em 1.5em 4em 1.5em;
+  display: flex;
+}
+span.로그인텍스트바 {
+  padding: 0.5em 3em 0.5em 0.5em;
+  width: 45%;
+  border-right: 0.1em solid;
+}
+
+span.로그인텍스트바 > p {
+  font-size: 2em;
+}
+span.로그인페이지버튼 {
+  padding: 8em 0.5em 0.5em 0.5em;
+  width: 45%;
+  margin-left: auto;
+}
+
+span.로그인페이지버튼 > p {
+  font-size: 2em;
+}
+
+input#아이디,
+input#비밀번호 {
+  padding: 0.5em 0 0.5em 0;
+}

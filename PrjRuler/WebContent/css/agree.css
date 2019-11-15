@@ -1,0 +1,26 @@
+#약관 {
+  padding: 2em 4em 2em 4em;
+  height: 35em;
+  text-align: left;
+  width: 100%;
+}
+
+#약관 label {
+  font-size: 1.2em;
+}
+
+div.작은약관 {
+  overflow: hidden auto;
+  height: 13em;
+  padding: 0.5em 1em 0.5em 1em;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  background: white;
+  border-radius: 0.5em;
+  border-width: 0.3em;
+
+  border-style: solid;
+  border-color: gray;
+}

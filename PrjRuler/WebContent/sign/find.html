@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>아이디/비밀번호 찾기</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <!--[if lte IE 8]>
+      <script src="assets/js/ie/html5shiv.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../css/sign.css" />
+    <!--[if lte IE 9]>
+      <link rel="stylesheet" href="assets/css/ie9.css" />
+    <![endif]-->
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="assets/css/ie8.css" />
+    <![endif]-->
+    <!-- <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" /> -->
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="main">
+        <div class="inner">
+          <header id="header">
+            <h1 class="아이디비밀번호찾기">아이디/비밀번호 찾기</h1>
+            <ul class="헤더메뉴">
+              <li>
+                <a href="login.html" class="로그인">
+                  <span class="헤더메뉴">
+                    로그인
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="sign-up.html" class="회원가입">
+                  <span class="헤더메뉴">
+                    회원가입
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </header>
+          <div id="찾기테이블">
+            <span class="아이디찾기">
+              <p>아이디 찾기</p>
+              <section class="아이디찾기">
+                <form method="POST">
+                  <label>이메일</label>
+                  <input type="text" name="email" id="이메일" />
+                </form>
+              </section>
+
+              <section>
+                <span id="확인버튼">
+                  <label class="button special" for="아이디-pop">확인</label>
+                </span>
+              </section>
+            </span>
+            <!-- 구분선 -->
+            <span class="비밀번호찾기">
+              <p>비밀번호 찾기</p>
+              <section class="비밀번호찾기">
+                <form method="POST">
+                  <label>아이디</label>
+                  <input type="text" name="phone" id="아이디" /><br />
+                  <label>핸드폰</label>
+                  <input type="text" name="phone" id="핸드폰" />
+                </form>
+              </section>
+
+              <section>
+                <span id="확인버튼">
+                  <label class="button special" for="비밀번호-pop">확인</label>
+                </span>
+              </section>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div id="sidebar">
+        <div class="inner">
+          <section id="search" class="alt">
+            <form method="post" action="#">
+              <input type="text" name="query" id="query" placeholder="Search" />
+            </form>
+          </section>
+
+          <nav id="menu">
+            <h1>
+              <a href="../index.html"
+                ><img src="../images/logo.png" alt="아임룰러"
+              /></a>
+            </h1>
+            <h2 class="hidden">메인 메뉴</h2>
+            <ul>
+              <li><a href="index.html">Homepage</a></li>
+              <li><a href="generic.html">Generic</a></li>
+              <li><a href="elements.html">Elements</a></li>
+              <li>
+                <span class="opener">Submenu</span>
+                <ul>
+                  <li><a href="#">Lorem Dolor</a></li>
+                  <li><a href="#">Ipsum Adipiscing</a></li>
+                  <li><a href="#">Tempus Magna</a></li>
+                  <li><a href="#">Feugiat Veroeros</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Etiam Dolore</a></li>
+              <li><a href="#">Adipiscing</a></li>
+              <li>
+                <span class="opener">Another Submenu</span>
+                <ul>
+                  <li><a href="#">Lorem Dolor</a></li>
+                  <li><a href="#">Ipsum Adipiscing</a></li>
+                  <li><a href="#">Tempus Magna</a></li>
+                  <li><a href="#">Feugiat Veroeros</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Maximus Erat</a></li>
+              <li><a href="#">Sapien Mauris</a></li>
+              <li><a href="#">Amet Lacinia</a></li>
+            </ul>
+          </nav>
+
+          <section>
+            <header class="major">
+              <h2>Get in touch</h2>
+            </header>
+            <p>
+              Sed varius enim lorem ullamcorper dolore aliquam aenean ornare
+              velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed
+              aliquam facilisis ante interdum. Sed nulla amet lorem feugiat
+              tempus aliquam.
+            </p>
+            <ul class="contact">
+              <li class="fa-envelope-o">
+                <a href="#">information@untitled.tld</a>
+              </li>
+              <li class="fa-phone">(000) 000-0000</li>
+              <li class="fa-home">
+                1234 Somewhere Road #8254<br />
+                Nashville, TN 00000-0000
+              </li>
+            </ul>
+          </section>
+
+          <footer id="footer">
+            <p class="copyright">
+              &copy; Untitled. All rights reserved. Demo Images:
+              <a href="https://unsplash.com">Unsplash</a>. Design:
+              <a href="https://html5up.net">HTML5 UP</a>.
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input class="modal-state" id="아이디-pop" type="checkbox" />
+      <div class="팝업">
+        <div class="contents">
+          <h2 class="title">아이디</h2>
+          <p>아이디가 뜰곳</p>
+          <br />
+          <p id="회원가입성공버튼">
+            <a href="find.html" class="button special">확인</a>
+          </p>
+        </div>
+      </div>
+      <input class="modal-state" id="비밀번호-pop" type="checkbox" />
+      <div class="팝업">
+        <div class="contents">
+          <h2 class="title">비밀번호</h2>
+          <p>비밀번호가 뜰곳</p>
+          <br />
+          <p id="회원가입성공버튼">
+            <a href="find.html" class="button special">확인</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <!--[if lte IE 8]>
+      <script src="assets/js/ie/respond.min.js"></script>
+    <![endif]-->
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+@import url(../assets/css/main.css);
+@import url(sign-up.css);
+@import url(agree.css);
+@import url(find.css);
+@import url(login.css);
+
+#header {
+  min-height: 10em;
+} /* 나중에 분기할 내용 */
+
+.mypageInfo .btn_area {
+  margin: 1em 0 0;
+  text-align: right;
+}
+.mypageReg section {
+  text-align: center;
+  margin: 3em 0;
+  padding: 0 1em;
+}
+.mypageReg h1 {
+  display: block;
+  padding: 1em 0;
+  font-size: 1.75em;
+  line-height: 2em;
+  text-align: center;
+  color: #888;
+}
+.mypageReg input {
+  display: inline-block;
+  margin: 1em auto;
+  max-width: 20em;
+  vertical-align: middle;
+}
+.mypageReg .btn_area {
+  vertical-align: middle;
+}

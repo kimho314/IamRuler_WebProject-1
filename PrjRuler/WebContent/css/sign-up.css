@@ -1,0 +1,187 @@
+body {
+  position: relative;
+}
+
+div.inner header#header ul.헤더메뉴 {
+  cursor: default;
+  list-style: none;
+  padding-left: 0;
+  text-align: right;
+  width: 30%;
+  height: 66px;
+}
+
+ul.헤더메뉴 li {
+  display: inline;
+  padding: 0 1em 0 0;
+}
+
+#테이블 table {
+  color: black;
+}
+
+#테이블 table tr {
+  text-align: left;
+}
+
+#테이블 table tr td.표제목 {
+  padding: 0.25em 0.75em;
+  width: 100%;
+  text-align: center;
+  font-size: 2.25em;
+}
+
+#테이블 table tr td {
+  width: 25%;
+  white-space: nowrap;
+}
+
+#테이블 table tr td + td {
+  width: 75%;
+}
+
+#테이블 table tr td.비밀번호입력 {
+  padding: 0.75em 0.75em 0.25em;
+  width: 75%;
+}
+
+#테이블 table tr td input.텍스트 {
+  width: 50%;
+  display: inline;
+}
+
+#테이블 table tr td input.작은텍스트 {
+  width: 30%;
+  display: inline;
+}
+
+#테이블 table tr td label {
+  font-size: 0.8em;
+  display: inline-table;
+}
+
+#테이블 table tr td span.비밀번호오류 {
+  font-size: 0.8em;
+  color: crimson;
+  display: block;
+}
+
+input[type="radio"] {
+  display: none;
+  width: 22px;
+  height: 22px;
+}
+
+#테이블 table tr td label.성별 {
+  font-size: 0.9em;
+  color: black;
+}
+
+#테이블 table tr td div {
+  width: 25%;
+}
+
+#이메일라벨 {
+  padding: 0 0.5em 0 0.5em;
+}
+
+#기타라벨 {
+  padding-left: 0.5em;
+}
+
+#main > .inner > section {
+  padding: 3em 0 0;
+  text-align: right;
+  border-top: 0;
+}
+
+table.회원가입테이블 {
+  margin: 0;
+  width: 100%;
+}
+
+.팝업 {
+  opacity: 1;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.4);
+}
+/* .modal_bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+} */
+.modal-state {
+  display: none;
+}
+.modal-state:checked + .팝업 {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-state:checked + .팝업 .contents {
+  top: 0;
+}
+
+.팝업 .contents {
+  margin: 10% auto;
+  width: 25em;
+  padding: 2em 1em;
+  background: #fff;
+  border-radius: 5px;
+  z-index: 2;
+}
+/* 
+.modal_close {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  width: 1.1em;
+  height: 1.1em;
+  cursor: pointer;
+}
+
+.modal_close:after,
+.modal_close:before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 1.5em;
+  background: #ccc;
+  display: block;
+  transform: rotate(45deg);
+  left: 50%;
+  margin: -3px 0 0 -1px;
+  top: 0;
+}
+
+.modal_close:hover:after,
+.modal_close:hover:before {
+  background: #aaa;
+}
+
+.modal_close:before {
+  transform: rotate(-45deg);
+} */
+
+p#회원가입성공버튼 {
+  width: 100%;
+  text-align: center;
+  padding: 1em 0 0;
+  border-top: 1px solid #dfdfdf;
+}
+.팝업 .contents p {
+  text-align: center;
+}
+
+div.contents h2.title {
+  text-align: center;
+}
