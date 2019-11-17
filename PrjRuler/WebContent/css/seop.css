@@ -1,4 +1,4 @@
-@import url(../assets/css/main.css); 
+@import url(../assets/css/main.css);
 
 /* ============== ü�����ڵ� �Խ��� ��� ============== */
 
@@ -211,7 +211,7 @@ div.coordi-post-icons-bottom a {
 }
 
 
-.popup div.contents {
+.newpost-popup div.contents {
     margin: 20% auto;
     width: 35em;
     padding: 2em 1em;
@@ -223,7 +223,7 @@ div.coordi-post-icons-bottom a {
     right:0;
 }
 
-div.mask {
+div.newpost-mask {
     position: fixed;
     top: 0;    
     left: 0;
@@ -232,6 +232,34 @@ div.mask {
     background: rgba(0,0,0,.5);    
 }
 
+.newpost-popup{ 
+	position:absolute;
+	top:0; left:0; width:100%; 
+	height:1px; z-index:1 
+}
+
+.newpost-popup .contents{ 
+	margin:10% auto; width:25em; 
+	padding:2em 1em; background:#fff; 
+	border-radius:5px; z-index:2
+}
+
+.newpost-popup .contents p{
+	text-align:center
+}
+
+.newpost-popup .contents .btn{
+	width:100%; 
+	text-align:center; padding:1em 0 0;
+	border-top:1px solid #dfdfdf
+}
+
+
+.newpost-popup .contents .title{
+	font-weight:bold; 
+	font-family:'S-CoreDream-8'; 
+	color:#000; font-size:1.5em; margin:0 0 .5em
+}
 
 /* ============== ü���� �ڵ� �Խ��� ��� ============== */
 

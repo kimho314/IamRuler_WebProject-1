@@ -10,7 +10,7 @@
     <!--[if lte IE 8
       ]><script src="assets/js/ie/html5shiv.js"></script
     ><![endif]-->
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="../css/seop.css" />
     <!--[if lte IE 9
       ]><link rel="stylesheet" href="assets/css/ie9.css"
     /><![endif]-->
@@ -18,6 +18,18 @@
       ]><link rel="stylesheet" href="assets/css/ie8.css"
     /><![endif]-->
     <script src="assets/js/modernizr.custom.js"></script>
+  
+    <script>
+      function openPopUp(){
+        document.getElementsByClassName("newpost-popup")[0].style.display="block";
+        document.getElementsByClassName("newpost-mask")[0].style.display="block";
+      }
+
+      function closePopUp(){
+        document.getElementsByClassName("newpost-popup")[0].style.display="none";
+        document.getElementsByClassName("newpost-mask")[0].style.display="none";
+      }
+    </script>
   </head>
 
   <body>
@@ -140,7 +152,7 @@
               </div>
 
               <div class="coordi-post-icons-bottom">
-                <button class="popup-open" type="submit">등록</button>
+                <button class="popup-open" type="submit" onclick="openPopUp()">등록</button>
                 <input type="reset" value="취소" />
               </div>
             </div>
@@ -162,7 +174,7 @@
           <nav id="menu">
             <h1>
               <a href="index.html"
-                ><img src="images/logo.png" alt="아임룰러"
+                ><img src="../images/logo.png" alt="아임룰러"
               /></a>
             </h1>
             <h2 class="hidden">메인 메뉴</h2>
@@ -230,18 +242,18 @@
         </div>
       </div>
 
-      <div class="popup" style="display:none">
+      <div class="newpost-popup" style="display:none">
         <div class="contents popup-contents">
           <p class="title">
             정상적으로 등록되었습니다
           </p>
           <p></p>
           <div class="btn">
-            <a href="#" class="button close">닫기</a>
+            <a href="#" class="button close" onclick="closePopUp()">닫기</a>
           </div>
         </div>
       </div>
-      <div class="mask" style="display:none"></div>
+      <div class="newpost-mask" style="display:none"></div>
     </div>
 
     <!-- Scripts -->
