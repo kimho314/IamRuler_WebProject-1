@@ -1,6 +1,6 @@
 @import url(../assets/css/main.css);
 
-/* ============== ü�����ڵ� �Խ��� ��� ============== */
+/* ============== 체형별코디 게시판 목록 ============== */
 
 div.visual-wrapper {
     margin:1em 0;
@@ -131,7 +131,7 @@ ul.coordi-list-page {
 
     }
 
-/* ============== ü���� �ڵ� �Խ��� ������ �Խñ� ============== */
+/* ============== 체형별 코디 게시판 선택한 게시글 ============== */
 
 div.visual-wrapper div.visual-top-coordi-post 
 div.visual-top-right {
@@ -184,7 +184,7 @@ div.coordi-post-icons-bottom div {
     display:inline;
 }
 
-/* ============== ü���� �ڵ� �Խ��� ���Խñ� ============== */
+/* ============== 체형별 코디 게시판 새게시글 ============== */
 
 td select#select-bodyshape {
     color:silver;
@@ -261,7 +261,7 @@ div.newpost-mask {
 	color:#000; font-size:1.5em; margin:0 0 .5em
 }
 
-/* ============== ü���� �ڵ� �Խ��� ��� ============== */
+/* ============== 체형별 코디 게시판 댓글 ============== */
 
 div.coordi-comment-list-wrapper {
     height:350px;
