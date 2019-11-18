@@ -1,2 +1,122 @@
-@import url(../assets/css/main.css); /* 템플릿 스타일 */
+@import url(../assets/css/main.css);
 
+.reg {display: inline-block; float: right;} 
+.btncenter {width: 100%; text-align: center;}
+.edel{
+	list-style: none;
+	display : inline-block;
+	margin: 0px;
+	padding: 0px;
+	float: right;
+}
+
+.select-wrapper{
+	display: inline;
+	float: left;
+	margin: 0 2px; 
+}
+		
+/* div.box1 {
+	position:relative;
+	width:150px; height:200px;
+}
+div.box1 > img {
+	position:absolute;
+	max-width:100%; max-height:100%;
+	width:auto; height:auto;
+	margin:auto;
+	top:0; bottom:0; left:0; right:0;
+} */
+
+ul.a {
+	list-style: none;
+	float: right;
+}
+
+ul.a li{
+	display: inline-block;
+	padding:0 10px;    
+}
+
+#name{
+	display: inline-block;
+	color: black;
+}
+
+#date{
+	display: inline-block;
+	opacity: 80%;
+}
+
+#content{
+	display: inline-block;
+	float : left;
+	/* padding: 1.5em;
+	margin-left: -11.2em; */
+}
+
+#search {
+	background-color: #ff6600;
+	box-shadow: none;
+	color: #ffffff !important;
+	/* position:relative;
+	right : 7em; */
+	display: inline-block;
+	
+}
+
+.searchtext {
+	display: inline-block;
+	float: right;
+	padding-right: 0.2em;
+	
+}
+
+.searchbutton{
+	display: inline-block;
+	float: right;
+}
+
+.gray{
+	color:gray;
+}
+
+.black{
+	color: black;
+}
+
+.list.button{
+	text-align: center;
+}
+
+.center{
+	text-align: center;
+}
+
+.left{
+	text-align: left;
+}
+
+.right{
+	text-align: right;
+}
+
+
+.vertical{
+	vertical-align:middle;
+}
+
+.secret {
+	display: inline-block;
+}
+.commentreg{
+	padding: 1em;
+}
+
+.trade-mask{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5)}
+.trade-popup{position:absolute;top:0;left:0;width:100%;height:1px;z-index:1}
+.trade-popup .contents{margin:10% auto;width:25em;padding:2em 1em;background:#fff;border-radius:5px;z-index:2}
+.trade-popup .contents p{text-align:center}
+.trade-popup .contents .btn{width:100%;text-align:center;padding:1em 0 0;border-top:1px solid #dfdfdf}
+.trade-popup .contents .fa-grin-hearts{font-size:5em;color:#f60;margin: 0 0 .1em}
+.trade-popup .contents .title{font-weight:bold;font-family:'S-CoreDream-8';color:#000;font-size:1.5em;margin:0 0 .5em}
