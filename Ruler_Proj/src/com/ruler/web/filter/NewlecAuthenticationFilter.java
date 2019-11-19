@@ -21,23 +21,11 @@ public class NewlecAuthenticationFilter implements Filter
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException
 	{
-		// TODO Auto-generated method stub
-		// 현재 요청된 URL == authUrls에 포함된지 확인
-		
-		response.setContentType("text/html; charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		
+		// TODO Auto-generated method stub				
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpSession session = req.getSession();
-		// http://localhost:8080/member/login
-		//System.out.println(req.getRequestURL()); 
-		// /member/login
-		//System.out.println(req.getRequestURI());
-		
-		String requestURI = req.getRequestURI();
-		
-		// 인증이 이미 되어 있고 또는 인증이 필요하지 않는 경우
-		// 인증이 필요한 경우
+	
+		String requestURI = req.getRequestURI();		
 		
 		boolean isAuthRequired = false;
 		for(String url : authUrls)
@@ -65,16 +53,18 @@ public class NewlecAuthenticationFilter implements Filter
 		boolean isAuthenticated = session.getAttribute("userName") == null;
 		if(isAuthenticated && isAuthRequired)
 		{
+			response.setContentType("text/html; charset=UTF-8");
+			response.setCharacterEncoding("UTF-8");
+
 			PrintWriter out = response.getWriter();
 			out.println("	<script>\r\n" + "		window.alert(\"Authentication failure\")\r\n"
-					+ "		window.location.href=\"../member/login?returnUrl=../admin/index\";\r\n" + "	</script>");
+					+ "		window.location.href=\"../member/login?returnUrl=../admin/index\";\r\n" 
+					+ "	</script>");
 
 			return;
 		}
 		else
-		{
-			// 인증이 이미 되어 있고 또는 인증이 필요하지 않는 경우
-			// 권한이 충분하지 않다면
+		{			
 			chain.doFilter(req, response);
 		}
 
