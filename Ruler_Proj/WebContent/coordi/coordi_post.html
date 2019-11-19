@@ -2,160 +2,167 @@
 <html>
 
 <head>
-  <title>쇼핑 도우미 : 아임룰러</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <!--[if lte IE 8
+    <title>쇼핑 도우미 : 아임룰러</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!--[if lte IE 8
       ]><script src="assets/js/ie/html5shiv.js"></script
     ><![endif]-->
-  <link rel="stylesheet" href="../css/seop.css" />
-  <!--[if lte IE 9
+    <link rel="stylesheet" href="../css/seop.css" />
+    <!--[if lte IE 9
       ]><link rel="stylesheet" href="assets/css/ie9.css"
     /><![endif]-->
-  <!--[if lte IE 8
+    <!--[if lte IE 8
       ]><link rel="stylesheet" href="assets/css/ie8.css"
     /><![endif]-->
 </head>
 
 <body>
-  <!-- Wrapper -->
-  <div id="wrapper">
-    <!-- Main -->
-    <div id="main">
-      <div class="inner">
-        <!-- Header -->
-        <header id="header">
-          <h1>체형별 코디 게시판</h1>
-          <ul class="icons">
-            <li>
-               <a href="sign/login.html">로그인</a>
-            </li>
-            <li>
-               <a href="sign/sign-up.html">회원가입</a>
-            </li>
-          </ul>
-        </header>
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <!-- Header -->
+                <header id="header">
+                    <h1>체형별 코디 게시판</h1>
+                    <ul class="icons">
+                        <li>
+                            <a href="sign/login.html">로그인</a>
+                        </li>
+                        <li>
+                            <a href="sign/sign-up.html">회원가입</a>
+                        </li>
+                    </ul>
+                </header>
 
-        <!-- Banner  -->
-        <section id="banner">
-          <div class="content">
-            <div class="visual-wrapper">
-              <div class="visual-top-coordi-post">
-                <div class="visual-top-right">
-                  <a href="#" class="button small" style="box-shadow: none; font-size:100%; padding: 0 1em;">수정</a>
-                  <a href="#" class="button small" style="box-shadow: none; font-size:100%; padding: 0 1em;">삭제</a>
-                </div>
-              </div>
+                <!-- Banner  -->
+                <section id="banner">
+                    <div class="content">
+                        <div class="visual-wrapper">
+                            <div class="visual-top-coordi-post">
+                                <div class="visual-top-right">
+                                    <a href="#" class="button small"
+                                        style="box-shadow: none; font-size:100%; padding: 0 1em;">수정</a>
+                                    <a href="#" class="button small"
+                                        style="box-shadow: none; font-size:100%; padding: 0 1em;">삭제</a>
+                                </div>
+                            </div>
 
-              <div class="visual-bottom"></div>
+                            <div class="visual-bottom"></div>
+                        </div>
+
+                        <div class="coordi-post-table-wrapper">
+                            <table class="coordi-post-table" style="color:black">
+                                <tr>
+                                    <td colspan="4">게시글</td>
+                                </tr>
+
+                                <tr>
+                                    <td>제목</td>
+                                    <td colspan="4">
+                                        <input type="text" name="coordi-post-table-title" id="demo-name" value=""
+                                            placeholder="제목" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>작성자</td>
+                                    <td>
+                                        <input type="text" name="coordi-post-table-title" id="demo-name" value=""
+                                            placeholder="작성자" />
+                                    </td>
+                                    <td>게시 날짜</td>
+                                    <td>
+                                        <input type="text" name="coordi-post-table-title" id="demo-name" value=""
+                                            placeholder="게시 날짜" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>체형</td>
+                                    <td>
+                                        <input type="text" name="coordi-post-table-title" id="demo-name" value=""
+                                            placeholder="체형" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>내용</td>
+                                    <td colspan="4">
+                                        <textarea name="demo-message" id="demo-message" placeholder="내용"
+                                            rows="6"></textarea>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="coordi-post-icons-bottom">
+                            <a href="coordi_list_women1.html" class="button">목록</a>
+                            <a href="coordi_comment.html" class="button">댓글</a>
+                        </div>
+                    </div>
+                </section>
             </div>
+        </div>
 
-            <div class="coordi-post-table-wrapper">
-              <table class="coordi-post-table" style="color:black">
-                <tr>
-                  <td colspan="4">게시글</td>
-                </tr>
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+                <!-- Menu -->
+                <nav id="menu">
+                    <h1 class="logo">
+                        <a href="index.html"><img src="../images/logo.png" alt="아임룰러" /></a>
+                    </h1>
+                    <h2 class="hidden">메인 메뉴</h2>
+                    <ul>
+                        <li><a href="index.html">사이즈 비교</a></li>
+                        <li><a href="coordi/coordi_list_main.html">체형 별 코디</a></li>
+                        <li><a href="#.html">교환 게시판</a></li>
+                        <li><a href="#.html">쇼핑몰 랭킹</a></li>
+                    </ul>
 
-                <tr>
-                  <td>제목</td>
-                  <td colspan="4">
-                    <input type="text" name="coordi-post-table-title" id="demo-name" value="" placeholder="제목" />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>작성자</td>
-                  <td>
-                    <input type="text" name="coordi-post-table-title" id="demo-name" value="" placeholder="작성자" />
-                  </td>
-                  <td>게시 날짜</td>
-                  <td>
-                    <input type="text" name="coordi-post-table-title" id="demo-name" value="" placeholder="게시 날짜" />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>체형</td>
-                  <td>
-                    <input type="text" name="coordi-post-table-title" id="demo-name" value="" placeholder="체형" />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>내용</td>
-                  <td colspan="4">
-                    <textarea name="demo-message" id="demo-message" placeholder="내용" rows="6"></textarea>
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="coordi-post-icons-bottom">
-              <a href="coordi_list_women1.html" class="button">목록</a>
-              <a href="coordi_comment.html" class="button">댓글</a>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <div class="inner">
-          <!-- Menu -->
-          <nav id="menu">          
-            <h1 class="logo">
-              <a href="index.html"><img src="../images/logo.png" alt="아임룰러" /></a>
-            </h1>
-            <h2 class="hidden">메인 메뉴</h2>
-            <ul>
-              <li><a href="index.html">사이즈 비교</a></li>
-              <li><a href="coordi/coordi_list_main.html">체형 별 코디</a></li>
-              <li><a href="#.html">교환 게시판</a></li>
-              <li><a href="#.html">쇼핑몰 랭킹</a></li>
-            </ul>
-  
-            <!-- <h2 class="hidden">마이페이지 메뉴</h2>
+                    <!-- <h2 class="hidden">마이페이지 메뉴</h2>
               <ul>
                 <li><a href="mypage/member-edit.html">회원정보 수정</a></li>
                 <li><a href="mypage/reg.html">회원 탈퇴</a></li>
                 <li><a href="mypage/#.html">내가 작성한 글</a></li>
                 <li><a href="mypage/#.html">찜 목록</a></li>
               </ul> -->
-          </nav>
-  
-          <!-- Section -->
-          <section>
-            <header class="major">
-              <!-- <h2>Get in touch</h2> -->
-            </header>
-            <p>I’M RULER 는 상품에 직접 관여하지 않으며 상품 주문, 배송 및 환불의 의무와 책임은 각 판매업체에
-              있습니다.</p>
-            <ul class="contact">
-              <!-- <li class="fa-home"><a href="#">I'M RULER</a></li> -->
-              <li class="fa-phone">(02) 123-4567</li>
-              <li class="fa-envelope-o">admin@imruler.com</li>
-            </ul>
-          </section>
-  
-          <!-- Footer -->
-          <footer id="footer">
-            <p class="copyright">&copy; imruler.com 2019-2021 All Right
-              Reserved. Contact admin@imruler.com for more information.
-          </footer>
-  
-        </div>
-      </div>
-  </div>
+                </nav>
 
-  <!-- Scripts -->
-  <script src="../assets/js/jquery.min.js"></script>
-  <script src="../assets/js/skel.min.js"></script>
-  <script src="../assets/js/util.js"></script>
-  <!--[if lte IE 8
+                <!-- Section -->
+                <section>
+                    <header class="major">
+                        <!-- <h2>Get in touch</h2> -->
+                    </header>
+                    <p>I’M RULER 는 상품에 직접 관여하지 않으며 상품 주문, 배송 및 환불의 의무와 책임은 각 판매업체에
+                        있습니다.</p>
+                    <ul class="contact">
+                        <!-- <li class="fa-home"><a href="#">I'M RULER</a></li> -->
+                        <li class="fa-phone">(02) 123-4567</li>
+                        <li class="fa-envelope-o">admin@imruler.com</li>
+                    </ul>
+                </section>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">&copy; imruler.com 2019-2021 All Right
+                        Reserved. Contact admin@imruler.com for more information.
+                </footer>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <!--[if lte IE 8
       ]><script src="assets/js/ie/respond.min.js"></script
     ><![endif]-->
-  <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 </body>
 
 </html>
