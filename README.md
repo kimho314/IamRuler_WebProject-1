@@ -15,22 +15,24 @@ font-family:'S-CoreDream-숫자(2-9)' (두꺼울수록 숫자커짐)
   쓰시면 됩니다. (css로 크기 및 색상 변경 가능)
   https://fontawesome.com/icons?d=gallery&m=free
 
-3. 프로젝트 디렉토리 간단히 나눠놨습니다. 구조는 아래와 같습니다.
-  Ruler_Proj  
-  └─ src  
-  &nbsp;└─ com.ruler.web.controller
-  &nbsp;&nbsp;└─ cooerdi  
-  &nbsp;&nbsp;└─ member  
-  &nbsp;&nbsp;&nbsp;└─ mypage  
-  &nbsp;&nbsp;└─ trade  
-  &nbsp;&nbsp;└─ dao  
-  &nbsp;&nbsp;&nbsp;└─ jdbc  
-  &nbsp;&nbsp;└─ entity  
-  &nbsp;&nbsp;└─ filter  
-  &nbsp;&nbsp;└─ service  
-  &nbsp;&nbsp;&nbsp;└─ ruler  
-  └─ WebContent : html 및 css 파일 
+3. 프로젝트 디렉토리 간단히 나눠놨습니다. 구조는 아래와 같습니다.  
+  Ruler_Proj    
+  &nbsp;└─ src  
+  &nbsp;&nbsp;└─ com.ruler.web.controller  
+  &nbsp;&nbsp;&nbsp;&nbsp;└─ coordi  
+  &nbsp;&nbsp;&nbsp;&nbsp;└─ member  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ mypage  
+  &nbsp;&nbsp;&nbsp;&nbsp;└─ trade  
+  &nbsp;&nbsp;&nbsp;&nbsp;└─ dao  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ jdbc  
+  &nbsp;&nbsp;&nbsp;&nbsp;└─ entity  
+  &nbsp;&nbsp;&nbsp;&nbsp;└─ filter  
+  &nbsp;&nbsp;&nbsp;&nbsp;└─ service  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ ruler  
+  &nbsp;└─ WebContent : html 및 css 파일 
 
 
-- __각자 맡은 페이지별로 디렉토리 나눠놨습니다. 빠진거 있으면 재량껏 추가해거 사용하시면 됩니다.__  
+- __각자 맡은 페이지별로 디렉토리 나눠놨습니다. 빠진거 있으면 재량껏 추가해거 사용하시면 됩니다.__
+
+- __WEB-INF/view/ 추가되었습니다. 여기다가 페이지마다 디렉토리 추가해서 JSP파일 넣으시면 됩니다.__
 
