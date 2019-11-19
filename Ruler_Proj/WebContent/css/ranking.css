@@ -1,0 +1,19 @@
+@import url('../assets/css/main.css');
+/* rankingList */
+.rankingList nav{width:100%;margin:2em 0}
+.rankingList nav ul{width:100%;text-align:left}
+.rankingList nav ul li{display:inline-block;margin:0 0 0 1em}
+.rankingList nav ul li > div{width:auto}
+.rankingList .list li{position:relative;display:inline-block;margin:0 0 2em 1em}
+.rankingList .list.best{text-align:center}
+.rankingList li .icon,
+.rankingList li .fas,
+.rankingList li .far{position:absolute;top:0;left:0;color:#000;font-size:1em;font-weight:bold}
+.rankingList li .fas span{color:#000;font-size:0.25em}
+.rankingList li:nth-child(1) .fa-medal{font-size:4em;color:#ffde01}
+.rankingList li:nth-child(2) .fa-medal{font-size:4em;color:#777}
+.rankingList li:nth-child(3) .fa-medal{font-size:4em;color:#872e0f}
+.rankingList li .fa-medal ~ .icon {top:1.5em;width:4em;text-align:center;color:#000;visibility: hidden}
+.rankingList li figcaption a {display:inline-block;width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#000;font-weight:bold}
+.rankingList li .far{top:-.2em;left:-.2em;font-size:4em;color:#eee}
+.rankingList li .icon{top:-.8em;left:-.8em;width:4em;line-height:4em;text-align:center}

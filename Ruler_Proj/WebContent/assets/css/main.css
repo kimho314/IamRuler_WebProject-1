@@ -2089,7 +2089,7 @@
 
 	body, input, select, textarea {
 		color: #7f888f;
-		font-family: 'S-CoreDream-5', sans-serif;/*  su ¼öÁ¤ */
+		font-family: 'S-CoreDream-5', sans-serif;/*  su ï¿½ï¿½ï¿½ï¿½ */
 		font-size: 13pt;
 		font-weight: 400;
 		line-height: 1.65;
@@ -2153,7 +2153,7 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #3d4449;
-		font-family: 'S-CoreDream-5', sans-serif;/*  su ¼öÁ¤ */
+		font-family: 'S-CoreDream-5', sans-serif;/*  su ï¿½ï¿½ï¿½ï¿½ */
 		font-weight: 700;
 		line-height: 1.5;
 		margin: 0 0 1em 0;
@@ -2291,7 +2291,7 @@
 	}
 
 	header p {
-		font-family: 'S-CoreDream-5', sans-serif;/*  su ¼öÁ¤ */
+		font-family: 'S-CoreDream-5', sans-serif;/*  su ï¿½ï¿½ï¿½ï¿½ */
 		font-size: 1em;
 		font-weight: 400;
 		letter-spacing: 0.075em;
@@ -2979,7 +2979,7 @@
 		color: #ff6600 !important;
 		cursor: pointer;
 		display: inline-block;
-		font-family: 'S-CoreDream-5', sans-serif;/*  su ¼öÁ¤ */
+		font-family: 'S-CoreDream-5', sans-serif;/*  su ï¿½ï¿½ï¿½ï¿½ */
 		font-size: 0.8em;
 		font-weight: 700;
 		height: 3.5em;
@@ -3665,7 +3665,7 @@
 			overflow: hidden;
 			position: absolute;
 			text-align: center;
-			text-indent:-10em; /* su ¼öÁ¤ */
+			text-indent:-11em; /* su */
 			top: 0;
 			width: 6em;
 			z-index: 10000;
@@ -3830,7 +3830,7 @@
 		#header .logo {
 			border-bottom: 0;
 			color: inherit;
-			font-family: 'S-CoreDream-5', sans-serif;/*  su ¼öÁ¤ */
+			font-family: 'S-CoreDream-5', sans-serif;/*  su ï¿½ï¿½ï¿½ï¿½ */
 			font-size: 1.125em;
 		}
 
@@ -3990,7 +3990,7 @@
 		-ms-user-select: none;
 		user-select: none;
 		color: #3d4449;
-		font-family: 'S-CoreDream-5', sans-serif;/*  su ¼öÁ¤ */
+		font-family: 'S-CoreDream-5', sans-serif;/*  su ï¿½ï¿½ï¿½ï¿½ */
 		font-family: 400;
 		letter-spacing: 0.075em;
 		list-style: none;
@@ -4004,7 +4004,7 @@
 			color: inherit;
 			cursor: pointer;
 			display: block;
-			font-size: 0.9em;
+			font-size: 1.125em;
 			padding: 0.625em 0;
 		}
 
@@ -4084,11 +4084,17 @@
 			margin-top: 0;
 			padding-top: 0;
 		}
-		
-/* su Ãß°¡ */
+		#menu ul .on a{color:#f60}
+/* reset */
 a{border:0}
+ul li{list-style:none}
 .hidden{position:absolute;top:-999px;left:-999px;width:1px;height:1px;overflow:hidden}
-h1 img{width:100%}
+/* common */
+h1.logo {width:4.5em;margin:0}
+h1.logo img{width:100%}
+#header{position:relative;min-height:10em}
+#header .icons li {color:#7f888f}
+#header .icons li a{color:#000}
 .iconBox{position:relative;width:10em;height:10em;line-height:10em;text-align:center;vertical-align:middle;margin-right:2em;padding:0}
 .iconBox .icon{position:absolute;top:0;left:0}
 .iconBox img{width:4em;vertical-align:middle}
@@ -4118,8 +4124,8 @@ h1 img{width:100%}
 	}
 }
 #sidebar .toggle{z-index:0}
-.mask{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5)}
-.popup{position:absolute;top:0;left:0;width:100%;height:1px;z-index:1}
+.mask{display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5)}
+.popup{display:none;position:absolute;top:0;left:0;width:100%;height:1px;z-index:1}
 .popup .contents{margin:10% auto;width:25em;padding:2em 1em;background:#fff;border-radius:5px;z-index:2}
 .popup .contents p{text-align:center}
 .popup .contents .btn{width:100%;text-align:center;padding:1em 0 0;border-top:1px solid #dfdfdf}

@@ -1,0 +1,68 @@
+@import url('../assets/css/main.css');
+/* mypage 메인 */
+.mypageMain .row {margin:3em 0}
+.mypageMain h1{font-size:1.725rem;border-bottom: solid 3px #aaa;display: inline-block;margin: 0 0 2em 0;padding: 0 0.75em 0.5em 0;}
+.mypageMain .info h1{margin-right:1em}
+.mypageMain .row section:first-child{border-right:2px solid #ddd}
+.mypageMain .row section .button{position:absolute;top:0;left:19em}
+.mypageMain .row section h1{display:block;margin:0 1rem 0 0;}
+.mypageMain .listBox {padding:0 1rem;margin:2em 0}
+.mypageMain .listBox h1{width:auto;margin:0 0 1em 0;font-size:1.25em;border:0}
+.mypageMain .listBox ul{margin:0;}
+.mypageMain .listBox li{padding:0;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:2em;border-bottom:1px solid #ddd}
+.mypageMain .listBox li a{font-size:1em;color:#999}
+.mypageMain .listBox li.none{line-height:6em;text-align:center}
+.mypageMain .slide{padding:1em}
+.mypageMain .slide .sliderkit-panels,
+.mypageMain .slide .slideshow-standard,
+.mypageMain .slide .sliderkit-panel{width:100%;cursor:pointer}
+.mypageMain .slide figuare{display:block;width:100%;text-align:center}
+.mypageMain .slide figuare img{max-width:12rem}
+.mypageMain .slide .con{width:100%;vertical-align:middle;text-align:center}
+.mypageMain .slide .con .title{width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'S-CoreDream-7';font-size:1.125em;color:#3d4449}
+.mypageMain .slideshow-standard{height:auto;min-height:25rem}
+.mypageMain .slideshow-standard .sliderkit-nav {top:50%}
+.mypageMain .slideshow-standard .sliderkit-nav .sliderkit-btn{position:absolute;top:50%;margin-top:-1.5em}
+.mypageMain .slideshow-standard .sliderkit-nav .sliderkit-btn.sliderkit-go-prev{left:0}
+.mypageMain .slideshow-standard .sliderkit-nav .sliderkit-btn.sliderkit-go-next{right:0}
+.mypageMain .slideshow-standard .sliderkit-nav .sliderkit-btn .fas{font-size:2rem;color:#666}
+/* 찜목록 */
+.mypageZzim > .btn_area{padding:1em 0}
+.mypageZzim > ul{margin:3em 0 0}
+.mypageZzim th,
+.mypageZzim td{vertical-align:middle}
+.mypageZzim figuare{min-width:10em;}
+.mypageZzim figuare img{width:100%;max-width:50em;max-height:50em}
+.mypageZzim ul{padding:0;text-align:left}
+.mypageZzim ul > li{display:inline-block;width:50%;padding:0}
+.mypageZzim li li{line-height:2em}
+.mypageZzim li li:nth-child(1){font-size:0.95em;color:#666}
+.mypageZzim li li:nth-child(2) a{font-size:1.25em;color:#000}
+.mypageZzim li li:nth-child(3){font-size:1em;color:#333}
+.mypageZzim li ul{margin: 0 0 1em}
+.mypageZzim textarea{padding:.5em;min-height:8em;resize: none}
+.mypageZzim .btn_area{text-align:right;margin-bottom: .5em}
+.mypageZzim .btn_area a{font-size:0.95rem;color:#666}
+
+/* 내가 쓴 글 */
+.mypageBoardList{position:relative;}
+.mypageBoardList th{text-align:center;font-size:1.125rem}
+.mypageBoardList td{text-align:center}
+.mypageBoardList  a{color:#7f888f}
+.mypageBoardList h1{font-size:1.725rem;border-bottom: solid 3px #aaa;display: inline-block;margin: 2em 0;padding: 0 0.75em 0.5em 0;}
+.mypageBoardList  .pagination{width:100%;text-align:center;vertical-align:middle}
+.mypageBoardList ul.pagination li > .page.active{background:#7f888f}
+.mypageBoardList ul.pagination a{color:#7f888f}
+.mypageBoardList .tab{margin:2em 0 0;overflow:hidden;width:100%}
+.mypageBoardList .tab li{display:inline-block;width:8em;text-align:center;background:#fff;vertical-align:middle;font-size:1.325em;padding:.5em 0;border:1px solid #999;border-bottom:0 !important;border-radius:5px 5px 0 0;}
+.mypageBoardList .tab li.active {border:1px solid #f60}
+.mypageBoardList .tab li.active a{color:#f60}
+.mypageBoardList .tab li{float:left}
+.mypageBoardList .tab li,
+.mypageBoardList .tab li a{font-family:'S-CoreDream-7';}
+.mypageBoardList .tab li a{display:inline-block;color:#666}
+.mypageBoardList .tab ~ section{margin:3em 0 0}
+@media screen and (max-width: 700px) {
+	.mypageZzim ul > li {width:100%}
+	.mypageMain .row section:first-child{border:0}
+}
