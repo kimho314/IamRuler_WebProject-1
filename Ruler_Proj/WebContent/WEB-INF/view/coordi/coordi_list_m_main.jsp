@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -10,13 +14,10 @@
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<script src="https://kit.fontawesome.com/1af26a8adc.js" crossorigin="anonymous"></script>
-
-
-
 </head>
 
 <body>
-
+	
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -27,46 +28,43 @@
 				<header id="header">
 					<h1>체형별 코디 게시판</h1>
 					<ul class="icons">
-						<li><a href="sign/login.html">로그인</a></li>
+						<li><a href="sign/login.html">로그인</a></li>					
 						<li><a href="sign/sign-up.html">회원가입</a></li>
 					</ul>
 				</header>
 
-				<!-- Banner 여자 -->
+				
+				<!-- Banner  남자 -->
 				<section id="banner">
 					<div class="content">
 						<div class="visual-wrapper">
 							<div class="visual-top">
 								<div class="visual-top-left">
-
-									<a href="#" class="button special small">여성</a>
-									<a href="coordi_list_m_main.html" class="button small">남성</a>
-
+									<a href="coordi_list_w_main.html" class="button small">여성</a>
+									<a href="#" class="button special small">남성</a>
 								</div>
 								<div class="visual-top-right">
 									<a href="coordi_newpost.html" class="button special small">글쓰기</a>
 								</div>
 							</div>
 
-							<div class="visual-bottom">
+							<div class="visual-bottom-man">
 								<div>
 									<a href="#" class="button">작은 역삼각</a>
 								</div>
 								<div>
-									<a href="coordi_list_women2.html" class="button">큰 역삼각</a>
+									<a href="coordi_list_men2.html" class="button">큰 사각</a>
 								</div>
 								<div>
-									<a href="coordi_list_women3.html" class="button">역삼각</a>
-								</div>
-								<div>
-									<a href="coordi_list_women4.html" class="button">사각</a>
-								</div>
+									<a href="coordi_list_men3.html" class="button">사각</a>
+								</div>								
 							</div>
 						</div>
 
-						<div class="coordi-list-table-wrapper">
-							<table class="coordi-list-table" style="position: relative;">
-								<tr class="coordi-list-tr-wrapper">
+						<div class="coordi-list-table-wrapper">							
+							<table class="coordi-list-table">
+								
+								<tr class="coordi-newpost-tr-wrapper">
 									<td>
 										<li>
 											<a href="coordi_post.html"><img src="../images/main_ico1.png" alt="coordi-img">
@@ -74,18 +72,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="#" class="button small"><i class="fas fa-star"></i></a>
-										</li>
-									</td>
-
-									<td>
-										<li>
-											<a href="coordi_post.html"><img src="../images/main_ico1.png" alt="coordi-img">
-												<p>작은 역삼각</p>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="button small"><i class="far fa-star"></i></a>
+																					
 										</li>
 									</td>
 									<td>
@@ -94,9 +81,7 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li>
-											<a href="#" class="button small"><i class="far fa-star"></i></a>
-										</li>
+										<li></li>
 									</td>
 									<td>
 										<li>
@@ -104,9 +89,7 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li>
-											<a href="#" class="button small"><i class="far fa-star"></i></a>
-										</li>
+										<li></li>
 									</td>
 									<td>
 										<li>
@@ -114,22 +97,26 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
+										<li></li>
+									</td>
+									<td>
 										<li>
-											<a href="#" class="button small"><i class="far fa-star"></i></a>
+											<a href="coordi_post.html"><img src="../images/main_ico1.png" alt="coordi-img">
+												<p>작은 역삼각</p>
+											</a>
 										</li>
+										<li></li>
 									</td>
 								</tr>
 
-								<tr class="coordi-list-tr-wrapper">
+								<tr class="coordi-newpost-tr-wrapper">
 									<td>
 										<li>
 											<a href="coordi_post.html"><img src="../images/main_ico1.png" alt="coordi-img">
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li>
-											<a href="#" class="button small"><i class="far fa-star"></i></a>
-										</li>
+										<li></li>
 									</td>
 									<td>
 										<li>
@@ -137,9 +124,7 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li>
-											<a href="#" class="button small"><i class="far fa-star"></i></a>
-										</li>
+										<li></li>
 									</td>
 									<td>
 										<li>
@@ -147,9 +132,7 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li>
-											<a href="#" class="button small"><i class="far fa-star"></i></a>
-										</li>
+										<li></li>
 									</td>
 									<td>
 										<li>
@@ -157,9 +140,7 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li>
-											<a href="#" class="button small"><i class="far fa-star"></i></a>
-										</li>
+										<li></li>
 									</td>
 									<td>
 										<li>
@@ -167,24 +148,23 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li>
-											<a href="#" class="button small"><i class="far fa-star"></i></a>
-										</li>
+										<li></li>
 									</td>
 								</tr>
 							</table>
-						</div>	
+						</div>
 						
 						<ul class="coordi-list-page ">
-								<li><a href="#" class="button">Prev</a></li>
-								<li><a href="#" class="page active">1</a></li>
-								<li><a href="#" class="page">2</a></li>
-								<li><a href="#" class="page">3</a></li>								
-								<li><a href="#" class="page">4</a></li>
-								<li><a href="#" class="page">5</a></li>								
-								<li><a href="#" class="button">Next</a></li>
+							<li><a href="#" class="button">Prev</a></li>
+							<li><a href="#" class="page active">1</a></li>
+							<li><a href="#" class="page">2</a></li>
+							<li><a href="#" class="page">3</a></li>
+							<li><a href="#" class="page">4</a></li>
+							<li><a href="#" class="page">5</a></li>
+							<li><a href="#" class="button">Next</a></li>
 						</ul>
 					</div>
+					
 				</section>
 			</div>
 		</div>
@@ -193,7 +173,7 @@
 		<div id="sidebar">
 				<div class="inner">
 					<!-- Menu -->
-					<nav id="menu">						
+					<nav id="menu">					
 						<h1 class="logo">
 							<a href="index.html"><img src="../images/logo.png" alt="아임룰러" /></a>
 						</h1>
@@ -224,7 +204,7 @@
 						<ul class="contact">
 							<!-- <li class="fa-home"><a href="#">I'M RULER</a></li> -->
 							<li class="fa-phone">(02) 123-4567</li>
-							<li class="fa-envelope-o">admin@imruler.com</li>							
+							<li class="fa-envelope-o">admin@imruler.com</li>
 						</ul>
 					</section>
 	
@@ -245,7 +225,6 @@
 	<script src="../assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="../assets/js/main.js"></script>
-	
 
 </body>
 

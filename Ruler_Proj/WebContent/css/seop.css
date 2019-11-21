@@ -68,6 +68,32 @@ div.visual-wrapper div.visual-bottom-man div a {
     width:100%;
 }
 
+tr.coordi-list-tr-wrapper > td {
+    list-style: none;
+    position: relative;
+}
+
+tr.coordi-list-tr-wrapper > td > li:first-child {    
+    width:100%;
+    height:100%;
+    
+}
+
+tr.coordi-list-tr-wrapper > td > li:last-child {
+    position: absolute;
+    top:0;
+    right:1em;
+}
+
+tr.coordi-list-tr-wrapper > td > li:last-child > a{
+    box-shadow: none;
+    padding:0;
+}
+
+tr.coordi-list-tr-wrapper > td > li:last-child > a > i{
+    font-size: 20px;
+}
+
 ul.coordi-list-page {
     cursor: default;
     list-style: none;
@@ -170,9 +196,31 @@ tr:nth-child(4) td:nth-child(1){
 }
 
 div.coordi-post-table-wrapper table.coordi-post-table
+tr:nth-child(4) td:nth-child(2) input{
+    width:32%;
+}
+
+div.coordi-post-table-wrapper table.coordi-post-table
 tr:nth-child(5) td:nth-child(1){
     width:25%;
-    background: rgb(255, 102, 0);
+    background: rgb(255, 102, 0);    
+    vertical-align: middle;
+}
+
+div.coordi-post-content {
+    display: flex;
+}
+
+div.coordi-post-content > textarea {
+    width:80%;
+}
+
+div.coordi-post-content > img {
+    width:20%;
+}
+
+tr.coordi-post-content:after {
+    clear:both;
 }
 
 div.coordi-post-icons-bottom {      
@@ -184,6 +232,7 @@ div.coordi-post-icons-bottom div {
     margin:0 3em;
     display:inline;
 }
+
 
 /* ============== 체형별 코디 게시판 새게시글 ============== */
 
