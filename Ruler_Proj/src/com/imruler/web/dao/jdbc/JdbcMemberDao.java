@@ -6,6 +6,7 @@ import com.imruler.web.dao.MemberDao;
 import com.imruler.web.entity.Member;
 
 
+
 public class JdbcMemberDao implements MemberDao {
 
 	@Override
