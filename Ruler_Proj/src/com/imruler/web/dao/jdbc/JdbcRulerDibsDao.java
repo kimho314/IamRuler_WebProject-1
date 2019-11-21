@@ -1,0 +1,204 @@
+package com.imruler.web.dao.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.imruler.web.dao.DibsDao;
+import com.imruler.web.entity.Dibs;
+import com.imruler.web.entity.DibsView;
+
+public class JdbcRulerDibsDao implements DibsDao{
+
+	@Override
+	public List<DibsView> getListById(String id) {
+		return getListById(id, 1);
+	}
+	@Override
+	public List<DibsView> getListById(String id, int page) {
+		List<DibsView> list = new ArrayList<>();			
+			String sql = "SELECT * FROM DIBSLISTVIEW WHERE ID=? ORDER BY DIBS_ID DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+			String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+			   try {
+					Class.forName("oracle.jdbc.driver.OracleDriver");
+					Connection con = DriverManager.getConnection(url,"RULER","33333");
+					PreparedStatement st = con.prepareStatement(sql);
+					st.setString(1,id);
+					st.setInt(2, (page-1)*10); 
+			    	st.setInt(3, page*10); 
+					ResultSet rs= st.executeQuery();
+					while(rs.next()) {
+						int dibsId = rs.getInt("DIBS_ID");
+						String memberId= rs.getString("MEMBER_ID");
+						String memo= rs.getString("MEMO");
+					    int coordiId= rs.getInt("COORDI_ID");
+					    Date regdate= rs.getDate("REGDATE");
+					    int hit= rs.getInt("HIT");
+					    String img= rs.getString("IMG");
+					    String title= rs.getString("TITLE");
+					    String content= rs.getString("CONTENT");
+					    String tag= rs.getString("TAG");
+					    
+					    DibsView dibsview = new DibsView(dibsId, memberId, memo, coordiId, regdate, hit, img,
+							 title, content, tag);
+						list.add(dibsview);
+					}
+					st.close();
+					con.close();
+						
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			return list;
+		}
+	@Override
+	public int insert(Dibs dibs) {
+		int result= 0;
+		String sql = "INSERT INTO DIBS_LIST (ID,MEMBER_ID,MEMO,COORDI_ID) VALUES (DIBS_LIST_SEQ.NEXTVAL(),?,?,?)";
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";		
+			
+		   try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				Connection con = DriverManager.getConnection(url,"ACORN","newlec");
+				PreparedStatement st = con.prepareStatement(sql);
+				
+				 st.setString(1, dibs.getMemberId());
+				 st.setString(2, dibs.getMemo());
+				 st.setInt(3, dibs.getCoordiId());
+				
+				result = st.executeUpdate();
+				st.close();
+				con.close();
+					
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		   return result;
+	}
+
+	@Override
+	public int update(Dibs dibs) {
+		int result= 0;
+		String sql = "UPDATE DIBS_LIST SET MEMO=? WHERE MEMBER_ID=? AND COORDI_ID=?";
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";		
+			
+		   try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				Connection con = DriverManager.getConnection(url,"ACORN","newlec");
+				PreparedStatement st = con.prepareStatement(sql);
+				
+				 st.setString(1, dibs.getMemo());
+				 st.setString(2, dibs.getMemberId());
+				 st.setInt(3, dibs.getCoordiId());
+				
+				result = st.executeUpdate();
+				st.close();
+				con.close();
+					
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		   return result;
+	}
+
+	@Override
+	public int delete(String id, int board_id) {
+		int result= 0;
+		String sql = "DELETE DIBS_LIST WHERE MEMBER_ID=? AND COORDI_ID=?";
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";		
+			
+		   try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				Connection con = DriverManager.getConnection(url,"ACORN","newlec");
+				PreparedStatement st = con.prepareStatement(sql);
+				
+				 st.setString(1, id);
+				 st.setInt(2, board_id);
+				
+				result = st.executeUpdate();
+				st.close();
+				con.close();
+					
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		   return result;
+	}
+
+	@Override
+	public int getCountByBoardId(int board_id) {
+		int result=0;
+		String sql = "SELECT COUNT(MEMBER_ID) count FROM DIBS_LIST  GROUP BY COORDI_ID HAVING COORDI_ID=?";
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		   try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				Connection con = DriverManager.getConnection(url,"RULER","33333");
+				PreparedStatement st = con.prepareStatement(sql);
+				st.setInt(1,board_id);
+				ResultSet rs= st.executeQuery();
+				if(rs.next())
+					result = rs.getInt("count");
+				st.close();
+				con.close();
+					
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return result;
+	}
+
+	@Override
+	public int getCountById(String id) {
+		int result=0;
+		String sql = "SELECT COUNT(COORDI_ID) count FROM DIBS_LIST GROUP BY MEMBER_ID HAVING MEMBER_ID=?";
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		   try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				Connection con = DriverManager.getConnection(url,"RULER","33333");
+				PreparedStatement st = con.prepareStatement(sql);
+				st.setString(1,id);
+				ResultSet rs= st.executeQuery();
+				if(rs.next())
+					result = rs.getInt("count");
+				st.close();
+				con.close();
+					
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return result;
+	}
+
+	
+
+
+}
