@@ -10,16 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.imruler.web.service.TradeService;
-import com.imruler.web.service.trade.RulerTradeService;
-
 @WebServlet("/mypage/index")
 public class MypageMainController extends HttpServlet{
-	TradeService TradeService;
-	@Override
-	public void init() throws ServletException {
-		TradeService = new RulerTradeService();
-	}
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

@@ -18,6 +18,22 @@ public class Member
 		
 	}
 	
+	public Member(int id, String userName) {
+		super();
+		this.id = id;
+		this.userName = userName;
+	}
+
+	public Member(int id, int height, int weight, String gender, int age, String bodyshape) {
+		super();
+		this.id = id;
+		this.height = height;
+		this.weight = weight;
+		this.gender = gender;
+		this.age = age;
+		this.bodyshape = bodyshape;
+	}
+
 	public Member(int id, String userName, String pwd, String phone, String email, int height, int weight,
 			String gender, int age, String bodyshape)
 	{
