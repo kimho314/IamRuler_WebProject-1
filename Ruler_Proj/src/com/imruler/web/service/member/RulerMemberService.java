@@ -39,4 +39,10 @@ public class RulerMemberService implements MemberService {
 		// TODO insertMember
 		return memberDao.insert(member);
 	}
+
+	@Override
+	public int deleteMember(int id) {
+		// TODO Auto-generated method stub
+		return memberDao.delete(id);
+	}
 }
