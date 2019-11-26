@@ -1,5 +1,7 @@
 package com.imruler.web.service.member;
 
+import java.util.List;
+
 import com.imruler.web.dao.MemberDao;
 import com.imruler.web.dao.jdbc.JdbcMemberDao;
 import com.imruler.web.entity.Member;
@@ -23,18 +25,40 @@ public class RulerMemberService implements MemberService {
 			return false;
 		} else if (!member.getPwd().equals(userPwd)) {
 			return false;
-		}else if (member.getUserName() == null) {
+		} else if (member.getUserName() == null) {
 			return false;
-		}
-		else {
+		} else {
 			return true;
 		}
 	}
 
 	@Override
-	public boolean isDuplicatedId(String userId) {
+	public boolean isDuplicatedId(String userId, String userPwd, String userPwdRequest, String phone, String email) {
 		// TODO isDuplicatedId
-		return false;
+		List<Member> member = memberDao.getList();
+		for (Member key : member) {
+			if (key.getUserName().equals(userId)) {
+				return false;
+			}
+		}
+
+		if (!userPwd.equals(userPwdRequest)) {
+			return false;
+		}
+
+		for (Member key : member) {
+			if (key.getUserName().equals(userId)) {
+				return false;
+			}
+		}
+
+		for (Member key : member) {
+			if (key.getUserName().equals(userId)) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	@Override
@@ -45,7 +69,13 @@ public class RulerMemberService implements MemberService {
 
 	@Override
 	public int deleteMember(int id) {
-		// TODO Auto-generated method stub
+		// TODO deleteMember
 		return memberDao.delete(id);
+	}
+
+	@Override
+	public List<Member> getNoticeList() {
+		// TODO getNoticeList
+		return memberDao.getList();
 	}
 }

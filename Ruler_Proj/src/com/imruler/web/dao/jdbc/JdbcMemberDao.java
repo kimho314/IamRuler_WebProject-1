@@ -5,19 +5,48 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.imruler.web.dao.MemberDao;
 import com.imruler.web.entity.Member;
 
-
-
 public class JdbcMemberDao implements MemberDao {
 
 	@Override
 	public List<Member> getList() {
-		// TODO 회원목록 보여줄게있나
-		return null;
+		List<Member> list = new ArrayList<>();
+		String sql = "select id, user_name, pwd, phone, email, height, weight, gender, age, bodyshape " + "from Member "
+				+ "order by id desc;";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			pst = con.prepareStatement(sql);
+
+			rs = pst.executeQuery();
+
+			if (rs.next()) {
+				Member member = new Member(rs.getInt("id"), rs.getString("userName"), rs.getString("pwd"),
+						rs.getString("phone"), rs.getString("email"), rs.getInt("height"), rs.getInt("weight"),
+						rs.getString("gender"), rs.getInt("age"), rs.getString("bodyshape"));
+				list.add(member);
+			}
+
+			rs.close();
+			pst.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	@Override
@@ -29,7 +58,7 @@ public class JdbcMemberDao implements MemberDao {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "RULER","33333");
+			Connection con = DriverManager.getConnection(url, "RULER", "33333");
 			PreparedStatement pst = con.prepareStatement(sql);
 
 			pst.setString(1, id);
@@ -38,7 +67,8 @@ public class JdbcMemberDao implements MemberDao {
 
 			if (rs.next()) {
 				member = new Member(rs.getInt("id"), rs.getString("userName"), rs.getString("pwd"),
-						rs.getString("phone"), rs.getString("email"), rs.getInt("height"), rs.getInt("weight"), rs.getString("gender"), rs.getInt("age"), rs.getString("bodyshape"));
+						rs.getString("phone"), rs.getString("email"), rs.getInt("height"), rs.getInt("weight"),
+						rs.getString("gender"), rs.getInt("age"), rs.getString("bodyshape"));
 			}
 			rs.close();
 			pst.close();
@@ -105,7 +135,7 @@ public class JdbcMemberDao implements MemberDao {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "RULER","33333");
+			Connection con = DriverManager.getConnection(url, "RULER", "33333");
 			PreparedStatement pst = con.prepareStatement(sql);
 
 			pst.setInt(1, id);

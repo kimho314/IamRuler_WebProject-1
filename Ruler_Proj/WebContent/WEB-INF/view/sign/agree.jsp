@@ -1,0 +1,144 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>회원가입</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <!--[if lte IE 8]>
+      <script src="assets/js/ie/html5shiv.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../css/sign.css" />
+    <!--[if lte IE 9]>
+      <link rel="stylesheet" href="assets/css/ie9.css" />
+    <![endif]-->
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="assets/css/ie8.css" />
+    <![endif]-->
+  </head>
+  <body>
+    <!-- 래퍼 -->
+    <div id="wrapper">
+      <!-- 메인 -->
+      <div id="main">
+        <div class="inner">
+          <!-- 헤더 -->
+          <header id="header">
+            <h1>약관동의</h1>
+            <ul class="헤더메뉴">
+              <li>
+                <a href="login.html" class="로그인">
+                  <span class="헤더메뉴">로그인</span>
+                </a>
+              </li>
+              <li>
+                <a href="sign-up.html" class="회원가입">
+                  <span class="헤더메뉴">회원가입</span>                  
+                </a>
+              </li>
+            </ul>
+          </header>
+
+          <!-- 테이블 -->
+          <div id="약관">
+            <label>약관내용</label>
+            <div class="작은약관">
+              <span class="약관">
+                길고긴약관<br />
+                길고긴약관<br />
+                아무튼 길고긴약관<br />
+                길고긴약관<br />
+                길고긴약관<br />
+                길고긴약관<br />
+                아무튼 길고긴약관<br />
+                길고긴약관<br />
+                길고긴약관<br />
+                길고긴약관<br />
+              </span>
+            </div>
+            <br />
+            <label>푸터내용</label>
+            <div class="작은약관">
+              <span class="약관">
+                I’M RULER 는 상품에 직접 관여하지 않으며 상품 주문, <br />배송
+                및 환불의 의무와 책임은 각 판매업체에 있습니다.
+              </span>
+            </div>
+          </div>
+          <!-- Section -->
+          <section>
+            <span id="약관취소버튼">
+              <a href="../index.html"><label class="button">취소</label></a>
+            </span>
+            <span id="약관동의버튼">
+              <a href="sign-up.html#">
+                <label class="button special">동의</label>
+              </a>
+            </span>
+          </section>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div id="sidebar">
+          <div class="inner">
+            <!-- Menu -->
+            <nav id="menu">             
+              <h1 class="logo">
+                <a href="index.html"><img src="../images/logo.png" alt="아임룰러" /></a>
+              </h1>
+              <h2 class="hidden">메인 메뉴</h2>
+              <ul>
+                <li><a href="index.html">사이즈 비교</a></li>
+                <li><a href="coordi/coordi_list_main.html">체형 별 코디</a></li>
+                <li><a href="#.html">교환 게시판</a></li>
+                <li><a href="#.html">쇼핑몰 랭킹</a></li>
+              </ul>
+    
+              <!-- <h2 class="hidden">마이페이지 메뉴</h2>
+                <ul>
+                  <li><a href="mypage/member-edit.html">회원정보 수정</a></li>
+                  <li><a href="mypage/reg.html">회원 탈퇴</a></li>
+                  <li><a href="mypage/#.html">내가 작성한 글</a></li>
+                  <li><a href="mypage/#.html">찜 목록</a></li>
+                </ul> -->
+            </nav>
+    
+            <!-- Section -->
+            <section>
+              <header class="major">
+                <!-- <h2>Get in touch</h2> -->
+              </header>
+              <p>I’M RULER 는 상품에 직접 관여하지 않으며 상품 주문, 배송 및 환불의 의무와 책임은 각 판매업체에
+                있습니다.</p>
+              <ul class="contact">
+                <!-- <li class="fa-home"><a href="#">I'M RULER</a></li> -->
+                <li class="fa-phone">(02) 123-4567</li>
+                <li class="fa-envelope-o">admin@imruler.com</li>
+              </ul>
+            </section>
+    
+            <!-- Footer -->
+            <footer id="footer">
+              <p class="copyright">&copy; imruler.com 2019-2021 All Right
+                Reserved. Contact admin@imruler.com for more information.
+            </footer>
+    
+          </div>
+      </div>
+    </div>
+      
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <!--[if lte IE 8]>
+      <script src="assets/js/ie/respond.min.js"></script>
+    <![endif]-->
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

@@ -9,20 +9,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.imruler.web.entity.Member;
+import com.imruler.web.service.MemberService;
 import com.imruler.web.service.member.RulerMemberService;
 
 @WebServlet("/sign/sign-up")
 public class SignUpController extends HttpServlet {
-	RulerMemberService rulerMemberService;
+	private MemberService memberService;
 
 	public SignUpController() {
-		rulerMemberService = new RulerMemberService();
+		memberService = new RulerMemberService();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO doGet
-		req.getRequestDispatcher("/WEB-INF/view/sign/login").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/sign/sign-up.jsp").forward(req, resp);
 	}
 
 	@Override
@@ -38,9 +39,16 @@ public class SignUpController extends HttpServlet {
 		String gender = req.getParameter("성별");
 		int age = Integer.parseInt(req.getParameter("연령대"));
 		String bodyshape = req.getParameter("체형");
+
+//		String signUpError = null;
+
+		boolean isDuplicated = memberService.isDuplicatedId(userId, userPwd, userPwdRequest, phone, email);
 		
-		rulerMemberService.insertMember(new Member(userId, userPwd, phone, email, height, width, gender, age, bodyshape));
-		
-		resp.sendRedirect("/index");
+		if (!isDuplicated) {
+			resp.sendRedirect("sign-up?error=1");
+		} else {
+			memberService.insertMember(new Member(userId, userPwd, phone, email, height, width, gender, age, bodyshape));
+			resp.sendRedirect("/index");
+		}
 	}
 }
