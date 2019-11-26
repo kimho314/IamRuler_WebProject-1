@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @WebFilter("/*")
-public class NewlecAuthenticationFilter implements Filter
+public class RulerAuthenticationFilter implements Filter
 {
 	private static final String[] authUrls = {"/admin/index"};
 

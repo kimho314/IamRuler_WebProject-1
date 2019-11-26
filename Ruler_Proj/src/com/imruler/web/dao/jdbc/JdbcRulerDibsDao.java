@@ -49,20 +49,17 @@ public class JdbcRulerDibsDao implements DibsDao{
 					    
 					    DibsView dibsview = new DibsView(dibsId, memberId, memo, coordiId, regdate, hit, img,
 							 title, content, tag);
-					    //System.out.println(dibsview);
+					  
 						list.add(dibsview);
 					}
 					st.close();
 					con.close();
 						
 				} catch (ClassNotFoundException e) {
-					if(st != null) st=null;
-					if(con != null) con=null;
-					
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (SQLException e) {
-					if(st != null) st=null;
-					if(con != null) con=null;
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			return list;

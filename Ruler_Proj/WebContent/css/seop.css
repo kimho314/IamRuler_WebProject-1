@@ -49,6 +49,8 @@ div.coordi-list-table-wrapper table.coordi-list-table td {
 }
 
 div.coordi-list-table-wrapper table.coordi-list-table td img {
+    max-width: 100%;
+    height:auto !important;
     margin:1em 0;
 }
 
