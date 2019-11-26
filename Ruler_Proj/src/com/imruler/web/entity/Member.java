@@ -8,7 +8,7 @@ public class Member
 	private String phone;
 	private String email;
 	private int height;
-	private int weight;
+	private int width;
 	private String gender;
 	private int age;
 	private String bodyshape;
@@ -24,17 +24,31 @@ public class Member
 		this.userName = userName;
 	}
 
-	public Member(int id, int height, int weight, String gender, int age, String bodyshape) {
+	public Member(int id, int height, int width, String gender, int age, String bodyshape) {
 		super();
 		this.id = id;
 		this.height = height;
-		this.weight = weight;
+		this.width = width;
+		this.gender = gender;
+		this.age = age;
+		this.bodyshape = bodyshape;
+	}
+	
+	public Member(String userName, String pwd, String phone, String email, int height, int width,
+			String gender, int age, String bodyshape)
+	{
+		this.userName = userName;
+		this.pwd = pwd;
+		this.phone = phone;
+		this.email = email;
+		this.height = height;
+		this.width = width;
 		this.gender = gender;
 		this.age = age;
 		this.bodyshape = bodyshape;
 	}
 
-	public Member(int id, String userName, String pwd, String phone, String email, int height, int weight,
+	public Member(int id, String userName, String pwd, String phone, String email, int height, int width,
 			String gender, int age, String bodyshape)
 	{
 		this.id = id;
@@ -43,7 +57,7 @@ public class Member
 		this.phone = phone;
 		this.email = email;
 		this.height = height;
-		this.weight = weight;
+		this.width = width;
 		this.gender = gender;
 		this.age = age;
 		this.bodyshape = bodyshape;
@@ -109,14 +123,14 @@ public class Member
 		this.height = height;
 	}
 
-	public int getWeight()
+	public int getWidth()
 	{
-		return weight;
+		return width;
 	}
 
-	public void setWeight(int weight)
+	public void setwidth(int width)
 	{
-		this.weight = weight;
+		this.width = width;
 	}
 
 	public String getGender()
@@ -153,7 +167,7 @@ public class Member
 	public String toString()
 	{
 		return "Member [id=" + id + ", userName=" + userName + ", pwd=" + pwd + ", phone=" + phone + ", email=" + email
-				+ ", height=" + height + ", weight=" + weight + ", gender=" + gender + ", age=" + age + ", bodyshape="
+				+ ", height=" + height + ", width=" + width + ", gender=" + gender + ", age=" + age + ", bodyshape="
 				+ bodyshape + "]";
 	}
 	

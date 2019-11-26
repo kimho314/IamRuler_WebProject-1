@@ -23,7 +23,10 @@ public class RulerMemberService implements MemberService {
 			return false;
 		} else if (!member.getPwd().equals(userPwd)) {
 			return false;
-		} else {
+		}else if (member.getUserName() == null) {
+			return false;
+		}
+		else {
 			return true;
 		}
 	}

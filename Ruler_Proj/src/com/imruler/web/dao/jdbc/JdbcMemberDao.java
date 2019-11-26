@@ -16,7 +16,7 @@ public class JdbcMemberDao implements MemberDao {
 
 	@Override
 	public List<Member> getList() {
-		// TODO Auto-generated method stub
+		// TODO 회원목록 보여줄게있나
 		return null;
 	}
 
@@ -71,7 +71,7 @@ public class JdbcMemberDao implements MemberDao {
 			pst.setString(3, member.getPhone());
 			pst.setString(4, member.getEmail());
 			pst.setInt(5, member.getHeight());
-			pst.setInt(6, member.getWeight());
+			pst.setInt(6, member.getWidth());
 			pst.setString(7, member.getGender());
 			pst.setInt(8, member.getAge());
 			pst.setString(9, member.getBodyshape());
