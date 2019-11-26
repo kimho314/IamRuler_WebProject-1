@@ -14,12 +14,12 @@ public class RulerDibsService implements DibsService{
 		dibsDao = new JdbcRulerDibsDao();
 	}
 	@Override
-	public List<DibsView> getDibsListById(String id) {
+	public List<DibsView> getDibsListById(int id) {
 		return dibsDao.getListById(id);
 	}
 
 	@Override
-	public List<DibsView> getDibsListById(String id, int page) {
+	public List<DibsView> getDibsListById(int id, int page) {
 		return dibsDao.getListById(id, page);
 	}
 
@@ -35,12 +35,12 @@ public class RulerDibsService implements DibsService{
 	}
 
 	@Override
-	public int deleteDibs(String id, int board_id) {
+	public int deleteDibs(int id, int board_id) {
 		return dibsDao.delete(id, board_id);
 	}
 
 	@Override
-	public int getDibsCountById(String id) {
+	public int getDibsCountById(int id) {
 		
 		return dibsDao.getCountById(id);
 	}

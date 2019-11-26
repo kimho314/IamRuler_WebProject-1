@@ -11,7 +11,7 @@ public class DibsView extends Dibs{
     String content;
     String tag;
     
-	public DibsView(int dibsId, String memberId, String memo, int coordiId, Date regdate, int hit, String img,
+	public DibsView(int dibsId, int memberId, String memo, int coordiId, Date regdate, int hit, String img,
 			String title, String content, String tag) {
 		super(dibsId, memberId, memo, coordiId);
 		this.regdate = regdate;

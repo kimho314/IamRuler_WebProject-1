@@ -1,6 +1,8 @@
 package com.imruler.web.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import com.imruler.web.entity.Ogtag;
+import com.imruler.web.entity.Ranking;
 import com.imruler.web.service.RankingService;
 import com.imruler.web.service.ranking.RulerRankingService;
 
@@ -17,8 +26,9 @@ public class RankingController extends HttpServlet{
 //	private MemberService memberService;
 	public RankingController() {
 		rankingService = new RulerRankingService();
-		//memberService = new RulerMemberService();
+		
 	}
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		HttpSession session = request.getSession();
@@ -42,6 +52,7 @@ public class RankingController extends HttpServlet{
 		}
 		else
 			request.setAttribute("list", rankingService.getRankingList());//전체리스트
+			//request.setAttribute("oglist",getOgList(rankingService.getRankingList()));//리스트
 		request.getRequestDispatcher("/WEB-INF/view/rank/index.jsp").forward(request, response);
 	}
 }

@@ -2,25 +2,25 @@ package com.imruler.web.entity;
 
 public class Dibs {
 	int dibsId;
-	String memberId;
+	int memberId;
 	String memo;
     int coordiId;   
     
-    public Dibs(int dibsId,String memberId,  int coordiId) { // 메모 없이
+    public Dibs(int dibsId,int memberId,  int coordiId) { // 메모 없이
 		this.memberId = memberId;
 		this.coordiId = coordiId;
 		this.dibsId = dibsId;
 	}
-	public Dibs(int dibsId,String memberId, String memo, int coordiId) {
+	public Dibs(int dibsId,int memberId, String memo, int coordiId) {
 		this.memberId = memberId;
 		this.memo = memo;
 		this.coordiId = coordiId;
 		this.dibsId = dibsId;
 	}
-	public String getMemberId() {
+	public int getMemberId() {
 		return memberId;
 	}
-	public void setMemberId(String memberId) {
+	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
 	public String getMemo() {

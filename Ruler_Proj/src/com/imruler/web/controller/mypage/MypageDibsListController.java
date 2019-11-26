@@ -22,10 +22,10 @@ public class MypageDibsListController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session  = request.getSession();
-		String userId = null;
+		int userId = 0;
 		Object userId_ = session.getAttribute("userName");
 		if(userId_ != null && userId_.equals(""))
-			userId = String.valueOf(userId_);
+			userId = Integer.parseInt((String) userId_);
 		
 		request.setAttribute("list",dibsService.getDibsListById(userId));
 		request.getRequestDispatcher("/WEB-INF/view/mypage/myZzimList.jsp").forward(request, response);
