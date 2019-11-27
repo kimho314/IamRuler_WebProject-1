@@ -12,6 +12,8 @@
 
 <script src="https://kit.fontawesome.com/1af26a8adc.js"
 	crossorigin="anonymous"></script>
+<script src='index.js'></script>
+
 </head>
 <body>
 	<!-- Wrapper -->
@@ -73,30 +75,27 @@
 
 						<article>
 							<!-- 체형 이미지 -->
-							<span class="image object"> <img
-								src="images/main_simulator1.png" /> <!-- <img src="images/main_simulator2.png"/>
-							<img src="images/main_simulator3.png"/>
-							<img src="images/main_simulator4.png"/>
-							<img src="images/main_simulator5.png"/> -->
-							</span>
+							<div class="image object-stage">
+								<img src="images/main_simulator1.png">
+							</div>
 						</article>
 
 						<article>
 							<!-- 내 정보 입력 -->
-							<form method="post" action="#">
+							<form method="post" action="#" name="frm">
 								<table class="alt">
 									<tr class="inforform">
 										<th>성별</th>
 										<td id="inforline">
 											<div class="maingender">
 												<input type="radio" id="demo-priority-low"
-													name="demo-priority" checked> <label
+													name="gender" value="woman" checked> <label
 													for="demo-priority-low">여성</label>
 											</div>
 
 											<div class="maingender">
 												<input type="radio" id="demo-priority-normal"
-													name="demo-priority"> <label
+													name="gender" value="man"> <label
 													for="demo-priority-normal">남성</label>
 											</div>
 
@@ -119,13 +118,13 @@
 									<tr class="inforform">
 										<th>체형</th>
 										<td id="inforline">
-											<div class="select-wrapper" id="bodycheck">
-												<select name="area">
-													<option value="">선택</option>
-													<option value="작은 역삼각">작은 역삼각</option>
-													<option value="역삼각">역삼각</option>
-													<option value="큰 역삼각">큰 역삼각</option>
-													<option value="사각">사각</option>
+											<div class="select-wrapper">
+												<select name="area" id="bodycheck" >
+													<option value="1">선택</option>
+													<option value="2">역삼각</option>
+													<option value="3">삼각</option>
+													<option value="4">큰 역삼각</option>
+													<option value="5">사각</option>
 												</select>
 											</div>
 										</td>
@@ -159,8 +158,8 @@
 						<h2>의류 선택</h2>
 					</header>
 					<!-- 여성 선택 -->
-					<div class="features">
-						<article>
+					<div class="features" id="genderW">
+						<article id="checkTop" class="clothcheck-box">
 							<div class="iconBox">
 								<a href="#detailsize" class="spin"> <span class="icon"></span>
 									<img src="images/main_ic1.png" alt="#" />
@@ -168,12 +167,12 @@
 							</div>
 							<div class="description">
 								<h3>
-									<label for="choiceshirt"> <a href="#detailsize">상의</a></label>
+									<a href="#detailsize">상의</a>
 								</h3>
 							</div>
 						</article>
 
-						<article>
+						<article id="checkOuter" class="clothcheck-box">
 							<div class="iconBox">
 								<a href="#detailsize" class="spin"> <span class="icon"></span>
 									<img src="images/main_ic3.png" alt="#" />
@@ -185,7 +184,8 @@
 								</h3>
 							</div>
 						</article>
-						<article>
+
+						<article id="checkPants" class="clothcheck-box">
 							<div class="iconBox">
 								<a href="#detailsize" class="spin"> <span class="icon"></span>
 									<img src="images/main_ic2.png" alt="#" />
@@ -197,7 +197,8 @@
 								</h3>
 							</div>
 						</article>
-						<article>
+
+						<article id="checkSkirt" class="clothcheck-box">
 							<div class="iconBox">
 								<a href="#detailsize" class="spin"> <span class="icon"></span>
 									<img src="images/main_ic4.png" alt="#" />
@@ -209,7 +210,8 @@
 								</h3>
 							</div>
 						</article>
-						<article>
+
+						<article id="checkOnepiece" class="clothcheck-box">
 							<div class="iconBox">
 								<a href="#detailsize" class="spin"> <span class="icon"></span>
 									<img src="images/main_ic5.png" alt="#" />
@@ -224,8 +226,8 @@
 					</div>
 
 					<!-- 남성 선택 -->
-					<!-- <div class="features">
-						<article>
+					<div class="features" id="genderM">
+						<article id="checkTop" class="clothcheck-box">
 							<div class="iconBox">
 								<a href="#detailsize" class="spin"> <span class="icon"></span>
 									<img src="images/main_ic1.png" alt="#" />
@@ -233,12 +235,12 @@
 							</div>
 							<div class="description">
 								<h3>
-									<label for="choiceshirt"> <a href="#detailsize">상의</a></label>
+									<a href="#detailsize">상의</a>
 								</h3>
 							</div>
 						</article>
 
-						<article>
+						<article id="checkOuter" class="clothcheck-box">
 							<div class="iconBox">
 								<a href="#detailsize" class="spin"> <span class="icon"></span>
 									<img src="images/main_ic3.png" alt="#" />
@@ -250,7 +252,8 @@
 								</h3>
 							</div>
 						</article>
-						<article>
+
+						<article id="checkPants" class="clothcheck-box">
 							<div class="iconBox">
 								<a href="#detailsize" class="spin"> <span class="icon"></span>
 									<img src="images/main_ic2.png" alt="#" />
@@ -262,10 +265,8 @@
 								</h3>
 							</div>
 						</article>
-					</div> -->
+					</div>
 				</section> 
-
-
 
 				<section id="detailsize">
 					<header class="major">
@@ -273,8 +274,7 @@
 					</header>
 
 					<!-- 상의 -->
-					<input type="checkbox" class="detailcheck" id="choiceshirt" />
-					<div class="posts" id="shirt">
+					<div class="posts" id="top">
 						<article>
 							<span class="image object"> <img
 								src="images/main_size1.png" />
@@ -318,7 +318,6 @@
 					</div>
 
 					<!-- 바지 -->
-					<!-- <input type="checkbox" class="detailcheck" id="choicepants" />
 					<div class="posts" id="pants">
 						<article>
 							<span class="image object"> <img
@@ -360,10 +359,9 @@
 								</table>
 							</form>
 						</article>
-					</div> -->
+					</div> 
 
 					<!-- 아우터 -->
-					<!-- <input type="checkbox" class="detailcheck" id="choiceouter" />
 					<div class="posts" id="outer">
 						<article>
 							<span class="image object"> <img
@@ -399,10 +397,9 @@
 								</table>
 							</form>
 						</article>
-					</div> -->
+					</div>
 
 					<!-- 치마 -->
-					<!-- <input type="checkbox" class="detailcheck" id="choiceskirt" />
 					<div class="posts" id="skirt">
 						<article>
 							<span class="image object"> <img
@@ -432,10 +429,9 @@
 								</table>
 							</form>
 						</article>
-					</div> -->
+					</div>
 
 					<!-- 원피스 -->
-					<!-- <input type="checkbox" class="detailcheck" id="choiceonepiece" />
 					<div class="posts" id="onepiece">
 						<article>
 							<span class="image object"> <img
@@ -471,7 +467,7 @@
 								</table>
 							</form>
 						</article>
-					</div> -->
+					</div>
 
 					<div>
 						<ul class="actions" id="main-compbutton">
@@ -487,24 +483,31 @@
 
 		<div class="mask">
 			<div id="popup">
-				<div class="contents">
-
-					<!-- <p class="title">
+				<div class="contents" id="con-small">
+					<p class="title">
 						<i class="far fa-grin-beam-sweat"></i><br>사이즈가 작아요!
 					</p>
-					<p class="overlayment">좀 더 큰 사이즈로 주문하시는걸 추천드려요!</p> -->
+					<p class="overlayment">좀 더 큰 사이즈로 주문하시는걸 추천드려요!</p>
+					<div class="btn" id="overlayClose">
+						<a href="#" class="button close">닫기</a>
+					</div>
+				</div>
 
-					<!-- <p class="title">
+				<div class="contents" id="con-middle">
+					<p class="title">
 						<i class="far fa-grin-hearts fa-5x"></i><br>사이즈가 딱 맞네요!
 					</p>
-					<p class="overlayment">이걸로 당장 구매하세요</p> -->
+					<p class="overlayment">이걸로 당장 구매하세요</p>
+					<div class="btn" id="overlayClose">
+						<a href="#" class="button close">닫기</a>
+					</div>
+				</div>
 
+				<div class="contents" id="con-big">
 					<p class="title">
 						<i class="far fa-laugh-wink"></i><br>사이즈가 크네요!
 					</p>
 					<p class="overlayment">좀 더 작은 사이즈로 입어도 괜찮을듯b</p>
-
-
 					<div class="btn" id="overlayClose">
 						<a href="#" class="button close">닫기</a>
 					</div>

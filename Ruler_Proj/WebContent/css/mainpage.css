@@ -1,6 +1,5 @@
 @import url(../assets/css/main.css); /* 템플릿 스타일 */
 div.posts {
-	margin-left: auto;
 	margin-right: auto;
 	position: relative;
 }
@@ -73,10 +72,6 @@ p.title {
 	border-top: 1px solid #dfdfdf;
 }
 
-.detailcheck {
-	display: none;
-}
-
 tr.inforform th {
 	font-size: 1.2em;
 }
@@ -134,4 +129,10 @@ div.maingender label {
 	padding-left: 58%;
 	padding-top: 13.5%;
 	padding-right: 20%;
+}
+#genderM, #pants, #outer, #skirt, #onepiece{
+	display: none; /*의류선택*/
+}
+.actions{
+	scroll-behavior: smooth;
 }
