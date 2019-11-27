@@ -112,7 +112,7 @@ public class JdbcMemberDao implements MemberDao {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection(url, "ACORN", "newlec");
+			con = DriverManager.getConnection(url, "RULER", "33333");
 			pst = con.prepareStatement(sql);
 
 			pst.setString(1, member.getUserName());
@@ -147,7 +147,45 @@ public class JdbcMemberDao implements MemberDao {
 	@Override
 	public int update(Member member) {
 		// TODO 회원정보수정
-		return 0;
+		int result = 0;
+
+//		update 테이블명 set 컬럼명=들어갈값 where 조건문
+		String sql = "UPDATE Member SET PWD=?, GENDER=?, AGE=?, PHONE=?, EMAIL=?, HEIGHT=?, WEIGHT? where ID="
+				+ member.getId();
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
+
+		Connection con = null;
+		PreparedStatement pst = null;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			pst = con.prepareStatement(sql);
+
+			pst.setString(1, member.getPwd());
+			pst.setString(2, member.getGender());
+			pst.setInt(3, member.getAge());
+			pst.setString(4, member.getPhone());
+			pst.setString(5, member.getEmail());
+			pst.setInt(6, member.getHeight());
+			pst.setInt(7, member.getWeight());
+
+			result = pst.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+			}
+		}
+
+		return result;
 	}
 
 	@Override
