@@ -29,12 +29,12 @@
             <h1 class="로그인헤더">로그인</h1>
             <ul class="헤더메뉴">
               <li>
-                <a href="login" class="로그인">
+                <a href="login.html" class="로그인">
                   <span class="헤더메뉴">로그인</span>
                 </a>
               </li>
               <li>
-                <a href="sign-up" class="회원가입">
+                <a href="sign-up.html" class="회원가입">
                   <span class="헤더메뉴">회원가입</span>
                 </a>
               </li>
@@ -48,7 +48,7 @@
                   <label>아이디</label>
                   <input type="text" name="아이디" id="아이디" /><br />
                   <label>비밀번호</label>
-                  <input type="password" name="비밀번호" id="비밀번호" />
+                  <input type="text" name="비밀번호" id="비밀번호" />
                 </form>
               </section>
 
@@ -64,7 +64,7 @@
                 <label>
                   - 아직 회원이 아니라면?
                 </label>
-                <a href="agree">
+                <a href="agree.html">
                   <label class="button special">
                     회원가입 >
                   </label>
@@ -72,7 +72,7 @@
                 <label>
                   - 아이디/비밀번호가 기억나지 않는다면?
                 </label>
-                <a href="find">
+                <a href="find.html">
                   <label class="button special">
                     아이디 / 비밀번호 찾기 >
                   </label>
@@ -88,22 +88,22 @@
             <!-- Menu -->
             <nav id="menu">              
               <h1 class="logo">
-                <a href="index"><img src="../images/logo.png" alt="아임룰러" /></a>
+                <a href="index.html"><img src="../images/logo.png" alt="아임룰러" /></a>
               </h1>
               <h2 class="hidden">메인 메뉴</h2>
               <ul>
-                <li><a href="index">사이즈 비교</a></li>
-                <li><a href="coordi/coordi_list_main">체형 별 코디</a></li>
-                <li><a href="#">교환 게시판</a></li>
-                <li><a href="#">쇼핑몰 랭킹</a></li>
+                <li><a href="index.html">사이즈 비교</a></li>
+                <li><a href="coordi/coordi_list_main.html">체형 별 코디</a></li>
+                <li><a href="#.html">교환 게시판</a></li>
+                <li><a href="#.html">쇼핑몰 랭킹</a></li>
               </ul>
               
               <!-- <h2 class="hidden">마이페이지 메뉴</h2>
               <ul>
-                <li><a href="mypage/member-edit">회원정보 수정</a></li>
-                <li><a href="mypage/reg">회원 탈퇴</a></li>
-                <li><a href="mypage/#">내가 작성한 글</a></li>
-                <li><a href="mypage/#">찜 목록</a></li>
+                <li><a href="mypage/member-edit.html">회원정보 수정</a></li>
+                <li><a href="mypage/reg.html">회원 탈퇴</a></li>
+                <li><a href="mypage/#.html">내가 작성한 글</a></li>
+                <li><a href="mypage/#.html">찜 목록</a></li>
               </ul> -->
             </nav>
     
@@ -138,7 +138,7 @@
           <p>로그인 정보 뜰곳</p>
           <br />
           <p id="로그인성공버튼">
-            <a href="../index" class="button special">확인</a>
+            <a href="../index.html" class="button special">확인</a>
           </p>
         </div>
       </div>

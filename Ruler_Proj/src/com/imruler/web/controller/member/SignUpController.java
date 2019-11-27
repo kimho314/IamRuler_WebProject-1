@@ -42,12 +42,13 @@ public class SignUpController extends HttpServlet {
 
 //		String signUpError = null;
 
-		boolean isDuplicated = memberService.isDuplicatedId(userId, userPwd, userPwdRequest, phone, email);
-		
-		if (!isDuplicated) {
-			resp.sendRedirect("sign-up?error=1");
+		int isDuplicated = memberService.isDuplicatedId(userId, userPwd, userPwdRequest, phone, email);
+
+		if (isDuplicated != 0) {
+			resp.sendRedirect("sign-up?error=" + isDuplicated);
 		} else {
-			memberService.insertMember(new Member(userId, userPwd, phone, email, height, weidth, gender, age, bodyshape));
+			memberService
+					.insertMember(new Member(userId, userPwd, phone, email, height, weidth, gender, age, bodyshape));
 			resp.sendRedirect("/index");
 		}
 	}

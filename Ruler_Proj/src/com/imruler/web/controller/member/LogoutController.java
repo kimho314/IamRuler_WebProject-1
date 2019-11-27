@@ -9,16 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.imruler.web.service.MemberService;
 import com.imruler.web.service.member.RulerMemberService;
 
 @WebServlet("/sign/logout")
 public class LogoutController extends HttpServlet {
 
-	private RulerMemberService rulerMemberService;
+	private MemberService memberService;
 
 	public LogoutController() {
 		// TODO 기본생성자
-		rulerMemberService = new RulerMemberService();
+		memberService = new RulerMemberService();
 	}
 
 	@Override

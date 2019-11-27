@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,12 +30,12 @@
             <h1>회원가입</h1>
             <ul class="헤더메뉴">
               <li>
-                <a href="login.html" class="로그인">
+                <a href="login" class="로그인">
                   <span class="헤더메뉴">로그인</span>
                 </a>
               </li>
               <li>
-                <a href="sign-up.html" class="회원가입">
+                <a href="sign-up" class="회원가입">
                   <span class="헤더메뉴">회원가입</span>
                 </a>
               </li>
@@ -54,6 +55,11 @@
                     <span id="기타라벨">
                       영문 + 숫자 4~16자, 한글 2~8자 (4~16byte)
                     </span>
+                    <c:if test="${param.error ==1}">
+	                    <span class="오류">
+	                      올바른 아이디를 입력해주세요.
+	                    </span>
+					</c:if>
                   </td>
                 </tr>
                 <tr>
@@ -63,9 +69,11 @@
                   <td class="비밀번호입력">
                     <input type="password" class="텍스트" name="비밀번호" />
                     <span id="기타라벨"> 영문 + 숫자 4~16자 </span>
-                    <span class="비밀번호오류">
-                      올바른 비밀번호를 입력해주세요.
-                    </span>
+                    <c:if test="${param.error ==2}">
+	                    <span class="오류">
+	                      올바른 비밀번호를 입력해주세요.
+	                    </span>
+					</c:if>
                   </td>
                 </tr>
                 <tr>
@@ -77,9 +85,11 @@
                     <span id="기타라벨">
                       비밀번호를 다시 입력해주세요.
                     </span>
-                    <span class="비밀번호오류">
-                      비밀번호가 틀렸습니다.
-                    </span>
+                    <c:if test="${param.error ==2}">
+	                    <span class="오류">
+	                      비밀번호가 틀렸습니다.
+	                    </span>
+                    </c:if>
                   </td>
                 </tr>
                 <tr>
@@ -132,6 +142,11 @@
                     <span id="기타라벨">
                       '-' 를 제외하고 11자리 입력해주세요
                     </span>
+                    <c:if test="${param.error ==3}">
+	                    <span class="오류">
+	                      올바른 전화번호를 입력해주세요.
+	                    </span>
+					</c:if>
                   </td>
                 </tr>
                 <tr>
@@ -146,6 +161,11 @@
                       @
                     </span>
                     <input type="text" class="텍스트" name="이메일2" />
+                    <c:if test="${param.error ==4}">
+	                    <span class="오류">
+	                      올바른 이메일을 입력해주세요.
+	                    </span>
+					</c:if>
                   </td>
                 </tr>
                 <tr>
@@ -216,24 +236,24 @@
           <!-- Menu -->
           <nav id="menu">
             <h1 class="logo">
-              <a href="index.html"
+              <a href="index"
                 ><img src="../images/logo.png" alt="아임룰러"
               /></a>
             </h1>
             <h2 class="hidden">메인 메뉴</h2>
             <ul>
-              <li><a href="index.html">사이즈 비교</a></li>
-              <li><a href="coordi/coordi_list_main.html">체형 별 코디</a></li>
-              <li><a href="#.html">교환 게시판</a></li>
-              <li><a href="#.html">쇼핑몰 랭킹</a></li>
+              <li><a href="index">사이즈 비교</a></li>
+              <li><a href="coordi/coordi_list_main">체형 별 코디</a></li>
+              <li><a href="#">교환 게시판</a></li>
+              <li><a href="#">쇼핑몰 랭킹</a></li>
             </ul>
 
             <!-- <h2 class="hidden">마이페이지 메뉴</h2>
               <ul>
-                <li><a href="mypage/member-edit.html">회원정보 수정</a></li>
-                <li><a href="mypage/reg.html">회원 탈퇴</a></li>
-                <li><a href="mypage/#.html">내가 작성한 글</a></li>
-                <li><a href="mypage/#.html">찜 목록</a></li>
+                <li><a href="mypage/member-edit">회원정보 수정</a></li>
+                <li><a href="mypage/reg">회원 탈퇴</a></li>
+                <li><a href="mypage/#">내가 작성한 글</a></li>
+                <li><a href="mypage/#">찜 목록</a></li>
               </ul> -->
           </nav>
 
@@ -271,7 +291,7 @@
           <p>회원가입 성공 축하메시지가 뜰곳</p>
           <br />
           <p id="회원가입성공버튼">
-            <a href="login.html" class="button special">확인</a>
+            <a href="login" class="button special">확인</a>
           </p>
         </div>
       </div>

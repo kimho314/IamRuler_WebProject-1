@@ -33,32 +33,32 @@ public class RulerMemberService implements MemberService {
 	}
 
 	@Override
-	public boolean isDuplicatedId(String userId, String userPwd, String userPwdRequest, String phone, String email) {
+	public int isDuplicatedId(String userId, String userPwd, String userPwdRequest, String phone, String email) {
 		// TODO isDuplicatedId
 		List<Member> member = memberDao.getList();
-		for (Member key : member) {
+		for (Member key : member) { // 유저 아이디가 중복되는지 확인
 			if (key.getUserName().equals(userId)) {
-				return false;
+				return 1;
 			}
 		}
 
-		if (!userPwd.equals(userPwdRequest)) {
-			return false;
+		if (!userPwd.equals(userPwdRequest)) { // 비밀번호 재확인
+			return 2;
 		}
 
-		for (Member key : member) {
-			if (key.getUserName().equals(userId)) {
-				return false;
+		for (Member key : member) { // 핸드폰 번호가 중복되는지 확인
+			if (key.getPhone().equals(phone)) {
+				return 3;
 			}
 		}
 
-		for (Member key : member) {
-			if (key.getUserName().equals(userId)) {
-				return false;
+		for (Member key : member) { // 이메일이 중복되는지 확인
+			if (key.getEmail().equals(email)) {
+				return 4;
 			}
 		}
 
-		return true;
+		return 0;
 	}
 
 	@Override

@@ -29,14 +29,14 @@
             <h1 class="아이디비밀번호찾기">아이디/비밀번호 찾기</h1>
             <ul class="헤더메뉴">
               <li>
-                <a href="login.html" class="로그인">
+                <a href="login" class="로그인">
                   <span class="헤더메뉴">
                     로그인
                   </span>
                 </a>
               </li>
               <li>
-                <a href="sign-up.html" class="회원가입">
+                <a href="sign-up" class="회원가입">
                   <span class="헤더메뉴">
                     회원가입
                   </span>
@@ -88,24 +88,24 @@
         <!-- Menu -->
         <nav id="menu">       
           <h1 class="logo">
-            <a href="index.html"
+            <a href="index"
               ><img src="../images/logo.png" alt="아임룰러"
             /></a>
           </h1>
           <h2 class="hidden">메인 메뉴</h2>
           <ul>
-            <li><a href="index.html">사이즈 비교</a></li>
-            <li><a href="coordi/coordi_list_main.html">체형 별 코디</a></li>
-            <li><a href="#.html">교환 게시판</a></li>
-            <li><a href="#.html">쇼핑몰 랭킹</a></li>
+            <li><a href="index">사이즈 비교</a></li>
+            <li><a href="coordi/coordi_list_main">체형 별 코디</a></li>
+            <li><a href="#">교환 게시판</a></li>
+            <li><a href="#">쇼핑몰 랭킹</a></li>
           </ul>
 
           <!-- <h2 class="hidden">마이페이지 메뉴</h2>
                 <ul>
-                  <li><a href="mypage/member-edit.html">회원정보 수정</a></li>
-                  <li><a href="mypage/reg.html">회원 탈퇴</a></li>
-                  <li><a href="mypage/#.html">내가 작성한 글</a></li>
-                  <li><a href="mypage/#.html">찜 목록</a></li>
+                  <li><a href="mypage/member-edit">회원정보 수정</a></li>
+                  <li><a href="mypage/reg">회원 탈퇴</a></li>
+                  <li><a href="mypage/#">내가 작성한 글</a></li>
+                  <li><a href="mypage/#">찜 목록</a></li>
                 </ul> -->
         </nav>
 
@@ -143,7 +143,7 @@
           <p>아이디가 뜰곳</p>
           <br />
           <p id="회원가입성공버튼">
-            <a href="find.html" class="button special">확인</a>
+            <a href="find" class="button special">확인</a>
           </p>
         </div>
       </div>
@@ -154,7 +154,7 @@
           <p>비밀번호가 뜰곳</p>
           <br />
           <p id="회원가입성공버튼">
-            <a href="find.html" class="button special">확인</a>
+            <a href="find" class="button special">확인</a>
           </p>
         </div>
       </div>

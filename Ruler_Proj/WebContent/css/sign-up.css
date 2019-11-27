@@ -60,7 +60,7 @@ ul.헤더메뉴 li {
   display: inline-table;
 }
 
-#테이블 table tr td span.비밀번호오류 {
+#테이블 table tr td span.오류 {
   font-size: 0.8em;
   color: crimson;
   display: block;
