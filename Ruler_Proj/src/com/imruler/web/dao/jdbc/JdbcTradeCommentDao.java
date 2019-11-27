@@ -100,6 +100,92 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 		return result;
 	}
 
+	@Override
+	public int deleteTradeComment(int id) {
+		//TradeComment tradeComment = null;
+		Connection con = null;
+		PreparedStatement st = null;
+		int result = 0;
+
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String sql = "DELETE TRADE_COMMENT WHERE ID=?";
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			st = con.prepareStatement(sql);
+
+			st.setInt(1, id);
+			
+			result = st.executeUpdate();
+			
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				if(st != null)
+					st.close();
+				if(con != null)
+					con.close();
+			}catch(SQLException e) {}
+		}
+
+		return result;
+	}
+
+//	@Override
+//	public int updateTradeComment(TradeComment tradeComment) {
+//			Connection con = null;
+//			PreparedStatement st = null;
+//			int result = 0;
+//
+//			String sql = "UPDATE TRADE_COMMENT SET CONTENT=?,USER_ID=?,BOARD_ID=? WHERE ID=?";
+//			String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+//
+//			try {
+//				Class.forName("oracle.jdbc.driver.OracleDriver");
+//				con = DriverManager.getConnection(url, "RULER", "33333");
+//				st = con.prepareStatement(sql);
+//				st.setString(1, tradeComment.getcContent());
+//				st.setInt(2, tradeComment.getcUserId());
+//				//st.setDate(4, tradeComment.getcRegdate());
+//				st.setInt(3, tradeComment.getcBId());
+//				st.setInt(4, tradeComment.getcId());
+//
+//				result = st.executeUpdate();
+//
+//				st.close();
+//				con.close();
+//
+//			} catch (ClassNotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}finally {
+//				try {
+//					if(st != null)
+//						st.close();
+//					if(con != null)
+//						con.close();
+//				}catch(SQLException e) {}
+//			}
+//
+//			return result;
+//
+//	}
+	
+	
+	
+
 
 	
 

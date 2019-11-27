@@ -87,6 +87,17 @@ public class RulerTradeService implements TradeService, TradeViewService, TradeC
 	public int insertTradeComment(TradeComment tradeComment) {
 		return tradeCommentDao.insertTradeComment(tradeComment);
 	}
+
+//	@Override
+//	public int updateTradeComment(TradeComment tradeComment) {
+//		return tradeCommentDao.updateTradeComment(tradeComment);
+//	}
+	
+	@Override
+	public int deleteTradeComment(int id) {
+		return tradeCommentDao.deleteTradeComment(id);
+	}
+
 	
 	
 	

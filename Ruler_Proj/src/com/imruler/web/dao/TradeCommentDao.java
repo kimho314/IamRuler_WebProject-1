@@ -5,6 +5,9 @@ import com.imruler.web.entity.TradeView;
 
 public interface TradeCommentDao {
 	TradeView getComment(int id);
+	
 	int insertTradeComment(TradeComment tradeComment);
+	//int updateTradeComment(TradeComment tradeComment);
+	int deleteTradeComment(int id);
 }
 

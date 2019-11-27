@@ -105,5 +105,8 @@ public class JdbcTradeItemDao implements TradeItemDao{
 		return 0;
 	}
 
-		
+	
+
+	
+	
 }

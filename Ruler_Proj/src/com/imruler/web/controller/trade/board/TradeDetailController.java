@@ -53,30 +53,49 @@ public class TradeDetailController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cmd = request.getParameter("cmd");
+		
 		int cId = 1;
+		String cId_ = null;
 		String cContent = "";
 		int cUserId = 1;
 		int cBId = 1;
 		
-		String cId_ = request.getParameter("cId");
-		if(cId_!=null && !cId_.equals(""))
-			cId=Integer.parseInt(cId_);
-		String cContent_ = request.getParameter("cContent");
-		if(cContent_!=null && !cContent_.contentEquals(""))
-			cContent=cContent_;
-		String cUserId_ = request.getParameter("cUserId");
-		if(cUserId_!=null && !cUserId_.equals(""))
-			cUserId = Integer.parseInt(cUserId_);
-		String cBId_ = request.getParameter("cBId");
-		if(cBId_!=null && !cBId_.equals(""))
-			cBId=Integer.parseInt(cBId_);
-		
-		
-		
-		int result = tradeCommentService.insertTradeComment(new TradeComment(cId, cContent, cUserId, cBId));
-		//System.out.println("cId:"+cId+"cContent:"+cContent+"cUserId:"+cUserId+"bId:"+bId);
+		switch(cmd) {
+		case "등록":
+			cId_ = request.getParameter("cId");
+			if(cId_!=null && !cId_.equals(""))
+				cId=Integer.parseInt(cId_);
+			String cContent_ = request.getParameter("cContent");
+			if(cContent_!=null && !cContent_.contentEquals(""))
+				cContent=cContent_;
+			String cUserId_ = request.getParameter("cUserId");
+			if(cUserId_!=null && !cUserId_.equals(""))
+				cUserId = Integer.parseInt(cUserId_);
+			String cBId_ = request.getParameter("cBId");
+			if(cBId_!=null && !cBId_.equals(""))
+				cBId=Integer.parseInt(cBId_);
+			
+			int result = tradeCommentService.insertTradeComment(new TradeComment(cId, cContent, cUserId, cBId));
+			break;
+		case "수정":
+			//int edit = tradeCommentService.updateTradeComment(new TradeComment(cId, cContent, cUserId, cBId));
+			break;
+		case "삭제":
+			cId_ = request.getParameter("cId");
+			if(cId_!=null && !cId_.equals(""))
+				cId=Integer.parseInt(cId_);
+			int id = cId;
+			int del = tradeCommentService.deleteTradeComment(id);
+			System.out.println("cId:"+cId+"삭제됐니"+del);
+			break;
+		}
 		response.sendRedirect("/trade/detail?id="+cBId);
-		//response.sendRedirect("/trade/list");s
+		
+		
+		//System.out.println("cId:"+cId+"cContent:"+cContent+"cUserId:"+cUserId+"bId:"+bId);
+
+		
 
 	}
 }
