@@ -1,3 +1,5 @@
+@import url(../assets/css/main.css);
+
 .reg {display: inline-block; float: right;} 
 .btncenter {width: 100%; text-align: center;}
 .edel{
@@ -114,3 +116,11 @@ ul.a li{
 .inlineblock{
 	display:inline-block;
 }
+
+.trade-mask{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5)}
+.trade-popup{position:absolute;top:0;left:0;width:100%;height:1px;z-index:1}
+.trade-popup .contents{margin:10% auto;width:25em;padding:2em 1em;background:#fff;border-radius:5px;z-index:2}
+.trade-popup .contents p{text-align:center}
+.trade-popup .contents .btn{width:100%;text-align:center;padding:1em 0 0;border-top:1px solid #dfdfdf}
+.trade-popup .contents .fa-grin-hearts{font-size:5em;color:#f60;margin: 0 0 .1em}
+.trade-popup .contents .title{font-weight:bold;font-family:'S-CoreDream-8';color:#000;font-size:1.5em;margin:0 0 .5em}

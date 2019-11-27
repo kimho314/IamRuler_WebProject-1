@@ -105,12 +105,5 @@ public class JdbcTradeItemDao implements TradeItemDao{
 		return 0;
 	}
 
-	@Override
-	public int select(JdbcTradeBoardDao jdbctradeBoard) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	
-	
+		
 }

@@ -7,7 +7,7 @@ public class Member {
 	private String phone;
 	private String email;
 	private int height;
-	private int weidth;
+	private int weight;
 	private String gender;
 	private int age;
 	private String bodyshape;
@@ -26,7 +26,7 @@ public class Member {
 		super();
 		this.id = id;
 		this.height = height;
-		this.weidth = weidth;
+		this.weight = weidth;
 		this.gender = gender;
 		this.age = age;
 		this.bodyshape = bodyshape;
@@ -39,7 +39,7 @@ public class Member {
 		this.phone = phone;
 		this.email = email;
 		this.height = height;
-		this.weidth = weidth;
+		this.weight = weidth;
 		this.gender = gender;
 		this.age = age;
 		this.bodyshape = bodyshape;
@@ -53,7 +53,7 @@ public class Member {
 		this.phone = phone;
 		this.email = email;
 		this.height = height;
-		this.weidth = weidth;
+		this.weight = weidth;
 		this.gender = gender;
 		this.age = age;
 		this.bodyshape = bodyshape;
@@ -107,12 +107,12 @@ public class Member {
 		this.height = height;
 	}
 
-	public int getWeidth() {
-		return weidth;
+	public int getWeight() {
+		return weight;
 	}
 
-	public void setWeidth(int weidth) {
-		this.weidth = weidth;
+	public void setWeight(int weidth) {
+		this.weight = weidth;
 	}
 
 	public String getGender() {
@@ -142,7 +142,7 @@ public class Member {
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", userName=" + userName + ", pwd=" + pwd + ", phone=" + phone + ", email=" + email
-				+ ", height=" + height + ", weidth=" + weidth + ", gender=" + gender + ", age=" + age + ", bodyshape="
+				+ ", height=" + height + ", weight=" + weight + ", gender=" + gender + ", age=" + age + ", bodyshape="
 				+ bodyshape + "]";
 	}
 

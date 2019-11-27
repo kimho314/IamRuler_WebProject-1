@@ -5,28 +5,25 @@ import java.util.Date;
 public class CoordiBoard
 {
 	private int id;
-	private int noticeNum;
+	private int noticeStatus;
 	private int hit;
 	private Date regdate;
 	private int dibs;
 	private int userId;
-	private String img;	
+
 	
 	
 	public CoordiBoard()
-	{
-		
-	}
+	{	}
 
-	public CoordiBoard(int id, int noticeNum, int hit, Date regdate, int dibs, int userId, String img)
+	public CoordiBoard(int id, int noticeStatus, int hit, Date regdate, int dibs, int userId)
 	{
 		this.id = id;
-		this.noticeNum = noticeNum;
+		this.noticeStatus = noticeStatus;
 		this.hit = hit;
 		this.regdate = regdate;
 		this.dibs = dibs;
 		this.userId = userId;
-		this.img = img;
 	}
 
 	public int getId()
@@ -39,14 +36,15 @@ public class CoordiBoard
 		this.id = id;
 	}
 
-	public int getNoticeNum()
+	
+	public int getNoticeStatus()
 	{
-		return noticeNum;
+		return noticeStatus;
 	}
 
-	public void setNoticeNum(int noticeNum)
+	public void setNoticeStatus(int noticeStatus)
 	{
-		this.noticeNum = noticeNum;
+		this.noticeStatus = noticeStatus;
 	}
 
 	public int getHit()
@@ -89,21 +87,12 @@ public class CoordiBoard
 		this.userId = userId;
 	}
 
-	public String getImg()
-	{
-		return img;
-	}
-
-	public void setImg(String img)
-	{
-		this.img = img;
-	}
-
+	
 	@Override
 	public String toString()
 	{
-		return "CoordiBoard [id=" + id + ", noticeNum=" + noticeNum + ", hit=" + hit + ", regdate=" + regdate
-				+ ", dibs=" + dibs + ", userId=" + userId + ", img=" + img + "]";
+		return "CoordiBoard [id=" + id + ", noticeStatus=" + noticeStatus + ", hit=" + hit + ", regdate=" + regdate
+				+ ", dibs=" + dibs + ", userId=" + userId + "]";
 	}
 	
 	

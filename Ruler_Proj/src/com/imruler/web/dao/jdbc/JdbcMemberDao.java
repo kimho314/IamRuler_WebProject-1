@@ -101,7 +101,7 @@ public class JdbcMemberDao implements MemberDao {
 			pst.setString(3, member.getPhone());
 			pst.setString(4, member.getEmail());
 			pst.setInt(5, member.getHeight());
-			pst.setInt(6, member.getWidth());
+			pst.setInt(6, member.getWeight());
 			pst.setString(7, member.getGender());
 			pst.setInt(8, member.getAge());
 			pst.setString(9, member.getBodyshape());
