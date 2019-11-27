@@ -6,10 +6,19 @@ public class Dibs {
 	String memo;
     int coordiId;   
     
+    public Dibs(int dibsId,String memo) { // 메모 수정
+    	this.memo = memo;
+		this.dibsId = dibsId;
+	}
     public Dibs(int dibsId,int memberId,  int coordiId) { // 메모 없이
 		this.memberId = memberId;
 		this.coordiId = coordiId;
 		this.dibsId = dibsId;
+	}
+    public Dibs(String memo,int memberId,  int coordiId) { // 등록용
+		this.memberId = memberId;
+		this.coordiId = coordiId;
+		this.memo = memo;
 	}
 	public Dibs(int dibsId,int memberId, String memo, int coordiId) {
 		this.memberId = memberId;

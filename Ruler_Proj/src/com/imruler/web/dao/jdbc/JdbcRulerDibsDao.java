@@ -24,7 +24,7 @@ public class JdbcRulerDibsDao implements DibsDao{
 	public List<DibsView> getListById(int id, int page) {
 		List<DibsView> list = new ArrayList<>();			
 			String sql = "SELECT * FROM DIBSLISTVIEW WHERE MEMBER_ID=? ORDER BY DIBS_ID DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
-			String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+			String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 			Connection con = null;
 			PreparedStatement st = null;
 			   try {
@@ -49,17 +49,20 @@ public class JdbcRulerDibsDao implements DibsDao{
 					    
 					    DibsView dibsview = new DibsView(dibsId, memberId, memo, coordiId, regdate, hit, img,
 							 title, content, tag);
-					  
+					    //System.out.println(dibsview);
 						list.add(dibsview);
 					}
 					st.close();
 					con.close();
 						
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
+					if(st != null) st=null;
+					if(con != null) con=null;
+					
 					e.printStackTrace();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+					if(st != null) st=null;
+					if(con != null) con=null;
 					e.printStackTrace();
 				}
 			return list;
@@ -67,7 +70,7 @@ public class JdbcRulerDibsDao implements DibsDao{
 	//이미지 가져오기 
 	public String getImgbyCoordiId(int coordiId) {
 		String img = null;
-		String sql ="SELECT * FROM DIBSLISTVIEW WHERE COORDI_ID="+coordiId;
+		String sql ="SELECT * FROM COORDI_IMG WHERE COORDI_ID="+coordiId;
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";		
 		Connection con = null;
 		Statement st = null;
@@ -97,19 +100,20 @@ public class JdbcRulerDibsDao implements DibsDao{
 	}
 	@Override
 	public int insert(Dibs dibs) {
-		int result= 0;
-		String sql = "INSERT INTO DIBS_LIST (ID,MEMBER_ID,MEMO,COORDI_ID) VALUES (DIBS_LIST_SEQ.NEXTVAL,?,?,?)";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";		
-			
+		System.out.println(dibs.toString());
+int result = 0;
+		String sql = "INSERT INTO DIBS_LIST (ID,MEMBER_ID,MEMO,COORDI_ID) VALUES ((SELECT NVL(MAX(ID),0)+1 FROM DIBS_LIST),?,?,?)";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";		
+		Connection con = null;
+		PreparedStatement st = null;
 		   try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-				Connection con = DriverManager.getConnection(url,"ACORN","newlec");
-				PreparedStatement st = con.prepareStatement(sql);
+				con = DriverManager.getConnection(url,"RULER","33333");
+			    st = con.prepareStatement(sql);
 				
 				 st.setInt(1, dibs.getMemberId());
 				 st.setString(2, dibs.getMemo());
 				 st.setInt(3, dibs.getCoordiId());
-				
 				result = st.executeUpdate();
 				st.close();
 				con.close();
@@ -127,7 +131,7 @@ public class JdbcRulerDibsDao implements DibsDao{
 	@Override
 	public int update(Dibs dibs) {
 		int result= 0;
-		String sql = "UPDATE DIBS_LIST SET MEMO=? WHERE MEMBER_ID=? AND COORDI_ID=?";
+		String sql = "UPDATE DIBS_LIST SET MEMO=? WHERE ID=?";
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";		
 			
 		   try {
@@ -136,8 +140,7 @@ public class JdbcRulerDibsDao implements DibsDao{
 				PreparedStatement st = con.prepareStatement(sql);
 				
 				 st.setString(1, dibs.getMemo());
-				 st.setInt(2, dibs.getMemberId());
-				 st.setInt(3, dibs.getCoordiId());
+				 st.setInt(2, dibs.getDibsId());
 				
 				result = st.executeUpdate();
 				st.close();
@@ -161,7 +164,7 @@ public class JdbcRulerDibsDao implements DibsDao{
 			
 		   try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-				Connection con = DriverManager.getConnection(url,"ACORN","newlec");
+				Connection con = DriverManager.getConnection(url,"RULER","33333");
 				PreparedStatement st = con.prepareStatement(sql);
 				
 				 st.setInt(1, id);

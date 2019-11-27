@@ -1,4 +1,5 @@
 @import url('../assets/css/main.css');
+@charset "utf-8";
 /* mypage 메인 */
 .mypageMain .row {margin:3em 0}
 .mypageMain h1{font-size:1.725rem;border-bottom: solid 3px #aaa;display: inline-block;margin: 0 0 2em 0;padding: 0 0.75em 0.5em 0;}
@@ -27,14 +28,18 @@
 .mypageMain .slideshow-standard .sliderkit-nav .sliderkit-btn.sliderkit-go-next{right:0}
 .mypageMain .slideshow-standard .sliderkit-nav .sliderkit-btn .fas{font-size:2rem;color:#666}
 /* 찜목록 */
+#anno{position:absolute;top:0;left:0;width:100%;background:rgba(0,0,0,.75);color:#f60;text-align:center;font-size:1em;line-height:3em;height:3em}
+.mypageZzim{margin:0;padding-top:3em;position:relative}
+.mypageZzim form{margin:0}
+.mypageZzim form .btn{padding:0;height:2em;line-height:2em;text-align:right;background:none;border-radius:0;box-shadow:none;border:0;font-size:1em;color:#666 !important}
 .mypageZzim > .btn_area{padding:1em 0}
-.mypageZzim > ul{margin:3em 0 0}
 .mypageZzim th,
 .mypageZzim td{vertical-align:middle}
 .mypageZzim figuare{min-width:10em;}
 .mypageZzim figuare img{width:100%;max-width:50em;max-height:50em}
-.mypageZzim ul{padding:0;text-align:left}
-.mypageZzim ul > li{display:inline-block;width:50%;padding:0}
+.mypageZzim .cover{overflow:hidden;text-align:left;margin:0;padding:0}
+.mypageZzim .cover > li{float:left;display:inline-block;width:50%;padding:0}
+.mypageZzim li.nolist{width:100%;text-align:center;min-height:30em;line-height:30em}
 .mypageZzim li li{line-height:2em}
 .mypageZzim li li:nth-child(1){font-size:0.95em;color:#666}
 .mypageZzim li li:nth-child(2) a{font-size:1.25em;color:#000}
