@@ -35,7 +35,7 @@ public class SignUpController extends HttpServlet {
 		String phone = req.getParameter("전화번호");
 		String email = req.getParameter("이메일1") + "@" + req.getParameter("이메일2");
 		int height = Integer.parseInt(req.getParameter("키"));
-		int width = Integer.parseInt(req.getParameter("체중"));
+		int weidth = Integer.parseInt(req.getParameter("체중"));
 		String gender = req.getParameter("성별");
 		int age = Integer.parseInt(req.getParameter("연령대"));
 		String bodyshape = req.getParameter("체형");
@@ -47,7 +47,7 @@ public class SignUpController extends HttpServlet {
 		if (!isDuplicated) {
 			resp.sendRedirect("sign-up?error=1");
 		} else {
-			memberService.insertMember(new Member(userId, userPwd, phone, email, height, width, gender, age, bodyshape));
+			memberService.insertMember(new Member(userId, userPwd, phone, email, height, weidth, gender, age, bodyshape));
 			resp.sendRedirect("/index");
 		}
 	}

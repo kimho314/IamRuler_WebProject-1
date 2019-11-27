@@ -1,175 +1,149 @@
 package com.imruler.web.entity;
 
-public class Member
-{
+public class Member {
 	private int id;
 	private String userName;
 	private String pwd;
 	private String phone;
 	private String email;
 	private int height;
-	private int width;
+	private int weidth;
 	private String gender;
 	private int age;
 	private String bodyshape;
-	
-	public Member()
-	{
-		
+
+	public Member() {
+
 	}
-	
+
 	public Member(int id, String userName) {
 		super();
 		this.id = id;
 		this.userName = userName;
 	}
 
-	public Member(int id, int height, int width, String gender, int age, String bodyshape) {
+	public Member(int id, int height, int weidth, String gender, int age, String bodyshape) {
 		super();
 		this.id = id;
 		this.height = height;
-		this.width = width;
-		this.gender = gender;
-		this.age = age;
-		this.bodyshape = bodyshape;
-	}
-	
-	public Member(String userName, String pwd, String phone, String email, int height, int width,
-			String gender, int age, String bodyshape)
-	{
-		this.userName = userName;
-		this.pwd = pwd;
-		this.phone = phone;
-		this.email = email;
-		this.height = height;
-		this.width = width;
+		this.weidth = weidth;
 		this.gender = gender;
 		this.age = age;
 		this.bodyshape = bodyshape;
 	}
 
-	public Member(int id, String userName, String pwd, String phone, String email, int height, int width,
-			String gender, int age, String bodyshape)
-	{
+	public Member(String userName, String pwd, String phone, String email, int height, int weidth, String gender,
+			int age, String bodyshape) {
+		this.userName = userName;
+		this.pwd = pwd;
+		this.phone = phone;
+		this.email = email;
+		this.height = height;
+		this.weidth = weidth;
+		this.gender = gender;
+		this.age = age;
+		this.bodyshape = bodyshape;
+	}
+
+	public Member(int id, String userName, String pwd, String phone, String email, int height, int weidth,
+			String gender, int age, String bodyshape) {
 		this.id = id;
 		this.userName = userName;
 		this.pwd = pwd;
 		this.phone = phone;
 		this.email = email;
 		this.height = height;
-		this.width = width;
+		this.weidth = weidth;
 		this.gender = gender;
 		this.age = age;
 		this.bodyshape = bodyshape;
 	}
 
-	public int getId()
-	{
+	public int getId() {
 		return id;
 	}
 
-	public void setId(int id)
-	{
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getUserName()
-	{
+	public String getUserName() {
 		return userName;
 	}
 
-	public void setUserName(String userName)
-	{
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	public String getPwd()
-	{
+	public String getPwd() {
 		return pwd;
 	}
 
-	public void setPwd(String pwd)
-	{
+	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
 
-	public String getPhone()
-	{
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(String phone)
-	{
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
-	public String getEmail()
-	{
+	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email)
-	{
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public int getHeight()
-	{
+	public int getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height)
-	{
+	public void setHeight(int height) {
 		this.height = height;
 	}
 
-	public int getWidth()
-	{
-		return width;
+	public int getWeidth() {
+		return weidth;
 	}
 
-	public void setwidth(int width)
-	{
-		this.width = width;
+	public void setWeidth(int weidth) {
+		this.weidth = weidth;
 	}
 
-	public String getGender()
-	{
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender)
-	{
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
-	public int getAge()
-	{
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(int age)
-	{
+	public void setAge(int age) {
 		this.age = age;
 	}
 
-	public String getBodyshape()
-	{
+	public String getBodyshape() {
 		return bodyshape;
 	}
 
-	public void setBodyshape(String bodyshape)
-	{
+	public void setBodyshape(String bodyshape) {
 		this.bodyshape = bodyshape;
 	}
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "Member [id=" + id + ", userName=" + userName + ", pwd=" + pwd + ", phone=" + phone + ", email=" + email
-				+ ", height=" + height + ", width=" + width + ", gender=" + gender + ", age=" + age + ", bodyshape="
+				+ ", height=" + height + ", weidth=" + weidth + ", gender=" + gender + ", age=" + age + ", bodyshape="
 				+ bodyshape + "]";
 	}
-	
-	
+
 }
