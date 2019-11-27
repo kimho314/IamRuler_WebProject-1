@@ -37,14 +37,20 @@ public class JdbcMemberDao implements MemberDao {
 				list.add(member);
 			}
 
-			rs.close();
-			pst.close();
-			con.close();
-
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+			}
 		}
 		return list;
 	}
@@ -56,28 +62,38 @@ public class JdbcMemberDao implements MemberDao {
 
 		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "RULER", "33333");
-			PreparedStatement pst = con.prepareStatement(sql);
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			pst = con.prepareStatement(sql);
 
 			pst.setString(1, id);
 
-			ResultSet rs = pst.executeQuery();
+			rs = pst.executeQuery();
 
 			if (rs.next()) {
 				member = new Member(rs.getInt("id"), rs.getString("userName"), rs.getString("pwd"),
 						rs.getString("phone"), rs.getString("email"), rs.getInt("height"), rs.getInt("weight"),
 						rs.getString("gender"), rs.getInt("age"), rs.getString("bodyshape"));
 			}
-			rs.close();
-			pst.close();
-			con.close();
-
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+			}
 		}
 
 		return member;
@@ -91,10 +107,13 @@ public class JdbcMemberDao implements MemberDao {
 		String sql = "INSERT INTO Member(ID, USER_NAME, PWD, PHONE, EMAIL, HEIGHT, WEIGHT, GENDER, AGE, BODYSHAPE) VALUES((SELECT NVL(MAX(ID),0)+1 FROM MEMBER),?,?,?,?,?,?,?,?,?)";
 		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
+		Connection con = null;
+		PreparedStatement pst = null;
+
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "ACORN", "newlec");
-			PreparedStatement pst = con.prepareStatement(sql);
+			con = DriverManager.getConnection(url, "ACORN", "newlec");
+			pst = con.prepareStatement(sql);
 
 			pst.setString(1, member.getUserName());
 			pst.setString(2, member.getPwd());
@@ -108,13 +127,18 @@ public class JdbcMemberDao implements MemberDao {
 
 			result = pst.executeUpdate();
 
-			pst.close();
-			con.close();
-
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+			}
 		}
 
 		return result;
@@ -122,7 +146,7 @@ public class JdbcMemberDao implements MemberDao {
 
 	@Override
 	public int update(Member member) {
-		// TODO 이건 지금 제 역할이 아닙니다
+		// TODO 회원정보수정
 		return 0;
 	}
 
@@ -133,21 +157,29 @@ public class JdbcMemberDao implements MemberDao {
 
 		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
+		Connection con = null;
+		PreparedStatement pst = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "RULER", "33333");
-			PreparedStatement pst = con.prepareStatement(sql);
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			pst = con.prepareStatement(sql);
 
 			pst.setInt(1, id);
 
 			result = pst.executeUpdate();
 
-			pst.close();
-			con.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+			}
 		}
 
 		return result;
