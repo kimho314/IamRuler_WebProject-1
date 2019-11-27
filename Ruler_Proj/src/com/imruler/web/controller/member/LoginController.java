@@ -24,7 +24,7 @@ public class LoginController extends HttpServlet {
 		String returnUrl = req.getParameter("returnUrl");
 
 		req.setAttribute("returnUrl", returnUrl);
-		req.getRequestDispatcher("/WEB-INF/view/sign/login").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/sign/login.jsp").forward(req, resp);
 	}
 
 	@Override

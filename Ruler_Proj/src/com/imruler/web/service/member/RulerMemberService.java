@@ -64,6 +64,7 @@ public class RulerMemberService implements MemberService {
 	@Override
 	public int insertMember(Member member) {
 		// TODO insertMember
+		System.out.println("인서트1");
 		return memberDao.insert(member);
 	}
 
