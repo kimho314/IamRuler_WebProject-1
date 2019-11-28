@@ -25,3 +25,8 @@ input#아이디,
 input#비밀번호 {
   padding: 0.5em 0 0.5em 0;
 }
+#로그인테이블 .로그인텍스트바 span.오류 {
+  font-size: 0.8em;
+  color: crimson;
+  display: block;
+}

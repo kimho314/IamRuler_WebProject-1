@@ -56,9 +56,9 @@ public class JdbcMemberDao implements MemberDao {
 	}
 
 	@Override
-	public Member get(String id) {
+	public Member get(String userName) {
 		Member member = null;
-		String sql = "SELECT ID , userName, pwd, phone, email, height, weight, gender, age, bodyshape  FROM Member WHERE ID=?";
+		String sql = "SELECT ID , USER_NAME, PWD, PHONE, EMAIL, HEIGHT, WEIGHT, GENDER, AGE, BODYSHAPE  FROM Member WHERE USER_NAME=?";
 
 		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
@@ -71,14 +71,14 @@ public class JdbcMemberDao implements MemberDao {
 			con = DriverManager.getConnection(url, "RULER", "33333");
 			pst = con.prepareStatement(sql);
 
-			pst.setString(1, id);
+			pst.setString(1, userName);                              
 
 			rs = pst.executeQuery();
 
 			if (rs.next()) {
-				member = new Member(rs.getInt("id"), rs.getString("userName"), rs.getString("pwd"),
-						rs.getString("phone"), rs.getString("email"), rs.getInt("height"), rs.getInt("weight"),
-						rs.getString("gender"), rs.getInt("age"), rs.getString("bodyshape"));
+				member = new Member(rs.getInt("ID"), rs.getString("USER_NAME"), rs.getString("PWD"),
+						rs.getString("PHONE"), rs.getString("EMAIL"), rs.getInt("HEIGHT"), rs.getInt("WEIGHT"),
+						rs.getString("GENDER"), rs.getInt("AGE"), rs.getString("BODYSHAPE"));
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

@@ -94,6 +94,9 @@ input[type="radio"] {
   text-align: right;
   border-top: 0;
 }
+.회원가입확인 {
+  text-align: right;
+}
 
 table.회원가입테이블 {
   margin: 0;

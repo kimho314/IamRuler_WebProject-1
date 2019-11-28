@@ -1,9 +1,11 @@
 package com.imruler.web.controller.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,12 +37,14 @@ public class LoginController extends HttpServlet {
 		String userId = req.getParameter("아이디");
 		String userPwd = req.getParameter("비밀번호");
 		String returnUrl = req.getParameter("returnUrl");
+		
 
 		boolean isVaild = memberService.isValidMember(userId, userPwd);
 
 		if (!isVaild) {
 			resp.sendRedirect("login?error=1");
 		} else {
+			cookie(req, resp, userId);
 			req.getSession().setAttribute("userName", userId);
 			System.out.println("로그인됬나?");
 			if (returnUrl != null && !returnUrl.equals("")) {
@@ -49,5 +53,11 @@ public class LoginController extends HttpServlet {
 				resp.sendRedirect("/index");
 			}
 		}
+	}
+	public void cookie(HttpServletRequest req, HttpServletResponse resp, String userId) throws IOException {
+		Cookie cookie = new Cookie("userName", userId);
+		cookie.setPath("/");
+		
+		resp.addCookie(cookie);
 	}
 }
