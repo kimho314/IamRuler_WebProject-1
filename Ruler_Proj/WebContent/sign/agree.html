@@ -35,17 +35,17 @@
               </li>
               <li>
                 <a href="sign-up.html" class="회원가입">
-                  <span class="헤더메뉴">회원가입</span>                  
+                  <span class="헤더메뉴">회원가입</span>
                 </a>
               </li>
             </ul>
           </header>
-
+          <!-- <input onmousewheel=""> -->
           <!-- 테이블 -->
           <div id="약관">
             <label>약관내용</label>
-            <div class="작은약관">
-              <span class="약관">
+            <div class="작은약관 약관내용스크롤">
+              <span id="약관내용" class="약관">
                 길고긴약관<br />
                 길고긴약관<br />
                 아무튼 길고긴약관<br />
@@ -59,7 +59,7 @@
               </span>
             </div>
             <br />
-            <label>푸터내용</label>
+            <label>주의사항</label>
             <div class="작은약관">
               <span class="약관">
                 I’M RULER 는 상품에 직접 관여하지 않으며 상품 주문, <br />배송
@@ -73,8 +73,8 @@
               <a href="../index.html"><label class="button">취소</label></a>
             </span>
             <span id="약관동의버튼">
-              <a href="sign-up.html#">
-                <label class="button special">동의</label>
+              <a>
+                <label class="button 버튼아님">동의</label>
               </a>
             </span>
           </section>
@@ -83,57 +83,63 @@
 
       <!-- Sidebar -->
       <div id="sidebar">
-          <div class="inner">
-            <!-- Menu -->
-            <nav id="menu">             
-              <h1 class="logo">
-                <a href="index.html"><img src="../images/logo.png" alt="아임룰러" /></a>
-              </h1>
-              <h2 class="hidden">메인 메뉴</h2>
-              <ul>
-                <li><a href="index.html">사이즈 비교</a></li>
-                <li><a href="coordi/coordi_list_main.html">체형 별 코디</a></li>
-                <li><a href="#.html">교환 게시판</a></li>
-                <li><a href="#.html">쇼핑몰 랭킹</a></li>
-              </ul>
-    
-              <!-- <h2 class="hidden">마이페이지 메뉴</h2>
+        <div class="inner">
+          <!-- Menu -->
+          <nav id="menu">
+            <h1 class="logo">
+              <a href="index.html"
+                ><img src="../images/logo.png" alt="아임룰러"
+              /></a>
+            </h1>
+            <h2 class="hidden">메인 메뉴</h2>
+            <ul>
+              <li><a href="index.html">사이즈 비교</a></li>
+              <li><a href="coordi/coordi_list_main.html">체형 별 코디</a></li>
+              <li><a href="#.html">교환 게시판</a></li>
+              <li><a href="#.html">쇼핑몰 랭킹</a></li>
+            </ul>
+
+            <!-- <h2 class="hidden">마이페이지 메뉴</h2>
                 <ul>
                   <li><a href="mypage/member-edit.html">회원정보 수정</a></li>
                   <li><a href="mypage/reg.html">회원 탈퇴</a></li>
                   <li><a href="mypage/#.html">내가 작성한 글</a></li>
                   <li><a href="mypage/#.html">찜 목록</a></li>
                 </ul> -->
-            </nav>
-    
-            <!-- Section -->
-            <section>
-              <header class="major">
-                <!-- <h2>Get in touch</h2> -->
-              </header>
-              <p>I’M RULER 는 상품에 직접 관여하지 않으며 상품 주문, 배송 및 환불의 의무와 책임은 각 판매업체에
-                있습니다.</p>
-              <ul class="contact">
-                <!-- <li class="fa-home"><a href="#">I'M RULER</a></li> -->
-                <li class="fa-phone">(02) 123-4567</li>
-                <li class="fa-envelope-o">admin@imruler.com</li>
-              </ul>
-            </section>
-    
-            <!-- Footer -->
-            <footer id="footer">
-              <p class="copyright">&copy; imruler.com 2019-2021 All Right
-                Reserved. Contact admin@imruler.com for more information.
-            </footer>
-    
-          </div>
+          </nav>
+
+          <!-- Section -->
+          <section>
+            <header class="major">
+              <!-- <h2>Get in touch</h2> -->
+            </header>
+            <p>
+              I’M RULER 는 상품에 직접 관여하지 않으며 상품 주문, 배송 및 환불의
+              의무와 책임은 각 판매업체에 있습니다.
+            </p>
+            <ul class="contact">
+              <!-- <li class="fa-home"><a href="#">I'M RULER</a></li> -->
+              <li class="fa-phone">(02) 123-4567</li>
+              <li class="fa-envelope-o">admin@imruler.com</li>
+            </ul>
+          </section>
+
+          <!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">
+              &copy; imruler.com 2019-2021 All Right Reserved. Contact
+              admin@imruler.com for more information.
+            </p>
+          </footer>
+        </div>
       </div>
     </div>
-      
+
     <!-- Scripts -->
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/skel.min.js"></script>
     <script src="../assets/js/util.js"></script>
+    <script src="../js/sign/agree.js"></script>
     <!--[if lte IE 8]>
       <script src="assets/js/ie/respond.min.js"></script>
     <![endif]-->

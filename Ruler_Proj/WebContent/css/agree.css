@@ -24,3 +24,7 @@ div.작은약관 {
   border-style: solid;
   border-color: gray;
 }
+
+#약관동의버튼 .버튼아님:hover {
+  cursor: default;
+}
