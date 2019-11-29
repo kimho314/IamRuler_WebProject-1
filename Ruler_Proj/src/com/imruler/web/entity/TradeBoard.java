@@ -10,6 +10,8 @@ public class TradeBoard {
     private int hit;
     private Date regdate;
     private String user_id;
+    private String type;
+    
     
     public TradeBoard() {
 		
@@ -33,6 +35,17 @@ public class TradeBoard {
 		this.regdate = regdate;
 		this.user_id = user_id;
 	}
+	
+	
+
+	public TradeBoard(int id, String title, Date regdate, String user_id, int hit, String type) {
+	this.id = id;
+	this.title = title;
+	this.regdate = regdate;
+	this.user_id = user_id;
+	this.hit = hit;
+	this.type = type;
+}
 
 	public int getId() {
 		return id;
@@ -89,17 +102,20 @@ public class TradeBoard {
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	@Override
 	public String toString() {
-		return "Board [id=" + id + ", title=" + title + ", content=" + content + ", tag=" + tag + ", hit=" + hit
-				+ ", regdate=" + regdate + ", user_id=" + user_id + "]";
+		return "TradeBoard [id=" + id + ", title=" + title + ", content=" + content + ", tag=" + tag + ", hit=" + hit
+				+ ", regdate=" + regdate + ", user_id=" + user_id + ", type=" + type + "]";
 	}
-	
-	
-	
-    
-    
-    
+
 
 }

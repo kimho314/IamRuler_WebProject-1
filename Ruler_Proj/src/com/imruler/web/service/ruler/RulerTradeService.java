@@ -46,6 +46,11 @@ public class RulerTradeService implements TradeService, TradeViewService, TradeC
 	public TradeView getTrade(int id) {
 		return tradeViewDao.get(id);
 	}
+	
+	@Override
+	public List<TradeView> getComment(int id) {
+		return tradeViewDao.getComment(id);
+	}
 
 	@Override
 	public TradeBoard getPrevTrade(int id) {
@@ -78,10 +83,10 @@ public class RulerTradeService implements TradeService, TradeViewService, TradeC
 		return tradeBoardDao.getListCount(field, query);
 	}
 
-	@Override
-	public TradeView getComment(int id) {
-		return tradeViewDao.get(id);
-	}
+//	@Override
+//	public List<TradeView> getComment(int id) {
+//		return tradeViewDao.get(id);
+//	}
 
 	@Override
 	public int insertTradeComment(TradeComment tradeComment) {
@@ -99,7 +104,7 @@ public class RulerTradeService implements TradeService, TradeViewService, TradeC
 	}
 
 	
-	
+
 	
 
 }

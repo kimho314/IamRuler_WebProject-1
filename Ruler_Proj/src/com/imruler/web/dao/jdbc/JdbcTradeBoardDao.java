@@ -124,9 +124,6 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 			}catch(SQLException e) {}
 		}
 		
-		
-		
-
 		return result;
 	}
 	

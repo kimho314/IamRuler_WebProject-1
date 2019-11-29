@@ -8,6 +8,30 @@ public class TradeComment {
 	private int cUserId;
 	private Date cRegdate;
 	private int cBId;
+	private int cOpenStatus;
+	private String type;
+	
+	public TradeComment() {
+	}
+	
+	public TradeComment(int cId, String cContent, int cUserId, Date cRegdate, int cBId, int cOpenStatus, String type) {
+		this.cId = cId;
+		this.cContent = cContent;
+		this.cUserId = cUserId;
+		this.cRegdate = cRegdate;
+		this.cBId = cBId;
+		this.cOpenStatus = cOpenStatus;
+		this.type = type;
+	}
+
+	public TradeComment(int cId, String cContent, int cUserId, Date cRegdate, int cBId, int cOpenStatus) {
+		this.cId = cId;
+		this.cContent = cContent;
+		this.cUserId = cUserId;
+		this.cRegdate = cRegdate;
+		this.cBId = cBId;
+		this.cOpenStatus = cOpenStatus;
+	}
 
 	public TradeComment(int cId, String cContent, int cUserId, Date cRegdate, int cBId) {
 		this.cId = cId;
@@ -15,6 +39,23 @@ public class TradeComment {
 		this.cUserId = cUserId;
 		this.cRegdate = cRegdate;
 		this.cBId = cBId;
+	}
+
+	
+	
+	public TradeComment(String cContent, int cUserId, int cBId, int cOpenStatus) {
+		this.cContent = cContent;
+		this.cUserId = cUserId;
+		this.cBId = cBId;
+		this.cOpenStatus = cOpenStatus;
+	}
+
+	public TradeComment(int cId, String cContent, int cUserId, int cBId, int cOpenStatus) {
+		this.cId = cId;
+		this.cContent = cContent;
+		this.cUserId = cUserId;
+		this.cBId = cBId;
+		this.cOpenStatus = cOpenStatus;
 	}
 
 	public TradeComment(int cId, String cContent, int cUserId, int cBId) {
@@ -64,10 +105,30 @@ public class TradeComment {
 		this.cBId = cBId;
 	}
 
+	public int getcOpenStatus() {
+		return cOpenStatus;
+	}
+
+	public void setcOpenStatus(int cOpenStatus) {
+		this.cOpenStatus = cOpenStatus;
+	}
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	@Override
 	public String toString() {
 		return "TradeComment [cId=" + cId + ", cContent=" + cContent + ", cUserId=" + cUserId + ", cRegdate=" + cRegdate
-				+ ", cBId=" + cBId + "]";
+				+ ", cBId=" + cBId + ", cOpenStatus=" + cOpenStatus + ", type=" + type + "]";
 	}
+
+	
+
+	
 
 }

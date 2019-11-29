@@ -31,6 +31,29 @@ public class TradeListController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String area = "";
+		String body = "";
+		String clothes = "";
+		String searchText = "";
+		
+		String area_ = request.getParameter("area");
+		if(area_!=null && !area_.equals(""))
+			area=area_;
+		String body_ = request.getParameter("body");
+		if(body_!=null && !body_.equals(""))
+			body=body_;
+		String clothes_ = request.getParameter("clothes");
+		if(clothes_!=null && !area_.equals(""))
+			clothes=clothes_;
+		String searchText_ = request.getParameter("q");
+		if(searchText_!=null && !searchText_.equals(""))
+			searchText=searchText_;
+		//System.out.println(area+body+clothes+searchText);
+		
+		
+		
+		
+		
 	}
 	
 

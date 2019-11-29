@@ -52,9 +52,6 @@ public class JdbcTradeItemDao implements TradeItemDao{
 //	}
 	@Override
 	public int insert(TradeItem tradeItem) {
-			
-			int cnt1 = 0;
-			int cnt2 = 0;
 			int result = 0;
 			 
 			String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
@@ -67,7 +64,7 @@ public class JdbcTradeItemDao implements TradeItemDao{
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				con = DriverManager.getConnection(url, "RULER", "33333");
 				st = con.prepareStatement(sql);
-				st.setInt(1, result);
+				st.setInt(1, tradeItem.getItemId());
 				st.setString(2, tradeItem.getBodyShape());
 				st.setString(3, tradeItem.getCategory());
 				st.setString(4, tradeItem.getRegion());

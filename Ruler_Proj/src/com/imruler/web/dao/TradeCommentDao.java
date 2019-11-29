@@ -1,10 +1,10 @@
 package com.imruler.web.dao;
 
 import com.imruler.web.entity.TradeComment;
-import com.imruler.web.entity.TradeView;
 
 public interface TradeCommentDao {
-	TradeView getComment(int id);
+	//List<TradeView> getComment(int id);
+	//List<TradeComment> getComment(int id);
 	
 	int insertTradeComment(TradeComment tradeComment);
 	//int updateTradeComment(TradeComment tradeComment);

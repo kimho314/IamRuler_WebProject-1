@@ -21,6 +21,7 @@ public class TradeView {
 	private String cContent;
 	private int cUserId;
 	private Date cRegdate;
+	private int cOpenStatus;
 	private int mId;
 	private String mUserName;
 	private String mPwd;
@@ -38,8 +39,10 @@ public class TradeView {
 	
 	public TradeView(int bId, String bTitle, String bContent, String bTag, int bHit, Date bRegdate, int bUserId,
 			int itemId, String itemBodyshape, String itemCategory, String itemRegion, int imgId, int imgBoardId,
-			String img, int cId, String cContent, int cUserId, Date cRegdate, int mId, String mUserName, String mPwd,
-			String mPhone, String mEmail, int mHeight, int mWeight, String mGender, int mAge, String mBodyshape) {
+			String img, int cId, String cContent, int cUserId, Date cRegdate, int cOpenStatus, int mId,
+			String mUserName, String mPwd, String mPhone, String mEmail, int mHeight, int mWeight, String mGender,
+			int mAge, String mBodyshape) {
+		super();
 		this.bId = bId;
 		this.bTitle = bTitle;
 		this.bContent = bContent;
@@ -58,6 +61,7 @@ public class TradeView {
 		this.cContent = cContent;
 		this.cUserId = cUserId;
 		this.cRegdate = cRegdate;
+		this.cOpenStatus = cOpenStatus;
 		this.mId = mId;
 		this.mUserName = mUserName;
 		this.mPwd = mPwd;
@@ -70,12 +74,15 @@ public class TradeView {
 		this.mBodyshape = mBodyshape;
 	}
 
-	public TradeView(int bId, int cId, String cContent, int cUserId, Date cRegdate, int mId, String mUserName) {
+
+
+	public TradeView(int bId, int cId, String cContent, int cUserId, Date cRegdate, int cOpenStatus, int mId, String mUserName) {
 		this.bId = bId;
 		this.cId = cId;
 		this.cContent = cContent;
 		this.cUserId = cUserId;
 		this.cRegdate = cRegdate;
+		this.cOpenStatus = cOpenStatus;
 		this.mId = mId;
 		this.mUserName = mUserName;
 	}
@@ -193,6 +200,14 @@ public class TradeView {
 		this.cRegdate = cRegdate;
 	}
 
+	public int getcOpenStatus() {
+		return cOpenStatus;
+	}
+
+	public void setcOpenStatus(int cOpenStatus) {
+		this.cOpenStatus = cOpenStatus;
+	}
+
 	public int getmId() {
 		return mId;
 	}
@@ -260,8 +275,9 @@ public class TradeView {
 				+ bHit + ", bRegdate=" + bRegdate + ", bUserId=" + bUserId + ", itemId=" + itemId + ", itemBodyshape="
 				+ itemBodyshape + ", itemCategory=" + itemCategory + ", itemRegion=" + itemRegion + ", imgId=" + imgId
 				+ ", imgBoardId=" + imgBoardId + ", img=" + img + ", cId=" + cId + ", cContent=" + cContent
-				+ ", cUserId=" + cUserId + ", cRegdate=" + cRegdate + ", mId=" + mId + ", mUserName=" + mUserName
-				+ ", mPwd=" + mPwd + ", mPhone=" + mPhone + ", mEmail=" + mEmail + ", mHeight=" + mHeight + ", mWeight="
-				+ mWeight + ", mGender=" + mGender + ", mAge=" + mAge + ", mBodyshape=" + mBodyshape + "]";
+				+ ", cUserId=" + cUserId + ", cRegdate=" + cRegdate + ", cOpenStatus=" + cOpenStatus + ", mId=" + mId
+				+ ", mUserName=" + mUserName + ", mPwd=" + mPwd + ", mPhone=" + mPhone + ", mEmail=" + mEmail
+				+ ", mHeight=" + mHeight + ", mWeight=" + mWeight + ", mGender=" + mGender + ", mAge=" + mAge
+				+ ", mBodyshape=" + mBodyshape + "]";
 	}
 }

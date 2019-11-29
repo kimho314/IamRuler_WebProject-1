@@ -12,7 +12,6 @@ public class TradeItem {
 
 	// for inserting
 	public TradeItem(String bodyShape, String category, String region) {
-		super();
 		this.bodyShape = bodyShape;
 		this.category = category;
 		this.region = region;
@@ -20,7 +19,6 @@ public class TradeItem {
 	
 	// for selecting
 	public TradeItem(int itemId, String bodyShape, String category, String region) {
-		super();
 		this.itemId = itemId;
 		this.bodyShape = bodyShape;
 		this.category = category;
