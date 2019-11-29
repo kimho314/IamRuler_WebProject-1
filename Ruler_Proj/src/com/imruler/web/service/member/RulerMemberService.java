@@ -82,4 +82,10 @@ public class RulerMemberService implements MemberService {
 		// TODO getNoticeList
 		return memberDao.getList();
 	}
+
+	@Override
+	public Member get(String userName) {
+		// TODO Auto-generated method stub
+		return memberDao.get(userName);
+	}
 }
