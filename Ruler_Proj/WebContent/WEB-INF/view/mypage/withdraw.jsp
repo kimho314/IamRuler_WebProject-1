@@ -36,7 +36,7 @@
 											탈퇴 하시겠습니까?<br>
 											진행하시려면 비밀번호를 한번 더 입력해 주세요.
 						            	</h1>
-						            	<input type="password" />
+						            	<input type="password" name="password" />
 						            	<div class="btn_area">
 						            		<a href="javascript:history.back();" class="button">취소</a> <input type="submit" value="확인" class="button special">						            		
 						            	</div> 						            
