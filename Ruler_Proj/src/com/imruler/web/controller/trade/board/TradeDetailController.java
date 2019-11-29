@@ -63,6 +63,10 @@ public class TradeDetailController extends HttpServlet{
 		int cOpenStatus = 1;
 		String cOpenStatusString = "";
 		System.out.println("CMD"+cmd);
+		int bId=1;
+		String bId_ = request.getParameter("bId");
+		if(bId_!=null && !bId_.equals(""))
+			bId=Integer.parseInt(bId_);
 		
 		switch(cmd) {
 		case "등록":
@@ -75,7 +79,7 @@ public class TradeDetailController extends HttpServlet{
 			String cUserId_ = request.getParameter("cUserId");
 			if(cUserId_!=null && !cUserId_.equals(""))
 				cUserId = Integer.parseInt(cUserId_);
-			String cBId_ = request.getParameter("cBId");
+			String cBId_ = request.getParameter("bId");
 			if(cBId_!=null && !cBId_.equals(""))
 				cBId=Integer.parseInt(cBId_);
 			String cOpenStatus_ = request.getParameter("cOpenStatus");
@@ -86,8 +90,6 @@ public class TradeDetailController extends HttpServlet{
 			} else {
 				cOpenStatus = 0;
 			}
-				
-			
 			int result = tradeCommentService.insertTradeComment(new TradeComment(cContent, cUserId, cBId, cOpenStatus));
 			System.out.println("cId:"+cId+"cBId:"+cBId+"cContent:"+cContent+"cUserId:"+cUserId+"openStatus"+cOpenStatus);
 			System.out.println("result"+result);
@@ -105,7 +107,7 @@ public class TradeDetailController extends HttpServlet{
 			System.out.println("cId:"+cId+"삭제됐니"+del);
 			break;
 		}
-		response.sendRedirect("/trade/detail?id="+cBId);
+		response.sendRedirect("/trade/detail?id="+bId);
 		
 		
 		

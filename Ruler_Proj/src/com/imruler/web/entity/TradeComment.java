@@ -14,6 +14,7 @@ public class TradeComment {
 	public TradeComment() {
 	}
 	
+	// 찜목록용 생성자 
 	public TradeComment(int cId, String cContent, int cUserId, Date cRegdate, int cBId, int cOpenStatus, String type) {
 		this.cId = cId;
 		this.cContent = cContent;

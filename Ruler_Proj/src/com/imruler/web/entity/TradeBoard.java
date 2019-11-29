@@ -37,7 +37,7 @@ public class TradeBoard {
 	}
 	
 	
-
+	// 찜목록용 생성자
 	public TradeBoard(int id, String title, Date regdate, String user_id, int hit, String type) {
 	this.id = id;
 	this.title = title;
