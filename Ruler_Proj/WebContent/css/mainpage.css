@@ -1,4 +1,8 @@
-@import url(../assets/css/main.css); /* ÅÛÇÃ¸´ ½ºÅ¸ÀÏ */
+@import url(../assets/css/main.css); /* ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ */
+#banner{padding-top:8em}
+#banner h1{margin-bottom:1.5em}
+#banner header p{margin-bottom:4em}
+.posts{margin-bottom:0}
 div.posts {
 	margin-right: auto;
 	position: relative;
@@ -104,7 +108,7 @@ div.maingender label {
 }
 
 #banner .main-img {
-	width: 50%;
+	width: 75%;
 	position: relative;
 	overflow: visible;
 }
@@ -131,8 +135,12 @@ div.maingender label {
 	padding-right: 20%;
 }
 #genderM, #pants, #outer, #skirt, #onepiece{
-	display: none; /*ÀÇ·ù¼±ÅÃ*/
+	display: none; /*ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½*/
 }
 .actions{
 	scroll-behavior: smooth;
 }
+
+body{overflow:hidden}
+.wrapBox .innerWrapBox{position:relative;overflow-y:auto}
+.topBtn{position:fixed;display:block;bottom:2em;right:2em;padding:.3em;border-radius:50%;background:rgba(0,0,0,.6);color:#fff)}
