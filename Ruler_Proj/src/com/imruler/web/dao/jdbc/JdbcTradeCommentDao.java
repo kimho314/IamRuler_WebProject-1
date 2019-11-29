@@ -142,6 +142,20 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 		return result;
 	}
 
+	@Override
+	public List<TradeComment> getCommentListByUserId(int userId)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TradeComment> getCommentListByUserId(int userId, int page)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 //	@Override
 //	public int updateTradeComment(TradeComment tradeComment) {
 //			Connection con = null;

@@ -32,7 +32,7 @@ public class TradeView {
 	private String mGender;
 	private int mAge;
 	private String mBodyshape;
-	private String type;
+
 	
 	public TradeView() {
 
@@ -42,7 +42,7 @@ public class TradeView {
 			int itemId, String itemBodyshape, String itemCategory, String itemRegion, int imgId, int imgBoardId,
 			String img, int cId, String cContent, int cUserId, Date cRegdate, int cOpenStatus, int mId,
 			String mUserName, String mPwd, String mPhone, String mEmail, int mHeight, int mWeight, String mGender,
-			int mAge, String mBodyshape, String type) {
+			int mAge, String mBodyshape) {
 		this.bId = bId;
 		this.bTitle = bTitle;
 		this.bContent = bContent;
@@ -72,11 +72,7 @@ public class TradeView {
 		this.mGender = mGender;
 		this.mAge = mAge;
 		this.mBodyshape = mBodyshape;
-		this.type = type;
 	}
-
-
-
 
 
 	public TradeView(int bId, int cId, String cContent, int cUserId, Date cRegdate, int cOpenStatus, int mId, String mUserName) {
@@ -270,16 +266,8 @@ public class TradeView {
 	}
 	public void setmBodyshape(String mBodyshape) {
 		this.mBodyshape = mBodyshape;
-	}
+	}	
 	
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	@Override
 	public String toString() {
 		return "TradeView [bId=" + bId + ", bTitle=" + bTitle + ", bContent=" + bContent + ", bTag=" + bTag + ", bHit="

@@ -355,6 +355,13 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 		
 		return count;
 	}
+
+	@Override
+	public List<TradeBoard> getListByUserId(int userId, int page)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 
