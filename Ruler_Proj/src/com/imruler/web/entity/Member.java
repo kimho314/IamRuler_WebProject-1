@@ -17,13 +17,11 @@ public class Member {
 	}
 
 	public Member(int id, String userName) {
-		super();
 		this.id = id;
 		this.userName = userName;
 	}
 
 	public Member(int id, int height, int weidth, String gender, int age, String bodyshape) {
-		super();
 		this.id = id;
 		this.height = height;
 		this.weight = weidth;

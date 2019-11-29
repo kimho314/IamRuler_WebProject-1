@@ -9,6 +9,7 @@ public interface DibsDao {
 	List<DibsView> getListById(int id); // 사용자아이디로 찜목록 1페이지 조회 
 	List<DibsView> getListById(int id,int page); // 사용자아이디로 찜목록 페이지별 조회 
 	
+	
 	int insert(Dibs dibs); // 찜 추가
 	int update(Dibs dibs); // 메모 수정
 	int delete(int id,int board_id);	// 찜 삭제

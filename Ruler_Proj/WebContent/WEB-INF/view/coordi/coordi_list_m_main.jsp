@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+    
 <!DOCTYPE HTML>
 <html>
 
@@ -64,7 +64,7 @@
 						<div class="coordi-list-table-wrapper">							
 							<table class="coordi-list-table">
 								
-								<tr class="coordi-newpost-tr-wrapper">
+								<tr class="coordi-list-tr-wrapper">
 									<td>
 										<li>
 											<a href="coordi_post.html"><img src="../images/main_ico1.png" alt="coordi-img">
@@ -72,7 +72,7 @@
 											</a>
 										</li>
 										<li>
-																					
+											<a href="#" class="button small"><i class="far fa-star"></i></a>									
 										</li>
 									</td>
 									<td>
@@ -81,7 +81,9 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li></li>
+										<li>
+											<a href="#" class="button small"><i class="far fa-star"></i></a>
+										</li>
 									</td>
 									<td>
 										<li>
@@ -89,7 +91,9 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li></li>
+										<li>
+											<a href="#" class="button small"><i class="far fa-star"></i></a>
+										</li>
 									</td>
 									<td>
 										<li>
@@ -97,7 +101,9 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li></li>
+										<li>
+											<a href="#" class="button small"><i class="far fa-star"></i></a>
+										</li>
 									</td>
 									<td>
 										<li>
@@ -105,18 +111,22 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li></li>
+										<li>
+											<a href="#" class="button small"><i class="far fa-star"></i></a>
+										</li>
 									</td>
 								</tr>
 
-								<tr class="coordi-newpost-tr-wrapper">
+								<tr class="coordi-list-tr-wrapper">
 									<td>
 										<li>
 											<a href="coordi_post.html"><img src="../images/main_ico1.png" alt="coordi-img">
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li></li>
+										<li>
+											<a href="#" class="button small"><i class="far fa-star"></i></a>
+										</li>
 									</td>
 									<td>
 										<li>
@@ -124,7 +134,9 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li></li>
+										<li>
+											<a href="#" class="button small"><i class="far fa-star"></i></a>
+										</li>
 									</td>
 									<td>
 										<li>
@@ -132,7 +144,9 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li></li>
+										<li>
+											<a href="#" class="button small"><i class="far fa-star"></i></a>
+										</li>
 									</td>
 									<td>
 										<li>
@@ -140,7 +154,9 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li></li>
+										<li>
+											<a href="#" class="button small"><i class="far fa-star"></i></a>
+										</li>
 									</td>
 									<td>
 										<li>
@@ -148,7 +164,9 @@
 												<p>작은 역삼각</p>
 											</a>
 										</li>
-										<li></li>
+										<li>
+											<a href="#" class="button small"><i class="far fa-star"></i></a>
+										</li>
 									</td>
 								</tr>
 							</table>

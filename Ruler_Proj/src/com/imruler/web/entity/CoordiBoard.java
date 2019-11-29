@@ -10,12 +10,12 @@ public class CoordiBoard
 	private Date regdate;
 	private int dibs;
 	private int userId;
-
 	
 	
 	public CoordiBoard()
 	{	}
-
+	
+	// for selecting
 	public CoordiBoard(int id, int noticeStatus, int hit, Date regdate, int dibs, int userId)
 	{
 		this.id = id;
@@ -23,6 +23,13 @@ public class CoordiBoard
 		this.hit = hit;
 		this.regdate = regdate;
 		this.dibs = dibs;
+		this.userId = userId;
+	}
+	
+	
+	// for inserting
+	public CoordiBoard(int userId)
+	{
 		this.userId = userId;
 	}
 
