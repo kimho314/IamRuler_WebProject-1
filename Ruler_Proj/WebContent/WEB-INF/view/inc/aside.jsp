@@ -5,6 +5,7 @@
 
 	<c:set var="orgUrl" value="${requestScope['javax.servlet.forward.servlet_path']}" />
 	<c:set var="pathUrl" value="${fn:split(orgUrl,\"/\")[0]}" />
+	
 	<!-- Sidebar -->
 	<div id="sidebar">
 		<div class="inner">
@@ -14,7 +15,7 @@
 					<h2 class="hidden">메인 메뉴</h2>
 					<ul>
 						<li class="<c:if test="${pathUrl == 'index'}">on</c:if>"><a href="/">사이즈비교</a></li>
-						<li class="<c:if test="${pathUrl == 'coordi'}">on</c:if>"><a href="/coordi">체형별코디</a></li>
+						<li class="<c:if test="${pathUrl == 'coordi'}">on</c:if>"><a href="/coordi/list_w">체형별코디</a></li>
 						<li class="<c:if test="${pathUrl == 'trade'}">on</c:if>"><a href="/trade">교환게시판</a></li>
 						<li class="<c:if test="${pathUrl == 'rank'}">on</c:if>"><a href="/rank">쇼핑몰랭킹</a></li>										
 					</ul>

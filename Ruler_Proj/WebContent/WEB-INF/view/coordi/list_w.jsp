@@ -36,10 +36,7 @@
 				<!-- Header -->
 				<header id="header">
 					<h1>체형별 코디 게시판</h1>
-					<ul class="icons">
-						<li><a href="sign/login.html">로그인</a></li>
-						<li><a href="sign/sign-up.html">회원가입</a></li>
-					</ul>
+					<jsp:include page="../inc/nav.jsp" />
 				</header>
 
 				<!-- Banner 여자 -->
@@ -52,7 +49,9 @@
 									<a href="list_m?p=1" class="button small">남성</a>
 								</div>
 								<div class="visual-top-right">
+									<c:if test="${not empty userName }">
 									<a href="reg_post?g=${param.g}" class="button special small">글쓰기</a>
+									</c:if>
 								</div>
 							</div>
 
@@ -112,7 +111,7 @@
 											<td>
 												<li>
 													
-													<a href="post?id=${n.cb_id }"><img
+													<a href="post?cb_id=${n.cb_id }"><img
 														src="../images/main_ico1.png" alt="coordi-img">
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
@@ -133,7 +132,7 @@
 											<td>
 												<li>
 													
-													<a href="post?id=${n.cb_id }"><img
+													<a href="post?cb_id=${n.cb_id }"><img
 														src="../images/main_ico1.png" alt="coordi-img">
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
@@ -161,7 +160,7 @@
 											<td>
 												<li>
 													
-													<a href="post?id=${n.cb_id }"><img
+													<a href="post?cb_id=${n.cb_id }"><img
 														src="../images/main_ico1.png" alt="coordi-img">
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
@@ -182,7 +181,7 @@
 											<td>
 												<li>
 													
-													<a href="post?id=${n.cb_id }"><img
+													<a href="post?cb_id=${n.cb_id }"><img
 														src="../images/main_ico1.png" alt="coordi-img">
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
@@ -253,52 +252,7 @@
 		</div>
 
 		<!-- Sidebar -->
-		<div id="sidebar">
-			<div class="inner">
-				<!-- Menu -->
-				<nav id="menu">
-					<h1 class="logo">
-						<a href="index.html"><img src="../images/logo.png" alt="아임룰러" /></a>
-					</h1>
-					<h2 class="hidden">메인 메뉴</h2>
-					<ul>
-						<li><a href="index.html">사이즈 비교</a></li>
-						<li><a href="list_w">체형 별 코디</a></li>
-						<li><a href="#.html">교환 게시판</a></li>
-						<li><a href="#.html">쇼핑몰 랭킹</a></li>
-					</ul>
-
-					<!-- <h2 class="hidden">마이페이지 메뉴</h2>
-							<ul>
-								<li><a href="mypage/member-edit.html">회원정보 수정</a></li>
-								<li><a href="mypage/reg.html">회원 탈퇴</a></li>
-								<li><a href="mypage/#.html">내가 작성한 글</a></li>
-								<li><a href="mypage/#.html">찜 목록</a></li>
-							</ul> -->
-				</nav>
-
-				<!-- Section -->
-				<section>
-					<header class="major">
-						<!-- <h2>Get in touch</h2> -->
-					</header>
-					<p>I’M RULER 는 상품에 직접 관여하지 않으며 상품 주문, 배송 및 환불의 의무와 책임은 각 판매업체에
-						있습니다.</p>
-					<ul class="contact">
-						<!-- <li class="fa-home"><a href="#">I'M RULER</a></li> -->
-						<li class="fa-phone">(02) 123-4567</li>
-						<li class="fa-envelope-o">admin@imruler.com</li>
-					</ul>
-				</section>
-
-				<!-- Footer -->
-				<footer id="footer">
-					<p class="copyright">&copy; imruler.com 2019-2021 All Right
-						Reserved. Contact admin@imruler.com for more information.
-				</footer>
-
-			</div>
-		</div>
+		<jsp:include page="../inc/aside.jsp" />	
 
 	</div>
 

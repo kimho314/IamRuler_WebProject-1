@@ -47,6 +47,7 @@ public class CoordiPostController extends HttpServlet
 		
 		int cb_id = 0;
 		String _cb_id = req.getParameter("cb_id");
+	
 		if(_cb_id != null && !_cb_id.equals(""))
 		{
 			cb_id = Integer.parseInt(_cb_id);
@@ -61,11 +62,11 @@ public class CoordiPostController extends HttpServlet
 				
 		switch(opt)
 		{
-		case 1:
+		case 1: // post detail revise sequence
 			resp.sendRedirect("reg_post?cb_id=" + cb_id);
 			break;
 			
-		case 2:			
+		case 2:	// post detail delete sequence		
 			coordiBoardService.delete(cb_id);
 			coordiBoardCommentService.deleteByCoodiBoardId(cb_id);
 			coordiImgService.deleteByCoordiBoardId(cb_id);
@@ -74,7 +75,7 @@ public class CoordiPostController extends HttpServlet
 		default:
 			CoordiPostDetailView postDetail = coordiPostDetailService.getCoordiPostDetailById(cb_id);
 			req.setAttribute("pdetail", postDetail);
-			req.getRequestDispatcher("post.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/view/coordi/post.jsp").forward(req, resp);
 			break;
 		}
 		

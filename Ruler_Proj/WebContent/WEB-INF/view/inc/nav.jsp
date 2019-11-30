@@ -1,14 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <nav>
 	<ul class="icons">
 		<!-- 로그인 -->
-		<!-- <li><a href="/login">로그인</a></li>
+		<c:if test="${empty userName }">
+		<li><a href="/sign/login">로그인</a></li>
 		<li>&#124;</li>
-		<li><a href="/signup">회원가입</a></li> -->
+		<li><a href="/sign/sign-up">회원가입</a></li>
+		</c:if>
 		<!-- 로그아웃 -->
-		<li><a href="/logout">로그아웃</span></a></li>
+		<c:if test="${not empty userName }">
+		<li><a href="/sign/logout">로그아웃</a></li>
 		<li>&#124;</li>
-		<li><a href="/mypage/index">마이페이지</a></li> 
+		<li><a href="/mypage/index">마이페이지</a></li>
+		</c:if> 
 	</ul>
 </nav>

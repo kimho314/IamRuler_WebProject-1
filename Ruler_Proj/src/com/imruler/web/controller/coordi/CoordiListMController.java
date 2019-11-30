@@ -48,7 +48,7 @@ public class CoordiListMController extends HttpServlet
 			
 		req.setAttribute("list", coordiBoardService.getList(page, gender, bodyshape));
 		req.setAttribute("listCount", coordiBoardService.getListCount(gender, bodyshape));
-		req.getRequestDispatcher("list_m.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/coordi/list_m.jsp").forward(req, resp);
 	}
 	
 	@Override

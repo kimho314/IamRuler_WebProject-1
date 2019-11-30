@@ -88,16 +88,15 @@ public class CoordiRegPostController extends HttpServlet
 		}
 		
 		req.setAttribute("g", gender);
-		req.getRequestDispatcher("reg_post.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/coordi/reg_post.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
 		// TODO doPost
-		resp.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/html; charset=UTF-8");
 		
+		// get neccesary datas from reg_post.jsp
 		String cct_title = "";
 		String _cct_title = req.getParameter("coordi-post-table-title");
 		if(_cct_title != null && !_cct_title.equals(""))
@@ -105,26 +104,20 @@ public class CoordiRegPostController extends HttpServlet
 			cct_title = _cct_title;
 		}
 		
-		String m_userName = "";
-		String _m_userName = req.getParameter("coordi-post-table-writerId");
-		if(_m_userName != null && !_m_userName.equals(""))
-		{
-			m_userName = _m_userName;
-		}
 		
-		Date cb_regdate = null;
-		String _cb_regdate = req.getParameter("coordi-post-table-regdate");
-		if(_cb_regdate != null && !_cb_regdate.equals(""))
-		{
-			try
-			{
-				cb_regdate = new SimpleDateFormat("YYYY-MM-DD").parse(_cb_regdate);
-			}
-			catch (ParseException e)
-			{
-				e.printStackTrace();
-			}
-		}
+//		Date cb_regdate = null;
+//		String _cb_regdate = req.getParameter("coordi-post-table-regdate");
+//		if(_cb_regdate != null && !_cb_regdate.equals(""))
+//		{
+//			try
+//			{
+//				cb_regdate = new SimpleDateFormat("YYYY-MM-DD").parse(_cb_regdate);
+//			}
+//			catch (ParseException e)
+//			{
+//				e.printStackTrace();
+//			}
+//		}
 		
 		String co_bodyshape = "";
 		String _co_bodyshape = req.getParameter("bodyshape-category");
@@ -146,11 +139,8 @@ public class CoordiRegPostController extends HttpServlet
 		{
 			gender = _gender;
 		}
+				
 		
-		System.out.println(cct_title + ", " + m_userName + ", " + co_bodyshape + ", "
-				+ cct_content + ", " + cct_content + ", " + cb_regdate + ", " + gender);
-		
-		int result = 0;
 		Collection<Part> parts = req.getParts();
 		String fileNames = "";
 		String urlPath = File.separator + "ruler_storage";
@@ -198,8 +188,12 @@ public class CoordiRegPostController extends HttpServlet
 		System.out.println(fileNames);
 		
 		// implements inserting
-		int m_id = 1; // 
+		int m_id = 1; 
 		
+		String userName = (String)req.getSession().getAttribute("userName");
+		m_id = memberService.get(userName).getId();
+		
+		int result = 0;
 		coordiBoardService.insert(new CoordiBoard(m_id));
 		int cb_maxId = coordiBoardService.getMaxId();		
 		coordiContentService.insert(new CoordiContent(cb_maxId, cct_title, cct_content, ""));		

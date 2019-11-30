@@ -69,7 +69,7 @@ public class CoordiCommentController extends HttpServlet
 		
 		req.setAttribute("opt", opt);
 		req.setAttribute("cmtList", coordiCommentService.getList(cb_id));
-		req.getRequestDispatcher("comment.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/coordi/comment.jsp").forward(req, resp);
 	}
 	
 	@Override
