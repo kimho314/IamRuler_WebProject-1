@@ -41,6 +41,11 @@ div.visual-wrapper div.visual-bottom div a {
     width:100%;
 }
 
+div.coordi-list-table-wrapper > table{
+    width:100%;
+    table-layout: fixed;
+}
+
 
 div.coordi-list-table-wrapper table.coordi-list-table td {
     border:1px solid silver;

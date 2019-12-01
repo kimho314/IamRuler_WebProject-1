@@ -91,6 +91,12 @@
 
 						<div class="coordi-list-table-wrapper">
 							<table class="coordi-list-table">
+								<colgroup width="20%"></colgroup>
+								<colgroup width="20%"></colgroup>
+								<colgroup width="20%"></colgroup>
+								<colgroup width="20%"></colgroup>
+								<colgroup width="20%"></colgroup>
+								
 								<tr class="coordi-list-tr-wrapper">
 									<c:forEach var="n" items="${list }" varStatus="status">
 										<c:if test="${status.index >=0 && status.index < 5 }">
