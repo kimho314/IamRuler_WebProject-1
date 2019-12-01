@@ -132,7 +132,7 @@
 				<p class="title">이 게시글을 찜 하였습니다.</p>
 				<p></p>
 				<div class="btn">
-					<a href="#" class="button close" onclick="closePopUp()">닫기</a>
+					<a href="reg_dibs?g=${pdetail.co_gender }&m_id=${pdetail.m_id }&cb_id=${pdetail.cb_id}" class="button close" onclick="closePopUp()">닫기</a>
 				</div>
 			</div>
 		</div>
