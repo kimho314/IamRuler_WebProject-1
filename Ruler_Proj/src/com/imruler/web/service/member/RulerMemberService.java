@@ -36,7 +36,7 @@ public class RulerMemberService implements MemberService {
 	public int isDuplicatedId(String userId, String userPwd, String userPwdRequest, String phone, String email) {
 		// TODO isDuplicatedId
 		List<Member> member = memberDao.getList();
-		if(userId.length() <= 3) {
+		if (userId.length() <= 3) {
 			return 1;
 		}
 		for (Member key : member) { // 유저 아이디가 중복되는지 확인
@@ -45,7 +45,8 @@ public class RulerMemberService implements MemberService {
 			}
 		}
 
-		if (!userPwd.equals(userPwdRequest) || userPwd == null || userPwd.equals(null) || userPwd.equals("") || userPwd.length() <=3) { // 비밀번호 재확인
+		if (!userPwd.equals(userPwdRequest) || userPwd == null || userPwd.equals(null) || userPwd.equals("")
+				|| userPwd.length() <= 3) { // 비밀번호 재확인
 			return 2;
 		}
 
@@ -65,9 +66,37 @@ public class RulerMemberService implements MemberService {
 	}
 
 	@Override
+	public int isDuplicatedIdMyInfo(String userId, String userPwd, String userPwdRequest, String phone, String email) {
+		// TODO isDuplicatedId
+		List<Member> member = memberDao.getList();
+
+		if (!userPwd.equals(userPwdRequest) || userPwd == null || userPwd.equals(null) || userPwd.equals("")
+				|| userPwd.length() <= 3) { // 비밀번호 재확인
+			return 1;
+		}
+
+		for (Member key : member) { // 핸드폰 번호가 중복되는지 확인
+			if (!key.equals(null)) {
+				if (key.getPhone().equals(phone) || phone.length() != 11) {
+					return 2;
+				}
+			}
+		}
+
+		for (Member key : member) { // 이메일이 중복되는지 확인
+			if (!key.equals(null)) {
+				if (key.getEmail().equals(email)) {
+					return 3;
+				}
+			}
+		}
+
+		return 0;
+	}
+
+	@Override
 	public int insertMember(Member member) {
 		// TODO insertMember
-		System.out.println("인서트1");
 		return memberDao.insert(member);
 	}
 
@@ -87,5 +116,17 @@ public class RulerMemberService implements MemberService {
 	public Member get(String userName) {
 		// TODO Auto-generated method stub
 		return memberDao.get(userName);
+	}
+
+	@Override
+	public int updateMember(Member member) {
+		// TODO Auto-generated method stub
+		return memberDao.update(member);
+	}
+
+	@Override
+	public int myInfoDeleteMember(int id) {
+		// TODO deleteMember
+		return memberDao.myInfoDelete(id);
 	}
 }

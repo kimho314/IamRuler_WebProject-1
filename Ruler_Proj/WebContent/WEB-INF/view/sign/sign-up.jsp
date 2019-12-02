@@ -62,10 +62,10 @@
 							</tr>
 							<tr>
 								<td title="자신의 성별을 선택해주시면됩니다.">성별</td>
-								<td><input type="radio" id="남자" name="성별" value="남자"
+								<td><input type="radio" id="남자" name="성별" value="남성"
 									checked="checked" /> <label for="남자" class="성별">
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;남자 </label> &nbsp;&nbsp; <input
-									type="radio" id="여자" name="성별" value="여자" /> <label for="여자"
+									type="radio" id="여자" name="성별" value="여성" /> <label for="여자"
 									class="성별"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;여자 </label></td>
 							</tr>
 							<tr>
@@ -115,33 +115,29 @@
 									id="기타라벨"> kg </span></td>
 							</tr>
 							<tr>
-								<td title="키와 체중과 체형을 기준으로 옷 사이즈를 비교합니다.">이메일</td>
+								<td title="키와 체중과 체형을 기준으로 옷 사이즈를 비교합니다.">체형</td>
 								<td>
 									<div class="select-wrapper">
 										<select name="체형" id="체형" class="남성">
-											<option value="보통">보통</option>
 											<option value="작은역삼각">작은 역삼각</option>
 											<option value="큰사각">큰 사각</option>
 											<option value="사각">사각</option>
 										</select>
-									</div>
-									<!-- <div class="select-wrapper">
-										<select name="체형" id="체형" class="여성">
-											<option value="보통">보통</option>
-											<option value="작은역삼각">작은 역삼각</option>
-											<option value="큰역삼각">큰 역삼각</option>
-											<option value="사각">사각</option>
-										</select>
-									</div> -->
+									</div> <!-- <div class="select-wrapper">
+											<select name="체형" id="체형" class="여성">
+												<option value="작은역삼각">작은 역삼각</option>
+												<option value="큰역삼각">큰 역삼각</option>
+												<option value="역삼각">역삼각</option>
+												<option value="사각">사각</option>
+											</select>
+										</div> -->
 								</td>
 							</tr>
 						</table>
 					</section>
 
 					<section class="회원가입확인">
-						<span id="확인버튼">
-						<br>
-						<input type="submit"
+						<span id="확인버튼"> <br> <input type="submit"
 							class="button special" value="확인">
 						</span>
 					</section>

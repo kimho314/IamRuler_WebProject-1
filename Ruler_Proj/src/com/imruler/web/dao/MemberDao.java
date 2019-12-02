@@ -13,5 +13,6 @@ public interface MemberDao {
 	int insert(Member member);
 	int update(Member member);
 	int delete(int id);
+	int myInfoDelete(int id);
 	
 }

@@ -71,7 +71,7 @@ public class JdbcMemberDao implements MemberDao {
 			con = DriverManager.getConnection(url, "RULER", "33333");
 			pst = con.prepareStatement(sql);
 
-			pst.setString(1, userName);                              
+			pst.setString(1, userName);
 
 			rs = pst.executeQuery();
 
@@ -150,8 +150,7 @@ public class JdbcMemberDao implements MemberDao {
 		int result = 0;
 
 //		update 테이블명 set 컬럼명=들어갈값 where 조건문
-		String sql = "UPDATE Member SET PWD=?, GENDER=?, AGE=?, PHONE=?, EMAIL=?, HEIGHT=?, WEIGHT? where ID="
-				+ member.getId();
+		String sql = "UPDATE Member SET PWD=?, GENDER=?, AGE=?, PHONE=?, EMAIL=?, HEIGHT=?, WEIGHT=?, BODYSHAPE=? where USER_NAME=?";
 		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
 		Connection con = null;
@@ -168,6 +167,43 @@ public class JdbcMemberDao implements MemberDao {
 			pst.setString(5, member.getEmail());
 			pst.setInt(6, member.getHeight());
 			pst.setInt(7, member.getWeight());
+			pst.setString(8, member.getBodyshape());
+			pst.setString(9, member.getUserName());
+
+			result = pst.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+			}
+		}
+
+		return result;
+	}
+	
+	@Override
+	public int myInfoDelete(int id) {
+		int result = 0;
+		String sql = "UPDATE MEMBER SET PHONE=NULL, EMAIL=NULL WHERE ID=?";
+
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
+
+		Connection con = null;
+		PreparedStatement pst = null;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			pst = con.prepareStatement(sql);
+
+			pst.setInt(1, id);
 
 			result = pst.executeUpdate();
 
