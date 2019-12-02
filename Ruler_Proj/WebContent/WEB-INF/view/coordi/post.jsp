@@ -102,7 +102,7 @@
 										<div class="coordi-post-content">
 											<textarea readonly name="demo-message" id="demo-message"
 												placeholder="내용" rows="6" style="overflow: scroll;">${pdetail.cct_content }</textarea>
-											<img src="../images/main_ic1.png">
+											<img src="../..${pdetail.ci_img }">
 										</div>
 									</td>
 
