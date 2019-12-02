@@ -40,7 +40,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 			con = DriverManager.getConnection(url, "RULER", "33333");
 			st = con.prepareStatement(sql);
 			st.setString(1, "%" + query + "%");
-			st.setInt(2, (page - 1) * 10);
+			st.setInt(2, ((page - 1)+1) * 10);
 			st.setInt(3, page * 10);
 			
 			ResultSet rs = st.executeQuery();
@@ -357,10 +357,51 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 	}
 
 	@Override
-	public List<TradeBoard> getListByUserId(int userId, int page)
-	{
-		// TODO Auto-generated method stub
-		return null;
+	public List<TradeBoard> getListByUserId(int userId, int page) { // for 내 작성글 
+		List<TradeBoard> list = new ArrayList<>();
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String sql = "SELECT * FROM (SELECT ROWNUM NUM, T.*\r\n" + 
+				"FROM (SELECT * FROM TRADE_BOARD WHERE USER_ID=? ORDER BY REGDATE DESC) T)WHERE NUM BETWEEN ? AND ?;";
+		Connection con = null;
+		PreparedStatement st = null;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			st = con.prepareStatement(sql);
+			st.setInt(1, userId);
+			st.setInt(2, ((page - 1)+1) * 8);
+			st.setInt(3, page * 8);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				TradeBoard trade = new TradeBoard(/**/
+						rs.getInt("id"), /**/
+						rs.getString("title"), /**/
+						rs.getDate("regdate"), /**/
+						rs.getString("user_id"), /**/
+						rs.getInt("hit"), /**/
+						rs.getString("type"));
+				list.add(trade);
+			}
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				if(st != null)
+					st.close();
+				if(con != null)
+					con.close();
+			}catch(SQLException e) {}
+		}
+
+		return list;
+	
 	}
 	
 	

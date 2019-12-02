@@ -14,14 +14,13 @@ public class TradeComment {
 	public TradeComment() {
 	}
 	
-	// 찜목록용 생성자 
-	public TradeComment(int cId, String cContent, int cUserId, Date cRegdate, int cBId, int cOpenStatus, String type) {
+	// for 내 작성글
+	public TradeComment(int cId, String cContent, int cUserId, Date cRegdate, int cBId, String type) {
 		this.cId = cId;
 		this.cContent = cContent;
 		this.cUserId = cUserId;
 		this.cRegdate = cRegdate;
 		this.cBId = cBId;
-		this.cOpenStatus = cOpenStatus;
 		this.type = type;
 	}
 

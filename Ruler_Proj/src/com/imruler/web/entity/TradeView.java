@@ -75,6 +75,9 @@ public class TradeView {
 	}
 
 
+
+
+
 	public TradeView(int bId, int cId, String cContent, int cUserId, Date cRegdate, int cOpenStatus, int mId, String mUserName) {
 		this.bId = bId;
 		this.cId = cId;
@@ -266,8 +269,8 @@ public class TradeView {
 	}
 	public void setmBodyshape(String mBodyshape) {
 		this.mBodyshape = mBodyshape;
-	}	
-	
+	}
+
 	@Override
 	public String toString() {
 		return "TradeView [bId=" + bId + ", bTitle=" + bTitle + ", bContent=" + bContent + ", bTag=" + bTag + ", bHit="

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.imruler.web.dao.TradeCommentDao;
+import com.imruler.web.entity.TradeBoard;
 import com.imruler.web.entity.TradeComment;
 import com.imruler.web.entity.TradeView;
 
@@ -65,7 +66,7 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 		int result = 0;
 		
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-		String sql = "INSERT INTO TRADE_COMMENT(ID, CONTENT, USER_ID, REGDATE, BOARD_ID, OPEN_STATUS) VALUES((SELECT NVL(MAX(ID),0)+1 FROM TRADE_COMMENT), ?,?,(TO_DATE(SYSDATE,'YYYY-MM-DD')),?,?)";
+		String sql = "INSERT INTO TRADE_COMMENT(ID, CONTENT, USER_ID, REGDATE, BOARD_ID, OPEN_STATUS) VALUES((SELECT NVL(MAX(ID),0)+1 FROM TRADE_COMMENT), ?,?,SYSTIMESTAMP,?,?)";
 		
 		Connection con = null;
 		PreparedStatement st = null;
@@ -143,61 +144,100 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 	}
 
 	@Override
-	public List<TradeComment> getCommentListByUserId(int userId)
-	{
-		// TODO Auto-generated method stub
-		return null;
+	public List<TradeComment> getCommentListByUserId(int userId) { // for 내 작성글
+		return getCommentListByUserId(userId, 1);
 	}
 
 	@Override
-	public List<TradeComment> getCommentListByUserId(int userId, int page)
-	{
-		// TODO Auto-generated method stub
-		return null;
+	public List<TradeComment> getCommentListByUserId(int userId, int page) { // for 내 작성글
+		List<TradeComment> list = new ArrayList<>();
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String sql = "SELECT * FROM (SELECT ROWNUM NUM, T.*\r\n" + 
+				"FROM (SELECT * FROM TRADE_COMMENT WHERE USER_ID=? ORDER BY REGDATE DESC) T)WHERE NUM BETWEEN ? AND ?;";
+		Connection con = null;
+		PreparedStatement st = null;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			st = con.prepareStatement(sql);
+			st.setInt(1, userId);
+			st.setInt(2, ((page - 1)+1) * 8);
+			st.setInt(3, page * 8);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				TradeComment trade = new TradeComment(/**/
+						rs.getInt("cId"), /**/
+						rs.getString("cContent"), /**/
+						rs.getInt("cUserId"), /**/
+						rs.getDate("cRegdate"), /**/
+						rs.getInt("cBId"), /**/
+						rs.getString("type"));
+				list.add(trade);
+			}
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				if(st != null)
+					st.close();
+				if(con != null)
+					con.close();
+			}catch(SQLException e) {}
+		}
+
+		return list;
+	
 	}
 
-//	@Override
-//	public int updateTradeComment(TradeComment tradeComment) {
-//			Connection con = null;
-//			PreparedStatement st = null;
-//			int result = 0;
-//
-//			String sql = "UPDATE TRADE_COMMENT SET CONTENT=?,USER_ID=?,BOARD_ID=? WHERE ID=?";
-//			String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-//
-//			try {
-//				Class.forName("oracle.jdbc.driver.OracleDriver");
-//				con = DriverManager.getConnection(url, "RULER", "33333");
-//				st = con.prepareStatement(sql);
-//				st.setString(1, tradeComment.getcContent());
-//				st.setInt(2, tradeComment.getcUserId());
-//				//st.setDate(4, tradeComment.getcRegdate());
-//				st.setInt(3, tradeComment.getcBId());
-//				st.setInt(4, tradeComment.getcId());
-//
-//				result = st.executeUpdate();
-//
-//				st.close();
-//				con.close();
-//
-//			} catch (ClassNotFoundException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}finally {
-//				try {
-//					if(st != null)
-//						st.close();
-//					if(con != null)
-//						con.close();
-//				}catch(SQLException e) {}
-//			}
-//
-//			return result;
-//
-//	}
+	@Override
+	public int updateTradeComment(TradeComment tradeComment) {
+			Connection con = null;
+			PreparedStatement st = null;
+			int result = 0;
+
+			String sql = "UPDATE TRADE_COMMENT SET CONTENT=? WHERE ID=?";
+			String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+
+			try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				con = DriverManager.getConnection(url, "RULER", "33333");
+				st = con.prepareStatement(sql);
+				st.setString(1, tradeComment.getcContent());
+				//st.setInt(2, tradeComment.getcUserId());
+				//st.setDate(4, tradeComment.getcRegdate());
+				//st.setInt(2, tradeComment.getcBId());
+				st.setInt(2, tradeComment.getcId());
+
+				result = st.executeUpdate();
+
+				st.close();
+				con.close();
+
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				try {
+					if(st != null)
+						st.close();
+					if(con != null)
+						con.close();
+				}catch(SQLException e) {}
+			}
+
+			return result;
+
+	}
 	
 	
 	

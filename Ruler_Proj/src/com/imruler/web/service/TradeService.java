@@ -12,7 +12,7 @@ public interface TradeService {
 	
 	TradeBoard getPrevTrade(int id);
 	TradeBoard getNextTrade(int id);
-
+	
 	int insertTrade(TradeBoard tradeBoard);
 	int updateTrade(TradeBoard tradeBoard);
 	int deleteTrade(int id);
