@@ -8,7 +8,7 @@
 		<c:if test="${empty userName }">
 		<li><a href="/sign/login">로그인</a></li>
 		<li>&#124;</li>
-		<li><a href="/sign/sign-up">회원가입</a></li>
+		<li><a href="/sign/agree">회원가입</a></li>
 		</c:if>
 		<!-- 로그아웃 -->
 		<c:if test="${not empty userName }">
