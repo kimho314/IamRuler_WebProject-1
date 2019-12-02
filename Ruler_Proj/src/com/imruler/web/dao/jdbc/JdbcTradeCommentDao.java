@@ -153,7 +153,7 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 		List<TradeComment> list = new ArrayList<>();
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		String sql = "SELECT * FROM (SELECT ROWNUM NUM, T.*\r\n" + 
-				"FROM (SELECT * FROM TRADE_COMMENT WHERE USER_ID=? ORDER BY REGDATE DESC) T)WHERE NUM BETWEEN ? AND ?;";
+				"FROM (SELECT * FROM COMMENTLISTVIEW WHERE USER_ID=? ORDER BY REGDATE DESC) C)WHERE NUM BETWEEN ? AND ?;";
 		Connection con = null;
 		PreparedStatement st = null;
 		try {
@@ -166,12 +166,12 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
 				TradeComment trade = new TradeComment(/**/
-						rs.getInt("cId"), /**/
-						rs.getString("cContent"), /**/
-						rs.getInt("cUserId"), /**/
-						rs.getDate("cRegdate"), /**/
-						rs.getInt("cBId"), /**/
-						rs.getString("type"));
+						rs.getInt("ID"), /**/
+						rs.getString("CONTENT"), /**/
+						rs.getInt("USER_ID"), /**/
+						rs.getDate("REGDATE"), /**/
+						rs.getInt("BOARD_ID"), /**/
+						rs.getString("TYPE"));
 				list.add(trade);
 			}
 			st.close();

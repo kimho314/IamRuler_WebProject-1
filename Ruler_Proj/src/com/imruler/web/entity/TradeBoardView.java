@@ -12,7 +12,7 @@ public class TradeBoardView extends TradeBoard{
 			
 		}
 
-		public TradeBoardView(int id, String title, String content, String tag, int hit, Date regdate, String user_id, 
+		public TradeBoardView(int id, String title, String content, String tag, int hit, Date regdate, int user_id, 
 				int i_id, String bodyshape, String category, String region) {
 			super(id, title, content, tag, hit, regdate, user_id);
 			this.i_id = i_id;

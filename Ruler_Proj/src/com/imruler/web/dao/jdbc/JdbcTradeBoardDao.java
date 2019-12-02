@@ -52,7 +52,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 						rs.getString("tag"), /**/
 						rs.getInt("b_hit"), /**/
 						rs.getDate("b_regdate"), /**/
-						rs.getString("b_user_id"), /**/
+						rs.getInt("b_user_id"), /**/
 						rs.getInt("i_id"), /**/
 						rs.getString("bodyshape"), /**/
 						rs.getString("category"), /**/
@@ -101,7 +101,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 			st.setString(1, tradeboard.getTitle());
 			st.setString(2, tradeboard.getContent());
 			st.setString(3, tradeboard.getTag());
-			st.setString(4, tradeboard.getUser_id());
+			st.setInt(4, tradeboard.getUser_id());
 			
 			
 			result = st.executeUpdate();
@@ -148,7 +148,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 			st.setString(2, tradeboard.getContent());
 			st.setString(3, tradeboard.getTag());
 			st.setDate(4, tradeboard.getRegdate());
-			st.setString(5, tradeboard.getUser_id());
+			st.setInt(5, tradeboard.getUser_id());
 			st.setInt(6, tradeboard.getId());
 				
 			result = st.executeUpdate();
@@ -238,7 +238,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 				String tag = rs.getString("TAG");
 				int hit = rs.getInt("HIT");
 				Date regDate = rs.getDate("REGDATE");
-				String user_id = rs.getString("USER_ID");
+				int user_id = rs.getInt("USER_ID");
 
 				trade = new TradeBoard(id, title, content, tag, hit, regDate, user_id);
 
@@ -288,7 +288,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 				String tag = rs.getString("TAG");
 				int hit = rs.getInt("HIT");
 				Date regDate = rs.getDate("REGDATE");
-				String user_id = rs.getString("USER_ID");
+				int user_id = rs.getInt("USER_ID");
 
 				trade = new TradeBoard(id, title, content, tag, hit, regDate, user_id);
 
@@ -360,8 +360,8 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 	public List<TradeBoard> getListByUserId(int userId, int page) { // for 내 작성글 
 		List<TradeBoard> list = new ArrayList<>();
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-		String sql = "SELECT * FROM (SELECT ROWNUM NUM, T.*\r\n" + 
-				"FROM (SELECT * FROM TRADE_BOARD WHERE USER_ID=? ORDER BY REGDATE DESC) T)WHERE NUM BETWEEN ? AND ?;";
+		String sql = "SELECT * FROM (SELECT ROWNUM NUM, B.*\r\n" + 
+				"FROM (SELECT * FROM BOARDLISTVIEW WHERE USER_ID=? ORDER BY REGDATE DESC) B)WHERE NUM BETWEEN ? AND ?;";
 		Connection con = null;
 		PreparedStatement st = null;
 		try {
@@ -377,7 +377,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 						rs.getInt("id"), /**/
 						rs.getString("title"), /**/
 						rs.getDate("regdate"), /**/
-						rs.getString("user_id"), /**/
+						rs.getInt("user_id"), /**/
 						rs.getInt("hit"), /**/
 						rs.getString("type"));
 				list.add(trade);

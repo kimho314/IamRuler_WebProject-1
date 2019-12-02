@@ -9,7 +9,7 @@ public class TradeBoard {
     private String tag;
     private int hit;
     private Date regdate;
-    private String user_id;
+    private int user_id;
     private String type;
     
     
@@ -18,7 +18,7 @@ public class TradeBoard {
 	}
 
 //  for inserting
-	public TradeBoard(String title, String content, String tag, String user_id) {
+	public TradeBoard(String title, String content, String tag, int user_id) {
 		this.title = title;
 		this.content = content;
 		this.tag = tag;
@@ -26,7 +26,7 @@ public class TradeBoard {
 	}
 
 //	for selecting
-	public TradeBoard(int id, String title, String content, String tag, int hit, Date regdate, String user_id) {
+	public TradeBoard(int id, String title, String content, String tag, int hit, Date regdate, int user_id) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
@@ -38,7 +38,7 @@ public class TradeBoard {
 	
 	
 	// for 내 작성글 
-	public TradeBoard(int id, String title, Date regdate, String user_id, int hit, String type) {
+	public TradeBoard(int id, String title, Date regdate, int user_id, int hit, String type) {
 	this.id = id;
 	this.title = title;
 	this.regdate = regdate;
@@ -95,11 +95,11 @@ public class TradeBoard {
 		this.regdate = regdate;
 	}
 
-	public String getUser_id() {
+	public int getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(String user_id) {
+	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 	
