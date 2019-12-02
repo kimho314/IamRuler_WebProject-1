@@ -118,7 +118,7 @@
 												<li>
 													
 													<a href="post?cb_id=${n.cb_id }"><img
-														src="../images/main_ico1.png" alt="coordi-img">
+														src="../..${n.ci_img }" alt="coordi-img">
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
 												<li>
@@ -139,7 +139,7 @@
 												<li>
 													
 													<a href="post?cb_id=${n.cb_id }"><img
-														src="../images/main_ico1.png" alt="coordi-img">
+														src="../..${n.ci_img }" alt="coordi-img">
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
 												<li>
@@ -167,7 +167,7 @@
 												<li>
 													
 													<a href="post?cb_id=${n.cb_id }"><img
-														src="../images/main_ico1.png" alt="coordi-img">
+														src="../..${n.ci_img }" alt="coordi-img">
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
 												<li>
@@ -188,7 +188,7 @@
 												<li>
 													
 													<a href="post?cb_id=${n.cb_id }"><img
-														src="../images/main_ico1.png" alt="coordi-img">
+														src="../..${n.ci_img }" alt="coordi-img">
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
 												<li>

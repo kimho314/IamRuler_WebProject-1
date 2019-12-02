@@ -158,7 +158,10 @@ public class CoordiRegPostController extends HttpServlet
 			ServletContext application = req.getServletContext();
 			
 			String realPath = application.getRealPath(urlPath);
-
+			//String realPath = new File("." + fileNames).getCanonicalPath();
+		
+			//System.out.println("tmpPath : " + req.getSession().getServletContext().getRealPath("/"));
+			
 			File file = new File(realPath);
 			if (!file.exists())
 			{
@@ -185,7 +188,7 @@ public class CoordiRegPostController extends HttpServlet
 		}
 		
 		fileNames = fileNames.substring(0, fileNames.length()-1);
-		System.out.println(fileNames);
+		//System.out.println(fileNames);
 		
 		// implements inserting
 		int m_id = 1; 
