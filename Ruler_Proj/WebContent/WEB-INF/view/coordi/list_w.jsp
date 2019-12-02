@@ -58,8 +58,19 @@
 							<div class="visual-bottom">
 								<div>
 									<c:choose>
+										<c:when test="${param.b eq '보통' }">
+											<a href="list_w?p=1&g=여성&b=보통" class="button special">보통</a>
+										</c:when>
+										<c:otherwise>
+											<a href="list_w?p=1&g=여성&b=보통" class="button">보통</a>
+										</c:otherwise>
+									</c:choose>									
+								</div>
+								<div>
+									<c:choose>
 										<c:when test="${param.b eq '작은 역삼각' }">
-											<a href="list_w?p=1&g=여성&b=작은 역삼각" class="button special">작은 역삼각</a>
+											<a href="list_w?p=1&g=여성&b=작은 역삼각" class="button special">작은
+												역삼각</a>
 										</c:when>
 										<c:otherwise>
 											<a href="list_w?p=1&g=여성&b=작은 역삼각" class="button">작은 역삼각</a>
@@ -68,14 +79,13 @@
 								</div>
 								<div>
 									<c:choose>
-										<c:when test="${param.b eq '큰 역삼각' }">
-											<a href="list_w?p=1&g=여성&b=큰 역삼각" class="button special">큰 역삼각</a>
+										<c:when test="${param.b eq '삼각' }">
+											<a href="list_w?p=1&g=여성&b=삼각" class="button special">삼각</a>
 										</c:when>
 										<c:otherwise>
-											<a href="list_w?p=1&g=여성&b=큰 역삼각" class="button">큰 역삼각</a>
+											<a href="list_w?p=1&g=여성&b=삼각" class="button">삼각</a>
 										</c:otherwise>
-									</c:choose>	
-									
+									</c:choose>									
 								</div>
 								<div>
 									<c:choose>
@@ -85,8 +95,7 @@
 										<c:otherwise>
 											<a href="list_w?p=1&g=여성&b=역삼각" class="button">역삼각</a>
 										</c:otherwise>
-									</c:choose>	
-									
+									</c:choose>									
 								</div>
 								<div>
 									<c:choose>
@@ -96,8 +105,7 @@
 										<c:otherwise>
 											<a href="list_w?p=1&g=여성&b=사각" class="button">사각</a>
 										</c:otherwise>
-									</c:choose>	
-									
+									</c:choose>									
 								</div>
 							</div>
 						</div>
@@ -214,10 +222,11 @@
 						<c:if test="${page <= 5 }">
 							<c:set var="startNum" value="1" />
 						</c:if>
-						<c:if test="${page > 5 }">
-							<c:set var="startNum" value="${page - 4 }" />
+						<c:if test="${page > 5 }">							
+							<fmt:parseNumber var= "tmpStartNum" type="number" integerOnly= "true" value= "${Math.floor((page-1)/5)*5+1}"/>							
+							<c:set var="startNum" value="${tmpStartNum}" />
 						</c:if>
-
+						
 						<ul class="coordi-list-page ">
 							<li>
 								<c:choose>
@@ -225,7 +234,7 @@
 										<a href="" class="button disabled">Prev</a>
 									</c:when>
 									<c:otherwise>
-										<a href="list_w?p=${startNum-5 }&g=${param.g}&b=${param.b}" class="button">Prev</a>
+										<a href="list_w?p=${startNum-1 }&g=${param.g}&b=${param.b}" class="button">Prev</a>
 									</c:otherwise>
 								</c:choose>								
 							</li>

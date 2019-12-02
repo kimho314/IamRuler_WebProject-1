@@ -57,6 +57,16 @@
 							<div class="visual-bottom-man">
 								<div>
 									<c:choose>
+										<c:when test="${param.b eq '보통' }">
+											<a href="list_m?p=1&g=남성&b=보통" class="button special">보통</a>
+										</c:when>
+										<c:otherwise>
+											<a href="list_m?p=1&g=남성&b=보통" class="button">보통</a>
+										</c:otherwise>
+									</c:choose>									
+								</div>
+								<div>
+									<c:choose>
 										<c:when test="${param.b eq '작은 역삼각' }">
 											<a href="list_m?p=1&g=남성&b=작은 역삼각" class="button special">작은
 												역삼각</a>
@@ -68,11 +78,21 @@
 								</div>
 								<div>
 									<c:choose>
-										<c:when test="${param.b eq '큰 사각' }">
-											<a href="list_m?p=1&g=남성&b=큰 사각" class="button special">큰 사각</a>
+										<c:when test="${param.b eq '삼각' }">
+											<a href="list_m?p=1&g=남성&b=삼각" class="button special">삼각</a>
 										</c:when>
 										<c:otherwise>
-											<a href="list_m?p=1&g=남성&b=큰 사각" class="button">큰 사각</a>
+											<a href="list_m?p=1&g=남성&b=삼각" class="button">삼각</a>
+										</c:otherwise>
+									</c:choose>									
+								</div>
+								<div>
+									<c:choose>
+										<c:when test="${param.b eq '역삼각' }">
+											<a href="list_m?p=1&g=남성&b=역삼각" class="button special">역삼각</a>
+										</c:when>
+										<c:otherwise>
+											<a href="list_m?p=1&g=남성&b=역삼각" class="button">역삼각</a>
 										</c:otherwise>
 									</c:choose>									
 								</div>

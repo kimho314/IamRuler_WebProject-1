@@ -56,9 +56,17 @@
 						<div class="visual-wrapper">
 							<div class="visual-top-coordi-post">
 								<div class="visual-top-right">
-									<a href="#" class="button small" style="box-shadow: none; font-size: 100%; padding: 0 1em;"	onclick="openPopUp()">찜하기</a> 
-									<a href="post?cb_id=${param.cb_id }&opt=1" class="button small" style="box-shadow: none; font-size: 100%; padding: 0 1em;">수정</a>
-									<a href="post?cb_id=${param.cb_id }&opt=2" class="button small" style="box-shadow: none; font-size: 100%; padding: 0 1em;">삭제</a>
+									<c:if test="${not empty userName }">
+										<a href="#" class="button small"
+											style="box-shadow: none; font-size: 100%; padding: 0 1em;"
+											onclick="openPopUp()">찜하기</a>
+										<a href="post?cb_id=${param.cb_id }&opt=1"
+											class="button small"
+											style="box-shadow: none; font-size: 100%; padding: 0 1em;">수정</a>
+										<a href="post?cb_id=${param.cb_id }&opt=2"
+											class="button small"
+											style="box-shadow: none; font-size: 100%; padding: 0 1em;">삭제</a>
+									</c:if>
 								</div>
 							</div>
 

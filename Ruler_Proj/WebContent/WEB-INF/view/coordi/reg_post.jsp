@@ -112,49 +112,31 @@
 
                                     <tr>
                                         <td>체형</td>
-                                        <td>
-                                            <div class="select-wrapper">
-                                            	<c:if test="${not empty pDetail }">
-                                            	<c:if test="${g eq '여성' || empty g}">
-                                                <select name="bodyshape-category" id="select-bodyshape">
-                                                    <option value="${pDetail.co_bodyshape }">${pDetail.co_bodyshape }</option>
-                                                    <option value="작은 역삼각">작은 역삼각</option>
-                                                    <option value="큰 역삼각">큰 역삼각</option>
-                                                    <option value="역삼각">역삼각</option>
-                                                    <option value="사각">사각</option>
-                                                </select>
-                                                </c:if>
-                                                <c:if test="${g eq '남성' }">
-                                                 <select name="bodyshape-category" id="select-bodyshape">
-                                                    <option value="${pDetail.co_bodyshape }">${pDetail.co_bodyshape }</option>
-                                                    <option value="작은 역삼각">작은 역삼각</option>
-                                                    <option value="큰 사각">큰 사각</option>
-                                                    <option value="사각">사각</option>                                                    
-                                                </select>
-                                                </c:if>
-                                                </c:if>
-                                                <c:if test="${empty pDetail }">
-                                                <c:if test="${g eq '여성' || empty g}">
-                                                <select name="bodyshape-category" id="select-bodyshape">
-                                                    <option value>선택</option>
-                                                    <option value="작은 역삼각">작은 역삼각</option>
-                                                    <option value="큰 역삼각">큰 역삼각</option>
-                                                    <option value="역삼각">역삼각</option>
-                                                    <option value="사각">사각</option>
-                                                </select>
-                                                </c:if>
-                                                <c:if test="${g eq '남성' }">
-                                                 <select name="bodyshape-category" id="select-bodyshape">
-                                                    <option value>선택</option>
-                                                    <option value="작은 역삼각">작은 역삼각</option>
-                                                    <option value="큰 사각">큰 사각</option>
-                                                    <option value="사각">사각</option>                                                    
-                                                </select>
-                                                </c:if>                                                
-                                                </c:if>
-                                            </div>
-                                        </td>
-                                    </tr>
+										<td>
+											<div class="select-wrapper">
+												<c:if test="${not empty pDetail }">
+													<select name="bodyshape-category" id="select-bodyshape">
+														<option value="${pDetail.co_bodyshape }">${pDetail.co_bodyshape }</option>
+														<option value="보통">보통</option>
+														<option value="작은 역삼각">작은 역삼각</option>
+														<option value="삼각">삼각</option>
+														<option value="역삼각">역삼각</option>
+														<option value="사각">사각</option>
+													</select>
+												</c:if>
+												<c:if test="${empty pDetail }">
+													<select name="bodyshape-category" id="select-bodyshape">
+														<option value>선택</option>
+														<option value="보통">보통</option>
+														<option value="작은 역삼각">작은 역삼각</option>
+														<option value="삼각">삼각</option>
+														<option value="역삼각">역삼각</option>
+														<option value="사각">사각</option>
+													</select>
+												</c:if>
+											</div>
+										</td>
+									</tr>
 
                                     <tr>
                                         <td>내용</td>

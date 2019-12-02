@@ -32,7 +32,7 @@ div.visual-wrapper div.visual-bottom {
 
 div.visual-wrapper div.visual-bottom div {    
     display: inline-block;
-    width:25%;
+    width:20%;
     text-align: center;
     margin:1em 0;
 }
@@ -260,6 +260,11 @@ div.coordi-post-icons-bottom div {
 
 td select#select-bodyshape {
     color:silver;
+}
+
+table.coordi-post-table tr:nth-child(4) td:nth-child(2) 
+div.select-wrapper{
+    width:32%;
 }
 
 div.coordi-post-table-wrapper table.coordi-post-table

@@ -136,7 +136,12 @@
 
 									</div>
 									<div class="coordi-comment-content-right">
-										<input type="submit" value="댓글 등록" class="special">
+										<c:if test="${empty userName }">
+											<input type="submit" value="댓글 등록" class="special disabled">
+										</c:if>
+										<c:if test="${not empty userName }">
+											<input type="submit" value="댓글 등록" class="special">
+										</c:if>
 									</div>
 								</div>
 

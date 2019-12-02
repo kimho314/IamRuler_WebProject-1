@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -104,21 +105,7 @@ public class CoordiRegPostController extends HttpServlet
 			cct_title = _cct_title;
 		}
 		
-		
-//		Date cb_regdate = null;
-//		String _cb_regdate = req.getParameter("coordi-post-table-regdate");
-//		if(_cb_regdate != null && !_cb_regdate.equals(""))
-//		{
-//			try
-//			{
-//				cb_regdate = new SimpleDateFormat("YYYY-MM-DD").parse(_cb_regdate);
-//			}
-//			catch (ParseException e)
-//			{
-//				e.printStackTrace();
-//			}
-//		}
-		
+	
 		String co_bodyshape = "";
 		String _co_bodyshape = req.getParameter("bodyshape-category");
 		if(_co_bodyshape != null && !_co_bodyshape.equals(""))
@@ -152,6 +139,7 @@ public class CoordiRegPostController extends HttpServlet
 			
 			Part filePart = p;
 			String fileName = filePart.getSubmittedFileName();
+		
 			fileNames += (urlPath + File.separator + fileName + ",");
 			
 			
@@ -175,23 +163,43 @@ public class CoordiRegPostController extends HttpServlet
 			System.out.println("realPath : " + realPath);
 
 			InputStream fis = filePart.getInputStream();
-			FileOutputStream fos = new FileOutputStream(realPath + File.separator + fileName);
 			
-			byte[] buf = new byte[1024];
-
-			int size = 0;
-			while ((size = fis.read(buf)) != -1)
+			
+			try(FileOutputStream fos = new FileOutputStream(realPath + File.separator + fileName))
 			{
-				fos.write(buf, 0, size);
+				byte[] buf = new byte[1024];
+
+				int size = 0;
+				while ((size = fis.read(buf)) != -1)
+				{
+					fos.write(buf, 0, size);
+				}
+				fos.close();
 			}
-			fos.close();
+			catch (Exception e)
+			{
+				// TODO: handle exception
+				System.out.println("fos exception");
+				resp.setContentType("text/html;charset=UTF-8");
+				resp.setCharacterEncoding("UTF-8");
+				PrintWriter out = resp.getWriter();
+				out.println("<script>");
+				out.println("alert(\"No Image File Found\");");
+				out.println("history.back(-1);");
+				out.println("</script>");
+
+				return;
+			}
+			
+			
+
 		}
 		
 		fileNames = fileNames.substring(0, fileNames.length()-1);
 		//System.out.println(fileNames);
 		
 		// implements inserting
-		int m_id = 1; 
+		int m_id = 0; 
 		
 		String userName = (String)req.getSession().getAttribute("userName");
 		m_id = memberService.get(userName).getId();
