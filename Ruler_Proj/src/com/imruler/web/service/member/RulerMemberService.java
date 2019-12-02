@@ -51,7 +51,13 @@ public class RulerMemberService implements MemberService {
 		}
 
 		for (Member key : member) { // 핸드폰 번호가 중복되는지 확인
-			if (key.getPhone().equals(phone) || phone.length() != 11) {
+			if (key.getPhone().equals(phone)) {
+				return 3;
+			}
+		}
+		
+		for (Member key : member) {
+			if (phone.length() != 11) {
 				return 3;
 			}
 		}
