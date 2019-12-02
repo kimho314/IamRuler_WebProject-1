@@ -161,7 +161,7 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 			con = DriverManager.getConnection(url, "RULER", "33333");
 			st = con.prepareStatement(sql);
 			st.setInt(1, userId);
-			st.setInt(2, ((page - 1)+1) * 8);
+			st.setInt(2, (page - 1) * 8+1);
 			st.setInt(3, page * 8);
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
