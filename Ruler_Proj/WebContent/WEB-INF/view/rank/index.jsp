@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -45,99 +45,8 @@
 											</ul>
 									</nav>
 									<div id="rank-list">
-									<c:forEach var ="og" items="${oglist}">
-										<img src="${og.sitetxt}" alt="" />
-									</c:forEach>	
-									<ul class="list best">
-									 	<c:forEach var ="r" items="${list}" begin="0" end="2" varStatus="status">
-										<li>
-											<figuare>
-												<a href="${r.url}" target="_blank"><img src="${r.img}" alt="#"></a>
-												<figcaption><a href="${r.url}" target="_blank">${r.mall_name}</a></figcaption>
-											</figuare>
-											<span class="fas fa-medal fa-5x"></span>
-											<span class="icon">${status.count}위</span>
-										</li>
-										</c:forEach>
-										<!-- <li>
-											<figuare>
-												<a href="#" target="_blank"><img src="http://placehold.it/200x200" alt="#"></a>
-												<figcaption><a href="#" target="_blank">쇼핑몰1</a></figcaption>
-											</figuare>
-											<span class="fas fa-medal fa-5x"></span>
-											<span class="icon">2위</span>
-										</li>
-										<li>
-											<figuare>
-												<a href="#" target="_blank"><img src="http://placehold.it/200x200" alt="#"></a>
-												<figcaption><a href="#" target="_blank">쇼핑몰1</a></figcaption>
-											</figuare>
-											<span class="fas fa-medal fa-5x"></span>
-											<span class="icon">3위</span>
-										</li> -->
-									</ul>
-									<ul class="list">
-									<c:forEach var ="r" items="${list}" begin="3" end="10" varStatus="status">
-										<li data-hit="0">
-											<figuare>
-												<a href="${r.url}" target="_blank"><img src="${r.img}" alt="#"></a>
-												<figcaption><a href="${r.url}" target="_blank">${r.mall_name}</a></figcaption>
-											</figuare>
-											<i class="far fa-certificate fa-3x"></i>
-											<span class="icon">${status.index + 1}위</span>
-										</li>
-									</c:forEach>
-										<!-- <li>
-											<figuare>
-												<a href="#" target="_blank"><img src="http://placehold.it/200x200" alt="#"></a>
-												<figcaption><a href="#" target="_blank">쇼핑몰1</a></figcaption>
-											</figuare>
-											<i class="far fa-certificate fa-3x"></i>
-											<i class="far fa-circle fa-3x"></i>
-											<span class="icon">5위</span>
-										</li>
-										<li>
-											<figuare>
-												<a href="#" target="_blank"><img src="http://placehold.it/200x200" alt="#"></a>
-												<figcaption><a href="#" target="_blank">쇼핑몰1</a></figcaption>
-											</figuare>
-											<i class="far fa-certificate fa-3x"></i>
-											<span class="icon">6위</span>
-										</li>
-										<li>
-											<figuare>
-												<a href="#" target="_blank"><img src="http://placehold.it/200x200" alt="#"></a>
-												<figcaption><a href="#" target="_blank">쇼핑몰1</a></figcaption>
-											</figuare>
-											<i class="far fa-certificate fa-3x"></i>
-											<span class="icon">7위</span>
-										</li>
-										<li>
-											<figuare>
-												<a href="#" target="_blank"><img src="http://placehold.it/200x200" alt="#"></a>
-												<figcaption><a href="#" target="_blank">쇼핑몰1</a></figcaption>
-											</figuare>
-											<i class="far fa-certificate fa-3x"></i>
-											<span class="icon">8위</span>
-										</li>
-										<li>
-											<figuare>
-												<a href="#" target="_blank"><img src="http://placehold.it/200x200" alt="#"></a>
-												<figcaption><a href="#" target="_blank">쇼핑몰1</a></figcaption>
-											</figuare>
-											<i class="far fa-certificate fa-3x"></i>
-											<span class="icon">9위</span>
-										</li>
-										<li>
-											<figuare>
-												<a href="#" target="_blank"><img src="http://placehold.it/200x200" alt="#"> </a>
-												<figcaption><a href="#" target="_blank">쇼핑몰1</a></figcaption>
-											</figuare>
-											<i class="far fa-certificate fa-3x"></i>
-											<span class="icon">10위</span>
-										</li> -->
-										
-									</ul>
+									<ul class="list best best-list"> </ul>
+									<ul class="list g-list"> </ul>
 									</div>
 								</main>
 						</div>
@@ -151,30 +60,72 @@
 			<script src="../assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="../assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="../assets/js/main.js"></script>
-			<!-- <script>
+			<script>
 				$(function(){
 					$(".genderMenu li input").click(function(){
 						$(".genderMenu li input").prop("checked","");
 						$(this).prop("checked","checked");
-						if($(this).attr("value") == "man"){
-							 location.href='/rank/?type=0';
-							 return false;
-						}
-						else{
-							 location.href='/rank/?type=1';
-					        return false;
-						}
-					});
+						switch ($(this).attr("value")) {
+						case "man":
+							getData("/rank-json?type=0");
+							break;
+						case "woman":
+							getData("/rank-json?type=1");
+							break;	
+						default:
+							getData("/rank-json");
+							break;
+						}					
+					});					
 				});
-			</script> -->
-			<script>
-			$(function(){
-				$(".list li").click(function(){					
-					var hit = $(this).attr("data-hit");					
-					$(this).attr("data-hit",hit++);
-					alert(hit);
-				});
-			});
+				function getData(url){
+					loader();
+					$.getJSON(url,function(data){load(data)})
+					.fail(function(){alert('실패되었습니다.');});
+				}
+				function loader(){
+					 $(".list").html("");
+					 var temp = '<li><img src="/images/ajax-loader.gif" alt="loading"></li>';
+				 	$(".best-list").append(temp); 
+					$(".g-list").append(temp);
+				}
+				function load(data){
+					var temp = null;
+					//alert(data[0].url);
+					 $(".list").html("");
+					if(data.length <1){
+						temp = '<li>리스트가 없습니다.</li>';	
+						$(".list").append(temp); 
+					}
+					for(var i =0;i<10;i++){
+						var medal = null;
+						 if(i<3)
+							 medal = "fas fa-medal";
+						 else
+							 medal = "far fa-certificate";
+						 temp = '<li><figuare><a href="'+data[i].url+
+						 '" target="_blank"><img src="'+data[i].img+
+						 '" alt="#"></a><figcaption><a href="'+data[i].url+
+						 '" target="_blank">'+data[i].mall_name+
+						 '</a></figcaption></figuare><i class="'+ medal
+						 +' fa-3x"></i><span class="icon">'+
+						 (i+1)+'위</span></li>';
+						 //alert("Data Loaded: " + temp);
+						 if(i<3)
+						 	$(".best-list").append(temp); 
+						 else
+							$(".g-list").append(temp);
+					}
+				}
 			</script>
+			<c:if test="${empty userGender}">
+				<script>getData("/rank-json");</script>
+			</c:if>
+			<c:if test="${not empty userGender and userGender eq '남성'}">
+				<script>$(".genderMenu li:first-child input").click();getData("/rank-json?type=0");</script>
+			</c:if>
+			<c:if test="${not empty userGender and userGender eq '여성'}">
+				<script>$(".genderMenu li:last-child input").click();getData("/rank-json?type=1");</script>
+			</c:if>
 	</body>
 </html>

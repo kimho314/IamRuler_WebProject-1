@@ -13,11 +13,10 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="../assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="../assets/css/ie8.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="../css/sliderkit-core.css" media="screen, projection" />
-		<script src="https://kit.fontawesome.com/1af26a8adc.js" crossorigin="anonymous"></script>
-		
+		<script src="https://kit.fontawesome.com/1af26a8adc.js" crossorigin="anonymous"></script>	
 	</head>
 	<body>
-
+	
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<!-- Main -->
@@ -58,8 +57,8 @@
 																			<li>${fn:substring(z.content,0,20)}</li>
 																		</ul>
 																		<div><textarea name="memo" id="">${z.memo}</textarea></div>
-																		<input type="hidden" name="dibsId" value="${z.dibsId}" />
 																		<input type="hidden" name="orgmemo" value="${z.memo}" />
+																		<input type="hidden" name="dibsId" value="${z.dibsId}" />
 																		<input type="hidden" name="del" value="${z.coordiId}" />
 																	</th>
 																</tr>
@@ -69,70 +68,13 @@
 													</li>
 											</c:forEach>
 											</c:if>
-											<%-- <li class="6u 12u$(small)">
-												<div class="btn_area"><a href="#" class="btn">찜 삭제</a></div>
-												<table>
-													<colgroup>
-														<col width="30%"/>
-														<col width="70%"/>
-													</colgroup>
-													<tbody>
-														<tr>
-															<td>
-																<figuare>
-																	<a href="#"><img src="http://placehold.it/50x70" alt="#" /></a>
-																</figuare>
-															</td>
-															<th>
-																<ul>
-																	<li>2019-00-00</li>
-																	<li><a href="#">제에목</a></li>
-																	<li>간단한 내용</li>
-																</ul>
-																<div><textarea name="memo" id="">메모입니다22</textarea></div>
-															</th>
-														</tr>
-													</tbody>
-												</table>
-												<input type="hidden" name="dibsId" value="2" />
-												<input type="hidden" name="orgmemo" value="메모입니다" />
-											</li>
-											<li class="6u 12u$(small)">
-												<div class="btn_area"><a href="#" class="btn">찜 삭제</a></div>
-												<table>
-													<colgroup>
-														<col width="30%"/>
-														<col width="70%"/>
-													</colgroup>
-													<tbody>
-														<tr>
-															<td>
-																<figuare>
-																	<a href="#"><img src="http://placehold.it/50x70" alt="#" /></a>
-																</figuare>
-															</td>
-															<th>
-																<ul>
-																	<li>2019-00-00</li>
-																	<li><a href="#">제에목</a></li>
-																	<li>간단한 내용</li>
-																</ul>
-																<div><textarea name="memo" id="">메모입니다123</textarea></div>
-																
-															</th>
-														</tr>
-													</tbody>
-												</table>
-												<input type="hidden" name="dibsId" value="1" />
-												<input type="hidden" name="orgmemo" value="메모입니다" />
-											</li> --%>
 										</ul>
 										<div class="btn_area">
 											<c:if test="${empty list}">
 											<a href="/coordi/" class="button special small">찜하러 가기</a>
 											</c:if>
 											<c:if test="${not empty list}">
-											<a href="#" class="button special small" onclick="compare()">저장</a>
+											<a href="javascript:compare();" class="button special small">저장</a>
 											</c:if>
 										</div>
 										<input type="hidden" id="eidtlist" />
@@ -146,7 +88,7 @@
 
 				<jsp:include page="inc/aside.jsp" />
 			</div>
-
+			
 		<!-- Scripts -->
 			<script src="../assets/js/jquery.min.js"></script>
 			<script src="../assets/js/skel.min.js"></script>
@@ -154,7 +96,19 @@
 			<!--[if lte IE 8]><script src="../assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="../assets/js/main.js"></script>
 			<script>
-				
+				$(function(){
+					$(".mypageZzim .cover textarea").blur(function(){
+						if($(this).val() != $(this).parent().siblings("input[name='orgmemo']").val()){
+							var dataArr = [{
+										"dibsId" : $(this).parent().siblings("input[name='dibsId']").val(),
+										"memo" : $(this).val()
+									}];
+							 $.post("/mypage/myzzim",{"list": JSON.stringify(dataArr)})
+							.done(function(){infobox("수정된 내용이 자동 저장되었습니다.");})
+							.fail(function(){infobox('자동 저장이 실패되었습니다.');});
+						}
+					});
+				});
 				function infobox(txt){
 					$("#anno").html(txt);
 					$("#anno").fadeIn().delay(2000).fadeOut();
@@ -164,37 +118,30 @@
 					var memoArr = document.getElementsByName("memo");
 					var orgMemoArr  = document.getElementsByName("orgmemo");
 					var dibsIdArr  = document.getElementsByName("dibsId");
-				
-					var obj = {};
 					for(var i=0;i<memoArr.length;i++)
 						if(memoArr[i].value != orgMemoArr[i].value){
-							obj = {"dibsId" : dibsIdArr[i].value,
-									"memo" : memoArr[i].value
-								   };
+						var obj = {
+								"dibsId" : dibsIdArr[i].value,
+								"memo" : memoArr[i].value
+								};
 							dataArr.push(obj);
-							//alert("수정됨");
 						}
-					
-					//$.post("/mypage/myzzim", dataArr, function(){alert("aa")});
-					
-					/* var request = new XMLHttpRequest();
-					request.addEventListener("load", function(){
-						alert("done");
-					}); */
-					//request.open("POST", "/mypage/myzzim");
-					//request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-					//request.send("list="+JSON.stringfy(dataArr));
-					
-					
-					
+					if(dataArr.length>0){
+						$.post("/mypage/myzzim",{"list": JSON.stringify(dataArr)})
+						.done(function(){infobox("수정된 내용이 저장되었습니다.");})
+						.fail(function(){infobox('저장이 실패되었습니다.');});
+					}
+					else
+						infobox("수정된 메모가 없습니다");					
 				}
-					
 			</script>
-			<c:if test="${not empty del and del == 1}">
-				<script>infobox('찜이 삭제되었습니다.')</script>
+			<%-- ${cookie.del.value} --%>
+			 <c:if test="${cookie.del.value eq 1}">			 
+				<script>$(function(){infobox('삭제가 완료되었습니다.');});</script>
+				
 			</c:if>
-			<c:if test="${not empty del and del == 2}">
-				<script>infobox('찜이 삭제가 실패되었습니다.')</script>
+			<c:if test="${cookie.del.value eq 2}">
+				<script>$(function(){infobox('삭제가 실패되었습니다.');});</script>
 			</c:if>
 	</body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -40,23 +41,27 @@
 											<section class="listBox">
 												<h1>게시글</h1>
 												<ul>
-													<li><a href="#">내가쓴글 1dddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</a></li>
-													<li><a href="#">내가쓴글 2</a></li>
-													<li><a href="#">내가쓴글 3</a></li>
-													<li><a href="#">내가쓴글 4</a></li>
-													<li><a href="#">내가쓴글 5</a></li> 
-													<!-- <li class="none">게시글이 없습니다.</li> -->
+													<c:if test="${empty boardList}">
+														<li class="none">게시글이 없습니다.</li>
+													</c:if>
+													<c:if test="${not empty boardList}">
+														<c:forEach var="b" items="${boardList}" begin="0" end="5">
+															<li><a href="${(b.type eq 'C')? '/coordi/detail?id=':'/trade/detail?id='}${b.id}">${b.title}</a></li>
+														</c:forEach>
+													</c:if>
 												</ul>
 											</section>
 											<section class="listBox">
 												<h1>댓글</h1>
 												<ul>
-													<li><a href="#">내가쓴 덧글1dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</a></li>
-													<li><a href="#">내가쓴 덧글2</a></li>
-													<li><a href="#">내가쓴 덧글3</a></li>
-													<li><a href="#">내가쓴 덧글4</a></li> 
-													<li><a href="#">내가쓴 덧글5</a></li>
-													<!-- <li class="none">게시글이 없습니다.</li> -->
+													<c:if test="${empty cmtList}">
+														<li class="none">게시글이 없습니다.</li>
+													</c:if>
+													<c:if test="${not empty cmtList}">
+														<c:forEach var="c" items="${cmtList}" begin="0" end="5">
+															<li><a href="${(c.type eq 'C')? '/coordi/detail?id=':'/trade/detail?id='}${c.cBId}">${c.cContent}</a></li>
+														</c:forEach>
+													</c:if>
 												</ul>
 											</section>
 										</section>
