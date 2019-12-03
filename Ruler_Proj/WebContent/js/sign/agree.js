@@ -3,11 +3,14 @@ addEventListener("load", function() {
   var 동의링크 = section.querySelector("a");
   var 동의버튼 = section.querySelector(".button");
   $(".약관내용스크롤").scroll(function() {
+    //    console.log($(this).scrollTop() + $(this).innerHeight());
+    //    console.log($(this).prop("scrollHeight"));
+
     if (
       $(this).scrollTop() + $(this).innerHeight() >=
-      $(this).prop("scrollHeight")
+      $(this).prop("scrollHeight") * 0.95
     ) {
-        동의링크.href = "sign-up.html#";
+      동의링크.href = "sign-up";
       동의버튼.className = "button special";
     }
   });

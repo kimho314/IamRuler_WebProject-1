@@ -72,7 +72,7 @@
 		<jsp:include page="../inc/aside.jsp" />
 
 		<div>
-			<input class="modal-state" id="아이디-pop" type="checkbox" />
+			<input class="modal-state 팝업창" id="아이디-pop" type="checkbox" />
 			<div class="팝업">
 				<div class="contents">
 					<h2 class="title">아이디</h2>
@@ -83,7 +83,7 @@
 					</p>
 				</div>
 			</div>
-			<input class="modal-state" id="비밀번호-pop" type="checkbox" />
+			<input class="modal-state 팝업창" id="비밀번호-pop" type="checkbox" />
 			<div class="팝업">
 				<div class="contents">
 					<h2 class="title">비밀번호</h2>
@@ -100,6 +100,7 @@
 	<script src="../assets/js/jquery.min.js"></script>
 	<script src="../assets/js/skel.min.js"></script>
 	<script src="../assets/js/util.js"></script>
+	<script src="../../../js/sign/find.js"></script>
 	<!--[if lte IE 8]>
       <script src="assets/js/ie/respond.min.js"></script>
     <![endif]-->
