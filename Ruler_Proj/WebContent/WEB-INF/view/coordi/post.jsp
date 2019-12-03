@@ -126,10 +126,10 @@
 
 						<div class="coordi-post-icons-bottom">							
 							<c:if test="${pdetail.co_gender eq '남성' }">
-								<a href="list_m?p=1&g='남성'&b=${pdetail.co_bodyshape}" class="button">목록</a> 
+								<a href="list_m?p=1&g=남성&b=${pdetail.co_bodyshape}" class="button">목록</a> 
 							</c:if>
 							<c:if test="${pdetail.co_gender eq '여성' }">
-								<a href="list_w?p=1&g='여성'&b=${pdetail.co_bodyshape}" class="button">목록</a> 
+								<a href="list_w?p=1&g=여성&b=${pdetail.co_bodyshape}" class="button">목록</a> 
 							</c:if>
 							<a href="comment?cb_id=${pdetail.cb_id }" class="button">댓글</a>
 						</div>
