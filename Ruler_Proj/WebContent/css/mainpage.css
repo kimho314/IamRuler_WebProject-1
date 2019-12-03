@@ -24,12 +24,15 @@ input[type="text"].maintextbox {
 span.mainpagelabel {
 	padding-left: 1em;
 }
-
-#agecheck, #bodycheck {
-	width: 50%
+.inforform .select-wrapper{
+	width: 50%;
 }
-
-div.mask {
+/* #agecheck, #bodyshape {
+	width: 50% !important;
+}
+ */
+#popup{position:absolute;top:10%;left:50%;margin-left:-12.5em}
+/* div.mask {
 	display: none;
 	z-index: 1000;
 	position: fixed;
@@ -39,9 +42,12 @@ div.mask {
 	top: 0;
 	background-color: rgba(0, 0, 0, 0.4);
 	overflow-x: hidden;
-}
+} */
 
 div.contents {
+	display:none;
+	position:relative !important;
+	height:auto !important;
 	margin: 10% auto;
 	width: 25em;
 	padding: 2em 1em;
