@@ -112,7 +112,7 @@
 
                                     <tr>
                                         <td>체형</td>
-										<td>
+										<td colspan="4">
 											<div class="select-wrapper">
 												<c:if test="${not empty pDetail }">
 													<select name="bodyshape-category" id="select-bodyshape">
@@ -162,10 +162,20 @@
 
                             <div class="coordi-post-icons-bottom">
                                 <input type="hidden" name="gender-field" value="${param.g }">
-                                <button class="popup-open" type="button" onclick="openPopUp()">등록</button>
-                                <a href="coordi_list_w_main.html" style="margin:0 0;">
+                                <button class="popup-open" type="button" onclick="openPopUp()">등록</button>                                
+                               
+                                <c:choose>
+                                	<c:when test="${param.g eq '남성'}">
+                                	<a href="list_m" style="margin:0 0;">
                                     <button class="popup-open" type="button">취소</button>
-                                </a>                               
+                                	</a> 
+                                	</c:when>
+                                	<c:otherwise>
+                                	 <a href="list_w" style="margin:0 0;">
+                                    <button class="popup-open" type="button">취소</button>
+                                	</a>  
+                                	</c:otherwise>
+                                </c:choose>                               
                             </div>
                         <!-- </form> -->
                     </div>

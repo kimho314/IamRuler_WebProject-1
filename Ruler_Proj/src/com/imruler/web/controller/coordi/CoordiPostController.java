@@ -1,6 +1,7 @@
 package com.imruler.web.controller.coordi;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -61,11 +62,22 @@ public class CoordiPostController extends HttpServlet
 		{
 			opt = Integer.parseInt(_opt);
 		}
-				
+		
+		String gender = "";
+		String _gender = req.getParameter("g");
+		if(_gender != null && !_gender.equals(""))
+		{
+			gender = _gender;
+			System.out.println(gender);
+		}
+		
+		String tmpGender = gender;
+		gender = URLEncoder.encode(tmpGender, "UTF-8");	
+		
 		switch (opt)
 		{
 		case 1: // post detail revise sequence
-			resp.sendRedirect("reg_post?cb_id=" + cb_id);
+			resp.sendRedirect("reg_post?cb_id=" + cb_id + "&g=" + gender);
 			break;
 
 		case 2: // post detail delete sequence		
@@ -78,22 +90,27 @@ public class CoordiPostController extends HttpServlet
 			CoordiPostDetailView postDetail = coordiPostDetailService.getCoordiPostDetailById(cb_id);
 
 			String tmpStr = postDetail.getCi_img().replace("\\", "/");
+			String[] cImgs = new String[] {""};
 			if(tmpStr != null && !tmpStr.equals(""))
-			{
-				String retStr = "";
+			{				
 				if (tmpStr.indexOf(",") != -1)
 				{
-					retStr = tmpStr.substring(0, tmpStr.indexOf(","));
+					cImgs = tmpStr.split(",");
 				}
 				else
 				{
-					retStr = tmpStr;
+					cImgs[0] = tmpStr;
 				}
-				
-				postDetail.setCi_img(retStr);
+					
+				for(String cImg : cImgs)
+				{
+					System.out.println(cImg);
+				}
 			}
 			
-
+			
+			
+			req.setAttribute("cImgs", cImgs);
 			req.setAttribute("pdetail", postDetail);
 			req.getRequestDispatcher("/WEB-INF/view/coordi/post.jsp").forward(req, resp);
 			break;

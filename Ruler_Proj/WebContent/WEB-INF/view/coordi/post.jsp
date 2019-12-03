@@ -55,12 +55,12 @@
 					<div class="content">
 						<div class="visual-wrapper">
 							<div class="visual-top-coordi-post">
-								<div class="visual-top-right">
-									<c:if test="${not empty userName }">
+								<div class="visual-top-right">									
+									<c:if test="${pdetail.m_userName eq userName }">
 										<a href="#" class="button small"
 											style="box-shadow: none; font-size: 100%; padding: 0 1em;"
 											onclick="openPopUp()">찜하기</a>
-										<a href="post?cb_id=${param.cb_id }&opt=1"
+										<a href="post?cb_id=${param.cb_id }&g=${pdetail.co_gender}&opt=1"
 											class="button small"
 											style="box-shadow: none; font-size: 100%; padding: 0 1em;">수정</a>
 										<a href="post?cb_id=${param.cb_id }&opt=2"
@@ -108,9 +108,15 @@
 									<td>내용</td>
 									<td colspan="4">
 										<div class="coordi-post-content">
-											<textarea readonly name="demo-message" id="demo-message"
+											<%-- <textarea readonly name="demo-message" id="demo-message"
 												placeholder="내용" rows="6" style="overflow: scroll;">${pdetail.cct_content }</textarea>
-											<img src="../..${pdetail.ci_img }">
+											<img src="../..${pdetail.ci_img }"> --%>
+											<p style="height:100%;">겨울 코디법입니다.<br></p>
+											<div class="content-img-wrapper">
+												<c:forEach var="c" items="${cImgs }">
+                                                	<div><img src="../..${c }"></div>                                               
+                                                </c:forEach>                                                
+                                            </div>  
 										</div>
 									</td>
 
@@ -118,12 +124,12 @@
 							</table>
 						</div>
 
-						<div class="coordi-post-icons-bottom">
+						<div class="coordi-post-icons-bottom">							
 							<c:if test="${pdetail.co_gender eq '남성' }">
-								<a href="list_m?p=1&g=${pdetail.co_gender }&b=${pdetail.co_bodyshape}" class="button">목록</a> 
+								<a href="list_m?p=1&g='남성'&b=${pdetail.co_bodyshape}" class="button">목록</a> 
 							</c:if>
 							<c:if test="${pdetail.co_gender eq '여성' }">
-								<a href="list_w?p=1&g=${pdetail.co_gender }&b=${pdetail.co_bodyshape}" class="button">목록</a> 
+								<a href="list_w?p=1&g='여성'&b=${pdetail.co_bodyshape}" class="button">목록</a> 
 							</c:if>
 							<a href="comment?cb_id=${pdetail.cb_id }" class="button">댓글</a>
 						</div>
