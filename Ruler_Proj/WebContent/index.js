@@ -1,17 +1,17 @@
 window.addEventListener("load", function(){
     var section = document.querySelector("#infor");
-    var bodyCheck = section.querySelector("#bodycheck");
+    var bodyShape = section.querySelector("#bodyshape");
 
-    bodyCheck.onchange = function(){
+    bodyShape.onchange = function(){
        
         var img = section.querySelector(".object-stage img");
-        var value = bodyCheck.value;
+        var value = bodyShape.value;
         
-        if(value == 1) img.src = "images/main_simulator1.png";
-        else if(value == 2) img.src = "images/main_simulator2.png";
-        else if(value == 3) img.src = "images/main_simulator3.png";
-        else if(value == 4) img.src = "images/main_simulator4.png";
-        else if(value == 5) img.src = "images/main_simulator5.png";
+        if(value == "nomal") img.src = "images/main_simulator1.png";
+        else if(value == "smallInverseTriangle") img.src = "images/main_simulator2.png";
+        else if(value == "triangle") img.src = "images/main_simulator3.png";
+        else if(value == "inverseTriangle") img.src = "images/main_simulator4.png";
+        else if(value == "square") img.src = "images/main_simulator5.png";
         
     };
 
