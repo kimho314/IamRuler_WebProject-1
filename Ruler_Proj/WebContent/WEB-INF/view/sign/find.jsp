@@ -26,14 +26,14 @@
 			<div class="inner">
 				<header id="header">
 					<h1 class="아이디비밀번호찾기">아이디/비밀번호 찾기</h1>
+					<h1>&nbsp;</h1>
 					<jsp:include page="../inc/nav.jsp" />
 				</header>
 				<div id="찾기테이블">
 					<span class="아이디찾기">
-						<p>아이디 찾기</p>
-							<c:if test="${param.r == 1}">
-								<span class="finder">${id}</span>
-							</c:if>
+						<p>아이디 찾기</p> <c:if test="${param.r == 1}">
+							<span class="finder">${id}<br> <br></span>
+						</c:if>
 						<form method="POST">
 							<section class="아이디찾기">
 								<label>이메일</label> <input type="text" name="email" id="이메일" />
@@ -48,10 +48,9 @@
 					</span>
 					<!-- 구분선 -->
 					<span class="비밀번호찾기">
-						<p>비밀번호 찾기</p>
-							<c:if test="${param.r == 2}">
-								<span class="finder">${pwd}</span>
-							</c:if>
+						<p>비밀번호 찾기</p> <c:if test="${param.r == 2}">
+							<span class="finder">${pwd}<br> <br></span>
+						</c:if>
 						<form method="POST">
 							<section class="비밀번호찾기">
 								<label>아이디</label> <input type="text" name="userId" id="아이디" /><br />

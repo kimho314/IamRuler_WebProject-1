@@ -44,11 +44,12 @@ public class FindController extends HttpServlet {
 		if (email != null && btn == 1) {
 			String userIdFind = memberService.idFinder(email);
 			req.setAttribute("id", userIdFind);
-			req.getRequestDispatcher("find?r=1").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/view/sign/find.jsp?r=1").forward(req, resp);
 		} else if (userId != null && phone != null && btn == 2) {
 			String userPwdFind = memberService.pwdFinder(userId, phone);
 			req.setAttribute("pwd", userPwdFind);
-			req.getRequestDispatcher("find?r=1").forward(req, resp);
+			btn = 0;
+			req.getRequestDispatcher("/WEB-INF/view/sign/find.jsp?r=2").forward(req, resp);
 		} else {
 			resp.sendRedirect("find?r=0");
 		}
