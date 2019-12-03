@@ -21,6 +21,13 @@ public class RulerCoordiImgService implements CoordiImgService
 		// TODO Auto-generated method stub
 		return coordiImgDao.get(id);
 	}
+	
+	@Override
+	public CoordiImg getByCoordiId(int cb_id)
+	{
+		// TODO getByCoordiId
+		return coordiImgDao.getByCoordiId(cb_id);
+	}
 
 	@Override
 	public int insert(CoordiImg coordiImg)
@@ -49,5 +56,7 @@ public class RulerCoordiImgService implements CoordiImgService
 		// TODO Auto-generated method stub
 		return coordiImgDao.deleteByCoordiBoardId(cb_id);
 	}
+
+	
 
 }

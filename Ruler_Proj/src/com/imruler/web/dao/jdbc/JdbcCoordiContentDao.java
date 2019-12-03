@@ -67,7 +67,8 @@ public class JdbcCoordiContentDao implements CoordiContentDao
 
 		return coordiContent;
 	}
-
+	
+		
 	@Override
 	public int insert(CoordiContent coordiContent)
 	{
@@ -220,4 +221,5 @@ public class JdbcCoordiContentDao implements CoordiContentDao
 		return result;
 	}
 
+	
 }

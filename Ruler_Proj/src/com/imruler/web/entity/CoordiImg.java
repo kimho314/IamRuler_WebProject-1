@@ -20,7 +20,6 @@ public class CoordiImg
 	// for inserting
 	public CoordiImg(int coordiId, String img)
 	{
-		super();
 		this.coordiId = coordiId;
 		this.img = img;
 	}

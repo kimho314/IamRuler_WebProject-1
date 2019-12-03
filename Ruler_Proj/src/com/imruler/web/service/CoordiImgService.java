@@ -5,6 +5,7 @@ import com.imruler.web.entity.CoordiImg;
 public interface CoordiImgService
 {
 	CoordiImg get(int id);
+	CoordiImg getByCoordiId(int cb_id);
 
 	int insert(CoordiImg coordiImg);
 	int update(CoordiImg coordiImg);

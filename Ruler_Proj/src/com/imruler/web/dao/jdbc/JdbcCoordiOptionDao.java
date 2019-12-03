@@ -38,7 +38,7 @@ public class JdbcCoordiOptionDao implements CoordiOptionDao
 			ResultSet rs = pst.executeQuery();
 
 			if (rs.next()) {
-				coordiOption = new CoordiOption(rs.getInt("id"), rs.getString("bodyshpae"), rs.getString("gender"));
+				coordiOption = new CoordiOption(rs.getInt("id"), rs.getString("bodyshape"), rs.getString("gender"));
 			}
 			rs.close();
 			pst.close();

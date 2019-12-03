@@ -67,6 +67,63 @@ public class JdbcCoordiImgDao implements CoordiImgDao
 
 		return coordiImg;
 	}
+	
+	@Override
+	public CoordiImg getByCoordiId(int cb_id)
+	{
+		// TODO getByCoordiId
+		CoordiImg coordiImg = null;
+		String sql = "SELECT\r\n" + 
+				"    id,\r\n" + 
+				"    coordi_id,\r\n" + 
+				"    img" + 
+				"	 FROM coordi_img" + 
+				"    WHERE coordi_id = ?";
+
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
+		
+		Connection con = null;
+		PreparedStatement pst = null;
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "RULER","33333");
+			pst = con.prepareStatement(sql);
+
+			pst.setInt(1, cb_id);
+
+			ResultSet rs = pst.executeQuery();
+
+			if (rs.next()) {
+				coordiImg = new CoordiImg(rs.getInt("id"), rs.getInt("coordi_id"), rs.getString("img"));
+			}
+			rs.close();
+			pst.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(pst != null || con != null)
+			{
+				try
+				{
+					pst.close();
+					con.close();
+				}
+				catch (SQLException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		}
+
+		return coordiImg;
+	}
 
 	@Override
 	public int insert(CoordiImg coordiImg)
@@ -263,5 +320,7 @@ public class JdbcCoordiImgDao implements CoordiImgDao
 
 		return result;
 	}
+
+	
 
 }

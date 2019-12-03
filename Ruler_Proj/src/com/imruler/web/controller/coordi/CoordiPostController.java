@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,11 +16,13 @@ import com.imruler.web.entity.CoordiBoardView;
 import com.imruler.web.entity.CoordiPostDetailView;
 import com.imruler.web.service.CoordiBoardService;
 import com.imruler.web.service.CoordiCommentService;
+import com.imruler.web.service.CoordiContentService;
 import com.imruler.web.service.CoordiImgService;
 import com.imruler.web.service.CoordiOptionService;
 import com.imruler.web.service.CoordiPostService;
 import com.imruler.web.service.coordi.RulerCoordiBoardService;
 import com.imruler.web.service.coordi.RulerCoordiCommentService;
+import com.imruler.web.service.coordi.RulerCoordiContentService;
 import com.imruler.web.service.coordi.RulerCoordiImgService;
 import com.imruler.web.service.coordi.RulerCoordiOptionService;
 import com.imruler.web.service.coordi.RulerCoordiPostService;
@@ -32,6 +35,7 @@ public class CoordiPostController extends HttpServlet
 	private CoordiCommentService coordiBoardCommentService;
 	private CoordiImgService coordiImgService;
 	private CoordiOptionService coordiOptionService;
+	private CoordiContentService coordiContentService;
 	
 	public CoordiPostController()
 	{
@@ -40,6 +44,7 @@ public class CoordiPostController extends HttpServlet
 		coordiBoardCommentService = new RulerCoordiCommentService();
 		coordiImgService = new RulerCoordiImgService();
 		coordiOptionService = new RulerCoordiOptionService();
+		coordiContentService = new RulerCoordiContentService();
 	}
 	
 	@Override
@@ -69,19 +74,24 @@ public class CoordiPostController extends HttpServlet
 		{
 			gender = _gender;
 			System.out.println(gender);
-		}
+		}		
 		
-		String tmpGender = gender;
-		gender = URLEncoder.encode(tmpGender, "UTF-8");	
+		String genderEncoded = URLEncoder.encode(gender, "UTF-8");	
 		
 		switch (opt)
 		{
 		case 1: // post detail revise sequence
-			resp.sendRedirect("reg_post?cb_id=" + cb_id + "&g=" + gender);
+			int updateOpt = 1;
+			req.getSession().setAttribute("updateOpt", updateOpt);
+//			Cookie updateCookie = new Cookie("updateOpt", String.valueOf(updateOpt));
+//			updateCookie.setPath("/");
+//			resp.addCookie(updateCookie);
+			resp.sendRedirect("reg_post?cb_id="+cb_id+"&g="+genderEncoded);
 			break;
 
 		case 2: // post detail delete sequence		
 			coordiBoardService.delete(cb_id);
+			coordiContentService.delete(cb_id);
 			coordiBoardCommentService.deleteByCoodiBoardId(cb_id);
 			coordiImgService.deleteByCoordiBoardId(cb_id);
 			coordiOptionService.delete(cb_id);

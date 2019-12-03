@@ -32,7 +32,7 @@ public class RulerAuthenticationFilter implements Filter
 			if(url.endsWith("*"))
 			{
 				String path = url.substring(0, url.length()-1);
-				System.out.println(path);
+				//System.out.println(path);
 				if(requestURI.startsWith(path))
 				{
 					isAuthRequired = true;

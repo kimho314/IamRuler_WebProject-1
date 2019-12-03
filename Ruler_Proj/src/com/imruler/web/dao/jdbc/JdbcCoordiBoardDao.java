@@ -134,7 +134,7 @@ public class JdbcCoordiBoardDao implements CoordiBoardDao
 	{
 		int result = 0;
 		String sql = "UPDATE coordi_board\r\n" + 
-				"SET notice_status=?, hit=?, dibs=?, user_id=? WHERE ID = ?";
+				"SET hit=?, dibs=?, user_id=? WHERE ID = ?";
 		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
 		Connection con = null;
@@ -144,13 +144,12 @@ public class JdbcCoordiBoardDao implements CoordiBoardDao
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, "RULER", "33333");
-			pst = con.prepareStatement(sql);
-			
-			pst.setInt(1, coordiBoard.getNoticeStatus());
-			pst.setInt(2, coordiBoard.getUserId());
-			pst.setInt(3, coordiBoard.getDibs());
-			pst.setInt(4, coordiBoard.getUserId());
-			pst.setInt(5, coordiBoard.getId());
+			pst = con.prepareStatement(sql);			
+
+			pst.setInt(1, coordiBoard.getUserId());
+			pst.setInt(2, coordiBoard.getDibs());
+			pst.setInt(3, coordiBoard.getUserId());
+			pst.setInt(4, coordiBoard.getId());
 
 			result = pst.executeUpdate();
 			

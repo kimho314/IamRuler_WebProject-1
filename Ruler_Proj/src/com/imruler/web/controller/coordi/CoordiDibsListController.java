@@ -90,10 +90,9 @@ public class CoordiDibsListController extends HttpServlet
 					resp.sendRedirect("list_m");
 			}
 			else if(returnOpt == 1)
-			{
-				String tmpGender = gender;
-				gender = URLEncoder.encode(tmpGender, "UTF-8");	
-				resp.sendRedirect("post?cb_id="+cb_id+"&g="+gender);
+			{		
+				String genderEncoded = URLEncoder.encode(gender, "UTF-8");	
+				resp.sendRedirect("post?cb_id="+cb_id+"&g="+genderEncoded);
 			}
 			
 		}

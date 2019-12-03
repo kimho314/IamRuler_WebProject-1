@@ -14,9 +14,11 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.imruler.web.entity.CoordiBoard;
@@ -81,10 +83,13 @@ public class CoordiRegPostController extends HttpServlet
 		{
 			gender = _gender;
 		}
-				
+		
+		int updateOpt = 0;
+		
 		CoordiPostDetailView coordiPostDetailView = coordiPostDetailService.getCoordiPostDetailById(cb_id);
 		if(coordiPostDetailView != null)
-		{			
+		{
+			// request for updating			
 			req.setAttribute("pDetail", coordiPostDetailView);
 		}
 		
@@ -96,6 +101,21 @@ public class CoordiRegPostController extends HttpServlet
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
 		// TODO doPost
+		
+		// checking if the request is for updating
+		int updateOpt = 0;
+		HttpSession session = null;
+		session = req.getSession(false);
+		if(session != null)
+		{
+			if(session.getAttribute("updateOpt") != null)
+			{
+				updateOpt = (int)session.getAttribute("updateOpt");
+				req.getSession().removeAttribute("updateOpt");
+			}
+			
+		}
+				
 		
 		// get neccesary datas from reg_post.jsp
 		String cct_title = "";
@@ -126,7 +146,13 @@ public class CoordiRegPostController extends HttpServlet
 		{
 			gender = _gender;
 		}
-				
+		
+		String oldFiles = "";
+		if(updateOpt == 1)
+		{
+			oldFiles = req.getParameter("old-files");
+		}
+		
 		
 		Collection<Part> parts = req.getParts();
 		String fileNames = "";
@@ -139,16 +165,17 @@ public class CoordiRegPostController extends HttpServlet
 			
 			Part filePart = p;
 			String fileName = filePart.getSubmittedFileName();
-		
-			fileNames += (urlPath + File.separator + fileName + ",");
+			if(updateOpt == 1 && (fileName.equals("") || fileName == null))
+			{
+				break;
+			}
 			
+			fileNames += (urlPath + File.separator + fileName + ",");
 			
 			ServletContext application = req.getServletContext();
 			
-			String realPath = application.getRealPath(urlPath);
-			//String realPath = new File("." + fileNames).getCanonicalPath();
+			String realPath = application.getRealPath(urlPath);			
 		
-			//System.out.println("tmpPath : " + req.getSession().getServletContext().getRealPath("/"));
 			
 			File file = new File(realPath);
 			if (!file.exists())
@@ -160,10 +187,8 @@ public class CoordiRegPostController extends HttpServlet
 				System.out.println("경로존재함");
 			}
 			
-			System.out.println("realPath : " + realPath);
-
-			InputStream fis = filePart.getInputStream();
 			
+			InputStream fis = filePart.getInputStream();			
 			
 			try(FileOutputStream fos = new FileOutputStream(realPath + File.separator + fileName))
 			{
@@ -179,7 +204,6 @@ public class CoordiRegPostController extends HttpServlet
 			catch (Exception e)
 			{
 				// TODO: handle exception
-				System.out.println("fos exception");
 				resp.setContentType("text/html;charset=UTF-8");
 				resp.setCharacterEncoding("UTF-8");
 				PrintWriter out = resp.getWriter();
@@ -189,27 +213,56 @@ public class CoordiRegPostController extends HttpServlet
 				out.println("</script>");
 
 				return;
-			}
-			
-			
+			}		
 
 		}
 		
+		if(updateOpt == 1)
+		{
+			fileNames += oldFiles + ",";
+		}
+		System.out.println(fileNames);
 		fileNames = fileNames.substring(0, fileNames.length()-1);
-		//System.out.println(fileNames);
+	
 		
 		// implements inserting
-		int m_id = 0; 
+		if(updateOpt == 0)
+		{
+			int m_id = 0; 
+			
+			String userName = (String)req.getSession().getAttribute("userName");
+			m_id = memberService.get(userName).getId();
+			
+			int result = 0;
+			coordiBoardService.insert(new CoordiBoard(m_id));
+			int cb_maxId = coordiBoardService.getMaxId();		
+			coordiContentService.insert(new CoordiContent(cb_maxId, cct_title, cct_content, ""));		
+			coordiImgService.insert(new CoordiImg(cb_maxId, fileNames));
+			coordiOptionService.insert(new CoordiOption(cb_maxId, co_bodyshape, gender));
+		}
+		else if(updateOpt == 1)
+		{
+			int cb_id = 0;
+			String _cb_id = req.getParameter("cb_id");
+			if(_cb_id != null && !_cb_id.equals(""))
+			{
+				cb_id = Integer.parseInt(_cb_id);
+				//System.out.println("update cb_id : " + cb_id);
+			}
+	
+			
+			CoordiContent coordiContent = coordiContentService.get(cb_id);
+			coordiContent.setTitle(cct_title);
+			coordiContent.setContent(cct_content);			
+			coordiContentService.update(coordiContent);
+			CoordiImg coordiImg = coordiImgService.getByCoordiId(cb_id);
+			coordiImg.setImg(fileNames);
+			coordiImgService.update(coordiImg);
+			CoordiOption coordiOption = coordiOptionService.get(cb_id);
+			coordiOption.setBodyShape(co_bodyshape);
+			coordiOptionService.update(coordiOption);
+		}
 		
-		String userName = (String)req.getSession().getAttribute("userName");
-		m_id = memberService.get(userName).getId();
-		
-		int result = 0;
-		coordiBoardService.insert(new CoordiBoard(m_id));
-		int cb_maxId = coordiBoardService.getMaxId();		
-		coordiContentService.insert(new CoordiContent(cb_maxId, cct_title, cct_content, ""));		
-		coordiImgService.insert(new CoordiImg(cb_maxId, fileNames));
-		coordiOptionService.insert(new CoordiOption(cb_maxId, co_bodyshape, gender));
 		
 		
 		if(gender.equals("남성"))

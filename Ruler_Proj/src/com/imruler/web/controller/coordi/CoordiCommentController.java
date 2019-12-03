@@ -40,11 +40,7 @@ public class CoordiCommentController extends HttpServlet
 			ccmtId = Integer.parseInt(_ccmtId);
 		}
 		
-		int user_id = 0;
-		/*
-		 * user_id는 로그인 후 session으로 정보 받아야함
-		 */
-		
+				
 		int opt = 0;
 		String _opt = req.getParameter("opt");
 		if(_opt != null && !_opt.equals(""))
@@ -125,14 +121,14 @@ public class CoordiCommentController extends HttpServlet
 		System.out.println(optText + " " + ccmt_content + " " + ccmt_userId + " " + ccmt_bId + " " + ccmt_openStat);
 		
 		
-		if(optText == 1)
+		if(optText == 1) // update comment
 		{
 			CoordiComment coordiCommet = coordiCommentService.get(cmtId);
 			coordiCommet.setContent(ccmt_content);
 			coordiCommet.setOpenStat(ccmt_openStat);
 			coordiCommentService.update(coordiCommet);
 		}
-		else 
+		else // add a new comment
 		{
 			CoordiComment coordiCommet = new CoordiComment(ccmt_content, ccmt_userId, ccmt_bId, ccmt_openStat);
 			coordiCommentService.insert(coordiCommet);

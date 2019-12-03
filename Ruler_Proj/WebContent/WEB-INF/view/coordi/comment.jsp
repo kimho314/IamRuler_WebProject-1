@@ -59,9 +59,17 @@
 												<ul>
 													<li>
 														<c:if test="${n.ccmt_openStat == 1 }">
-															<span><i class="fas fa-lock"></i></span>
+															<span><i class="fas fa-lock"></i></span>															
 														</c:if>
-														<span>${n.m_userName }</span>														
+														<c:if test="${n.ccmt_openStat == 1 && n.m_userName != userName}">
+															<span>*****</span>
+														</c:if>
+														<c:if test="${n.ccmt_openStat == 1 && n.m_userName == userName}">
+															<span>${n.m_userName }</span>
+														</c:if>
+														<c:if test="${n.ccmt_openStat != 1 }">
+															<span>${n.m_userName }</span>
+														</c:if>														
 													</li>
 													<li>														
 														<span>${n.ccmt_regdate }</span>
@@ -69,6 +77,7 @@
 												</ul>
 											</div>
 											<div class="coordi-comment-top-right">
+												<c:if test="${n.m_userName == userName }">
 												<ul>
 													<li>
 														<a href="comment?cb_id=${param.cb_id }&id=${(empty n.ccmt_id)?0:n.ccmt_id }&user_id=${(empty n.ccmt_userId)?0:n.ccmt_userId}&opt=1">수정</a>
@@ -77,11 +86,15 @@
 														<a href="comment?cb_id=${param.cb_id }&id=${(empty n.ccmt_id)?0:n.ccmt_id }&user_id=${(empty n.ccmt_userId)?0:n.ccmt_userId}&opt=2">삭제</a>
 													</li>
 												</ul>
+												</c:if>
 											</div>
 										</div>
 										<div class="coordi-comment-bottom">
-											<c:if test="${n.ccmt_openStat == 1 }">
+											<c:if test="${n.ccmt_openStat == 1 && userName != n.m_userName}">
 												<p>비밀 댓글입니다.</p>
+											</c:if>
+											<c:if test="${n.ccmt_openStat == 1 && userName == n.m_userName}">
+												<p>${n.ccmt_content }</p>
 											</c:if>
 											<c:if test="${n.ccmt_openStat != 1 }">
 												<p>${n.ccmt_content }</p>
@@ -104,8 +117,9 @@
 													<label for="demo-copy">비공개</label>
 												</c:if>
 												<c:if test="${cmt.openStat == 1 }">
-												<input type="checkbox" id="demo-human" name="demo-human" checked="">
-												 <label for="demo-human">비공개</label>
+													<input type="checkbox" id="demo-human" name="demo-human"
+														checked="">
+													<label for="demo-human">비공개</label>
 												</c:if>
 											</c:if> 
 											<c:if test="${opt != 1 }">
