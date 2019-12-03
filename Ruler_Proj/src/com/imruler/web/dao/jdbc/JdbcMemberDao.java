@@ -16,8 +16,7 @@ public class JdbcMemberDao implements MemberDao {
 	@Override
 	public List<Member> getList() {
 		List<Member> list = new ArrayList<>();
-		String sql = "select id, user_name, pwd, phone, email, height, weight, gender, age, bodyshape " + "from Member "
-				+ "order by id desc;";
+		String sql = "select id, user_name, pwd, phone, email, height, weight, gender, age, bodyshape from Member order by id desc";
 		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		Connection con = null;
 		PreparedStatement pst = null;
@@ -30,8 +29,8 @@ public class JdbcMemberDao implements MemberDao {
 
 			rs = pst.executeQuery();
 
-			if (rs.next()) {
-				Member member = new Member(rs.getInt("id"), rs.getString("userName"), rs.getString("pwd"),
+			while (rs.next()) {
+				Member member = new Member(rs.getInt("id"), rs.getString("user_name"), rs.getString("pwd"),
 						rs.getString("phone"), rs.getString("email"), rs.getInt("height"), rs.getInt("weight"),
 						rs.getString("gender"), rs.getInt("age"), rs.getString("bodyshape"));
 				list.add(member);
@@ -188,7 +187,7 @@ public class JdbcMemberDao implements MemberDao {
 
 		return result;
 	}
-	
+
 	@Override
 	public int myInfoDelete(int id) {
 		int result = 0;

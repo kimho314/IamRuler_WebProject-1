@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,33 +31,39 @@
 				<div id="찾기테이블">
 					<span class="아이디찾기">
 						<p>아이디 찾기</p>
-						<section class="아이디찾기">
-							<form method="POST">
+							<c:if test="${param.r == 1}">
+								<span class="finder">${id}</span>
+							</c:if>
+						<form method="POST">
+							<section class="아이디찾기">
 								<label>이메일</label> <input type="text" name="email" id="이메일" />
-							</form>
-						</section>
+							</section>
 
-						<section>
-							<span id="확인버튼"> <label class="button special"
-								for="아이디-pop">확인</label>
-							</span>
-						</section>
+							<section>
+								<span id="확인버튼"> <br> <input type="submit" name="찾기"
+									class="button special" value="아이디찾기">
+								</span>
+							</section>
+						</form>
 					</span>
 					<!-- 구분선 -->
 					<span class="비밀번호찾기">
 						<p>비밀번호 찾기</p>
-						<section class="비밀번호찾기">
-							<form method="POST">
-								<label>아이디</label> <input type="text" name="phone" id="아이디" /><br />
+							<c:if test="${param.r == 2}">
+								<span class="finder">${pwd}</span>
+							</c:if>
+						<form method="POST">
+							<section class="비밀번호찾기">
+								<label>아이디</label> <input type="text" name="userId" id="아이디" /><br />
 								<label>핸드폰</label> <input type="text" name="phone" id="핸드폰" />
-							</form>
-						</section>
+							</section>
 
-						<section>
-							<span id="확인버튼"> <label class="button special"
-								for="비밀번호-pop">확인</label>
-							</span>
-						</section>
+							<section>
+								<span id="확인버튼"> <br> <input type="submit" name="찾기"
+									class="button special" value="비밀번호찾기">
+								</span>
+							</section>
+						</form>
 					</span>
 				</div>
 			</div>

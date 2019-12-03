@@ -113,19 +113,14 @@
 								<td title="키와 체중과 체형을 기준으로 옷 사이즈를 비교합니다.">체형</td>
 								<td>
 									<div class="select-wrapper">
-										<select name="체형" id="체형" class="남성">
+										<select name="체형" id="체형">
+											<option value="보통">보통</option>
 											<option value="작은역삼각">작은 역삼각</option>
-											<option value="큰사각">큰 사각</option>
+											<option value="삼각">사각</option>
+											<option value="역삼각">역삼각</option>
 											<option value="사각">사각</option>
 										</select>
-									</div> <!-- <div class="select-wrapper">
-											<select name="체형" id="체형" class="여성">
-												<option value="작은역삼각">작은 역삼각</option>
-												<option value="큰역삼각">큰 역삼각</option>
-												<option value="역삼각">역삼각</option>
-												<option value="사각">사각</option>
-											</select>
-										</div> -->
+									</div>
 								</td>
 							</tr>
 						</table>

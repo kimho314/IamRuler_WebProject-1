@@ -22,4 +22,8 @@ public interface MemberService {
 	int isDuplicatedIdMyInfo(String userId, String userPwd, String userPwdRequest, String phone, String email);
 
 	int myInfoDeleteMember(int id);
+	
+	String idFinder(String email);
+	
+	String pwdFinder(String userId, String phone);
 }

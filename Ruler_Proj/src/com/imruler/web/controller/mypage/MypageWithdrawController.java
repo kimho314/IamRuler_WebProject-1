@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.imruler.web.service.DibsService;
 import com.imruler.web.service.MemberService;
 import com.imruler.web.service.member.RulerMemberService;
-import com.imruler.web.service.mypage.RulerDibsService;
 
 @WebServlet("/mypage/withdraw")
 public class MypageWithdrawController extends HttpServlet {
