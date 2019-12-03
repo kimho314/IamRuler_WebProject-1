@@ -130,13 +130,15 @@
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
 												<li>
+													<c:if test="${not empty userName}">
 													<c:if test="${ n.dl_id == 0 }">
-														<a href="reg_dibs?g=여성&m_id=${n.m_id }&cb_id=${n.cb_id}" class="button small">
+														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
 														<i class="far fa-star"></i></a>
 													</c:if>
 													<c:if test="${ n.dl_id > 0 }">
-														<a href="reg_dibs?g=여성&m_id=${n.m_id }&cb_id=${n.cb_id}" class="button small">
+														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
 														<i class="fas fa-star"></i></a>
+													</c:if>
 													</c:if>
 												</li>
 											</td>
@@ -151,13 +153,15 @@
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
 												<li>
+													<c:if test="${not empty userName}">
 													<c:if test="${ n.dl_id == 0 }">
-														<a href="reg_dibs?g=여성&m_id=${n.m_id }&cb_id=${n.cb_id}" class="button small">
+														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
 														<i class="far fa-star"></i></a>
 													</c:if>
 													<c:if test="${ n.dl_id > 0 }">
-														<a href="reg_dibs?g=여성&m_id=${n.m_id }&cb_id=${n.cb_id}" class="button small">
+														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
 														<i class="fas fa-star"></i></a>
+													</c:if>
 													</c:if>
 												</li>
 											</td>
@@ -179,13 +183,15 @@
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
 												<li>
+													<c:if test="${not empty userName}">
 													<c:if test="${ n.dl_id == 0 }">
-														<a href="reg_dibs?g=여성&m_id=${n.m_id }&cb_id=${n.cb_id}" class="button small">
+														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
 														<i class="far fa-star"></i></a>
 													</c:if>
 													<c:if test="${ n.dl_id > 0 }">
-														<a href="reg_dibs?g=여성&m_id=${n.m_id }&cb_id=${n.cb_id}" class="button small">
+														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
 														<i class="fas fa-star"></i></a>
+													</c:if>
 													</c:if>
 												</li>
 											</td>
@@ -200,13 +206,15 @@
 														<p>${n.co_bodyshape }</p> </a>
 												</li>
 												<li>
-													<c:if test="${ n.dl_id == 0 }">
-														<a href="reg_dibs?g=여성&m_id=${n.m_id }&cb_id=${n.cb_id}" class="button small">
-														<i class="far fa-star"></i></a>
+													<c:if test="${not empty userName}">
+													<c:if test="${ n.dl_id == 0 }">														
+														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+														<i class="far fa-star"></i></a>																												
 													</c:if>
 													<c:if test="${ n.dl_id > 0 }">
-														<a href="reg_dibs?g=여성&m_id=${n.m_id }&cb_id=${n.cb_id}" class="button small">
+														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
 														<i class="fas fa-star"></i></a>
+													</c:if>
 													</c:if>
 												</li>
 											</td>

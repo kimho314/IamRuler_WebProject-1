@@ -56,10 +56,12 @@
 						<div class="visual-wrapper">
 							<div class="visual-top-coordi-post">
 								<div class="visual-top-right">									
-									<c:if test="${pdetail.m_userName eq userName }">
+									<c:if test="${not empty userName }">
 										<a href="#" class="button small"
 											style="box-shadow: none; font-size: 100%; padding: 0 1em;"
 											onclick="openPopUp()">찜하기</a>
+									</c:if>
+									<c:if test="${pdetail.m_userName eq userName }">
 										<a href="post?cb_id=${param.cb_id }&g=${pdetail.co_gender}&opt=1"
 											class="button small"
 											style="box-shadow: none; font-size: 100%; padding: 0 1em;">수정</a>
@@ -146,7 +148,7 @@
 				<p class="title">이 게시글을 찜 하였습니다.</p>
 				<p></p>
 				<div class="btn">
-					<a href="reg_dibs?g=${pdetail.co_gender }&m_id=${pdetail.m_id }&cb_id=${pdetail.cb_id}" class="button close" onclick="closePopUp()">닫기</a>
+					<a href="reg_dibs?g=${pdetail.co_gender }&m_name=${userName }&cb_id=${pdetail.cb_id}&returnOpt=1" class="button close" onclick="closePopUp()">닫기</a>
 				</div>
 			</div>
 		</div>

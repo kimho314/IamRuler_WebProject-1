@@ -1,6 +1,7 @@
 package com.imruler.web.controller.coordi;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,18 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.imruler.web.entity.Dibs;
+import com.imruler.web.entity.Member;
 import com.imruler.web.service.DibsService;
+import com.imruler.web.service.MemberService;
+import com.imruler.web.service.member.RulerMemberService;
 import com.imruler.web.service.mypage.RulerDibsService;
 
 @WebServlet("/coordi/reg_dibs")
 public class CoordiDibsListController extends HttpServlet
 {
 	private DibsService dibsService;
+	private MemberService memberService;
 
 	public CoordiDibsListController()
 	{
 		// TODO Auto-generated constructor stub
 		dibsService = new RulerDibsService();
+		memberService = new RulerMemberService();
 	}
 
 	@Override
@@ -32,14 +38,7 @@ public class CoordiDibsListController extends HttpServlet
 		if(_gender != null && !_gender.equals(""))
 		{
 			gender = _gender;
-		}
-		
-		int m_id = 0;
-		String _m_id = req.getParameter("m_id");
-		if(_m_id != null && !_m_id.equals(""))
-		{
-			m_id = Integer.parseInt(_m_id);
-		}
+		}		
 		
 		int cb_id = 0;
 		String _cb_id = req.getParameter("cb_id");
@@ -48,35 +47,57 @@ public class CoordiDibsListController extends HttpServlet
 			cb_id = Integer.parseInt(_cb_id);
 		}
 		
+		int returnOpt = 0;
+		String _returnOpt = req.getParameter("returnOpt");
+		if(_returnOpt != null && !_returnOpt.equals(""))
+		{
+			returnOpt = Integer.parseInt(_returnOpt);
+		}
+		
+		String userName = "";
+		String _userName = req.getParameter("m_name");
+		if(_userName != null && !_userName.equals(""))
+		{
+			userName = _userName;
+		}
+		
+		int m_id = 0;
+		Member member = memberService.get(userName);
+		m_id = member.getId();
 		
 		int isDibbed = -1;
 		isDibbed = dibsService.getDibsCountByBoardId(cb_id);
 		
+		int result = 0;
 		if(isDibbed == 0)		
 		{
 			System.out.println("newly Dibbed");
-			int result = dibsService.insertDibs(new Dibs("", m_id, cb_id));
-			if(result == 1)
-			{
-				if(gender.equals("여성"))
-					resp.sendRedirect("list_w");
-				if(gender.equals("남성"))
-					resp.sendRedirect("list_m");
-			}
+			result = dibsService.insertDibs(new Dibs("", m_id, cb_id));			
 		}
 		else
 		{
 			System.out.println("Dibbed");
-			int result = dibsService.deleteDibs(m_id, cb_id);
-			if(result == 1)
+			result = dibsService.deleteDibs(m_id, cb_id);			
+		}
+		
+		if(result == 1)
+		{
+			if(returnOpt == 0)
 			{
 				if(gender.equals("여성"))
 					resp.sendRedirect("list_w");
 				if(gender.equals("남성"))
 					resp.sendRedirect("list_m");
 			}
+			else if(returnOpt == 1)
+			{
+				String tmpGender = gender;
+				gender = URLEncoder.encode(tmpGender, "UTF-8");	
+				resp.sendRedirect("post?cb_id="+cb_id+"&g="+gender);
+			}
+			
 		}
-		
+	
 	}
 
 	@Override
