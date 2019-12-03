@@ -46,7 +46,7 @@
 													</c:if>
 													<c:if test="${not empty boardList}">
 														<c:forEach var="b" items="${boardList}" begin="0" end="5">
-															<li><a href="${(b.type eq 'C')? '/coordi/detail?id=':'/trade/detail?id='}${b.id}">${b.title}</a></li>
+															<li><a href="${(b.type eq 'C')? '/coordi/post?cb_id=':'/trade/detail?id='}${b.id}">${b.title}</a></li>
 														</c:forEach>
 													</c:if>
 												</ul>
@@ -59,7 +59,7 @@
 													</c:if>
 													<c:if test="${not empty cmtList}">
 														<c:forEach var="c" items="${cmtList}" begin="0" end="5">
-															<li><a href="${(c.type eq 'C')? '/coordi/detail?id=':'/trade/detail?id='}${c.cBId}">${c.cContent}</a></li>
+															<li><a href="${(c.type eq 'C')? '/coordi/post?cb_id=':'/trade/detail?id='}${c.cBId}">${c.cContent}</a></li>
 														</c:forEach>
 													</c:if>
 												</ul>
@@ -81,7 +81,7 @@
 													</c:if>
 													<c:if test="${not empty zzimList}">
 														<c:forEach var="z" items="${zzimList}">
-															<div class="sliderkit-panel" onclick="location.href='/coordi/detail?id=${z.coordiId}'">
+															<div class="sliderkit-panel" onclick="location.href='/coordi/post?cb_id=${z.coordiId}'">
 																<figuare><img src="${(empty z.img)? '/images/noimg.gif': z.img}" alt="#" /></figuare>
 																<div class="con">
 																	<div class="title">${z.title}</div>

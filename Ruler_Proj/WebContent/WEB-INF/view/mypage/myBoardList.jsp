@@ -85,7 +85,7 @@
 															<tr>
 																<td>${b.id}</td>
 																<td>
-																<a href="${(b.type eq 'C')? '/coordi/detail?id=':'/trade/detail?id='}${b.id}">${b.title}</a>	
+																<a href="${(b.type eq 'C')? '/coordi/post?cb_id=':'/trade/detail?id='}${b.id}">${b.title}</a>	
 																</td>
 																<td>${b.regdate}</td>
 																<td>${b.hit}</td>
@@ -153,7 +153,7 @@
 																<tr>
 																	<td>${c.cId}</td>
 																	<td>
-																		<a href="${(c.type eq 'C')? '/coordi/detail?id=':'/trade/detail?id='}${c.cBId}#tradeCommentId">${c.cContent}</a>	
+																		<a href="${(c.type eq 'C')? '/coordi/post?cb_id=':'/trade/detail?id='}${c.cBId}#tradeCommentId">${c.cContent}</a>	
 																	</td>
 																	<td>${c.cRegdate}</td>
 																</tr>
