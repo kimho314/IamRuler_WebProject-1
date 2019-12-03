@@ -15,13 +15,12 @@ import javax.servlet.http.HttpSession;
 @WebFilter("/*")
 public class RulerAuthenticationFilter implements Filter
 {
-	private static final String[] authUrls = {"/admin/index"};
+	private static final String[] authUrls = {"/mypage/*"};
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException
-	{
-		// TODO Auto-generated method stub				
+	{		
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpSession session = req.getSession();
 	
@@ -57,17 +56,14 @@ public class RulerAuthenticationFilter implements Filter
 			response.setCharacterEncoding("UTF-8");
 
 			PrintWriter out = response.getWriter();
-			out.println("	<script>\r\n" + "		window.alert(\"Authentication failure\")\r\n"
-					+ "		window.location.href=\"../member/login?returnUrl=../admin/index\";\r\n" 
+			out.println("	<script>\r\n" + "		window.alert(\"로그인이 필요한 페이지 입니다.\")\r\n"
+					+ "		window.location.href=\"/sign/login?returnUrl=/mypage/index\";\r\n" 
 					+ "	</script>");
 
 			return;
 		}
 		else
-		{			
 			chain.doFilter(req, response);
-		}
-
 	}
 
 }
