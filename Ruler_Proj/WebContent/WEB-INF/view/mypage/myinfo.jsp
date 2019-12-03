@@ -119,8 +119,7 @@
 										<td title="나중에 아이디 및 비밀번호를 찾으실때 사용되니 정확히 입력해주시기 바랍니다.">
 											휴대폰 번호</td>
 										<td><input type="text" class="텍스트" name="전화번호"
-											value="${phone}" /><span id="기타라벨">전화번호를 
-												입력해주세요</span></td>
+											value="${phone}" /><span id="기타라벨">전화번호를 입력해주세요</span></td>
 									</tr>
 									<tr>
 										<td title="나중에 아이디 및 비밀번호를 찾으실떄 사용되니 정확히 입력해주시기 바랍니다.">
@@ -144,56 +143,17 @@
 									</tr>
 									<tr>
 										<td title="키와 체중과 체형을 기준으로 옷 사이즈를 비교합니다.">체형</td>
-										<td><c:if test="${gender == '남성' }">
-												<div class="select-wrapper">
-													<select name="체형" id="체형" class="남성">
-														<c:if test="${bodyshape == '작은역삼각' }">
-															<option value="작은역삼각" selected="selected">작은 역삼각</option>
-															<option value="큰사각">큰 사각</option>
-															<option value="사각">사각</option>
-														</c:if>
-														<c:if test="${bodyshape == '큰사각' }">
-															<option value="작은역삼각">작은 역삼각</option>
-															<option value="큰사각" selected="selected">큰 사각</option>
-															<option value="사각">사각</option>
-														</c:if>
-														<c:if test="${bodyshape == '사각' }">
-															<option value="작은역삼각">작은 역삼각</option>
-															<option value="큰사각">큰 사각</option>
-															<option value="사각" selected="selected">사각</option>
-														</c:if>
-													</select>
-												</div>
-											</c:if> <c:if test="${gender == '여성' }">
-												<div class="select-wrapper">
-													<select name="체형" id="체형" class="여성">
-														<c:if test="${bodyshape == '작은역삼각' }">
-															<option value="작은역삼각" selected="selected">작은 역삼각</option>
-															<option value="큰역삼각">큰 역삼각</option>
-															<option value="역삼각">역삼각</option>
-															<option value="사각">사각</option>
-														</c:if>
-														<c:if test="${bodyshape == '큰역삼각' }">
-															<option value="작은역삼각">작은 역삼각</option>
-															<option value="큰역삼각" selected="selected">큰 역삼각</option>
-															<option value="역삼각">역삼각</option>
-															<option value="사각">사각</option>
-														</c:if>
-														<c:if test="${bodyshape == '역삼각' }">
-															<option value="작은역삼각">작은 역삼각</option>
-															<option value="큰역삼각">큰 역삼각</option>
-															<option value="역삼각" selected="selected">역삼각</option>
-															<option value="사각">사각</option>
-														</c:if>
-														<c:if test="${bodyshape == '사각' }">
-															<option value="작은역삼각">작은 역삼각</option>
-															<option value="큰역삼각">큰 역삼각</option>
-															<option value="역삼각">역삼각</option>
-															<option value="사각" selected="selected">사각</option>
-														</c:if>
-													</select>
-												</div>
-											</c:if></td>
+										<td>
+											<div class="select-wrapper">
+												<select name="체형" id="체형">
+													<option value="보통">보통</option>
+													<option value="작은역삼각">작은 역삼각</option>
+													<option value="삼각">사각</option>
+													<option value="역삼각">역삼각</option>
+													<option value="사각">사각</option>
+												</select>
+											</div>
+										</td>
 									</tr>
 								</tbody>
 							</table>
