@@ -29,13 +29,13 @@
 							<!-- Section -->
 								<main class="mypageReg">
 								 <section>
-						            <form method="POST">
+						            <form method="post">
 						            	<!-- 회원정보 수정시 -->
 						            	<h1>
 						            		본인 확인을 위해 <br>
 											비밀번호를 한번 더 입력해 주세요
 						            	</h1>
-						            	<input type="password" /> <input type="submit" value="확인" class="button">
+						            	<input type="password" name="pwd"/> <input type="submit" value="확인" class="button">
 					            
 						            </form>
 						          </section>
@@ -45,21 +45,13 @@
 				<jsp:include page="inc/aside.jsp" />
 
 			</div>
-			<!-- <div id="glayer" class="popup">
-				<div class="contents">
-					<p>정상적으로 반영되었습니다.</p>
-					<div class="btn">
-						<a href="#" class="button close">닫기</a>
-					</div>
-				</div>
-			</div> -->
 			<div id="elayer" class="popup">
 				<div class="contents">
 					<p>비밀번호를 잘못 입력하셨습니다.<br>
 						다시 입력해 주세요.
 					</p>
 					<div class="btn">
-						<a href="#" class="button close">닫기</a>
+						<a href="#" class="button close" onclick="document.getElementsByName('pwd')[0].focus();">닫기</a>
 					</div>
 				</div>
 			</div>
@@ -70,5 +62,12 @@
 			<script src="../assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="../assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="../assets/js/main.js"></script>
+		<c:if test="${not empty param.error and param.error eq '1'}">
+			<script>
+				$(function(){
+					$(".mask,#elayer").fadeIn();
+				});
+			</script>
+		</c:if>
 	</body>
 </html>

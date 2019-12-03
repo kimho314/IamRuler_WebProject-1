@@ -13,8 +13,8 @@
 					<h1 class="logo"><a href="/"><img src="../images/logo.png" alt="아임룰러" /></a></h1>
 					<h2 class="hidden">마이페이지 메뉴</h2>
 					<ul>
-						<li class="<c:if test="${pathUrl == 'myinfo'}">on</c:if>">
-						<a href="myinfo">회원 정보 수정</a></li>
+						<li class="<c:if test="${pathUrl == 'reg'}">on</c:if>">
+						<a href="reg">회원 정보 수정</a></li>
 						<li class="<c:if test="${pathUrl == 'withdraw'}">on</c:if>">						
 						<a href="withdraw">회원 탈퇴</a></li>
 						<li class="<c:if test="${pathUrl == 'mylist'}">on</c:if>">						
