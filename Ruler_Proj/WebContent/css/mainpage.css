@@ -1,4 +1,4 @@
-@import url(../assets/css/main.css); /* ���ø� ��Ÿ�� */
+@import url(../assets/css/main.css); 
 #banner{padding-top:8em}
 #banner h1{margin-bottom:1.5em}
 #banner header p{margin-bottom:4em}
@@ -144,3 +144,11 @@ div.maingender label {
 body{overflow:hidden}
 .wrapBox .innerWrapBox{position:relative;overflow-y:auto}
 .topBtn{position:fixed;display:block;bottom:2em;right:2em;padding:.3em;border-radius:50%;background:rgba(0,0,0,.6);color:#fff)}
+
+@media screen and (min-width: 1680px) {
+	#banner h1{font-size:3em}
+	tr.inforform th{width:30%}
+	.posts article{width:45%}
+	.posts article:first-child{width:35%}
+	
+}
