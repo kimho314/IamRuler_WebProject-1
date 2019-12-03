@@ -24,9 +24,8 @@ public class MypageMyListController extends HttpServlet{
 	TradeBoardDao tradeBoardDao;
 	TradeCommentDao tradeCommentDao;
 	MemberService memberService;
-	
-	@Override
-	public void init() throws ServletException {
+
+	public MypageMyListController() {
 		tradeBoardDao = new JdbcTradeBoardDao(); 
 		tradeCommentDao = new JdbcTradeCommentDao();
 		memberService = new RulerMemberService();
@@ -38,15 +37,20 @@ public class MypageMyListController extends HttpServlet{
 	      String userName = null;
 	      int userId=1;
 	      if (cookie != null)
-	    	 for (Cookie key : cookie)
-		            if(key.getName().equals("userName"))
-		            	userName = key.getValue();	      
+	    	 // System.out.println("cookie is not null");
+	    	 for (Cookie key : cookie)  
+	    		 if(key.getName().equals("userName"))
+	            	userName = key.getValue();
+	      
 	      if (userName == null) {
 	    	 HttpSession session = request.getSession();
 	    	 userName = (String) session.getAttribute("userName");
 	      }
-	      if( userName != null && !userName.equals(""))
+	      
+	      if(userName != null && !userName.equals(""))
 			userId = memberService.get(userName).getId();
+	    	  //System.out.println(memberService.get(userName).getId());
+	      
 	      /* (db) userName값 받아서 id로 가져오기 end */
 		
 		int page = 1;

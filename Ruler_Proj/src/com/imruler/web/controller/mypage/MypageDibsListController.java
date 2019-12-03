@@ -23,9 +23,8 @@ import com.imruler.web.service.mypage.RulerDibsService;
 public class MypageDibsListController extends HttpServlet{
 	DibsService dibsService;
 	MemberService memberService;
-	
-	@Override
-	public void init() throws ServletException {
+
+	public  MypageDibsListController(){
 		dibsService = new RulerDibsService();
 		memberService = new RulerMemberService();		
 	}

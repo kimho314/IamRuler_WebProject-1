@@ -25,8 +25,8 @@ public class MypageMainController extends HttpServlet{
 	MemberService memberService;
 	TradeBoardDao tradeBoardDao;
 	TradeCommentDao tradeCommentDao;
-	@Override
-	public void init() throws ServletException {
+	
+	public MypageMainController() {
 		tradeBoardDao = new JdbcTradeBoardDao(); 
 		tradeCommentDao = new JdbcTradeCommentDao();
 		dibsService = new RulerDibsService();
