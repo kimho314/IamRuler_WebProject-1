@@ -85,15 +85,16 @@ tr.coordi-list-tr-wrapper > td {
 
 tr.coordi-list-tr-wrapper > td > li:first-child {    
     width:100%;
-    height:100%;    
+    height:auto; 
+    padding-bottom: 2em;   
 }
 
 tr.coordi-list-tr-wrapper > td  li:nth-child(2){
     position: absolute;
     bottom:0;
     left:50%;
-    transform: translate(-50%, 0);
-    font-size-adjust: inherit;
+    transform: translate(-50%, 0);   
+   
 }
 
 tr.coordi-list-tr-wrapper > td p{
