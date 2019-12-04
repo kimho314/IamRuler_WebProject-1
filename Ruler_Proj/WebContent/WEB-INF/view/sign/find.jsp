@@ -32,7 +32,7 @@
 				<div id="찾기테이블">
 					<span class="아이디찾기">
 						<p>아이디 찾기</p> <c:if test="${param.r == 1}">
-							<span class="finder">${id}<br> <br></span>
+							<span class="finder finder-id">${id}<br> <br></span>
 						</c:if>
 						<form method="POST">
 							<section class="아이디찾기">
@@ -49,7 +49,7 @@
 					<!-- 구분선 -->
 					<span class="비밀번호찾기">
 						<p>비밀번호 찾기</p> <c:if test="${param.r == 2}">
-							<span class="finder">${pwd}<br> <br></span>
+							<span class="finder finder-pwd">${pwd}<br> <br></span>
 						</c:if>
 						<form method="POST">
 							<section class="비밀번호찾기">
@@ -75,8 +75,8 @@
 			<input class="modal-state 팝업창" id="아이디-pop" type="checkbox" />
 			<div class="팝업">
 				<div class="contents">
-					<h2 class="title">아이디</h2>
-					<p>아이디가 뜰곳</p>
+					<h2 class="title">아이디 찾기</h2>
+					<p class="아이디출력">아이디가 뜰곳</p>
 					<br />
 					<p id="회원가입성공버튼">
 						<a href="find" class="button special">확인</a>
@@ -86,8 +86,8 @@
 			<input class="modal-state 팝업창" id="비밀번호-pop" type="checkbox" />
 			<div class="팝업">
 				<div class="contents">
-					<h2 class="title">비밀번호</h2>
-					<p>비밀번호가 뜰곳</p>
+					<h2 class="title">비밀번호 찾기</h2>
+					<p class="비밀번호출력">비밀번호가 뜰곳</p>
 					<br />
 					<p id="회원가입성공버튼">
 						<a href="find" class="button special">확인</a>

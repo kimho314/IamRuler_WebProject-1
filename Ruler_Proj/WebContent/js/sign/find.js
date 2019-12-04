@@ -1,13 +1,27 @@
 addEventListener("load", function() {
-  var section = document.querySelector("#찾기테이블");
-  var finder = section.querySelector(".finder");
-  var 팝업창 = section.querySelector(".팝업창");
+  var finder = document.querySelector("span.finder");
+  var finderId = document.querySelector("span.finder-id");
+  var finderPwd = document.querySelector("span.finder-pwd");
+  var resultId = document.querySelector(".아이디출력");
+  var resultPwd = document.querySelector(".비밀번호출력");
+  var 팝업창 = document.querySelector(".팝업창");
 
-  if (finder.innerHTML != null) {
+  if (finder === null) {
+    return;
+  }
+
+  if (finder != null) {
     $(function(e) {
+      if (finderId != null) {
+        document.querySelector("#아이디-pop").checked = true;
+        resultId.innerHTML = finderId.innerHTML;
+      }
+      if (finderPwd != null) {
+        document.querySelector("#비밀번호-pop").checked = true;
+        resultPwd.innerHTML = finderPwd.innerHTML;
+      }
       console.log(finder.innerHTML);
       finder.innerHTML = null;
-      //   팝업창.
     });
   }
 });
