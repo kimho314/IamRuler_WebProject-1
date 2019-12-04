@@ -90,7 +90,7 @@ public class RulerMemberService implements MemberService {
 			System.out.println("이메일 끝글자 오류");
 			System.out.println(email.substring(email.indexOf(".")));
 			return 4;
-		}
+		} 
 
 		return 0;
 	}
