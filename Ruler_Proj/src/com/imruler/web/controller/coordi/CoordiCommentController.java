@@ -9,17 +9,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.imruler.web.entity.CoordiComment;
+import com.imruler.web.entity.Member;
 import com.imruler.web.service.CoordiCommentService;
+import com.imruler.web.service.MemberService;
 import com.imruler.web.service.coordi.RulerCoordiCommentService;
+import com.imruler.web.service.member.RulerMemberService;
 
 @WebServlet("/coordi/comment")
 public class CoordiCommentController extends HttpServlet
 {
 	private CoordiCommentService coordiCommentService;
+	private MemberService memberService;
 	
 	public CoordiCommentController()
 	{
 		coordiCommentService = new RulerCoordiCommentService();
+		memberService = new RulerMemberService();
 	}
 	
 	@Override
@@ -51,11 +56,11 @@ public class CoordiCommentController extends HttpServlet
 		
 		switch(opt)
 		{
-		case 1:
+		case 1: // updating a comment
 			req.setAttribute("cmt", coordiCommentService.get(ccmtId));
 			break;
 			
-		case 2:			
+		case 2:	// deleting a comment
 			coordiCommentService.delete(ccmtId);
 			break;
 			
@@ -89,12 +94,19 @@ public class CoordiCommentController extends HttpServlet
 			ccmt_bId = Integer.parseInt(_ccmt_bId);
 		}
 		
-		int ccmt_userId = 0;
-		String _ccmt_userId = req.getParameter("userId-text");
-		if(_ccmt_userId != null && !_ccmt_userId.equals(""))
+//		int ccmt_userId = 0;
+//		String _ccmt_userId = req.getParameter("userId-text");
+//		if(_ccmt_userId != null && !_ccmt_userId.equals(""))
+//		{
+//			ccmt_userId = Integer.parseInt(_ccmt_userId);
+//		}
+		
+		String m_userName = "";
+		if(req.getSession().getAttribute("userName") != null && !req.getSession().getAttribute("userName").equals(""))
 		{
-			ccmt_userId = Integer.parseInt(_ccmt_userId);
+			m_userName = (String) req.getSession().getAttribute("userName");
 		}
+		System.out.println("userName : " + m_userName);
 		
 		String ccmt_content = "";
 		String _ccmt_content = req.getParameter("demo-message");
@@ -103,11 +115,11 @@ public class CoordiCommentController extends HttpServlet
 			ccmt_content = _ccmt_content;
 		}
 		
-		int optText = 0;
-		String _optText = req.getParameter("opt-text");
-		if(_optText != null && !_optText.equals(""))
+		int commentOptText = 0;
+		String _commentOptText = req.getParameter("opt-text");
+		if(_commentOptText != null && !_commentOptText.equals(""))
 		{
-			optText = Integer.parseInt(_optText);
+			commentOptText = Integer.parseInt(_commentOptText);
 		}
 		
 		int cmtId = 0;
@@ -118,10 +130,10 @@ public class CoordiCommentController extends HttpServlet
 		}
 		
 		
-		System.out.println(optText + " " + ccmt_content + " " + ccmt_userId + " " + ccmt_bId + " " + ccmt_openStat);
+		System.out.println(commentOptText + " " + ccmt_content + " " + m_userName + " " + ccmt_bId + " " + ccmt_openStat);
 		
 		
-		if(optText == 1) // update comment
+		if(commentOptText == 1) // update comment
 		{
 			CoordiComment coordiCommet = coordiCommentService.get(cmtId);
 			coordiCommet.setContent(ccmt_content);
@@ -130,7 +142,8 @@ public class CoordiCommentController extends HttpServlet
 		}
 		else // add a new comment
 		{
-			CoordiComment coordiCommet = new CoordiComment(ccmt_content, ccmt_userId, ccmt_bId, ccmt_openStat);
+			Member member = memberService.get(m_userName);
+			CoordiComment coordiCommet = new CoordiComment(ccmt_content, member.getId(), ccmt_bId, ccmt_openStat);
 			coordiCommentService.insert(coordiCommet);
 		}
 		

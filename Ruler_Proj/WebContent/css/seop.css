@@ -329,13 +329,14 @@ div.newpost-mask {
     left: 0;
     width: 100%;
     height: 100%;  
-    background: rgba(0,0,0,.5);    
+    background: rgba(0,0,0,.5);      
 }
 
 .newpost-popup{ 
 	position:absolute;
 	top:0; left:0; width:100%; 
-	height:1px; z-index:1 
+    	height:1px; 
+    	z-index:1;    
 }
 
 .newpost-popup .contents{ 

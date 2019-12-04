@@ -147,6 +147,7 @@ public class CoordiRegPostController extends HttpServlet
 			gender = _gender;
 		}
 		
+		// if it is for updating get names of old image files
 		String oldFiles = "";
 		if(updateOpt == 1)
 		{
@@ -165,6 +166,9 @@ public class CoordiRegPostController extends HttpServlet
 			
 			Part filePart = p;
 			String fileName = filePart.getSubmittedFileName();
+			
+			// when no image files are chosen while updating 
+			// skip getting files from reg_post.jsp part
 			if(updateOpt == 1 && (fileName.equals("") || fileName == null))
 			{
 				break;
@@ -217,11 +221,13 @@ public class CoordiRegPostController extends HttpServlet
 
 		}
 		
+		// add names of old image files to fileNames
 		if(updateOpt == 1)
 		{
 			fileNames += oldFiles + ",";
 		}
 		System.out.println(fileNames);
+				
 		fileNames = fileNames.substring(0, fileNames.length()-1);
 	
 		
@@ -233,13 +239,13 @@ public class CoordiRegPostController extends HttpServlet
 			String userName = (String)req.getSession().getAttribute("userName");
 			m_id = memberService.get(userName).getId();
 			
-			int result = 0;
 			coordiBoardService.insert(new CoordiBoard(m_id));
 			int cb_maxId = coordiBoardService.getMaxId();		
 			coordiContentService.insert(new CoordiContent(cb_maxId, cct_title, cct_content, ""));		
 			coordiImgService.insert(new CoordiImg(cb_maxId, fileNames));
 			coordiOptionService.insert(new CoordiOption(cb_maxId, co_bodyshape, gender));
 		}
+		// implemetns updating
 		else if(updateOpt == 1)
 		{
 			int cb_id = 0;
@@ -247,7 +253,6 @@ public class CoordiRegPostController extends HttpServlet
 			if(_cb_id != null && !_cb_id.equals(""))
 			{
 				cb_id = Integer.parseInt(_cb_id);
-				//System.out.println("update cb_id : " + cb_id);
 			}
 	
 			

@@ -57,16 +57,17 @@
 										<div class="coordi-comment-top">
 											<div class="coordi-comment-top-left">
 												<ul>
-													<li>
+													<li>														
 														<c:if test="${n.ccmt_openStat == 1 }">
-															<span><i class="fas fa-lock"></i></span>															
+															<span><i class="fas fa-lock"></i></span>
+															<c:if test="${n.m_userName != userName}">
+																<span>*****</span>
+															</c:if>
+															<c:if test="${n.m_userName == userName}">
+																<span>${n.m_userName }</span>
+															</c:if>															
 														</c:if>
-														<c:if test="${n.ccmt_openStat == 1 && n.m_userName != userName}">
-															<span>*****</span>
-														</c:if>
-														<c:if test="${n.ccmt_openStat == 1 && n.m_userName == userName}">
-															<span>${n.m_userName }</span>
-														</c:if>
+														
 														<c:if test="${n.ccmt_openStat != 1 }">
 															<span>${n.m_userName }</span>
 														</c:if>														
@@ -77,7 +78,7 @@
 												</ul>
 											</div>
 											<div class="coordi-comment-top-right">
-												<c:if test="${n.m_userName == userName }">
+												<c:if test="${n.m_userName eq userName }">
 												<ul>
 													<li>
 														<a href="comment?cb_id=${param.cb_id }&id=${(empty n.ccmt_id)?0:n.ccmt_id }&user_id=${(empty n.ccmt_userId)?0:n.ccmt_userId}&opt=1">수정</a>
@@ -129,7 +130,7 @@
 											
 											<input type="hidden" name="cmtId-text" value="${cmt.id }">
 											<input type="hidden" name="boardId-text" value="${param.cb_id }"> 
-											<input type="hidden" name="userId-text" value="${param.user_id }"> 
+											<%-- <input type="hidden" name="userId-text" value="${userName }"> --%> 
 											<input type="hidden" name="opt-text" value="${param.opt }">
 
 										</li>
@@ -139,13 +140,11 @@
 									<div class="coordi-comment-content-left">
 										<c:if test="${param.opt == 1 }">
 											<textarea name="demo-message" id="demo-message"
-												placeholder="댓글을 입력해주세요" rows="6">${cmt.content }										
-										</textarea>
+												placeholder="댓글을 입력해주세요" rows="6">${cmt.content }</textarea>
 										</c:if>
 										<c:if test="${param.opt != 1 }">
 											<textarea name="demo-message" id="demo-message"
-												placeholder="댓글을 입력해주세요" rows="6">
-										</textarea>
+												placeholder="댓글을 입력해주세요" rows="6"></textarea>
 										</c:if>
 
 									</div>
