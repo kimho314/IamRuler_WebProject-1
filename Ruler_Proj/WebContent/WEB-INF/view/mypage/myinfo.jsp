@@ -148,7 +148,7 @@
 												<select name="체형" id="체형">
 													<option value="보통">보통</option>
 													<option value="작은역삼각">작은 역삼각</option>
-													<option value="삼각">사각</option>
+													<option value="삼각">삼각</option>
 													<option value="역삼각">역삼각</option>
 													<option value="사각">사각</option>
 												</select>

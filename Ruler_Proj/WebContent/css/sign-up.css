@@ -188,3 +188,7 @@ p#회원가입성공버튼 {
 div.contents h2.title {
   text-align: center;
 }
+
+.커서 {
+  cursor: pointer;
+}

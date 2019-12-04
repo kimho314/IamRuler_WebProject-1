@@ -61,7 +61,7 @@ public class SignUpController extends HttpServlet {
 			} else {
 				memberService.insertMember(
 						new Member(userId, userPwd, phone, email, height, weidth, gender, age, bodyshape)); // 회원가입시 정보입력
-				resp.sendRedirect("/sign/login");
+				resp.sendRedirect("sign-up?result=1");
 			}
 		} else {
 			System.out.println("알수없는 에러");

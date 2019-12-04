@@ -4,7 +4,6 @@ addEventListener("load", function() {
   var finderPwd = document.querySelector("span.finder-pwd");
   var resultId = document.querySelector(".아이디출력");
   var resultPwd = document.querySelector(".비밀번호출력");
-  var 팝업창 = document.querySelector(".팝업창");
 
   if (finder === null) {
     return;
