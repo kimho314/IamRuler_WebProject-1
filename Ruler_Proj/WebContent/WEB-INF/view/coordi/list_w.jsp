@@ -123,12 +123,13 @@
 										<c:if test="${status.index >=0 && status.index < 5 }">
 											<c:if test="${empty param.b }">
 											<td>
-												<li>
-													
+												
+												<li>													
 													<a href="post?cb_id=${n.cb_id }"><img
 														src="../..${n.ci_img }" alt="coordi-img">
-														<p>${n.co_bodyshape }</p> </a>
+														<%-- <p>${n.co_bodyshape }</p> --%></a>					
 												</li>
+												<li><p>${n.co_bodyshape }</p></li>												
 												<li>
 													<c:if test="${not empty userName}">
 													<c:if test="${ n.dl_id == 0 }">
@@ -141,17 +142,19 @@
 													</c:if>
 													</c:if>
 												</li>
+												
 											</td>
 											</c:if>
 											<c:if test="${not empty param.b }">
 											<c:if test="${param.b eq n.co_bodyshape }">
 											<td>
-												<li>
-													
+												
+												<li>													
 													<a href="post?cb_id=${n.cb_id }"><img
 														src="../..${n.ci_img }" alt="coordi-img">
-														<p>${n.co_bodyshape }</p> </a>
+														<%-- <p>${n.co_bodyshape }</p> --%></a>													
 												</li>
+												<li><p>${n.co_bodyshape }</p></li>												
 												<li>
 													<c:if test="${not empty userName}">
 													<c:if test="${ n.dl_id == 0 }">
@@ -164,6 +167,7 @@
 													</c:if>
 													</c:if>
 												</li>
+												
 											</td>
 											</c:if>
 											</c:if>
@@ -175,13 +179,13 @@
 									<c:forEach var="n" items="${list }" varStatus="status">
 										<c:if test="${status.index >=5 && status.index < 10 }">
 											<c:if test="${empty param.b }">
-											<td>
-												<li>
-													
+											<td>												
+												<li>													
 													<a href="post?cb_id=${n.cb_id }"><img
 														src="../..${n.ci_img }" alt="coordi-img">
-														<p>${n.co_bodyshape }</p> </a>
+														<%-- <p>${n.co_bodyshape }</p> --%></a>
 												</li>
+												<li><p>${n.co_bodyshape }</p></li>											
 												<li>
 													<c:if test="${not empty userName}">
 													<c:if test="${ n.dl_id == 0 }">
@@ -194,17 +198,20 @@
 													</c:if>
 													</c:if>
 												</li>
+												
 											</td>
 											</c:if>
 											<c:if test="${not empty param.b }">
 											<c:if test="${param.b eq n.co_bodyshape }">
 											<td>
+												
 												<li>
 													
 													<a href="post?cb_id=${n.cb_id }"><img
 														src="../..${n.ci_img }" alt="coordi-img">
-														<p>${n.co_bodyshape }</p> </a>
+														<%-- <p>${n.co_bodyshape }</p> --%></a>
 												</li>
+												<li><p>${n.co_bodyshape }</p></li>
 												<li>
 													<c:if test="${not empty userName}">
 													<c:if test="${ n.dl_id == 0 }">														
@@ -217,6 +224,7 @@
 													</c:if>
 													</c:if>
 												</li>
+												
 											</td>
 											</c:if>
 											</c:if>

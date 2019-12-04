@@ -32,7 +32,7 @@ div.visual-wrapper div.visual-bottom {
 
 div.visual-wrapper div.visual-bottom div {    
     display: inline-block;
-    width:20%;
+    width:33.3%;
     text-align: center;
     margin:1em 0;
 }
@@ -78,18 +78,33 @@ div.visual-wrapper div.visual-bottom-man div a {
 tr.coordi-list-tr-wrapper > td {
     list-style: none;
     position: relative;
+    padding-top:0;
+    padding-bottom:0;
+    
 }
 
 tr.coordi-list-tr-wrapper > td > li:first-child {    
     width:100%;
-    height:100%;
+    height:100%;    
+}
+
+tr.coordi-list-tr-wrapper > td  li:nth-child(2){
+    position: absolute;
+    bottom:0;
+    left:50%;
+    transform: translate(-50%, 0);
+    font-size-adjust: inherit;
+}
+
+tr.coordi-list-tr-wrapper > td p{
+    margin:0 0;
     
 }
 
 tr.coordi-list-tr-wrapper > td > li:last-child {
     position: absolute;
     top:0;
-    right:1em;
+    right:0.3em;
 }
 
 tr.coordi-list-tr-wrapper > td > li:last-child > a{

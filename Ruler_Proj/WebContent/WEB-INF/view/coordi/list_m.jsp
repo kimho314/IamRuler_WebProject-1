@@ -124,7 +124,9 @@
 											<td>
 												<li><a href="post?cb_id=${n.cb_id }"><img
 														src="../..${n.ci_img }" alt="coordi-img">
-														<p>${n.co_bodyshape }</p> </a></li>
+														<%-- <p>${n.co_bodyshape }</p>  --%></a>
+												</li>
+												<li><p>${n.co_bodyshape }</p></li>
 												<li>
 													<c:if test="${not empty userName}">
 													<c:if test="${n.dl_id == 0 }">
@@ -144,7 +146,9 @@
 											<td>
 												<li><a href="post?cb_id=${n.cb_id }"><img
 														src="../..${n.ci_img }" alt="coordi-img">
-														<p>${n.co_bodyshape }</p> </a></li>
+														<%-- <p>${n.co_bodyshape }</p>  --%></a>
+												</li>
+												<li><p>${n.co_bodyshape }</p></li>
 												<li>
 													<c:if test="${not empty userName}">
 													<c:if test="${n.dl_id == 0 }">
@@ -171,7 +175,9 @@
 											<td>
 												<li><a href="post?cb_id=${n.cb_id }"><img
 														src="../..${n.ci_img }" alt="coordi-img">
-														<p>${n.co_bodyshape }</p> </a></li>
+														<%-- <p>${n.co_bodyshape }</p>  --%></a>
+												</li>
+												<li><p>${n.co_bodyshape }</p></li>
 												<li>
 													<c:if test="${not empty userName}">
 													<c:if test="${n.dl_id == 0 }">
@@ -191,7 +197,9 @@
 											<td>
 												<li><a href="post?cb_id=${n.cb_id }"><img
 														src="../..${n.ci_img }" alt="coordi-img">
-														<p>${n.co_bodyshape }</p> </a></li>
+														<%-- <p>${n.co_bodyshape }</p>  --%></a>
+												</li>
+												<li><p>${n.co_bodyshape }</p></li>
 												<li>
 													<c:if test="${not empty userName}">
 													<c:if test="${n.dl_id == 0 }">
