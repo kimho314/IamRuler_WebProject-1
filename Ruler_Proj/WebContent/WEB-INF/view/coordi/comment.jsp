@@ -129,10 +129,8 @@
 											</c:if> 
 											
 											<input type="hidden" name="cmtId-text" value="${cmt.id }">
-											<input type="hidden" name="boardId-text" value="${param.cb_id }"> 
-											<%-- <input type="hidden" name="userId-text" value="${userName }"> --%> 
+											<input type="hidden" name="boardId-text" value="${param.cb_id }"> 											
 											<input type="hidden" name="opt-text" value="${param.opt }">
-
 										</li>
 									</ul>
 								</div>

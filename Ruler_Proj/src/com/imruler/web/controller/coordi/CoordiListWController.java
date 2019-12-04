@@ -65,9 +65,8 @@ public class CoordiListWController extends HttpServlet
 			{
 				retStr = tmpStr;
 			}
-			System.out.println(retStr);
+			//System.out.println(retStr);
 			key.setCi_img(retStr);
-			//System.out.println(key.getCi_img());
 		}
 				
 	

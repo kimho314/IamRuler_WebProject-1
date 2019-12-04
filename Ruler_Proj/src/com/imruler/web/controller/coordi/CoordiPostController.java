@@ -73,7 +73,6 @@ public class CoordiPostController extends HttpServlet
 		if(_gender != null && !_gender.equals(""))
 		{
 			gender = _gender;
-			System.out.println(gender);
 		}		
 		
 		String genderEncoded = URLEncoder.encode(gender, "UTF-8");	
@@ -111,14 +110,14 @@ public class CoordiPostController extends HttpServlet
 				{
 					cImgs[0] = tmpStr;
 				}
-					
+				/*	
 				for(String cImg : cImgs)
 				{
 					System.out.println(cImg);
 				}
+				*/
 			}
-			
-			
+						
 			
 			req.setAttribute("cImgs", cImgs);
 			req.setAttribute("pdetail", postDetail);

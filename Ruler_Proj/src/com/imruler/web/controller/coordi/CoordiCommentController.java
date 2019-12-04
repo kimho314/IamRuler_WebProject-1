@@ -94,12 +94,6 @@ public class CoordiCommentController extends HttpServlet
 			ccmt_bId = Integer.parseInt(_ccmt_bId);
 		}
 		
-//		int ccmt_userId = 0;
-//		String _ccmt_userId = req.getParameter("userId-text");
-//		if(_ccmt_userId != null && !_ccmt_userId.equals(""))
-//		{
-//			ccmt_userId = Integer.parseInt(_ccmt_userId);
-//		}
 		
 		String m_userName = "";
 		if(req.getSession().getAttribute("userName") != null && !req.getSession().getAttribute("userName").equals(""))
@@ -127,10 +121,9 @@ public class CoordiCommentController extends HttpServlet
 		if(_cmtId != null && !_cmtId.equals(""))
 		{
 			cmtId = Integer.parseInt(_cmtId);
-		}
+		}		
 		
-		
-		System.out.println(commentOptText + " " + ccmt_content + " " + m_userName + " " + ccmt_bId + " " + ccmt_openStat);
+		//System.out.println(commentOptText + " " + ccmt_content + " " + m_userName + " " + ccmt_bId + " " + ccmt_openStat);
 		
 		
 		if(commentOptText == 1) // update comment

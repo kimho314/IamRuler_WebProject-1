@@ -176,8 +176,7 @@ public class CoordiRegPostController extends HttpServlet
 			
 			fileNames += (urlPath + File.separator + fileName + ",");
 			
-			ServletContext application = req.getServletContext();
-			
+			ServletContext application = req.getServletContext();			
 			String realPath = application.getRealPath(urlPath);			
 		
 			
@@ -226,8 +225,7 @@ public class CoordiRegPostController extends HttpServlet
 		{
 			fileNames += oldFiles + ",";
 		}
-		System.out.println(fileNames);
-				
+		//System.out.println(fileNames);				
 		fileNames = fileNames.substring(0, fileNames.length()-1);
 	
 		
