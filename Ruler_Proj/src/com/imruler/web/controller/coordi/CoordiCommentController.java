@@ -74,7 +74,11 @@ public class CoordiCommentController extends HttpServlet
 		}
 				
 		int cb_userId = coordiBoardService.getCoordiBoard(cb_id).getUserId();
-		int loggedInUserId = memberService.get((String)req.getSession().getAttribute("userName")).getId();
+		int loggedInUserId = 0;
+		if(req.getSession().getAttribute("userName") != null && !req.getSession().getAttribute("userName").equals(""))
+		{
+			loggedInUserId = memberService.get((String)req.getSession().getAttribute("userName")).getId();
+		}
 		int isWriter = 0;
 		if(cb_userId == loggedInUserId)
 		{
