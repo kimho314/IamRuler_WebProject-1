@@ -26,7 +26,50 @@
 <script src="https://kit.fontawesome.com/1af26a8adc.js"
 	crossorigin="anonymous"></script>
 <script>      
+		window.addEventListener("load", function (){
+			var section = document.querySelector("label#old-image-label");
+			var imgSpan = section.querySelectorAll("span");
+			var oldImgHidden = document.querySelector("input#old-image-hidden");
+			
+			var oldFiles = oldImgHidden.getAttribute("value");
+			
+			for(var i=0; i<imgSpan.length; i++)
+			{
 
+				imgSpan[i].onclick = function(e){
+					alert("old file clicked");
+					
+					console.log("e.target.innerText:"+e.target.innerText);
+					// oldFiles += (e.target.innerText + ",");
+					
+					oldFiles = oldFiles.replace(e.target.innerText, "");
+					var tmpOldFiles = oldFiles.split(",");
+					var retOldFiles = "";
+					for(var i=0; i<tmpOldFiles.length; i++)
+					{
+						console.log(tmpOldFiles[i]);
+						if(tmpOldFiles[i] != "")
+						{
+							if(i < tmpOldFiles.length - 1)
+								retOldFiles += tmpOldFiles[i]+",";
+							if(i == tmpOldFiles.length - 1)
+								retOldFiles += tmpOldFiles[i];
+						}
+					}
+					oldFiles = retOldFiles;
+					console.log("oldFiles:"+oldFiles);
+					
+					// console.log(oldImgHidden.getAttribute("value"));
+					e.target.innerText = "";
+					oldImgHidden.setAttribute("value", oldFiles);
+					// console.log(oldImgHidden.getAttribute("value"));
+
+					
+				}
+			}
+		
+		});
+		
         function openPopUp() {
             document.getElementsByClassName("newpost-popup")[0].style.display = "block";
             document.getElementsByClassName("newpost-mask")[0].style.display = "block";
@@ -162,8 +205,12 @@
 											</c:if>
 											<c:if test="${not empty pDetail }">
 												<input type="file" name="files[]" multiple="multiple" />
-												<label>${pDetail.ci_img}</label>
-												<input type="hidden" name="old-files" value="${pDetail.ci_img }" />
+												<label id="old-image-label" >
+												<c:forEach var="oImg" items="${oldFiles }">
+													<span>${oImg}</span>
+												</c:forEach>
+												</label>
+												<input id="old-image-hidden" type="hidden" name="old-files" value="${pDetail.ci_img }" />
 											</c:if>
 										</td>
 									</tr>

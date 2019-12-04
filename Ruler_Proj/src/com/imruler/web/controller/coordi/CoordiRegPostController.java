@@ -84,11 +84,17 @@ public class CoordiRegPostController extends HttpServlet
 			gender = _gender;
 		}
 		
-		
+		String[] oldFiles = new String[] {};
 		CoordiPostDetailView coordiPostDetailView = coordiPostDetailService.getCoordiPostDetailById(cb_id);
 		if(coordiPostDetailView != null)
 		{
-			// request for updating			
+			// request for updating	
+			oldFiles = coordiPostDetailView.getCi_img().split(",");
+//			for(String o : oldFiles)
+//			{
+//				System.out.println(o);
+//			}
+			req.setAttribute("oldFiles", oldFiles);
 			req.setAttribute("pDetail", coordiPostDetailView);
 		}
 		
@@ -151,6 +157,7 @@ public class CoordiRegPostController extends HttpServlet
 		if(updateOpt == 1)
 		{
 			oldFiles = req.getParameter("old-files");
+			System.out.println(oldFiles);
 		}
 		
 		
@@ -223,6 +230,19 @@ public class CoordiRegPostController extends HttpServlet
 		if(updateOpt == 1)
 		{
 			fileNames += oldFiles + ",";
+			System.out.println(fileNames);
+			if(fileNames.equals("") || fileNames.equals(","))
+			{
+				resp.setContentType("text/html;charset=UTF-8");
+				resp.setCharacterEncoding("UTF-8");
+				PrintWriter out = resp.getWriter();
+				out.println("<script>");
+				out.println("alert(\"No Image File Found\");");
+				out.println("history.back(-1);");
+				out.println("</script>");
+
+				return;
+			}
 		}
 		//System.out.println(fileNames);				
 		fileNames = fileNames.substring(0, fileNames.length()-1);
