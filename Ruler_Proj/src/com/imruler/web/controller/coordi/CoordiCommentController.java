@@ -8,10 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.imruler.web.entity.CoordiBoard;
 import com.imruler.web.entity.CoordiComment;
 import com.imruler.web.entity.Member;
+import com.imruler.web.service.CoordiBoardService;
 import com.imruler.web.service.CoordiCommentService;
 import com.imruler.web.service.MemberService;
+import com.imruler.web.service.coordi.RulerCoordiBoardService;
 import com.imruler.web.service.coordi.RulerCoordiCommentService;
 import com.imruler.web.service.member.RulerMemberService;
 
@@ -20,11 +23,13 @@ public class CoordiCommentController extends HttpServlet
 {
 	private CoordiCommentService coordiCommentService;
 	private MemberService memberService;
+	private CoordiBoardService coordiBoardService;
 	
 	public CoordiCommentController()
 	{
 		coordiCommentService = new RulerCoordiCommentService();
 		memberService = new RulerMemberService();
+		coordiBoardService = new RulerCoordiBoardService();
 	}
 	
 	@Override
@@ -67,7 +72,16 @@ public class CoordiCommentController extends HttpServlet
 		default:
 			break;
 		}
+				
+		int cb_userId = coordiBoardService.getCoordiBoard(cb_id).getUserId();
+		int loggedInUserId = memberService.get((String)req.getSession().getAttribute("userName")).getId();
+		int isWriter = 0;
+		if(cb_userId == loggedInUserId)
+		{
+			isWriter = 1;
+		}
 		
+		req.setAttribute("isWriter", isWriter);
 		req.setAttribute("opt", opt);
 		req.setAttribute("cmtList", coordiCommentService.getList(cb_id));
 		req.getRequestDispatcher("/WEB-INF/view/coordi/comment.jsp").forward(req, resp);

@@ -109,11 +109,8 @@
 								<tr>
 									<td>내용</td>
 									<td colspan="4">
-										<div class="coordi-post-content">
-											<%-- <textarea readonly name="demo-message" id="demo-message"
-												placeholder="내용" rows="6" style="overflow: scroll;">${pdetail.cct_content }</textarea>
-											<img src="../..${pdetail.ci_img }"> --%>
-											<p style="height:100%;">겨울 코디법입니다.<br></p>
+										<div class="coordi-post-content">											
+											<p style="height:100%;">${pdetail.cct_content }<br></p>
 											<div class="content-img-wrapper">
 												<c:forEach var="c" items="${cImgs }">
                                                 	<div><img src="../..${c }"></div>                                               

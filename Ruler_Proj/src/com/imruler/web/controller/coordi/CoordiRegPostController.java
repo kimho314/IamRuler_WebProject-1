@@ -84,7 +84,6 @@ public class CoordiRegPostController extends HttpServlet
 			gender = _gender;
 		}
 		
-		int updateOpt = 0;
 		
 		CoordiPostDetailView coordiPostDetailView = coordiPostDetailService.getCoordiPostDetailById(cb_id);
 		if(coordiPostDetailView != null)
