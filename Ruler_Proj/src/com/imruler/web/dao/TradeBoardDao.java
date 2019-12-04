@@ -6,8 +6,6 @@ import com.imruler.web.entity.TradeBoard;
 import com.imruler.web.entity.TradeBoardView;
 import com.imruler.web.entity.TradeView;
 
-
-
 public interface TradeBoardDao {
 	List<TradeBoardView> getList();
 	List<TradeBoardView> getList(int page);
@@ -20,7 +18,10 @@ public interface TradeBoardDao {
 	
 	TradeBoard getPrevById(int id);
 	TradeBoard getNextById(int id);
+	int getBoardId();
+	
 	int getListCount(String field, String query);
+	int getListCountByUserId(int userId);
 	
 	
 

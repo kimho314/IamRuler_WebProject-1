@@ -7,21 +7,19 @@ public class TradeBoardView extends TradeBoard{
 	    private String bodyshape;
 	    private String category;
 	    private String region;
-
+	        
 		public TradeBoardView() {
-			
+					
 		}
 
-		public TradeBoardView(int id, String title, String content, String tag, int hit, Date regdate, int user_id, 
+		public TradeBoardView(int id, String title, String content, String tag, int hit, Date regdate, int userId, 
 				int i_id, String bodyshape, String category, String region) {
-			super(id, title, content, tag, hit, regdate, user_id);
+			super(id, title, content, tag, hit, regdate, userId);
 			this.i_id = i_id;
 			this.bodyshape = bodyshape;
 			this.category = category;
 			this.region = region;
 		}
-
-		
 
 		public int getI_id() {
 			return i_id;
@@ -60,11 +58,4 @@ public class TradeBoardView extends TradeBoard{
 			return "TradeBoardView [i_id=" + i_id + ", bodyshape=" + bodyshape + ", category=" + category + ", region="
 					+ region + "]";
 		}
-
-		
-		
-	    
-	    
-	    
-
 }

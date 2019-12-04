@@ -40,7 +40,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 			con = DriverManager.getConnection(url, "RULER", "33333");
 			st = con.prepareStatement(sql);
 			st.setString(1, "%" + query + "%");
-			st.setInt(2, ((page - 1)+1) * 10);
+			st.setInt(2, ((page - 1) * 10 + 1));
 			st.setInt(3, page * 10);
 			
 			ResultSet rs = st.executeQuery();
@@ -60,9 +60,6 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 
 				list.add(trade);
 			}
-			st.close();
-			con.close();
-
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -81,9 +78,6 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 		return list;
 	}
 
-	
-
-
 	@Override
 	public int insert(TradeBoard tradeboard) {
 		int result = 0;
@@ -101,19 +95,17 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 			st.setString(1, tradeboard.getTitle());
 			st.setString(2, tradeboard.getContent());
 			st.setString(3, tradeboard.getTag());
-			st.setInt(4, tradeboard.getUser_id());
-			
-			
+			st.setInt(4, tradeboard.getUserId());
+			System.out.println(tradeboard.toString());
 			result = st.executeUpdate();
-
-			st.close();
-			con.close();
+			
+			System.out.println(result);
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("오류");
 			e.printStackTrace();
 		}finally {
 			try {
@@ -127,14 +119,11 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 		return result;
 	}
 	
-	
-	
-
 	@Override
 	public int update(TradeBoard tradeboard) {
 		int result = 0;
 
-		String sql = "UPDATE TRADE_BOARD SET TITLE=?,CONTENT=?,TAG=?,REGDATE=?,USER_ID=? WHERE ID=?";
+		String sql = "UPDATE TRADE_BOARD SET TITLE=?,CONTENT=?,TAG=? WHERE ID=?";
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		
 		Connection con = null;
@@ -147,14 +136,10 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 			st.setString(1, tradeboard.getTitle());
 			st.setString(2, tradeboard.getContent());
 			st.setString(3, tradeboard.getTag());
-			st.setDate(4, tradeboard.getRegdate());
-			st.setInt(5, tradeboard.getUser_id());
-			st.setInt(6, tradeboard.getId());
+			st.setInt(4, tradeboard.getId());
+			System.out.println("수정보드아이디:"+tradeboard.getId());
 				
 			result = st.executeUpdate();
-
-			st.close();
-			con.close();
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -193,9 +178,6 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 
 			result = st.executeUpdate();
 
-			st.close();
-			con.close();
-
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -220,7 +202,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 
 		String sql = "SELECT * FROM (SELECT * FROM TRADE_BOARD ORDER BY REGDATE DESC)"
 				+ "WHERE REGDATE < (SELECT REGDATE FROM TRADE_BOARD WHERE ID=?) AND ROWNUM=1";
-		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		
 		Connection con = null;
 		PreparedStatement st = null;
@@ -238,13 +220,11 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 				String tag = rs.getString("TAG");
 				int hit = rs.getInt("HIT");
 				Date regDate = rs.getDate("REGDATE");
-				int user_id = rs.getInt("USER_ID");
+				int userId = rs.getInt("USER_ID");
 
-				trade = new TradeBoard(id, title, content, tag, hit, regDate, user_id);
+				trade = new TradeBoard(id, title, content, tag, hit, regDate, userId);
 
 			}
-			st.close();
-			con.close();
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -270,7 +250,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 
 		String sql = "SELECT * FROM (SELECT * FROM TRADE_BOARD ORDER BY REGDATE ASC)"
 				+ "WHERE REGDATE > (SELECT REGDATE FROM TRADE_BOARD WHERE ID=?) AND ROWNUM=1";
-		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		
 		Connection con = null;
 		PreparedStatement st = null;
@@ -288,13 +268,11 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 				String tag = rs.getString("TAG");
 				int hit = rs.getInt("HIT");
 				Date regDate = rs.getDate("REGDATE");
-				int user_id = rs.getInt("USER_ID");
+				int userId = rs.getInt("USER_ID");
 
-				trade = new TradeBoard(id, title, content, tag, hit, regDate, user_id);
+				trade = new TradeBoard(id, title, content, tag, hit, regDate, userId);
 
 			}
-			st.close();
-			con.close();
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -319,7 +297,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 		int count=0;
 		
 		String sql = "SELECT COUNT(ID) COUNT FROM TRADE_BOARD WHERE "+field+" LIKE ? ";
-		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		
 		Connection con = null;
 		PreparedStatement st = null;
@@ -334,9 +312,6 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 			
 			if(rs.next())
 			count = rs.getInt("count");
-
-			st.close();
-			con.close();
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -360,8 +335,8 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 	public List<TradeBoard> getListByUserId(int userId, int page) { // for 내 작성글 
 		List<TradeBoard> list = new ArrayList<>();
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-		String sql = "SELECT * FROM (SELECT ROWNUM NUM, B.*\r\n" + 
-				"FROM (SELECT * FROM BOARDLISTVIEW WHERE USER_ID=? ORDER BY REGDATE DESC) B) WHERE NUM BETWEEN ? AND ?";
+		String sql = "SELECT * FROM (SELECT ROWNUM NUM, T.*\r\n" + 
+				"FROM (SELECT * FROM TRADE_BOARD WHERE USER_ID=? ORDER BY REGDATE DESC) T)WHERE NUM BETWEEN ? AND ?;";
 		Connection con = null;
 		PreparedStatement st = null;
 		try {
@@ -382,9 +357,6 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 						rs.getString("type"));
 				list.add(trade);
 			}
-			st.close();
-			con.close();
-
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -402,6 +374,85 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 
 		return list;
 	
+	}
+
+	@Override
+	public int getBoardId() {
+		int result = 0;
+		String sql = "SELECT MAX(ID) MAX_ID FROM TRADE_BOARD";
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+
+		Connection con = null;
+		PreparedStatement st = null;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			st = con.prepareStatement(sql);
+
+			ResultSet rs = st.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt("max_id");
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (st != null)
+					st.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+			}
+		}
+
+		return result;
+	}
+
+	@Override
+	public int getListCountByUserId(int userId) {
+		 int count=0;
+	      
+	      String sql = "SELECT COUNT(ID) COUNT FROM BOARDLISTVIEW WHERE USER_ID=?";
+	      String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+	      
+	      Connection con = null;
+	      PreparedStatement st = null;
+	      
+	      try {
+	         Class.forName("oracle.jdbc.driver.OracleDriver");
+	         con = DriverManager.getConnection(url, "RULER", "33333");
+	         st = con.prepareStatement(sql);
+	         st.setInt(1, userId);
+	         
+	         ResultSet rs = st.executeQuery();
+	         
+	         if(rs.next())
+	         count = rs.getInt("count");
+
+	         st.close();
+	         con.close();
+
+	      } catch (ClassNotFoundException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }finally {
+	         try {
+	            if(st != null)
+	               st.close();
+	            if(con != null)
+	               con.close();
+	         }catch(SQLException e) {}
+	      }
+	      
+	      return count;
 	}
 	
 	

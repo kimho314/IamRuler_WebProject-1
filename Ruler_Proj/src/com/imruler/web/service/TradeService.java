@@ -16,6 +16,11 @@ public interface TradeService {
 	int insertTrade(TradeBoard tradeBoard);
 	int updateTrade(TradeBoard tradeBoard);
 	int deleteTrade(int id);
+	
+	int getBoardId();
+	
 	int tradeListCount(String field, String query);
+	int getListCountByUserId(int userId);
+	int getCommentListCountByUserId(int userId);
 
 }

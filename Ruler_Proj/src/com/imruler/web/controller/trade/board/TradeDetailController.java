@@ -12,21 +12,29 @@ import javax.servlet.http.HttpServletResponse;
 import com.imruler.web.entity.TradeComment;
 import com.imruler.web.entity.TradeView;
 import com.imruler.web.service.TradeCommentService;
-
+import com.imruler.web.service.TradeImgService;
+import com.imruler.web.service.TradeItemService;
+import com.imruler.web.service.TradeService;
 import com.imruler.web.service.TradeViewService;
+import com.imruler.web.service.ruler.RulerTradeImgService;
+import com.imruler.web.service.ruler.RulerTradeItemService;
 import com.imruler.web.service.ruler.RulerTradeService;
 
 @WebServlet("/trade/detail")
 public class TradeDetailController extends HttpServlet{
 	
-	// private TradeService tradeService;
 	private TradeViewService tradeViewService;
 	private TradeCommentService tradeCommentService;
+	private TradeService tradeService;
+	private TradeItemService tradeItemService;
+	private TradeImgService tradeImgService;
 	
 	public TradeDetailController() {
-		// tradeService = new RulerTradeService();
 		tradeViewService = new RulerTradeService();
 		tradeCommentService = new RulerTradeService();
+		tradeService = new RulerTradeService();
+		tradeItemService = new RulerTradeItemService();
+		tradeImgService = new RulerTradeImgService();
 	}
 	
 	@Override
@@ -35,7 +43,7 @@ public class TradeDetailController extends HttpServlet{
 		int id = Integer.parseInt(request.getParameter("id"));
 		String secret = request.getParameter("secret");
 		if (secret == null) {
-		secret = "0";
+			secret = "0";
 		}
 		int num = Integer.parseInt(secret);
 		TradeView tradeView = tradeViewService.getTrade(id);
@@ -53,7 +61,7 @@ public class TradeDetailController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cmd = request.getParameter("cmd");
-		String cmdList = request.getParameter("cmdList");
+		String edel = request.getParameter("edel");
 		
 		int cId = 1;
 		String cId_ = null;
@@ -68,46 +76,92 @@ public class TradeDetailController extends HttpServlet{
 		if(bId_!=null && !bId_.equals(""))
 			bId=Integer.parseInt(bId_);
 		
-		switch(cmd) {
-		case "등록":
-			cId_ = request.getParameter("cId");
-			if(cId_!=null && !cId_.equals(""))
-				cId=Integer.parseInt(cId_);
-			String cContent_ = request.getParameter("cContent");
-			if(cContent_!=null && !cContent_.contentEquals(""))
-				cContent=cContent_;
-			String cUserId_ = request.getParameter("cUserId");
-			if(cUserId_!=null && !cUserId_.equals(""))
-				cUserId = Integer.parseInt(cUserId_);
-			String cBId_ = request.getParameter("bId");
-			if(cBId_!=null && !cBId_.equals(""))
-				cBId=Integer.parseInt(cBId_);
-			String cOpenStatus_ = request.getParameter("cOpenStatus");
-			if(cOpenStatus_!=null && !cOpenStatus_.equals("")) 
-				cOpenStatusString = cOpenStatus_;
-			if (cOpenStatusString.equals("on")) {
-				cOpenStatus = 1;
-			} else {
-				cOpenStatus = 0;
+		if (edel!=null && !edel.equals("")) {
+			switch(edel) {
+			case "수정":
+				response.sendRedirect("/trade/edit");
+				break;
+			case "삭제":
+				int id = tradeService.getBoardId();
+				int boardId = id;
+				int result = tradeService.deleteTrade(id);
+				System.out.println("result: " + result);
+				int result2 = tradeItemService.deleteByTradeBoardId(boardId);
+				System.out.println("result2: " + result2);
+				int result3 = tradeImgService.deleteByTradeBoardId(boardId);
+				System.out.println("result3: " + result3);
+				int result4 = tradeCommentService.deleteTradeComment(boardId);
+				System.out.println("result4: " + result4);
+				response.sendRedirect("/trade/list");
+				break;
 			}
-			int result = tradeCommentService.insertTradeComment(new TradeComment(cContent, cUserId, cBId, cOpenStatus));
-			System.out.println("cId:"+cId+"cBId:"+cBId+"cContent:"+cContent+"cUserId:"+cUserId+"openStatus"+cOpenStatus);
-			System.out.println("result"+result);
-			break;
-		case "수정":
-			//int edit = tradeCommentService.updateTradeComment(new TradeComment(cId, cContent, cUserId, cBId));
-			break;
-		case "삭제":
-			cId_ = request.getParameter("cId");
-			if(cId_!=null && !cId_.equals(""))
-				cId=Integer.parseInt(cId_);
-			System.out.println(cId_);
-			System.out.println(cId);
-			int del = tradeCommentService.deleteTradeComment(cId);
-			System.out.println("cId:"+cId+"삭제됐니"+del);
-			break;
 		}
-		response.sendRedirect("/trade/detail?id="+bId);
+		if (cmd!=null && !cmd.equals("")) {
+			switch(cmd) {
+			case "등록":
+				cId_ = request.getParameter("cId");
+				if(cId_!=null && !cId_.equals(""))
+					cId=Integer.parseInt(cId_);
+				String cContent_ = request.getParameter("cContent");
+				if(cContent_!=null && !cContent_.contentEquals(""))
+					cContent=cContent_;
+				String cUserId_ = request.getParameter("cUserId");
+				if(cUserId_!=null && !cUserId_.equals(""))
+					cUserId = Integer.parseInt(cUserId_);
+				String cBId_ = request.getParameter("bId");
+				if(cBId_!=null && !cBId_.equals(""))
+					cBId=Integer.parseInt(cBId_);
+				String cOpenStatus_ = request.getParameter("cOpenStatus");
+				if(cOpenStatus_!=null && !cOpenStatus_.equals("")) 
+					cOpenStatusString = cOpenStatus_;
+				if (cOpenStatusString.equals("on")) {
+					cOpenStatus = 1;
+				} else {
+					cOpenStatus = 0;
+				}
+				int result = tradeCommentService.insertTradeComment(new TradeComment(cContent, cUserId, cBId, cOpenStatus));
+				System.out.println("cId:"+cId+"cBId:"+cBId+"cContent:"+cContent+"cUserId:"+cUserId+"openStatus"+cOpenStatus);
+				System.out.println("result"+result);
+				response.sendRedirect("/trade/detail?id="+bId);
+				break;
+			case "수정":
+				cId_ = request.getParameter("cId");
+				if(cId_!=null && !cId_.equals(""))
+					cId=Integer.parseInt(cId_);
+				String cContent_1 = request.getParameter("cContent");
+				if(cContent_1!=null && !cContent_1.contentEquals(""))
+					cContent=cContent_1;
+				String cUserId_1 = request.getParameter("cUserId");
+				if(cUserId_1!=null && !cUserId_1.equals(""))
+					cUserId = Integer.parseInt(cUserId_1);
+				String cBId_1 = request.getParameter("bId");
+				if(cBId_1!=null && !cBId_1.equals(""))
+					cBId=Integer.parseInt(cBId_1);
+				String cOpenStatus_1 = request.getParameter("cOpenStatus");
+				if(cOpenStatus_1!=null && !cOpenStatus_1.equals("")) 
+					cOpenStatusString = cOpenStatus_1;
+				if (cOpenStatusString.equals("on")) {
+					cOpenStatus = 1;
+				} else {
+					cOpenStatus = 0;
+				}
+				int edit = tradeCommentService.updateTradeComment(new TradeComment(cId, cContent, cUserId, cBId));
+				System.out.println(tradeCommentService.toString());
+				response.sendRedirect("/trade/detail?id="+bId);
+				break;
+			case "삭제":
+				cId_ = request.getParameter("cId");
+				if(cId_!=null && !cId_.equals(""))
+					cId=Integer.parseInt(cId_);
+				System.out.println(cId_);
+				System.out.println(cId);
+				int del = tradeCommentService.deleteTradeComment(cId);
+				System.out.println("cId:"+cId+"삭제됐니"+del);
+				response.sendRedirect("/trade/detail?id="+bId);
+				break;
+			}
+		}
+		
 		
 		
 		

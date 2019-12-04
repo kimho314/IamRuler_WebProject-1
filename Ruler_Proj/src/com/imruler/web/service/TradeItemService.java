@@ -1,10 +1,9 @@
-package com.imruler.web.dao;
+package com.imruler.web.service;
 
 import com.imruler.web.entity.TradeItem;
 
-public interface TradeItemDao {
+public interface TradeItemService {
 	int insert(TradeItem tradeItem);
 	int update(TradeItem tradeItem);
 	int deleteByTradeBoardId(int id);
 }
-	

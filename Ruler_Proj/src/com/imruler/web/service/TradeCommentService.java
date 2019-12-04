@@ -6,6 +6,6 @@ public interface TradeCommentService{
 	//List<TradeComment> getComment(int id);
 	
 	int insertTradeComment(TradeComment tradeComment);
-	//int updateTradeComment(TradeComment tradeComment);
+	int updateTradeComment(TradeComment tradeComment);
 	int deleteTradeComment(int id);
 }

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 
 import com.imruler.web.dao.TradeItemDao;
 import com.imruler.web.entity.TradeBoard;
+import com.imruler.web.entity.TradeImg;
 import com.imruler.web.entity.TradeItem;
 
 public class JdbcTradeItemDao implements TradeItemDao{
@@ -55,7 +56,7 @@ public class JdbcTradeItemDao implements TradeItemDao{
 			int result = 0;
 			 
 			String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-			String sql = "INSERT INTO TRADE_BOARD(ID, BODYSHAPE, CATEGORY, REGION) VALUES(?,?,?,?)";
+			String sql = "INSERT INTO TRADE_ITEM(ID, BODYSHAPE, CATEGORY, REGION) VALUES(?,?,?,?)";
 			
 			Connection con = null;
 			PreparedStatement st = null;
@@ -68,7 +69,7 @@ public class JdbcTradeItemDao implements TradeItemDao{
 				st.setString(2, tradeItem.getBodyShape());
 				st.setString(3, tradeItem.getCategory());
 				st.setString(4, tradeItem.getRegion());
-				
+				System.out.println(tradeItem.toString());
 				
 				result = st.executeUpdate();
 
@@ -98,8 +99,69 @@ public class JdbcTradeItemDao implements TradeItemDao{
 
 	@Override
 	public int update(TradeItem tradeItem) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+
+		String sql = "UPDATE TRADE_ITEM SET BODYSHAPE=?,CATEGORY=?,REGION=? WHERE ID=?";
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url, "RULER", "33333");
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			st.setString(1, tradeItem.getBodyShape());
+			st.setString(2, tradeItem.getCategory());
+			st.setString(3, tradeItem.getRegion());
+			st.setInt(4, tradeItem.getItemId());
+
+			result = st.executeUpdate();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	@Override
+	public int deleteByTradeBoardId(int id) {
+		TradeItem tradeItem = null;
+		Connection con = null;
+		PreparedStatement st = null;
+		int result = 0;
+
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String sql = "DELETE TRADE_ITEM WHERE ID=?";
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			st = con.prepareStatement(sql);
+
+			st.setInt(1, id);
+			
+			result = st.executeUpdate();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				if(st != null)
+					st.close();
+				if(con != null)
+					con.close();
+			}catch(SQLException e) {}
+		}
+
+		return result;
 	}
 
 	

@@ -14,6 +14,15 @@ public class TradeImg {
 		this.img = img;
 	}
 
+	public TradeImg(int boardId, String img) {
+		this.boardId = boardId;
+		this.img = img;
+	}
+
+	public TradeImg(String img) {
+		this.img = img;
+	}
+
 	public int getId() {
 		return id;
 	}

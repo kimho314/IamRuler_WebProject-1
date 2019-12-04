@@ -69,8 +69,7 @@ public class RulerTradeService implements TradeService, TradeViewService, TradeC
 
 	@Override
 	public int updateTrade(TradeBoard tradeBoard) {
-		// return tradeBoardDao.update(tradeboard);
-		return 0;
+		return tradeBoardDao.update(tradeBoard);
 	}
 
 	@Override
@@ -83,24 +82,34 @@ public class RulerTradeService implements TradeService, TradeViewService, TradeC
 		return tradeBoardDao.getListCount(field, query);
 	}
 
-//	@Override
-//	public List<TradeView> getComment(int id) {
-//		return tradeViewDao.get(id);
-//	}
-
 	@Override
 	public int insertTradeComment(TradeComment tradeComment) {
 		return tradeCommentDao.insertTradeComment(tradeComment);
 	}
-
-//	@Override
-//	public int updateTradeComment(TradeComment tradeComment) {
-//		return tradeCommentDao.updateTradeComment(tradeComment);
-//	}
 	
 	@Override
 	public int deleteTradeComment(int id) {
 		return tradeCommentDao.deleteTradeComment(id);
+	}
+
+	@Override
+	public int getBoardId() {
+		return tradeBoardDao.getBoardId();
+	}
+
+	@Override
+	public int getListCountByUserId(int userId) {
+		return tradeBoardDao.getListCountByUserId(userId);
+	}
+
+	@Override
+	public int getCommentListCountByUserId(int userId) {
+		return tradeCommentDao.getCommentListCountByUserId(userId);
+	}
+
+	@Override
+	public int updateTradeComment(TradeComment tradeComment) {
+		return tradeCommentDao.updateTradeComment(tradeComment);
 	}
 
 	

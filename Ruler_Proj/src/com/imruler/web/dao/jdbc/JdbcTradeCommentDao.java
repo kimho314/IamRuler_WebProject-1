@@ -238,11 +238,47 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 			return result;
 
 	}
-	
-	
-	
 
+	@Override
+	public int getCommentListCountByUserId(int userId) {
+		int count=0;
+	      
+	      String sql = "SELECT COUNT(ID) COUNT FROM COMMENTLISTVIEW WHERE USER_ID=?";
+	      String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+	      
+	      Connection con = null;
+	      PreparedStatement st = null;
+	      
+	      try {
+	         Class.forName("oracle.jdbc.driver.OracleDriver");
+	         con = DriverManager.getConnection(url, "RULER", "33333");
+	         st = con.prepareStatement(sql);
+	         st.setInt(1, userId);
+	         
+	         ResultSet rs = st.executeQuery();
+	         
+	         if(rs.next())
+	         count = rs.getInt("count");
 
-	
+	         st.close();
+	         con.close();
 
+	      } catch (ClassNotFoundException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }finally {
+	         try {
+	            if(st != null)
+	               st.close();
+	            if(con != null)
+	               con.close();
+	         }catch(SQLException e) {}
+	      }
+	      
+	      return count;
+
+	}
 }

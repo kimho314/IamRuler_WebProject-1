@@ -11,5 +11,7 @@ public interface TradeCommentDao {
 	int insertTradeComment(TradeComment tradeComment);
 	int updateTradeComment(TradeComment tradeComment);
 	int deleteTradeComment(int id);
+	
+	int getCommentListCountByUserId(int userId);
 }
 

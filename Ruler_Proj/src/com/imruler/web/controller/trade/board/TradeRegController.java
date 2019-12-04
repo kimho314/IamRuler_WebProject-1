@@ -1,51 +1,138 @@
 package com.imruler.web.controller.trade.board;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Collection;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
+import com.imruler.web.entity.TradeBoard;
+import com.imruler.web.entity.TradeImg;
+import com.imruler.web.entity.TradeItem;
+import com.imruler.web.service.TradeImgService;
+import com.imruler.web.service.TradeItemService;
 import com.imruler.web.service.TradeService;
+import com.imruler.web.service.ruler.RulerTradeImgService;
+import com.imruler.web.service.ruler.RulerTradeItemService;
 import com.imruler.web.service.ruler.RulerTradeService;
 
 @WebServlet("/trade/reg")
-public class TradeRegController extends HttpServlet{
-	
+@MultipartConfig(/**/
+		fileSizeThreshold = 1024 * 1024, /**/
+		maxFileSize = 1024 * 1024 * 10, /**/
+		maxRequestSize = 1024 * 1024 * 10 * 5/**/
+)
+public class TradeRegController extends HttpServlet {
+
 	private TradeService tradeService;
-	
+	private TradeImgService tradeImgService;
+	private TradeItemService tradeItemService;
+
 	public TradeRegController() {
 		tradeService = new RulerTradeService();
+		tradeImgService = new RulerTradeImgService();
+		tradeItemService = new RulerTradeItemService();
 	}
-	
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("/trade/reg.jsp").forward(request, response);
-		
-		
+
 	}
-	
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		String clothes = request.getParameter("clothes");
-		String area = request.getParameter("area");
-		String body = request.getParameter("body");
-		String complete = request.getParameter("complete");
-		String userId = request.getParameter("userId");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int userId = 1;
+		int boardId = 1;
+		String title = "";
+		String content = "";
+		String category = "";
+		String region = "";
+		String bodyShape = "";
+		String complete = "";
+		String tag = "";
+
+		String title_ = request.getParameter("title");
+		if (title_ != null && !title_.equals(""))
+			title = title_;
+		String content_ = request.getParameter("content");
+		if (content_ != null && !content_.equals(""))
+			content = content_;
+		String category_ = request.getParameter("category");
+		if (category_ != null && !category_.equals(""))
+			category = category_;
+		String region_ = request.getParameter("region");
+		if (region_ != null && !region_.equals(""))
+			region = region_;
+		String bodyShape_ = request.getParameter("bodyShape");
+		if (bodyShape_ != null && !bodyShape_.equals(""))
+			bodyShape = bodyShape_;
+		String complete_ = request.getParameter("complete");
+		if (complete_ != null && !complete_.equals(""))
+			complete = complete_;
+		String userId_ = request.getParameter("userId");
+		if (userId_ != null && !userId_.equals(""))
+			userId = Integer.parseInt(userId_);
+		String tag_ = request.getParameter("tag");
+		if (tag_ != null && !tag_.equals(""))
+			tag = tag_;
 		
-		HttpSession session = request.getSession(true);
-		session.setAttribute(userId, "yupddok");
+		Collection<Part> parts = request.getParts();
+
+		String fileNames = "";
+
+		for (Part p : parts) {
+			if (!p.getName().equals("files"))
+				continue;
+
+			Part filePart = p;
+			String fileName = filePart.getSubmittedFileName(); // 전송한 파일명
+			fileNames += fileName + ",";
+
+			ServletContext application = request.getServletContext();
+			String urlPath = "/upload";
+			String realPath = application.getRealPath(urlPath);
+
+			File file = new File(realPath);
+			if (!file.exists())
+				file.mkdir();
+			else
+				System.out.println("경로존재");
+
+			InputStream fis = filePart.getInputStream(); // 전송한 파일의 스트림
+			OutputStream fos = new FileOutputStream(realPath + File.separator + fileName);
+
+			byte[] buf = new byte[1024];
+			int size = 0;
+			while ((size = fis.read(buf)) != -1)
+				fos.write(buf, 0, size);
+			fos.close();
+		}
+		fileNames = fileNames.substring(0, fileNames.length()-1);
+		String userName = (String) request.getSession().getAttribute("userName");
+
+		int result = tradeService.insertTrade(new TradeBoard(title, content, tag, userId));
+		System.out.println("result: " + result);
+		boardId = tradeService.getBoardId();
+		int result2 = tradeItemService.insert(new TradeItem(boardId, bodyShape, category, region));
+		System.out.println("result2: " + result2);
+		int result3 = tradeImgService.insert(new TradeImg(boardId, fileNames));
+		System.out.println("result3: " + result3);
 		
-		System.out.println(userId+title+content+clothes+area+body+complete);
-		
-		response.sendRedirect("/trade/list");
-		
-		
+		response.sendRedirect("list");
+
 	}
 
 }
