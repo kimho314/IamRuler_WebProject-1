@@ -14,7 +14,7 @@
 					<h1 class="logo"><a href="/"><img src="../images/logo.png" alt="아임룰러" /></a></h1>
 					<h2 class="hidden">메인 메뉴</h2>
 					<ul>
-						<li class="<c:if test="${pathUrl == 'index'}">on</c:if>"><a href="/">사이즈비교</a></li>
+						<li class="<c:if test="${pathUrl == 'index'}">on</c:if>"><a href="/index">사이즈비교</a></li>
 						<li class="<c:if test="${pathUrl == 'coordi'}">on</c:if>"><a href="/coordi/list_w">체형별코디</a></li>
 						<li class="<c:if test="${pathUrl == 'trade'}">on</c:if>"><a href="/trade/list">교환게시판</a></li>
 						<li class="<c:if test="${pathUrl == 'rank'}">on</c:if>"><a href="/rank">쇼핑몰랭킹</a></li>										
