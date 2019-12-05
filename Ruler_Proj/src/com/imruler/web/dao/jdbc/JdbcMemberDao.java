@@ -99,6 +99,49 @@ public class JdbcMemberDao implements MemberDao {
 	}
 
 	@Override
+	public Member get(int userId) {
+		Member member = null;
+		String sql = "SELECT ID , USER_NAME, PWD, PHONE, EMAIL, HEIGHT, WEIGHT, GENDER, AGE, BODYSHAPE  FROM Member WHERE ID=?";
+
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
+
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			pst = con.prepareStatement(sql);
+
+			pst.setInt(1, userId);
+
+			rs = pst.executeQuery();
+
+			if (rs.next()) {
+				member = new Member(rs.getInt("ID"), rs.getString("USER_NAME"), rs.getString("PWD"),
+						rs.getString("PHONE"), rs.getString("EMAIL"), rs.getInt("HEIGHT"), rs.getInt("WEIGHT"),
+						rs.getString("GENDER"), rs.getInt("AGE"), rs.getString("BODYSHAPE"));
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+			}
+		}
+
+		return member;
+	}
+	@Override
 	public int insert(Member member) {
 		// TODO insert
 		int result = 0;
