@@ -243,76 +243,68 @@
 						<h2>의류 선택</h2>
 					</header>
 					<!-- 여성 선택 -->
-					<script>
-						$(function(){
-							$(".moveBtn2").click(function(e){
-								typeChange('T');
-								
-							})
-						})
-					</script>
 					<div class="features" id="genderW">
 						<article id="checkTop" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn2" data-type=''> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn2" data-type="T"> <span class="icon"></span>
 									<img src="images/main_ic1.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('T');moveBtn(this.href);" >상의</a>
+									<a href="#detailsize" data-type="T" class="moveBtn2" >상의</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkOuter" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin " onclick="typeChange('O');moveBtn(this.href);"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn2" data-type="O"> <span class="icon"></span>
 									<img src="images/main_ic3.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('O');moveBtn(this.href);" class="moveBtn">아우터</a>
+									<a href="#detailsize" data-type="O" class="moveBtn">아우터</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkPants" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin " onclick="typeChange('P');moveBtn(this.href);"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn2" data-type="P"> <span class="icon"></span>
 									<img src="images/main_ic2.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('P');moveBtn(this.href);">바지</a>
+									<a href="#detailsize" data-type="P" class="moveBtn2">바지</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkSkirt" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin " onclick="typeChange('Sk');moveBtn(this.href);"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn2" data-type="Sk"> <span class="icon"></span>
 									<img src="images/main_ic4.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('Sk');moveBtn(this.href);">치마</a>
+									<a href="#detailsize" data-type="Sk" class="moveBtn2">치마</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkOnepiece" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin " onclick="typeChange('Op');moveBtn(this.href);"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn2" data-type="Op"> <span class="icon"></span>
 									<img src="images/main_ic5.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('Op');moveBtn(this.href);">원피스</a>
+									<a href="#detailsize" data-type="Op" class="moveBtn2">원피스</a>
 								</h3>
 							</div>
 						</article>
@@ -323,39 +315,39 @@
 					<div class="features" id="genderM" style="display : none;">
 						<article id="checkTop" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin " onclick="typeChange('T');moveBtn(this.href);"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn2" data-type="T"> <span class="icon"></span>
 									<img src="images/main_ic1.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('T');moveBtn(this.href);" >상의</a>
+									<a href="#detailsize" data-type="T" class="moveBtn2">상의</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkOuter" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin" onclick="typeChange('O');moveBtn(this.href);"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn2" data-type="O"> <span class="icon"></span>
 									<img src="images/main_ic3.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('O');moveBtn(this.href);" >아우터</a>
+									<a href="#detailsize" data-type="O" class="moveBtn2">아우터</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkPants" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin" onclick="typeChange('P');moveBtn(this.href);"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn2" data-type="P"> <span class="icon"></span>
 									<img src="images/main_ic2.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('P');moveBtn(this.href);">바지</a>
+									<a href="#detailsize"  data-type="P" class="moveBtn2">바지</a>
 								</h3>
 							</div>
 						</article>
@@ -675,13 +667,7 @@
 		}	
 		function typeChange(txt){
 			document.getElementsByName("type")[0].value=txt;
-			alert(document.getElementsByName("type")[0].value);
-		}
-		function moveBtn(target){
-	            alert(target);
-	            var currentp = $(".innerWrapBox").scrollTop();
-	            var targetp = $(target).position().top;
-	           $(".innerWrapBox").animate({scrollTop : currentp+targetp},400);
+			//alert(document.getElementsByName("type")[0].value);
 		}
 	      $(function(){
 	         var wrapBoxheg = resizeHeg();
@@ -703,6 +689,15 @@
 	            var targetp = $(target).position().top;
 	            $(".innerWrapBox").animate({scrollTop : currentp+targetp},400);     
 	         });
+	         $(".moveBtn2").bind("click",function(e){
+		            e.preventDefault();
+		            var type = $(this).data("type");
+		            typeChange(type);
+		            var target = $(this).attr("href");
+		            var currentp = $(".innerWrapBox").scrollTop();
+		            var targetp = $(target).position().top;
+		            $(".innerWrapBox").animate({scrollTop : currentp+targetp},400);     
+		         });
 	         $(".topBtn").click(function(){
 	            $(".innerWrapBox").animate({scrollTop:0}, 400 );
 	         });
