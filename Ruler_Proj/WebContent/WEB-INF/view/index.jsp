@@ -742,7 +742,8 @@
 					scrollTop : currentp + targetp
 				}, 400);
 			});
-			$(".topBtn").click(function() {
+			$(".topBtn").click(function(e) {
+				e.preventDefault();
 				$(".innerWrapBox").animate({
 					scrollTop : 0
 				}, 400);
