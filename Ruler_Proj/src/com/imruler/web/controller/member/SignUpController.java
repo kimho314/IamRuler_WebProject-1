@@ -49,19 +49,25 @@ public class SignUpController extends HttpServlet {
 			String gender = req.getParameter("성별");
 			int age = Integer.parseInt(req.getParameter("연령대"));
 			String bodyshape = req.getParameter("체형");
-			
+
 			int isDuplicated = memberService.isDuplicatedId(userId, userPwd, userPwdRequest, phone, email); // 에러확인 1차
 			if (StringUtil.isNumeric(req.getParameter("전화번호")) == false) { // 전화번호가 숫자만 들어가있는지 확인
 				isDuplicated = 3;
 				System.out.println("전화번호 오류");
 			}
-			
+
 			if (isDuplicated != 0) { // 에러 확인값이 0이 아닐경우 에러
 				resp.sendRedirect("sign-up?error=" + isDuplicated); // 에러 발생시 해당하는 코드값으로 이동
 			} else {
 				memberService.insertMember(
-						new Member(userId, userPwd, phone, email, height, weidth, gender, age, bodyshape)); // 회원가입시 정보입력
-				resp.sendRedirect("sign-up?result=1");
+						new Member(userId, userPwd, phone, email, height, weidth, gender, age, bodyshape)); // 회원가입시
+																											// 정보입력
+				if (memberService.get(userId) != null) {
+					resp.sendRedirect("sign-up?result=1");
+				} else {
+					System.out.println("회원가입실패");
+					resp.sendRedirect("sign-up?error=0"); // 회원가입실패
+				}
 			}
 		} else {
 			System.out.println("알수없는 에러");

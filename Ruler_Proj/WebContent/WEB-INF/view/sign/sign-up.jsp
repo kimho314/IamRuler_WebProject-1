@@ -40,7 +40,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                     아이디
                   </td>
                   <td>
-                    <input type="text" class="텍스트" name="아이디" />
+                    <input type="text" class="텍스트 input-id" name="아이디" />
                     <span id="기타라벨">
                       영문 + 숫자 4~16자, 한글 2~8자 (4~16byte)
                     </span>
@@ -52,7 +52,11 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                 <tr>
                   <td title="영문과 숫자만 사용이 가능합니다.">비밀번호</td>
                   <td class="비밀번호입력">
-                    <input type="password" class="텍스트" name="비밀번호" />
+                    <input
+                      type="password"
+                      class="텍스트 input-pwd"
+                      name="비밀번호"
+                    />
                     <span id="기타라벨"> 영문 + 숫자 4~16자 </span>
                     <c:if test="${param.error ==2}">
                       <span class="오류">
@@ -66,7 +70,11 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                     비밀번호 확인
                   </td>
                   <td class="비밀번호입력">
-                    <input type="password" class="텍스트" name="비밀번호확인" />
+                    <input
+                      type="password"
+                      class="텍스트 input-pwd"
+                      name="비밀번호확인"
+                    />
                     <span id="기타라벨"> 비밀번호를 다시 입력해주세요. </span>
                     <c:if test="${param.error ==2}">
                       <span class="오류"> 비밀번호가 틀렸습니다. </span>
@@ -191,6 +199,11 @@ uri="http://java.sun.com/jsp/jstl/core"%>
             </c:if>
 
             <section class="회원가입확인">
+              <c:if test="${param.error == 0}">
+                <span class="오류"
+                  >내용이 잘못되었습니다. 다시한번 확인해주세요.</span
+                >
+              </c:if>
               <span id="확인버튼">
                 <br />
                 <input
