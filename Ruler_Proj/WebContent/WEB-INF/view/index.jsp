@@ -32,67 +32,75 @@
 				</header>
 				<!-- Banner -->
 				<%-- ${result} --%>
-			<div class="wrapBox">
-				<section id="banner">
-					<div class="content">
-						<header>
-							<h1>
-								더 이상 반품은 노!<br /> 사이즈를 알기 쉽게
-							</h1>
-							<p>
-								아임룰러는 키 몸무게와 세분화된 체형정보 입력을 통해 신체<br /><!--  -->
-								데이터를 옷의 실측사이즈와 비교하여 사이즈를 추천드립니다.
-							</p>
-						</header>
+				<div class="wrapBox">
+					<section id="banner">
+						<div class="content">
+							<header>
+								<h1>
+									더 이상 반품은 노!<br /> 사이즈를 알기 쉽게
+								</h1>
+								<p>
+									아임룰러는 키 몸무게와 세분화된 체형정보 입력을 통해 신체<br />
+									<!--  -->
+									데이터를 옷의 실측사이즈와 비교하여 사이즈를 추천드립니다.
+								</p>
+							</header>
 
-						<ul class="actions">
-							<li><a href="#infor" class="button big infoBtn">사이즈 비교 →</a></li>
-						</ul>
-					</div>
+							<ul class="actions">
+								<li><a href="#infor" class="button big infoBtn">사이즈 비교
+										→</a></li>
+							</ul>
+						</div>
 
-					<div class="main-img">
-						<img src="images/main_visualPc.gif" alt="" id="mainPc" /><!--  -->
-						<img src="images/main_visualMo.gif" alt="" id="mainMo" /><!--  -->
-						<img src="images/main_visualM.png" alt="" id="mainCom" />
+						<div class="main-img">
+							<img src="images/main_visualPc.gif" alt="" id="mainPc" />
+							<!--  -->
+							<img src="images/main_visualMo.gif" alt="" id="mainMo" />
+							<!--  -->
+							<img src="images/main_visualM.png" alt="" id="mainCom" />
 
-					</div>
+						</div>
 
-				</section>
-			<div class="innerWrapBox">
-				<form action="/index" method="post">
-					<input type="hidden" name="type"> 
-				<!-- Section -->
-				<section id="infor">
-					<header class="major">
-						<h2>내 정보 입력</h2>
-					</header>
-					<div class="posts">
+					</section>
+					<div class="innerWrapBox">
+						<form action="/index" method="post">
+							<input type="hidden" name="type">
+							<!-- Section -->
+							<section id="infor">
+								<header class="major">
+									<h2>내 정보 입력</h2>
+								</header>
+								<div class="posts">
 
-						<article>
-							<!-- 체형 이미지 -->
-							<div class="image object-stage">
-								<img src="images/main_simulator1.png">
-							</div>
-						</article>
+									<article>
+										<!-- 체형 이미지 -->
+										<div class="image object-stage">
+											<img src="images/main_simulator1.png">
+										</div>
+									</article>
 
-						<article>
-							<!-- 내 정보 입력 -->
-						<!-- 	<form method="post" action="/index" name="bodyfrm"> -->
-								<table class="alt">
-									<tr class="inforform">
-										<th>성별</th>
-										<td id="inforline">
-										<div class="maingender">
-												<input type="radio" id="demo-priority-low" name="gender" value="woman" <c:if test="${userGender == '여성'|| empty userGender}">checked</c:if>><!--  -->
-												<label for="demo-priority-low">여성</label>
-											</div>
+									<article>
+										<!-- 내 정보 입력 -->
+										<!-- 	<form method="post" action="/index" name="bodyfrm"> -->
+										<table class="alt">
+											<tr class="inforform">
+												<th>성별</th>
+												<td id="inforline">
+													<div class="maingender">
+														<input type="radio" id="demo-priority-low" name="gender"
+															value="woman"
+															<c:if test="${userGender == '여성'|| empty userGender}">checked</c:if>>
+														<!--  -->
+														<label for="demo-priority-low">여성</label>
+													</div>
 
-											<div class="maingender">
-												<input type="radio" id="demo-priority-normal" name="gender" value="man" <c:if test="${userGender == '남성'}">checked</c:if>><!--  -->
-												<label for="demo-priority-normal">남성</label>
-											</div>
-										
-										<%-- <c:if test="${userGender == '남성'}"><div class="maingender">
+													<div class="maingender">
+														<input type="radio" id="demo-priority-normal"
+															name="gender" value="man"
+															<c:if test="${userGender == '남성'}">checked</c:if>>
+														<!--  -->
+														<label for="demo-priority-normal">남성</label>
+													</div> <%-- <c:if test="${userGender == '남성'}"><div class="maingender">
 												<input type="radio" id="demo-priority-low" name="gender" value="woman"><!--  -->
 												<label for="demo-priority-low">여성</label>
 											</div>
@@ -102,507 +110,536 @@
 												<label for="demo-priority-normal">남성</label>
 											</div>
 										</c:if> --%>
-											
-											
-										</td>
-									</tr>
-									<tr class="inforform">
-										<th>연령대</th>
-										<td id="inforline">
-											<div class="select-wrapper" id="agecheck">
-											<c:if test="${empty userAge}">
-												<select name="area">
-													<option value="" selected="selected">선택</option>
-													<option value="20">20대</option>
-													<option value="30">30대</option>
-													<option value="40">40대+</option>
-												</select>
-											</c:if>
-											<c:if test="${userAge == 20}">
-												<select name="area">
-													<option value="">선택</option>
-													<option value="20" selected="selected">20대</option>
-													<option value="30">30대</option>
-													<option value="40">40대+</option>
-												</select>
-											</c:if>
-											<c:if test="${userAge == 30}">
-												<select name="area">
-													<option value="">선택</option>
-													<option value="20">20대</option>
-													<option value="30" selected="selected">30대</option>
-													<option value="40">40대+</option>
-												</select>
-											</c:if>
-											<c:if test="${userAge == 40}">
-												<select name="area">
-													<option value="">선택</option>
-													<option value="20">20대</option>
-													<option value="30">30대</option>
-													<option value="40" selected="selected">40대+</option>
-												</select>
-											</c:if>
-											</div>
-										</td>
-									</tr>
 
-									<tr class="inforform">
-										<th>체형</th>
-										<td id="inforline">
-											<div class="select-wrapper">
-											<c:if test="${empty userBodyshape || userBodyshape == '보통'}">
-												<select name="bodyshape" id="bodyshape">
-													<option value="nomal" selected="selected">보통</option>
-													<option value="smallInverseTriangle">작은 역삼각</option>
-													<option value="triangle">삼각</option>
-													<option value="inverseTriangle">역삼각</option>
-													<option value="square">사각</option>
-												</select>
-											</c:if>
-											<c:if test="${userBodyshape == '작은역삼각'}">
-												<select name="bodyshape" id="bodyshape">
-													<option value="nomal">보통</option>
-													<option value="smallInverseTriangle" selected="selected">작은 역삼각</option>
-													<option value="triangle">삼각</option>
-													<option value="inverseTriangle">역삼각</option>
-													<option value="square">사각</option>
-												</select>
-											</c:if>
-											<c:if test="${userBodyshape == '삼각'}">
-												<select name="bodyshape" id="bodyshape">
-													<option value="nomal">보통</option>
-													<option value="smallInverseTriangle">작은 역삼각</option>
-													<option value="triangle" selected="selected">삼각</option>
-													<option value="inverseTriangle">역삼각</option>
-													<option value="square">사각</option>
-												</select>
-											</c:if>
-											<c:if test="${userBodyshape == '역삼각'}">
-												<select name="bodyshape" id="bodyshape">
-													<option value="nomal">보통</option>
-													<option value="smallInverseTriangle">작은 역삼각</option>
-													<option value="triangle">삼각</option>
-													<option value="inverseTriangle" selected="selected">역삼각</option>
-													<option value="square">사각</option>
-												</select>
-											</c:if>
-											<c:if test="${userBodyshape == '사각'}">
-												<select name="bodyshape" id="bodyshape">
-													<option value="nomal">보통</option>
-													<option value="smallInverseTriangle">작은 역삼각</option>
-													<option value="triangle">삼각</option>
-													<option value="inverseTriangle">역삼각</option>
-													<option value="square" selected="selected">사각</option>
-												</select>
-											</c:if>
-											</div>
-										</td>
-									</tr>
 
-									<tr class="inforform">
-										<th>키</th>
-										<td id="inforline">
-											<c:if test="${empty userHeight}"> <!--  -->
-												<input type="text" name="x" value="" placeholder="키 입력" class="maintextbox" /> <!--  -->
-												<span>cm</span>
-											</c:if>
-											<c:if test="${!empty userHeight}"> <!--  -->
-												<input type="text" name="x" value="${userHeight}" placeholder="키 입력" class="maintextbox" /> <!--  -->
-												<span>cm</span>
-											</c:if>
-										</td>
-									</tr>
+												</td>
+											</tr>
+											<tr class="inforform">
+												<th>연령대</th>
+												<td id="inforline">
+													<div class="select-wrapper" id="agecheck">
+														<c:if test="${empty userAge || userAge == 10}">
+															<select name="area">
+																<option value="10" selected="selected">10대</option>
+																<option value="20">20대</option>
+																<option value="30">30대</option>
+																<option value="40">40대+</option>
+															</select>
+														</c:if>
+														<c:if test="${userAge == 20}">
+															<select name="area">
+																<option value="10">10대</option>
+																<option value="20" selected="selected">20대</option>
+																<option value="30">30대</option>
+																<option value="40">40대+</option>
+															</select>
+														</c:if>
+														<c:if test="${userAge == 30}">
+															<select name="area">
+																<option value="10">10대</option>
+																<option value="20">20대</option>
+																<option value="30" selected="selected">30대</option>
+																<option value="40">40대+</option>
+															</select>
+														</c:if>
+														<c:if test="${userAge == 40}">
+															<select name="area">
+																<option value="10">10대</option>
+																<option value="20">20대</option>
+																<option value="30">30대</option>
+																<option value="40" selected="selected">40대+</option>
+															</select>
+														</c:if>
+													</div>
+												</td>
+											</tr>
 
-									<tr class="inforform">
-										<th>몸무게</th>
-										<td id="inforline">
-											<c:if test="${empty userWeight}"> <!--  -->
-												<input type="text" name="y" value="" placeholder="몸무게 입력" class="maintextbox" /> <!--  -->
-												<span>kg</span>
-											</c:if>
-											<c:if test="${!empty userWeight}"> <!--  -->
-												<input type="text" name="y" value="${userWeight}" placeholder="몸무게 입력" class="maintextbox" /> <!--  -->
-												<span>kg</span>
-											</c:if>
-										</td>
-									</tr>
-								</table>
-								<ul class="actions" id="main-nextbutton">
-									<li><a href="#clothcheck" class="button big moveBtn">다음 입력 →</a></li>
-								</ul>
+											<tr class="inforform">
+												<th>체형</th>
+												<td id="inforline">
+													<div class="select-wrapper">
+														<c:if
+															test="${empty userBodyshape || userBodyshape == '보통'}">
+															<select name="bodyshape" id="bodyshape">
+																<option value="nomal" selected="selected">보통</option>
+																<option value="smallInverseTriangle">작은 역삼각</option>
+																<option value="triangle">삼각</option>
+																<option value="inverseTriangle">역삼각</option>
+																<option value="square">사각</option>
+															</select>
+														</c:if>
+														<c:if test="${userBodyshape == '작은역삼각'}">
+															<select name="bodyshape" id="bodyshape">
+																<option value="nomal">보통</option>
+																<option value="smallInverseTriangle" selected="selected">작은
+																	역삼각</option>
+																<option value="triangle">삼각</option>
+																<option value="inverseTriangle">역삼각</option>
+																<option value="square">사각</option>
+															</select>
+														</c:if>
+														<c:if test="${userBodyshape == '삼각'}">
+															<select name="bodyshape" id="bodyshape">
+																<option value="nomal">보통</option>
+																<option value="smallInverseTriangle">작은 역삼각</option>
+																<option value="triangle" selected="selected">삼각</option>
+																<option value="inverseTriangle">역삼각</option>
+																<option value="square">사각</option>
+															</select>
+														</c:if>
+														<c:if test="${userBodyshape == '역삼각'}">
+															<select name="bodyshape" id="bodyshape">
+																<option value="nomal">보통</option>
+																<option value="smallInverseTriangle">작은 역삼각</option>
+																<option value="triangle">삼각</option>
+																<option value="inverseTriangle" selected="selected">역삼각</option>
+																<option value="square">사각</option>
+															</select>
+														</c:if>
+														<c:if test="${userBodyshape == '사각'}">
+															<select name="bodyshape" id="bodyshape">
+																<option value="nomal">보통</option>
+																<option value="smallInverseTriangle">작은 역삼각</option>
+																<option value="triangle">삼각</option>
+																<option value="inverseTriangle">역삼각</option>
+																<option value="square" selected="selected">사각</option>
+															</select>
+														</c:if>
+													</div>
+												</td>
+											</tr>
 
-							<!-- </form> -->
-						</article>
+											<tr class="inforform">
+												<th>키</th>
+												<td id="inforline"><c:if test="${empty userHeight}">
+														<!--  -->
+														<input type="text" name="x" value="" placeholder="키 입력"
+															class="maintextbox" />
+														<!--  -->
+														<span>cm</span>
+													</c:if> <c:if test="${!empty userHeight}">
+														<!--  -->
+														<input type="text" name="x" value="${userHeight}"
+															placeholder="키 입력" class="maintextbox" />
+														<!--  -->
+														<span>cm</span>
+													</c:if></td>
+											</tr>
 
-					</div>
-				</section>
+											<tr class="inforform">
+												<th>몸무게</th>
+												<td id="inforline"><c:if test="${empty userWeight}">
+														<!--  -->
+														<input type="text" name="y" value="" placeholder="몸무게 입력"
+															class="maintextbox" />
+														<!--  -->
+														<span>kg</span>
+													</c:if> <c:if test="${!empty userWeight}">
+														<!--  -->
+														<input type="text" name="y" value="${userWeight}"
+															placeholder="몸무게 입력" class="maintextbox" />
+														<!--  -->
+														<span>kg</span>
+													</c:if></td>
+											</tr>
+										</table>
+										<ul class="actions" id="main-nextbutton">
+											<li><a href="#clothcheck" class="button big moveBtn">다음
+													입력 →</a></li>
+										</ul>
 
-				<!-- Section -->
-				<section id="clothcheck">
-					<header class="major">
-						<h2>의류 선택</h2>
-					</header>
-					<!-- 여성 선택 -->
-					<div class="features" id="genderW">
-						<article id="checkTop" class="clothcheck-box">
-							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn2" data-type="T"> <span class="icon"></span>
-									<img src="images/main_ic1.png" alt="#" />
-								</a>
-							</div>
-							<div class="description">
-								<h3>
-									<a href="#detailsize" data-type="T" class="moveBtn2" >상의</a>
-								</h3>
-							</div>
-						</article>
+										<!-- </form> -->
+									</article>
 
-						<article id="checkOuter" class="clothcheck-box">
-							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn2" data-type="O"> <span class="icon"></span>
-									<img src="images/main_ic3.png" alt="#" />
-								</a>
-							</div>
-							<div class="description">
-								<h3>
-									<a href="#detailsize" data-type="O" class="moveBtn">아우터</a>
-								</h3>
-							</div>
-						</article>
+								</div>
+							</section>
 
-						<article id="checkPants" class="clothcheck-box">
-							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn2" data-type="P"> <span class="icon"></span>
-									<img src="images/main_ic2.png" alt="#" />
-								</a>
-							</div>
-							<div class="description">
-								<h3>
-									<a href="#detailsize" data-type="P" class="moveBtn2">바지</a>
-								</h3>
-							</div>
-						</article>
+							<!-- Section -->
+							<section id="clothcheck">
+								<header class="major">
+									<h2>의류 선택</h2>
+								</header>
+								<!-- 여성 선택 -->
+								<div class="features" id="genderW">
+									<article id="checkTop" class="clothcheck-box">
+										<div class="iconBox">
+											<a href="#detailsize" class="spin moveBtn2" data-type="T">
+												<span class="icon"></span> <img src="images/main_ic1.png"
+												alt="#" />
+											</a>
+										</div>
+										<div class="description">
+											<h3>
+												<a href="#detailsize" data-type="T" class="moveBtn2">상의</a>
+											</h3>
+										</div>
+									</article>
 
-						<article id="checkSkirt" class="clothcheck-box">
-							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn2" data-type="Sk"> <span class="icon"></span>
-									<img src="images/main_ic4.png" alt="#" />
-								</a>
-							</div>
-							<div class="description">
-								<h3>
-									<a href="#detailsize" data-type="Sk" class="moveBtn2">치마</a>
-								</h3>
-							</div>
-						</article>
+									<article id="checkOuter" class="clothcheck-box">
+										<div class="iconBox">
+											<a href="#detailsize" class="spin moveBtn2" data-type="O">
+												<span class="icon"></span> <img src="images/main_ic3.png"
+												alt="#" />
+											</a>
+										</div>
+										<div class="description">
+											<h3>
+												<a href="#detailsize" data-type="O" class="moveBtn">아우터</a>
+											</h3>
+										</div>
+									</article>
 
-						<article id="checkOnepiece" class="clothcheck-box">
-							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn2" data-type="Op"> <span class="icon"></span>
-									<img src="images/main_ic5.png" alt="#" />
-								</a>
-							</div>
-							<div class="description">
-								<h3>
-									<a href="#detailsize" data-type="Op" class="moveBtn2">원피스</a>
-								</h3>
-							</div>
-						</article>
-					</div>
-					
-					<!-- 남성 선택 -->
-					
-					<div class="features" id="genderM" style="display : none;">
-						<article id="checkTop" class="clothcheck-box">
-							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn2" data-type="T"> <span class="icon"></span>
-									<img src="images/main_ic1.png" alt="#" />
-								</a>
-							</div>
-							<div class="description">
-								<h3>
-									<a href="#detailsize" data-type="T" class="moveBtn2">상의</a>
-								</h3>
-							</div>
-						</article>
+									<article id="checkPants" class="clothcheck-box">
+										<div class="iconBox">
+											<a href="#detailsize" class="spin moveBtn2" data-type="P">
+												<span class="icon"></span> <img src="images/main_ic2.png"
+												alt="#" />
+											</a>
+										</div>
+										<div class="description">
+											<h3>
+												<a href="#detailsize" data-type="P" class="moveBtn2">바지</a>
+											</h3>
+										</div>
+									</article>
 
-						<article id="checkOuter" class="clothcheck-box">
-							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn2" data-type="O"> <span class="icon"></span>
-									<img src="images/main_ic3.png" alt="#" />
-								</a>
-							</div>
-							<div class="description">
-								<h3>
-									<a href="#detailsize" data-type="O" class="moveBtn2">아우터</a>
-								</h3>
-							</div>
-						</article>
+									<article id="checkSkirt" class="clothcheck-box">
+										<div class="iconBox">
+											<a href="#detailsize" class="spin moveBtn2" data-type="Sk">
+												<span class="icon"></span> <img src="images/main_ic4.png"
+												alt="#" />
+											</a>
+										</div>
+										<div class="description">
+											<h3>
+												<a href="#detailsize" data-type="Sk" class="moveBtn2">치마</a>
+											</h3>
+										</div>
+									</article>
 
-						<article id="checkPants" class="clothcheck-box">
-							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn2" data-type="P"> <span class="icon"></span>
-									<img src="images/main_ic2.png" alt="#" />
-								</a>
-							</div>
-							<div class="description">
-								<h3>
-									<a href="#detailsize"  data-type="P" class="moveBtn2">바지</a>
-								</h3>
-							</div>
-						</article>
-					</div>
-				</section>
+									<article id="checkOnepiece" class="clothcheck-box">
+										<div class="iconBox">
+											<a href="#detailsize" class="spin moveBtn2" data-type="Op">
+												<span class="icon"></span> <img src="images/main_ic5.png"
+												alt="#" />
+											</a>
+										</div>
+										<div class="description">
+											<h3>
+												<a href="#detailsize" data-type="Op" class="moveBtn2">원피스</a>
+											</h3>
+										</div>
+									</article>
+								</div>
 
-				<section id="detailsize">
-					<header class="major">
-						<h2>상세 사이즈 입력</h2>
-					</header>
+								<!-- 남성 선택 -->
 
-					<!-- 상의 -->
-					<div class="posts" id="top">
-						<article>
-							<span class="image object"> <img
-								src="images/main_size1.png" />
-							</span>
-						</article>
-						<article>
-						<!-- 	<form method="post" action="/index"> -->
-								<!-- <input type="hidden" name="type" value="T"> -->
-								<table class="alt">
-									<tr class="inforform">
-										<th>어깨 너비</th>
-										<td id="inforline"><input type="text"
-											name="tshoulderWidth" value="" placeholder="입력"
-											class="maintextbox" /><span>cm</span></td>
-									</tr>
+								<div class="features" id="genderM" style="display: none;">
+									<article id="checkTop" class="clothcheck-box">
+										<div class="iconBox">
+											<a href="#detailsize" class="spin moveBtn2" data-type="T">
+												<span class="icon"></span> <img src="images/main_ic1.png"
+												alt="#" />
+											</a>
+										</div>
+										<div class="description">
+											<h3>
+												<a href="#detailsize" data-type="T" class="moveBtn2">상의</a>
+											</h3>
+										</div>
+									</article>
 
-									<tr class="inforform">
-										<th>가슴 단면</th>
-										<td id="inforline"><input type="text" name="tchestBreadth"
-											value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
-									</tr>
+									<article id="checkOuter" class="clothcheck-box">
+										<div class="iconBox">
+											<a href="#detailsize" class="spin moveBtn2" data-type="O">
+												<span class="icon"></span> <img src="images/main_ic3.png"
+												alt="#" />
+											</a>
+										</div>
+										<div class="description">
+											<h3>
+												<a href="#detailsize" data-type="O" class="moveBtn2">아우터</a>
+											</h3>
+										</div>
+									</article>
 
-									<tr class="inforform">
-										<th>소매 길이</th>
-										<td id="inforline"><input type="text" name="tsleeveLength"
-											value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
-									</tr>
+									<article id="checkPants" class="clothcheck-box">
+										<div class="iconBox">
+											<a href="#detailsize" class="spin moveBtn2" data-type="P">
+												<span class="icon"></span> <img src="images/main_ic2.png"
+												alt="#" />
+											</a>
+										</div>
+										<div class="description">
+											<h3>
+												<a href="#detailsize" data-type="P" class="moveBtn2">바지</a>
+											</h3>
+										</div>
+									</article>
+								</div>
+							</section>
 
-									<tr class="inforform">
-										<th>총 장</th>
-										<td id="inforline"><input type="text"
-											name="ttopTotalLength" value="" placeholder="입력"
-											class="maintextbox" /><span>cm</span></td>
-									</tr>
-								</table>
-								<!-- <div>
+							<section id="detailsize">
+								<header class="major">
+									<h2>상세 사이즈 입력</h2>
+								</header>
+
+								<!-- 상의 -->
+								<div class="posts" id="top">
+									<article>
+										<span class="image object"> <img
+											src="images/main_size1.png" />
+										</span>
+									</article>
+									<article>
+										<!-- 	<form method="post" action="/index"> -->
+										<!-- <input type="hidden" name="type" value="T"> -->
+										<table class="alt">
+											<tr class="inforform">
+												<th>어깨 너비</th>
+												<td id="inforline"><input type="text"
+													name="tshoulderWidth" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
+
+											<tr class="inforform">
+												<th>가슴 단면</th>
+												<td id="inforline"><input type="text"
+													name="tchestBreadth" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
+
+											<tr class="inforform">
+												<th>소매 길이</th>
+												<td id="inforline"><input type="text"
+													name="tsleeveLength" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
+
+											<tr class="inforform">
+												<th>총 장</th>
+												<td id="inforline"><input type="text"
+													name="ttopTotalLength" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
+										</table>
+										<!-- <div>
 									<ul class="actions" id="main-compbutton">
 										<li><input type="submit" value="비교하기 →" class="button big" id="compsize" onclick="sendFrm()"></li>
 									</ul>
 								</div> -->
-							<!-- </form> -->
-						</article>
-					</div>
+										<!-- </form> -->
+									</article>
+								</div>
 
-					<!-- 바지 -->
-					<div class="posts" id="pants">
-						<article>
-							<span class="image object"> <img
-								src="images/main_size2.png" />
-							</span>
-						</article>
-						<article>
-							<!-- <form method="post" action="/index"> -->
-								<!-- <input type="hidden" name="type" value="P"> -->
-								<table class="alt">
-									<tr class="inforform">
-										<th>허리 단면</th>
-										<td id="inforline"><input type="text" name="pwaistWidth"
-											value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
-									</tr>
+								<!-- 바지 -->
+								<div class="posts" id="pants">
+									<article>
+										<span class="image object"> <img
+											src="images/main_size2.png" />
+										</span>
+									</article>
+									<article>
+										<!-- <form method="post" action="/index"> -->
+										<!-- <input type="hidden" name="type" value="P"> -->
+										<table class="alt">
+											<tr class="inforform">
+												<th>허리 단면</th>
+												<td id="inforline"><input type="text"
+													name="pwaistWidth" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>허벅지 단면</th>
-										<td id="inforline"><input type="text" name="thighWidth"
-											value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
-									</tr>
+											<tr class="inforform">
+												<th>허벅지 단면</th>
+												<td id="inforline"><input type="text" name="thighWidth"
+													value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>밑위 길이</th>
-										<td id="inforline"><input type="text" name="crotchWidth"
-											value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
-									</tr>
+											<tr class="inforform">
+												<th>밑위 길이</th>
+												<td id="inforline"><input type="text"
+													name="crotchWidth" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>밑단 단면</th>
-										<td id="inforline"><input type="text" name="hemWidth"
-											value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
-									</tr>
+											<tr class="inforform">
+												<th>밑단 단면</th>
+												<td id="inforline"><input type="text" name="hemWidth"
+													value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>총 장</th>
-										<td id="inforline"><input type="text"
-											name="pantsTotalLength" value="" placeholder="입력"
-											class="maintextbox" /><span>cm</span></td>
-									</tr>
-								</table>
-							<!-- 	<div>
+											<tr class="inforform">
+												<th>총 장</th>
+												<td id="inforline"><input type="text"
+													name="pantsTotalLength" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
+										</table>
+										<!-- 	<div>
 									<ul class="actions" id="main-compbutton">
 										<li><input type="submit" value="비교하기 →" class="button big" id="compsize" onclick="sendFrm()"></li>
 									</ul>
 								</div> -->
-							<!-- </form> -->
-						</article>
-					</div>
+										<!-- </form> -->
+									</article>
+								</div>
 
-					<!-- 아우터 -->
-					<div class="posts" id="outer">
-						<article>
-							<span class="image object"> <img
-								src="images/main_size4.png" />
-							</span>
-						</article>
-						<article>
-							<!-- <form method="post" action="/index"> -->
-								<!-- <input type="hidden" name="type" value="O"> -->
-								<table class="alt">
-									<tr class="inforform">
-										<th>어깨 너비</th>
-										<td id="inforline"><input type="text"
-											name="oshoulderWidth" value="" placeholder="입력"
-											class="maintextbox" /><span>cm</span></td>
-									</tr>
+								<!-- 아우터 -->
+								<div class="posts" id="outer">
+									<article>
+										<span class="image object"> <img
+											src="images/main_size4.png" />
+										</span>
+									</article>
+									<article>
+										<!-- <form method="post" action="/index"> -->
+										<!-- <input type="hidden" name="type" value="O"> -->
+										<table class="alt">
+											<tr class="inforform">
+												<th>어깨 너비</th>
+												<td id="inforline"><input type="text"
+													name="oshoulderWidth" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>가슴 단면</th>
-										<td id="inforline"><input type="text" name="ochestBreadth"
-											value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
-									</tr>
+											<tr class="inforform">
+												<th>가슴 단면</th>
+												<td id="inforline"><input type="text"
+													name="ochestBreadth" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>소매 길이</th>
-										<td id="inforline"><input type="text" name="osleeveLength"
-											value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
-									</tr>
+											<tr class="inforform">
+												<th>소매 길이</th>
+												<td id="inforline"><input type="text"
+													name="osleeveLength" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>총 장</th>
-										<td id="inforline"><input type="text"
-											name="otopTotalLength" value="" placeholder="입력"
-											class="maintextbox" /><span>cm</span></td>
-									</tr>
-								</table>
-						<!-- 		<div>
+											<tr class="inforform">
+												<th>총 장</th>
+												<td id="inforline"><input type="text"
+													name="otopTotalLength" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
+										</table>
+										<!-- 		<div>
 									<ul class="actions" id="main-compbutton">
 										<li><input type="submit" value="비교하기 →" class="button big" id="compsize" onclick="sendFrm()"></li>
 									</ul>
 								</div> -->
-							<!-- </form> -->
-						</article>
-					</div>
+										<!-- </form> -->
+									</article>
+								</div>
 
-					<!-- 치마 -->
-					<div class="posts" id="skirt">
-						<article>
-							<span class="image object"> <img
-								src="images/main_size3.png" />
-							</span>
-						</article>
-						<article>
-							<!-- <form method="post" action="/index"> -->
-								<!-- <input type="hidden" name="type" value="Sk"> -->
-								<table class="alt">
-									<tr class="inforform">
-										<th>허리 단면</th>
-										<td id="inforline"><input type="text" name="skwaistWidth"
-											value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
-									</tr>
+								<!-- 치마 -->
+								<div class="posts" id="skirt">
+									<article>
+										<span class="image object"> <img
+											src="images/main_size3.png" />
+										</span>
+									</article>
+									<article>
+										<!-- <form method="post" action="/index"> -->
+										<!-- <input type="hidden" name="type" value="Sk"> -->
+										<table class="alt">
+											<tr class="inforform">
+												<th>허리 단면</th>
+												<td id="inforline"><input type="text"
+													name="skwaistWidth" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>밑단 단면</th>
-										<td id="inforline"><input type="text"
-											name="skirtHemWidth" value="" placeholder="입력"
-											class="maintextbox" /><span>cm</span></td>
-									</tr>
+											<tr class="inforform">
+												<th>밑단 단면</th>
+												<td id="inforline"><input type="text"
+													name="skirtHemWidth" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>총 장</th>
-										<td id="inforline"><input type="text"
-											name="skirtTotalLength" value="" placeholder="입력"
-											class="maintextbox" /><span>cm</span></td>
-									</tr>
-								</table>
-		<!-- 						<div>
+											<tr class="inforform">
+												<th>총 장</th>
+												<td id="inforline"><input type="text"
+													name="skirtTotalLength" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
+										</table>
+										<!-- 						<div>
 									<ul class="actions" id="main-compbutton">
 										<li><input type="submit" value="비교하기 →" class="button big" id="compsize" onclick="sendFrm()"></li>
 									</ul>
 								</div> -->
-						<!-- 	</form> -->
-						</article>
-					</div>
+										<!-- 	</form> -->
+									</article>
+								</div>
 
-					<!-- 원피스 -->
-					<div class="posts" id="onepiece">
-						<article>
-							<span class="image object"> <img
-								src="images/main_size5.png" />
-							</span>
-						</article>
-						<article>
-							<!-- <form method="post" action="/index"> -->
-								<!-- <input type="hidden" name="type" value="Op"> -->
-								<table class="alt">
-									<tr class="inforform">
-										<th>어깨 너비</th>
-										<td id="inforline"><input type="text"
-											name="opshoulderWidth" value="" placeholder="입력"
-											class="maintextbox" /><span>cm</span></td>
-									</tr>
+								<!-- 원피스 -->
+								<div class="posts" id="onepiece">
+									<article>
+										<span class="image object"> <img
+											src="images/main_size5.png" />
+										</span>
+									</article>
+									<article>
+										<!-- <form method="post" action="/index"> -->
+										<!-- <input type="hidden" name="type" value="Op"> -->
+										<table class="alt">
+											<tr class="inforform">
+												<th>어깨 너비</th>
+												<td id="inforline"><input type="text"
+													name="opshoulderWidth" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>가슴 단면</th>
-										<td id="inforline"><input type="text" name="opchestBreadth"
-											value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
-									</tr>
+											<tr class="inforform">
+												<th>가슴 단면</th>
+												<td id="inforline"><input type="text"
+													name="opchestBreadth" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>소매 길이</th>
-										<td id="inforline"><input type="text" name="opsleeveLength"
-											value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
-									</tr>
+											<tr class="inforform">
+												<th>소매 길이</th>
+												<td id="inforline"><input type="text"
+													name="opsleeveLength" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
 
-									<tr class="inforform">
-										<th>총 장</th>
-										<td id="inforline"><input type="text"
-											name="onePieceTotalLength" value="" placeholder="입력"
-											class="maintextbox" /><span>cm</span></td>
-									</tr>
-								</table>
-								<!-- <div>
+											<tr class="inforform">
+												<th>총 장</th>
+												<td id="inforline"><input type="text"
+													name="onePieceTotalLength" value="" placeholder="입력"
+													class="maintextbox" /><span>cm</span></td>
+											</tr>
+										</table>
+										<!-- <div>
 									<ul class="actions" id="main-compbutton">
 										<li><input type="submit" value="비교하기 →" class="button big" id="compsize" onclick="sendFrm()"></li>
 									</ul>
 								</div> -->
-						<!-- 	</form> -->
-						</article>
-					</div>
+										<!-- 	</form> -->
+									</article>
+								</div>
 
-					 <div>
-						<ul class="actions" id="main-compbutton">
-							<li><!-- <a href="#main">
+								<div>
+									<ul class="actions" id="main-compbutton">
+										<li>
+											<!-- <a href="#main">
 									<button id="compsize" class="button big">비교하기 →</button>
-							</a> -->
-							<input type="submit" value="비교하기 →" class="button big" id="compsize">
-							</li>
-						</ul>
-					</div> 
+							</a> --> <input type="submit" value="비교하기 →" class="button big"
+											id="compsize">
+										</li>
+									</ul>
+								</div>
 
-				</section>
-				</form>
-				</div><!-- innerwrapBox -->
-				<a href="#" class="topBtn">Top</a>
-				</div> <!-- wrapBox -->
+							</section>
+						</form>
+					</div>
+					<!-- innerwrapBox -->
+					<a href="#" class="topBtn">Top</a>
+				</div>
+				<!-- wrapBox -->
 			</div>
 		</div>
 
@@ -618,7 +655,7 @@
 			</p>
 			<p class="overlayment">좀 더 큰 사이즈로 주문하시는걸 추천드려요!</p>
 			<div class="btn" id="overlayClose">
-				<a href="#" class="button close">닫기</a>
+				<a href="/index" class="button close">닫기</a>
 			</div>
 		</div>
 
@@ -628,7 +665,7 @@
 			</p>
 			<p class="overlayment">이걸로 당장 구매하세요</p>
 			<div class="btn" id="overlayClose">
-				<a href="#" class="button close">닫기</a>
+				<a href="/index" class="button close">닫기</a>
 			</div>
 		</div>
 
@@ -638,20 +675,20 @@
 			</p>
 			<p class="overlayment">좀 더 작은 사이즈로 입어도 괜찮을듯b</p>
 			<div class="btn" id="overlayClose">
-				<a href="#" class="button close">닫기</a>
+				<a href="/index" class="button close">닫기</a>
 			</div>
 		</div>
-		
+
 		<div class="contents popup" id="con-error">
 			<p class="title">
 				<i class="far fa-sad-tear"></i><br>오류가 발생했습니다!
 			</p>
 			<p class="overlayment">다시 시도해주세요.</p>
 			<div class="btn" id="overlayClose">
-				<a href="#" class="button close">닫기</a>
+				<a href="/index" class="button close">닫기</a>
 			</div>
 		</div>
-		
+
 	</div>
 	<div class="mask"></div>
 	<!-- Scripts -->
@@ -661,59 +698,75 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
 	<script>
-		function openpop(id){
-			$(".mask, #"+id).fadeIn();
-			
-		}	
-		function typeChange(txt){
-			document.getElementsByName("type")[0].value=txt;
+		function openpop(id) {
+			$(".mask, #" + id).fadeIn();
+
+		}
+		function typeChange(txt) {
+			document.getElementsByName("type")[0].value = txt;
 			//alert(document.getElementsByName("type")[0].value);
 		}
-	      $(function(){
-	         var wrapBoxheg = resizeHeg();
-	         //alert(wrapBoxheg);
-	         $(".infoBtn").click(function(e){
-	            e.preventDefault();
-	            $(".wrapBox")
-	               .css({"overflow-y":"auto"})
-	               .animate({scrollTop:wrapBoxheg},400)
-	               .css({"overflow-y":"hidden"});
-	            $(".topBtn").fadeIn();
-	            $("#banner").hide();	            
-	         });
-	         
-	         $(".moveBtn").bind("click",function(e){
-	            e.preventDefault();
-	            var target = $(this).attr("href");
-	            var currentp = $(".innerWrapBox").scrollTop();
-	            var targetp = $(target).position().top;
-	            $(".innerWrapBox").animate({scrollTop : currentp+targetp},400);     
-	         });
-	         $(".moveBtn2").bind("click",function(e){
-		            e.preventDefault();
-		            var type = $(this).data("type");
-		            typeChange(type);
-		            var target = $(this).attr("href");
-		            var currentp = $(".innerWrapBox").scrollTop();
-		            var targetp = $(target).position().top;
-		            $(".innerWrapBox").animate({scrollTop : currentp+targetp},400);     
-		         });
-	         $(".topBtn").click(function(){
-	            $(".innerWrapBox").animate({scrollTop:0}, 400 );
-	         });
-	         $(window).resize(function(){wrapBoxheg = resizeHeg();});
-	      });
-	      function resizeHeg(){
-	         var heg = $(window).height();
-	         var headheg = $("#header").height();         
-	         var wrapBoxheg = heg-headheg;
-	         //alert(wrapBoxheg);
-	         $(".wrapBox").css({"height":wrapBoxheg});
-	         $(".innerWrapBox").css({"height":wrapBoxheg});
-	         $(".wrapBox section").css({"height":wrapBoxheg});
-	         return wrapBoxheg;
-	      }
-	  
+		$(function() {
+			var wrapBoxheg = resizeHeg();
+			//alert(wrapBoxheg);
+			$(".infoBtn").click(function(e) {
+				e.preventDefault();
+				$(".wrapBox").css({
+					"overflow-y" : "auto"
+				}).animate({
+					scrollTop : wrapBoxheg
+				}, 400).css({
+					"overflow-y" : "hidden"
+				});
+				$(".topBtn").fadeIn();
+				$("#banner").hide();
+			});
+
+			$(".moveBtn").bind("click", function(e) {
+				e.preventDefault();
+				var target = $(this).attr("href");
+				var currentp = $(".innerWrapBox").scrollTop();
+				var targetp = $(target).position().top;
+				$(".innerWrapBox").animate({
+					scrollTop : currentp + targetp
+				}, 400);
+			});
+			$(".moveBtn2").bind("click", function(e) {
+				e.preventDefault();
+				var type = $(this).data("type");
+				typeChange(type);
+				var target = $(this).attr("href");
+				var currentp = $(".innerWrapBox").scrollTop();
+				var targetp = $(target).position().top;
+				$(".innerWrapBox").animate({
+					scrollTop : currentp + targetp
+				}, 400);
+			});
+			$(".topBtn").click(function() {
+				$(".innerWrapBox").animate({
+					scrollTop : 0
+				}, 400);
+			});
+			$(window).resize(function() {
+				wrapBoxheg = resizeHeg();
+			});
+		});
+		function resizeHeg() {
+			var heg = $(window).height();
+			var headheg = $("#header").height();
+			var wrapBoxheg = heg - headheg;
+			//alert(wrapBoxheg);
+			$(".wrapBox").css({
+				"height" : wrapBoxheg
+			});
+			$(".innerWrapBox").css({
+				"height" : wrapBoxheg
+			});
+			$(".wrapBox section").css({
+				"height" : wrapBoxheg
+			});
+			return wrapBoxheg;
+		}
 	</script>
 	<c:if test="${result eq 3}">
 		<script>
@@ -735,21 +788,21 @@
 			openpop("con-error");
 		</script>
 	</c:if>
-<c:if test="${userGender == '여성'}">
-<script>
-$(function(){
-	$("#genderW").show();
-	$("#genderM").hide();
-});
-</script>
-</c:if>
-<c:if test="${userGender == '남성'}">
-<script>
-$(function(){
-$("#genderW").hide();
-$("#genderM").show();
-});
-</script>
-</c:if>
+	<c:if test="${userGender == '여성'}">
+		<script>
+			$(function() {
+				$("#genderW").css("display", "flex");
+				$("#genderM").hide();
+			});
+		</script>
+	</c:if>
+	<c:if test="${userGender == '남성'}">
+		<script>
+			$(function() {
+				$("#genderW").hide();
+				$("#genderM").css("display", "flex");
+			});
+		</script>
+	</c:if>
 </body>
 </html>
