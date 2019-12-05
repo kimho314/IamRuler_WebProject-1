@@ -157,7 +157,7 @@ public class CoordiRegPostController extends HttpServlet
 		if(updateOpt == 1)
 		{
 			oldFiles = req.getParameter("old-files");
-			System.out.println(oldFiles);
+			//System.out.println(oldFiles);
 		}
 		
 		
@@ -230,7 +230,8 @@ public class CoordiRegPostController extends HttpServlet
 		if(updateOpt == 1)
 		{
 			fileNames += oldFiles + ",";
-			System.out.println(fileNames);
+			//System.out.println(fileNames);
+			
 			if(fileNames.equals("") || fileNames.equals(","))
 			{
 				resp.setContentType("text/html;charset=UTF-8");

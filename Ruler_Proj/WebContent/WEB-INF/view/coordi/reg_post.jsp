@@ -37,9 +37,9 @@
 			{
 
 				imgSpan[i].onclick = function(e){
-					alert("old file clicked");
+					//alert("old file clicked");
 					
-					console.log("e.target.innerText:"+e.target.innerText);
+					//console.log("e.target.innerText:"+e.target.innerText);
 					// oldFiles += (e.target.innerText + ",");
 					
 					oldFiles = oldFiles.replace(e.target.innerText, "");
@@ -57,7 +57,7 @@
 						}
 					}
 					oldFiles = retOldFiles;
-					console.log("oldFiles:"+oldFiles);
+					//console.log("oldFiles:"+oldFiles);
 					
 					// console.log(oldImgHidden.getAttribute("value"));
 					e.target.innerText = "";
