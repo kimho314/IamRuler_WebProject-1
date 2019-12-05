@@ -73,7 +73,7 @@
 															<th>게시글 번호</th>
 															<th>제목</th>
 															<th>작성일</th>
-															<th>조회수</th>
+															<!-- <th>조회수</th> -->
 														</tr>
 													</thead>
 													<tbody>
@@ -88,7 +88,7 @@
 																<a href="${(b.type eq 'C')? '/coordi/post?cb_id=':'/trade/detail?id='}${b.id}">${b.title}</a>	
 																</td>
 																<td>${b.regdate}</td>
-																<td>${b.hit}</td>
+																<%-- <td>${b.hit}</td> --%>
 															</tr>
 														</c:forEach>
 													</c:if>

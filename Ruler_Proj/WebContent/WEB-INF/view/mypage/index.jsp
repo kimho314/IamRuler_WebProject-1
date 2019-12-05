@@ -82,7 +82,9 @@
 													<c:if test="${not empty zzimList}">
 														<c:forEach var="z" items="${zzimList}">
 															<div class="sliderkit-panel" onclick="location.href='/coordi/post?cb_id=${z.coordiId}'">
-																<figuare><img src="${(empty z.img)? '/images/noimg.gif': z.img}" alt="#" /></figuare>
+		<%-- 													${z.img} --%>
+																<c:set var="img" value="${fn:split(z.img,',')}"/>
+																<figuare><img src="${(empty img)? '/images/noimg.gif': img[0]}" alt="#" /></figuare>
 																<div class="con">
 																	<div class="title">${z.title}</div>
 																	<p>${z.memo}</p>

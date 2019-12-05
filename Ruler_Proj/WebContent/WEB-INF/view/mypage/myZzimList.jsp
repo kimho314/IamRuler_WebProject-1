@@ -70,8 +70,11 @@
 											</c:if>
 										</ul>
 										<div class="btn_area">
-											<c:if test="${empty list}">
-											<a href="/coordi/" class="button special small">찜하러 가기</a>
+											<c:if test="${empty list and gender eq '남성'}">
+											<a href="/coordi/list_m" class="button special small">찜하러 가기</a>
+											</c:if>
+											<c:if test="${empty list and gender eq '여성'}}">
+											<a href="/coordi/list_w" class="button special small">찜하러 가기</a>
 											</c:if>
 											<c:if test="${not empty list}">
 											<a href="javascript:compare();" class="button special small">저장</a>

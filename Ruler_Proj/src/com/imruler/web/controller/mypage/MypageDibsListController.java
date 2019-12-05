@@ -48,6 +48,7 @@ public class MypageDibsListController extends HttpServlet{
 		Cookie c1 = new Cookie("del","");
 		response.addCookie(c1);
 		
+		request.setAttribute("gender",memberService.get(userName).getGender());
 		request.setAttribute("list",dibsService.getDibsListById(userId));
 		request.getRequestDispatcher("/WEB-INF/view/mypage/myZzimList.jsp").forward(request, response);
 	}
