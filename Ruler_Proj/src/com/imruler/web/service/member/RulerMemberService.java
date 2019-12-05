@@ -84,13 +84,12 @@ public class RulerMemberService implements MemberService {
 				return 4;
 			}
 		}
-		
-		
+
 		if (email.substring(email.indexOf(".")).length() != 4) {
 			System.out.println("이메일 끝글자 오류");
 			System.out.println(email.substring(email.indexOf(".")));
 			return 4;
-		} 
+		}
 
 		return 0;
 	}
@@ -107,16 +106,23 @@ public class RulerMemberService implements MemberService {
 
 		for (Member key : member) { // 핸드폰 번호가 중복되는지 확인
 			if (!key.equals(null)) {
-				if (key.getPhone().equals(phone) || phone.length() != 11) {
-					return 2;
+				if (key.getPhone() != null) {
+					if (key.getPhone().equals(phone)) {
+						return 2;
+					}
 				}
 			}
+		}
+		if (phone.length() != 13) {
+			return 2;
 		}
 
 		for (Member key : member) { // 이메일이 중복되는지 확인
 			if (!key.equals(null)) {
-				if (key.getEmail().equals(email)) {
-					return 3;
+				if (key.getEmail() != null) {
+					if (key.getEmail().equals(email)) {
+						return 3;
+					}
 				}
 			}
 		}

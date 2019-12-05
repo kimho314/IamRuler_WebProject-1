@@ -9,6 +9,7 @@ public interface MemberDao {
 
 	List<Member> getList();
 	Member get(String userName);
+	Member get(int userId);
 
 	int insert(Member member);
 	int update(Member member);
