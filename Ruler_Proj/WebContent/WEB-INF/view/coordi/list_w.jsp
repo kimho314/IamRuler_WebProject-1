@@ -141,11 +141,11 @@
 														</c:forEach>
 														
 														<c:if test="${DibFlag == 0}">
-															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="far fa-star"></i></a>
 														</c:if>
 														<c:if test="${DibFlag == 1}">
-															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="fas fa-star"></i></a>
 														</c:if>
 													</c:if>													
@@ -174,11 +174,11 @@
 														</c:forEach>
 														
 														<c:if test="${DibFlag == 0}">
-															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="far fa-star"></i></a>
 														</c:if>
 														<c:if test="${DibFlag == 1}">
-															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="fas fa-star"></i></a>
 														</c:if>
 													</c:if>		
@@ -214,11 +214,11 @@
 														</c:forEach>
 														
 														<c:if test="${DibFlag == 0}">
-															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="far fa-star"></i></a>
 														</c:if>
 														<c:if test="${DibFlag == 1}">
-															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="fas fa-star"></i></a>
 														</c:if>
 													</c:if>		
@@ -247,11 +247,11 @@
 														</c:forEach>
 														
 														<c:if test="${DibFlag == 0}">
-															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="far fa-star"></i></a>
 														</c:if>
 														<c:if test="${DibFlag == 1}">
-															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="fas fa-star"></i></a>
 														</c:if>
 													</c:if>		

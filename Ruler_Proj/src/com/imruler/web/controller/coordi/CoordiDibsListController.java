@@ -50,6 +50,13 @@ public class CoordiDibsListController extends HttpServlet
 			cb_id = Integer.parseInt(_cb_id);
 		}
 		
+		String bodyshape = "";
+		String _bodyshape = req.getParameter("b");
+		if(_bodyshape != null && !_bodyshape.equals(""))
+		{
+			bodyshape = _bodyshape;
+		}
+		
 		int returnOpt = 0;
 		String _returnOpt = req.getParameter("returnOpt");
 		if(_returnOpt != null && !_returnOpt.equals(""))
@@ -68,16 +75,14 @@ public class CoordiDibsListController extends HttpServlet
 		Member member = memberService.get(userName);
 		m_id = member.getId();
 		
-		System.out.println("m_id:" + m_id + " cb_id:" + cb_id);
 		
 		int isDibbed = 0;
-		//isDibbed = dibsService.getDibsCountByBoardId(cb_id);
+	
 		List<DibsView> list = new ArrayList<>();
 		list = dibsService.getDibsListById(m_id);
 		Dibs dibs = null;
 		for(DibsView key : list)
 		{
-			//System.out.println(key.getCoordiId() + ":" + cb_id);
 			if(key.getCoordiId() == cb_id)
 			{
 				dibs = key;
@@ -101,14 +106,21 @@ public class CoordiDibsListController extends HttpServlet
 		
 		if(result == 1)
 		{
-			if(returnOpt == 0)
+			if(returnOpt == 0) // when dibbed in coordi-board 
 			{
+				String bodyshapeEncoded = URLEncoder.encode(bodyshape, "UTF-8");	
 				if(gender.equals("여성"))
-					resp.sendRedirect("list_w");
+				{
+					String url = "list_w?b="+bodyshapeEncoded;
+					resp.sendRedirect(url);
+				}
 				if(gender.equals("남성"))
-					resp.sendRedirect("list_m");
+				{
+					String url = "list_m?&b="+bodyshapeEncoded;
+					resp.sendRedirect(url);
+				}
 			}
-			else if(returnOpt == 1)
+			else if(returnOpt == 1) // when dibbed in post detail page
 			{				
 				String genderEncoded = URLEncoder.encode(gender, "UTF-8");	
 				resp.sendRedirect("post?cb_id="+cb_id+"&g="+genderEncoded);
