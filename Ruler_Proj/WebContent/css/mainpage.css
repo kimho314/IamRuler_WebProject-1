@@ -3,6 +3,7 @@
 #banner h1{margin-bottom:1.5em}
 #banner header p{margin-bottom:4em}
 .posts{margin-bottom:0}
+
 div.posts {
 	margin-right: auto;
 	position: relative;
@@ -55,7 +56,7 @@ div.contents {
 	border-radius: 5px;
 	z-index: 2;
 }
-
+header.major > :last-child{padding-top:.5em}
 p.title {
 	font-weight: bold;
 	font-family: 'S-CoreDream-8';
@@ -149,7 +150,7 @@ div.maingender label {
 
 body{overflow:hidden}
 .wrapBox .innerWrapBox{position:relative;overflow-y:auto}
-.topBtn{position:fixed;display:block;bottom:2em;right:2em;padding:.3em;border-radius:50%;background:rgba(0,0,0,.6);color:#fff)}
+.topBtn{display:none;position:fixed;bottom:3em;right:2.5em;padding:.3em;border-radius:50%;background:rgba(0,0,0,.6);color:#fff)}
 
 @media screen and (min-width: 1680px) {
 	#banner h1{font-size:3em}

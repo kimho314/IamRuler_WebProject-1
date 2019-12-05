@@ -1,4 +1,5 @@
 @import url(font-awesome.min.css);
+@charset "utf-8";
 @font-face { font-family: 'S-CoreDream-9'; 
 	src: url('../fonts/SCDream9.woff') format('woff'); 
 	font-weight: normal; font-style: normal; 
@@ -3620,14 +3621,14 @@
 		}
 
 		#sidebar > .inner {
-			padding: 2.22222em 2.22222em 2.44444em 2.22222em ;
+			padding: 1em 2.22222em 2.44444em 2.22222em ;
 			position: relative;
 			width: 26em;
 		}
 
 			#sidebar > .inner > * {
 				border-bottom: solid 2px rgba(210, 215, 217, 0.75);
-				margin: 0 0 3.5em 0;
+				margin: 0 0 2em 0;
 				padding: 0 0 2em 0;
 			}
 
@@ -3703,7 +3704,7 @@
 			}
 
 				#sidebar > .inner {
-					padding: 1.66667em 1.66667em 1.33333em 1.66667em ;
+					padding: .8em 1.66667em 1.33333em 1.66667em ;
 					width: 24em;
 				}
 

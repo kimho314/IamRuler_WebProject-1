@@ -31,6 +31,7 @@
 				</header>
 				<!-- Banner -->
 				<%-- ${result} --%>
+			<div class="wrapBox">
 				<section id="banner">
 					<div class="content">
 						<header>
@@ -44,7 +45,7 @@
 						</header>
 
 						<ul class="actions">
-							<li><a href="#infor" class="button big">사이즈 비교 →</a></li>
+							<li><a href="#infor" class="button big infoBtn">사이즈 비교 →</a></li>
 						</ul>
 					</div>
 
@@ -56,6 +57,7 @@
 					</div>
 
 				</section>
+			<div class="innerWrapBox">
 				<form action="/index" method="post">
 					<input type="hidden" name="type"> 
 				<!-- Section -->
@@ -134,7 +136,7 @@
 									</tr>
 								</table>
 								<ul class="actions" id="main-nextbutton">
-									<li><a href="#clothcheck" class="button big">다음 입력 →</a></li>
+									<li><a href="#clothcheck" class="button big moveBtn">다음 입력 →</a></li>
 								</ul>
 
 							<!-- </form> -->
@@ -152,65 +154,65 @@
 					<div class="features" id="genderW">
 						<article id="checkTop" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin" onclick="typeChange('T')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('T')"> <span class="icon"></span>
 									<img src="images/main_ic1.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('T')">상의</a>
+									<a href="#detailsize" onclick="typeChange('T')" class="moveBtn">상의</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkOuter" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin" onclick="typeChange('O')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('O')"> <span class="icon"></span>
 									<img src="images/main_ic3.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('O')">아우터</a>
+									<a href="#detailsize" onclick="typeChange('O')" class="moveBtn">아우터</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkPants" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin" onclick="typeChange('P')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('P')"> <span class="icon"></span>
 									<img src="images/main_ic2.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('P')">바지</a>
+									<a href="#detailsize" onclick="typeChange('P')" class="moveBtn">바지</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkSkirt" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin" onclick="typeChange('Sk')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('Sk')"> <span class="icon"></span>
 									<img src="images/main_ic4.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('Sk')">치마</a>
+									<a href="#detailsize" onclick="typeChange('Sk')" class="moveBtn">치마</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkOnepiece" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin" onclick="typeChange('Op')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('Op')"> <span class="icon"></span>
 									<img src="images/main_ic5.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('Op')">원피스</a>
+									<a href="#detailsize" onclick="typeChange('Op')" class="moveBtn">원피스</a>
 								</h3>
 							</div>
 						</article>
@@ -220,39 +222,39 @@
 					<div class="features" id="genderM">
 						<article id="checkTop" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn"> <span class="icon"></span>
 									<img src="images/main_ic1.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize">상의</a>
+									<a href="#detailsize" onclick="typeChange('T')" class="moveBtn">상의</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkOuter" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn"> <span class="icon"></span>
 									<img src="images/main_ic3.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize">아우터</a>
+									<a href="#detailsize" onclick="typeChange('O')" class="moveBtn">아우터</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkPants" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn"> <span class="icon"></span>
 									<img src="images/main_ic2.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize">바지</a>
+									<a href="#detailsize" onclick="typeChange('P')" class="moveBtn">바지</a>
 								</h3>
 							</div>
 						</article>
@@ -505,6 +507,9 @@
 
 				</section>
 				</form>
+				</div><!-- innerwrapBox -->
+				<a href="#" class="topBtn">Top</a>
+				</div> <!-- wrapBox -->
 			</div>
 		</div>
 
@@ -570,6 +575,8 @@
 	               .css({"overflow-y":"auto"})
 	               .animate({scrollTop:wrapBoxheg},400)
 	               .css({"overflow-y":"hidden"});
+	            $(".topBtn").fadeIn();
+	            $("#banner").hide();	            
 	         });
 	         
 	         $(".moveBtn").click(function(e){
