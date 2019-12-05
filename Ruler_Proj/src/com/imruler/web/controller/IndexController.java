@@ -40,10 +40,7 @@ public class IndexController extends HttpServlet {
 					cValue = c.getValue();
 					break;
 				}
-				System.out.println(cValue + "1???");
 			}
-			
-			System.out.println(cValue);
 			String userId = null;
 			userId = cValue;
 
