@@ -57,9 +57,16 @@
 							<div class="visual-top-coordi-post">
 								<div class="visual-top-right">									
 									<c:if test="${not empty userName }">
+										<c:if test="${dibFlag == 0}">
 										<a href="#" class="button small"
 											style="box-shadow: none; font-size: 100%; padding: 0 1em;"
 											onclick="openPopUp()">찜하기</a>
+										</c:if>
+										<c:if test="${dibFlag == 1}">
+										<a href="#" class="button small"
+											style="color:#ff6600 !important; font-size: 100%; padding: 0 1em;"
+											onclick="openPopUp()">찜해제</a>
+										</c:if>
 									</c:if>
 									<c:if test="${pdetail.m_userName eq userName }">
 										<a href="post?cb_id=${param.cb_id }&g=${pdetail.co_gender}&opt=1"
@@ -142,8 +149,12 @@
 
 		<div class="newpost-popup" style="display: none">
 			<div class="contents popup-contents">
+			<c:if test="${dibFlag == 0}">
 				<p class="title">이 게시글을 찜 하였습니다.</p>
-				<p></p>
+			</c:if>
+			<c:if test="${dibFlag == 1}">
+				<p class="title">찜을 취소하였습니다.</p>
+			</c:if>
 				<div class="btn">
 					<a href="reg_dibs?g=${pdetail.co_gender }&m_name=${userName }&cb_id=${pdetail.cb_id}&returnOpt=1" class="button close" onclick="closePopUp()">닫기</a>
 				</div>
