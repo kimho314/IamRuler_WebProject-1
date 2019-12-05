@@ -27,8 +27,16 @@ public class WomanSmallInverseTriangle {
 		
 		ClothSize clothSize = new ClothSize(); 
 		
-		x = ((x / 2) * 2 - 150)/2;
-		y = ((y / 2) * 2 - 48)/2;
+		if(x>=150) {
+			x = ((x / 2) * 2 - 150)/2;
+		} else {x=0;}
+		
+		if(y>=48) {
+			y = ((y / 2) * 2 - 48)/2;
+		}else {	y=0;}
+		
+		System.out.println(x);
+		System.out.println(y);
 		
 		int key = clothSize.woman(x, y);
 		
@@ -118,6 +126,18 @@ public class WomanSmallInverseTriangle {
 			skirtHemWidth = 30;
 			break;
 		}
+		size[0] = shoulderWidth;
+		size[1] = chestBreadth;
+		size[2] = waistWidth;
+		size[3] = sleeveLength;
+		size[4] = crotchWidth;
+		size[5] = thighWidth;
+		size[6] = hemWidth;
+		size[7] = topTotalLength;
+		size[8] = pantsTotalLength;
+		size[9] = skirtTotalLength;
+		size[10] = onePieceTotalLength;
+		size[11] = skirtHemWidth;
 		return size;
 	}
 }

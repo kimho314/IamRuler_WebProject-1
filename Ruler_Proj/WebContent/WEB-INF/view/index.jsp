@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
-<head>
+<head profile="http://www.w3.org/2005/10/profile">
+<link rel="icon" type="image/png" href="http://example.com/myicon.png">
 <title>쇼핑 도우미 : 아임룰러</title>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -39,8 +40,8 @@
 								더 이상 반품은 노!<br /> 사이즈를 알기 쉽게
 							</h1>
 							<p>
-								아임룰러는 키 몸무게와 세분화된 체형정보 입력을 통해 신체<br /> 데이터를 옷의 실측사이즈와 비교하여 사이즈를
-								추천드립니다.
+								아임룰러는 키 몸무게와 세분화된 체형정보 입력을 통해 신체<br /><!--  -->
+								데이터를 옷의 실측사이즈와 비교하여 사이즈를 추천드립니다.
 							</p>
 						</header>
 
@@ -50,9 +51,9 @@
 					</div>
 
 					<div class="main-img">
-						<img src="images/main_visualPc.gif" alt="" id="mainPc" /> <img
-							src="images/main_visualMo.gif" alt="" id="mainMo" /> <img
-							src="images/main_visualM.png" alt="" id="mainCom" />
+						<img src="images/main_visualPc.gif" alt="" id="mainPc" /><!--  -->
+						<img src="images/main_visualMo.gif" alt="" id="mainMo" /><!--  -->
+						<img src="images/main_visualM.png" alt="" id="mainCom" />
 
 					</div>
 
@@ -81,29 +82,66 @@
 									<tr class="inforform">
 										<th>성별</th>
 										<td id="inforline">
-											<div class="maingender">
-												<input type="radio" id="demo-priority-low" name="gender"
-													value="woman" checked> <label
-													for="demo-priority-low">여성</label>
+										<c:if test="${userGender == '여성' || empty userGender}"><div class="maingender">
+												<input type="radio" id="demo-priority-low" name="gender" value="woman" checked><!--  -->
+												<label for="demo-priority-low">여성</label>
 											</div>
 
 											<div class="maingender">
-												<input type="radio" id="demo-priority-normal" name="gender"
-													value="man"> <label for="demo-priority-normal">남성</label>
+												<input type="radio" id="demo-priority-normal" name="gender" value="man"><!--  -->
+												<label for="demo-priority-normal">남성</label>
+											</div>
+										</c:if>
+										<c:if test="${userGender == '남성'}"><div class="maingender">
+												<input type="radio" id="demo-priority-low" name="gender" value="woman"><!--  -->
+												<label for="demo-priority-low">여성</label>
 											</div>
 
+											<div class="maingender">
+												<input type="radio" id="demo-priority-normal" name="gender" value="man" checked><!--  -->
+												<label for="demo-priority-normal">남성</label>
+											</div>
+										</c:if>
+											
+											
 										</td>
 									</tr>
 									<tr class="inforform">
 										<th>연령대</th>
 										<td id="inforline">
 											<div class="select-wrapper" id="agecheck">
+											<c:if test="${empty userAge}">
 												<select name="area">
-													<option value="">선택</option>
+													<option value="" selected="selected">선택</option>
 													<option value="20">20대</option>
 													<option value="30">30대</option>
 													<option value="40">40대+</option>
 												</select>
+											</c:if>
+											<c:if test="${userAge == 20}">
+												<select name="area">
+													<option value="">선택</option>
+													<option value="20" selected="selected">20대</option>
+													<option value="30">30대</option>
+													<option value="40">40대+</option>
+												</select>
+											</c:if>
+											<c:if test="${userAge == 30}">
+												<select name="area">
+													<option value="">선택</option>
+													<option value="20">20대</option>
+													<option value="30" selected="selected">30대</option>
+													<option value="40">40대+</option>
+												</select>
+											</c:if>
+											<c:if test="${userAge == 40}">
+												<select name="area">
+													<option value="">선택</option>
+													<option value="20">20대</option>
+													<option value="30">30대</option>
+													<option value="40" selected="selected">40대+</option>
+												</select>
+											</c:if>
 											</div>
 										</td>
 									</tr>
@@ -112,27 +150,81 @@
 										<th>체형</th>
 										<td id="inforline">
 											<div class="select-wrapper">
+											<c:if test="${empty userBodyshape || userBodyshape == '보통'}">
 												<select name="bodyshape" id="bodyshape">
-													<option value="nomal">선택</option>
+													<option value="nomal" selected="selected">보통</option>
 													<option value="smallInverseTriangle">작은 역삼각</option>
 													<option value="triangle">삼각</option>
 													<option value="inverseTriangle">역삼각</option>
 													<option value="square">사각</option>
 												</select>
+											</c:if>
+											<c:if test="${userBodyshape == '작은역삼각'}">
+												<select name="bodyshape" id="bodyshape">
+													<option value="nomal">보통</option>
+													<option value="smallInverseTriangle" selected="selected">작은 역삼각</option>
+													<option value="triangle">삼각</option>
+													<option value="inverseTriangle">역삼각</option>
+													<option value="square">사각</option>
+												</select>
+											</c:if>
+											<c:if test="${userBodyshape == '삼각'}">
+												<select name="bodyshape" id="bodyshape">
+													<option value="nomal">보통</option>
+													<option value="smallInverseTriangle">작은 역삼각</option>
+													<option value="triangle" selected="selected">삼각</option>
+													<option value="inverseTriangle">역삼각</option>
+													<option value="square">사각</option>
+												</select>
+											</c:if>
+											<c:if test="${userBodyshape == '역삼각'}">
+												<select name="bodyshape" id="bodyshape">
+													<option value="nomal">보통</option>
+													<option value="smallInverseTriangle">작은 역삼각</option>
+													<option value="triangle">삼각</option>
+													<option value="inverseTriangle" selected="selected">역삼각</option>
+													<option value="square">사각</option>
+												</select>
+											</c:if>
+											<c:if test="${userBodyshape == '사각'}">
+												<select name="bodyshape" id="bodyshape">
+													<option value="nomal">보통</option>
+													<option value="smallInverseTriangle">작은 역삼각</option>
+													<option value="triangle">삼각</option>
+													<option value="inverseTriangle">역삼각</option>
+													<option value="square" selected="selected">사각</option>
+												</select>
+											</c:if>
 											</div>
 										</td>
 									</tr>
 
 									<tr class="inforform">
 										<th>키</th>
-										<td id="inforline"><input type="text" name="x" value=""
-											placeholder="키 입력" class="maintextbox" /><span>cm</span></td>
+										<td id="inforline">
+											<c:if test="${empty userHeight}"> <!--  -->
+												<input type="text" name="x" value="" placeholder="키 입력" class="maintextbox" /> <!--  -->
+												<span>cm</span>
+											</c:if>
+											<c:if test="${!empty userHeight}"> <!--  -->
+												<input type="text" name="x" value="${userHeight}" placeholder="키 입력" class="maintextbox" /> <!--  -->
+												<span>cm</span>
+											</c:if>
+										</td>
 									</tr>
 
 									<tr class="inforform">
 										<th>몸무게</th>
-										<td id="inforline"><input type="text" name="y" value=""
-											placeholder="몸무게 입력" class="maintextbox" /><span>kg</span></td>
+										<td id="inforline">
+											<c:if test="${empty userWeight}"> <!--  -->
+												<input type="text" name="y" value="" placeholder="몸무게 입력" class="maintextbox" /> <!--  -->
+												<span>kg</span>
+											</c:if>
+											<c:if test="${!empty userWeight}"> <!--  -->
+												<input type="text" name="y" value="${userWeight}" placeholder="몸무게 입력" class="maintextbox" /> <!--  -->
+												<span>kg</span>
+											</c:if>
+										</td>
 									</tr>
 								</table>
 								<ul class="actions" id="main-nextbutton">
@@ -217,7 +309,6 @@
 							</div>
 						</article>
 					</div>
-
 					<!-- 남성 선택 -->
 					<div class="features" id="genderM">
 						<article id="checkTop" class="clothcheck-box">
@@ -235,7 +326,7 @@
 
 						<article id="checkOuter" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('O')"> <span class="icon"></span>
 									<img src="images/main_ic3.png" alt="#" />
 								</a>
 							</div>
@@ -248,7 +339,7 @@
 
 						<article id="checkPants" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('P')"> <span class="icon"></span>
 									<img src="images/main_ic2.png" alt="#" />
 								</a>
 							</div>
@@ -548,6 +639,17 @@
 				<a href="#" class="button close">닫기</a>
 			</div>
 		</div>
+		
+		<div class="contents popup" id="con-error">
+			<p class="title">
+				<i class="far fa-sad-tear"></i><br>오류가 발생했습니다!
+			</p>
+			<p class="overlayment">다시 시도해주세요.</p>
+			<div class="btn" id="overlayClose">
+				<a href="#" class="button close">닫기</a>
+			</div>
+		</div>
+		
 	</div>
 	<div class="mask"></div>
 	<!-- Scripts -->
@@ -616,6 +718,11 @@
 	<c:if test="${result eq 1}">
 		<script>
 			openpop("con-big");
+		</script>
+	</c:if>
+	<c:if test="${result eq 0 || result > 3 || result < 0}">
+		<script>
+			openpop("con-error");
 		</script>
 	</c:if>
 

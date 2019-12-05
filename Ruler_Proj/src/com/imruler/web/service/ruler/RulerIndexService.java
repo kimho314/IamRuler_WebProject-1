@@ -34,9 +34,7 @@ public class RulerIndexService implements IndexDao {
 		System.out.println("상의 비교");
 		System.out.println(gender);
 		if (gender.equals("man")) {
-			System.out.println("남자");
 			if (bodyshape.equals("nomal")) {
-				System.out.println("보통");
 				ManNomal nomal = new ManNomal();
 				int[] size = nomal.ManNomal(x, y);
 				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {

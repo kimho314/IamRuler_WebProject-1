@@ -16,21 +16,26 @@ window.addEventListener("load", function(){
     };
 
     var gender = document.getElementsByName("gender");
+    //console.log(gender);
     for(var i=0;i<gender.length;i++){
         gender[i].onclick = function(){
             //alert(this.value);
-            switch(this.value){
-                case "woman":
-                    var genderCheck = document.querySelector("#clothcheck");
-                    genderCheck.querySelector("#genderW").style.display="flex";
-                    genderCheck.querySelector("#genderM").style.display="none";
-                    break;
-                case "man":
-                    var genderCheck = document.querySelector("#clothcheck");
-                    genderCheck.querySelector("#genderM").style.display="flex";
-                    genderCheck.querySelector("#genderW").style.display="none";
-                    break;
-            };
+        	if(gender[i] == null) {
+	            switch(this.value){
+	                case "woman":
+	                    var genderCheck = document.querySelector("#clothcheck");
+	                    //console.log(genderCheck);
+	                    genderCheck.querySelector("#genderW").style.display="flex";
+	                    genderCheck.querySelector("#genderM").style.display="none";
+	                    break;
+	                case "man":
+	                    var genderCheck = document.querySelector("#clothcheck");
+	                    //console.log(genderCheck);
+	                    genderCheck.querySelector("#genderM").style.display="flex";
+	                    genderCheck.querySelector("#genderW").style.display="none";
+	                    break;
+	            };
+        	};
         };
     };
     
