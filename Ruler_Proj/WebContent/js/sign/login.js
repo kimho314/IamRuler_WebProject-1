@@ -1,13 +1,5 @@
 addEventListener("load", function() {
-  var spanSign = document.querySelector("span.회원가입성공확인");
   var oldVal = null;
-
-  if (spanSign != null) {
-    $(function() {
-      document.querySelector("#회원가입-pop").checked = true;
-      spanSign = null;
-    });
-  }
 
   $(".input").on("propertychange change keyup paste input", function() {
     var currentVal = $(this).val();
@@ -22,6 +14,5 @@ addEventListener("load", function() {
     }
 
     oldVal = currentVal;
-    console.log(currentVal.length);
   });
 });

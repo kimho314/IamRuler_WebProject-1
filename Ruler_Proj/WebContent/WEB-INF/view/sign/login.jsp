@@ -33,8 +33,8 @@
 						<form method="POST">
 							<p>로그인</p>
 							<section class="로그인텍스트바">
-								<label>아이디</label> <input type="text" name="아이디" id="아이디" /><br />
-								<label>비밀번호</label> <input type="password" name="비밀번호" id="비밀번호" />
+								<label>아이디</label> <input class="input" type="text" name="아이디" id="아이디" /><br />
+								<label>비밀번호</label> <input class="input" type="password" name="비밀번호" id="비밀번호" />
 							</section>
 							<c:if test="${param.error ==1}">
 								<br>
@@ -67,6 +67,7 @@
 	<script src="../assets/js/jquery.min.js"></script>
 	<script src="../assets/js/skel.min.js"></script>
 	<script src="../assets/js/util.js"></script>
+	<script src="../../../js/sign/login.js"></script>
 	<!--[if lte IE 8]>
       <script src="assets/js/ie/respond.min.js"></script>
     <![endif]-->
