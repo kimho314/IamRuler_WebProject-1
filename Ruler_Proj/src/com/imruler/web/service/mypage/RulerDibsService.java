@@ -50,5 +50,11 @@ public class RulerDibsService implements DibsService{
 		
 		return  dibsDao.getCountByBoardId(board_id);
 	}
-	
+	@Override
+	public List<Dibs> getDibsListByMemberId(int mId)
+	{
+		// TODO getDibsListByMemberId
+		return dibsDao.getDibsListByMemberId(mId);
+	}
+
 }

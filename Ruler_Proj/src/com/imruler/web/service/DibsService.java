@@ -8,6 +8,7 @@ import com.imruler.web.entity.DibsView;
 public interface DibsService {
 	List<DibsView> getDibsListById(int id); // 사용자아이디로 찜목록 1페이지 조회 
 	List<DibsView> getDibsListById(int id,int page); // 사용자아이디로 찜목록 페이지별 조회 
+	List<Dibs> getDibsListByMemberId(int mId);
 	
 	int insertDibs(Dibs dibs); // 찜 추가
 	int updateDibs(Dibs dibs); // 메모 수정

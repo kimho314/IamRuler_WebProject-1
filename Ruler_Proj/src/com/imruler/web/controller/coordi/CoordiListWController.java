@@ -13,22 +13,27 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.imruler.web.entity.CoordiBoard;
 import com.imruler.web.entity.CoordiBoardView;
+import com.imruler.web.entity.Dibs;
 import com.imruler.web.entity.Member;
 import com.imruler.web.service.CoordiBoardService;
+import com.imruler.web.service.DibsService;
 import com.imruler.web.service.MemberService;
 import com.imruler.web.service.coordi.RulerCoordiBoardService;
 import com.imruler.web.service.member.RulerMemberService;
+import com.imruler.web.service.mypage.RulerDibsService;
 
 @WebServlet("/coordi/list_w")
 public class CoordiListWController extends HttpServlet
 {
 	private CoordiBoardService coordiBoardService;
 	private MemberService memberService;
+	private DibsService dibsService;
 	
 	public CoordiListWController()
 	{
 		coordiBoardService = new RulerCoordiBoardService();
 		memberService = new RulerMemberService();
+		dibsService = new RulerDibsService();
 	}
 	
 	@Override
@@ -65,7 +70,7 @@ public class CoordiListWController extends HttpServlet
 			userId = memberService.get(userName).getId();
 		}
 		
-		
+		List<Dibs> dibsList = dibsService.getDibsListByMemberId(userId);
 		List<CoordiBoardView> coordiBoardViewList =  coordiBoardService.getList(page, gender, bodyshape);
 		for(CoordiBoardView key : coordiBoardViewList)
 		{
@@ -82,8 +87,8 @@ public class CoordiListWController extends HttpServlet
 			//System.out.println(retStr);
 			key.setCi_img(retStr);
 		}
-				
-		req.setAttribute("userId", userId);
+		
+		req.setAttribute("dibsList", dibsList);	
 		req.setAttribute("list", coordiBoardViewList);
 		req.setAttribute("listCount", coordiBoardService.getListCount(gender, bodyshape));
 		req.getRequestDispatcher("/WEB-INF/view/coordi/list_w.jsp").forward(req, resp);

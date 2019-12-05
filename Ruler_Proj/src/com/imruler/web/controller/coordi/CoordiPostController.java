@@ -117,7 +117,7 @@ public class CoordiPostController extends HttpServlet
 				{
 					String realPath = application.getRealPath(cImg);
 					cImg = realPath;
-					System.out.println(cImg);
+					//System.out.println(cImg);
 				}
 				
 			}			

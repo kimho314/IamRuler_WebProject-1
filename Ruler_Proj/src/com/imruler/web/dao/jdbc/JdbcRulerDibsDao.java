@@ -293,5 +293,50 @@ public class JdbcRulerDibsDao implements DibsDao
 		return result;
 	}
 
-	
+	@Override
+	public List<Dibs> getDibsListByMemberId(int mId)
+	{
+		List<Dibs> list = new ArrayList<Dibs>();
+		String sql = "SELECT * FROM DIBS_LIST WHERE member_id=?";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
+		Connection con = null;
+		PreparedStatement st = null;
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			st = con.prepareStatement(sql);
+			st.setInt(1, mId);
+			
+			ResultSet rs = st.executeQuery();
+			while (rs.next())
+			{
+				Dibs dibs = new Dibs(rs.getInt("id"), rs.getInt("member_id"), rs.getString("memo"), rs.getInt("coordi_id"));
+				//System.out.println(dibsview);
+				list.add(dibs);
+			}
+			st.close();
+			con.close();
+
+		}
+		catch (ClassNotFoundException e)
+		{
+			if (st != null)
+				st = null;
+			if (con != null)
+				con = null;
+
+			e.printStackTrace();
+		}
+		catch (SQLException e)
+		{
+			if (st != null)
+				st = null;
+			if (con != null)
+				con = null;
+			e.printStackTrace();
+		}
+		return list;
+	}
+		
 }

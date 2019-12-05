@@ -68,6 +68,8 @@ public class CoordiDibsListController extends HttpServlet
 		Member member = memberService.get(userName);
 		m_id = member.getId();
 		
+		System.out.println("m_id:" + m_id + " cb_id:" + cb_id);
+		
 		int isDibbed = 0;
 		//isDibbed = dibsService.getDibsCountByBoardId(cb_id);
 		List<DibsView> list = new ArrayList<>();

@@ -131,15 +131,24 @@
 												<li><p>${n.co_bodyshape }</p></li>												
 												<li>
 													<c:if test="${not empty userName}">
-														<c:if test="${ n.dl_memberId != userId}">
-														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
-														<i class="far fa-star"></i></a>
+														<c:set var="DibFlag" value="0"/>
+														<c:forEach var="dNum" items="${dibsList }">
+														<c:if test="${ dNum.coordiId != n.cb_id}">	
 														</c:if>
-														<c:if test="${ n.dl_memberId == userId }">
-														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
-														<i class="fas fa-star"></i></a>
+														<c:if test="${ dNum.coordiId == n.cb_id }">
+															<c:set var="DibFlag" value="1"/>														
 														</c:if>
-													</c:if>
+														</c:forEach>
+														
+														<c:if test="${DibFlag == 0}">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="far fa-star"></i></a>
+														</c:if>
+														<c:if test="${DibFlag == 1}">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="fas fa-star"></i></a>
+														</c:if>
+													</c:if>													
 												</li>
 												
 											</td>
@@ -155,15 +164,24 @@
 												<li><p>${n.co_bodyshape }</p></li>												
 												<li>
 													<c:if test="${not empty userName}">
-														<c:if test="${ n.dl_memberId != userId}">
-														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
-														<i class="far fa-star"></i></a>
+														<c:set var="DibFlag" value="0"/>
+														<c:forEach var="dNum" items="${dibsList }">
+														<c:if test="${ dNum.coordiId != n.cb_id}">	
 														</c:if>
-														<c:if test="${ n.dl_memberId == userId }">
-														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
-														<i class="fas fa-star"></i></a>
+														<c:if test="${ dNum.coordiId == n.cb_id }">
+															<c:set var="DibFlag" value="1"/>														
 														</c:if>
-													</c:if>
+														</c:forEach>
+														
+														<c:if test="${DibFlag == 0}">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="far fa-star"></i></a>
+														</c:if>
+														<c:if test="${DibFlag == 1}">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="fas fa-star"></i></a>
+														</c:if>
+													</c:if>		
 												</li>
 												
 											</td>
@@ -186,15 +204,24 @@
 												<li><p>${n.co_bodyshape }</p></li>											
 												<li>
 													<c:if test="${not empty userName}">
-														<c:if test="${ n.dl_memberId != userId}">
-														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
-														<i class="far fa-star"></i></a>
+														<c:set var="DibFlag" value="0"/>
+														<c:forEach var="dNum" items="${dibsList }">
+														<c:if test="${ dNum.coordiId != n.cb_id}">	
 														</c:if>
-														<c:if test="${ n.dl_memberId == userId }">
-														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
-														<i class="fas fa-star"></i></a>
+														<c:if test="${ dNum.coordiId == n.cb_id }">
+															<c:set var="DibFlag" value="1"/>														
 														</c:if>
-													</c:if>
+														</c:forEach>
+														
+														<c:if test="${DibFlag == 0}">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="far fa-star"></i></a>
+														</c:if>
+														<c:if test="${DibFlag == 1}">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="fas fa-star"></i></a>
+														</c:if>
+													</c:if>		
 												</li>
 												
 											</td>
@@ -210,15 +237,24 @@
 												<li><p>${n.co_bodyshape }</p></li>
 												<li>
 													<c:if test="${not empty userName}">
-														<c:if test="${ n.dl_memberId != userId}">
-														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
-														<i class="far fa-star"></i></a>
+														<c:set var="DibFlag" value="0"/>
+														<c:forEach var="dNum" items="${dibsList }">
+														<c:if test="${ dNum.coordiId != n.cb_id}">	
 														</c:if>
-														<c:if test="${ n.dl_memberId == userId }">
-														<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
-														<i class="fas fa-star"></i></a>
+														<c:if test="${ dNum.coordiId == n.cb_id }">
+															<c:set var="DibFlag" value="1"/>														
 														</c:if>
-													</c:if>
+														</c:forEach>
+														
+														<c:if test="${DibFlag == 0}">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="far fa-star"></i></a>
+														</c:if>
+														<c:if test="${DibFlag == 1}">
+															<a href="reg_dibs?g=여성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="fas fa-star"></i></a>
+														</c:if>
+													</c:if>		
 												</li>
 												
 											</td>
