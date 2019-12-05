@@ -83,16 +83,16 @@ public class TradeDetailController extends HttpServlet {
 //		int num = Integer.parseInt(secret);
 		TradeView tradeView = tradeViewService.getTrade(id);
 		List<TradeView> tradeView2 = tradeViewService.getComment(id);
+		//List<TradeBoardView> tradeBoardView = tradeService.getTradeList(id);
+		//TradeBoard tradeBoard = tradeService.getTrade(id);
+		System.out.println("boardid"+id);
 
-		// TradeBoard tradeBoard = tradeService.getTrade(id);
-		System.out.println("boardid" + id);
-
-		String cmd = "";
-		String cmd_ = request.getParameter("cmd");
-		if (cmd_ != null && !cmd_.equals(""))
-			cmd = cmd_;
-
-		request.setAttribute("cmd", cmd);
+//		String cmd="";
+//		String cmd_ = request.getParameter("cmd");
+//		if(cmd_!=null && !cmd_.equals(""))
+//			 cmd=cmd_;
+		
+		//request.setAttribute("cmd", cmd);
 		request.setAttribute("t", tradeView);
 		request.setAttribute("c", tradeView2);
 		if (memberService.get(boardUserId) != null) {
