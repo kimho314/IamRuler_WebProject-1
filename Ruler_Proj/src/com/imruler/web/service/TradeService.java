@@ -23,4 +23,5 @@ public interface TradeService {
 	int getListCountByUserId(int userId);
 	int getCommentListCountByUserId(int userId);
 
+	int getBoardUserId(int b_id);
 }

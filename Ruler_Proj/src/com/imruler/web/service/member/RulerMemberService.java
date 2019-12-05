@@ -201,4 +201,10 @@ public class RulerMemberService implements MemberService {
 		System.out.println("비밀번호찾기 오류");
 		return userPwd;
 	}
+
+	@Override
+	public Member get(int userId) {
+		// TODO Auto-generated method stub
+		return memberDao.get(userId);
+	}
 }

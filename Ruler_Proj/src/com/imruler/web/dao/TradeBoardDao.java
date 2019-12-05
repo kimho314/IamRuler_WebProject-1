@@ -22,4 +22,6 @@ public interface TradeBoardDao {
 	
 	int getListCount(String field, String query);
 	int getListCountByUserId(int userId);
+	
+	int getBoardUserId(int b_id);
 }

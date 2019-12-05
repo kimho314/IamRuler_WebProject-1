@@ -55,7 +55,7 @@
 
                         <tr>
                            <th class="center">작성자</th>
-                           <td>${t.mUserName}</td>
+                           <td>${boardUserName}</td>
                            <th class="center">등록일자</th>
                            <td>${t.bRegdate}</td>
                         </tr>

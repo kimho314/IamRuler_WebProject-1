@@ -112,6 +112,12 @@ public class RulerTradeService implements TradeService, TradeViewService, TradeC
 		return tradeCommentDao.updateTradeComment(tradeComment);
 	}
 
+	@Override
+	public int getBoardUserId(int b_id) {
+		// TODO Auto-generated method stub
+		return tradeBoardDao.getBoardUserId(b_id);
+	}
+
 	
 
 	

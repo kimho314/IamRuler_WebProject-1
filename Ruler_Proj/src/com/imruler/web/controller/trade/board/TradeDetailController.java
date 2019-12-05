@@ -75,7 +75,12 @@ public class TradeDetailController extends HttpServlet {
 		if (secret == null) {
 			secret = "0";
 		}
-		int num = Integer.parseInt(secret);
+		String boardUserName = null;
+		int boardUserId = tradeService.getBoardUserId(id);
+		if (memberService.get(boardUserId) != null) {
+			boardUserName = memberService.get(boardUserId).getUserName();
+		}
+//		int num = Integer.parseInt(secret);
 		TradeView tradeView = tradeViewService.getTrade(id);
 		List<TradeView> tradeView2 = tradeViewService.getComment(id);
 
@@ -90,6 +95,9 @@ public class TradeDetailController extends HttpServlet {
 		request.setAttribute("cmd", cmd);
 		request.setAttribute("t", tradeView);
 		request.setAttribute("c", tradeView2);
+		if (memberService.get(boardUserId) != null) {
+		request.setAttribute("boardUserName", boardUserName);
+		}
 
 		request.getRequestDispatcher("/WEB-INF/view/trade/detail.jsp").forward(request, response);
 	}

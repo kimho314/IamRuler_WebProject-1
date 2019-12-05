@@ -9,6 +9,8 @@ public interface MemberService {
 
 	Member get(String userName);
 	
+	Member get(int userId);
+	
 	boolean isValidMember(String userId, String userPwd);
 
 	int isDuplicatedId(String userId, String userPwd, String userPwdRequest, String phone, String email);
