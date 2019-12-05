@@ -1,6 +1,7 @@
 package com.imruler.web.controller.coordi;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,17 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.imruler.web.entity.CoordiBoardView;
+import com.imruler.web.entity.Member;
 import com.imruler.web.service.CoordiBoardService;
+import com.imruler.web.service.MemberService;
 import com.imruler.web.service.coordi.RulerCoordiBoardService;
+import com.imruler.web.service.member.RulerMemberService;
 
 @WebServlet("/coordi/list_m")
 public class CoordiListMController extends HttpServlet
 {
 	private CoordiBoardService coordiBoardService;
+	private MemberService memberService;
 	
 	public CoordiListMController()
 	{
 		coordiBoardService = new RulerCoordiBoardService();
+		memberService = new RulerMemberService();
 	}
 	
 	@Override
@@ -47,15 +53,25 @@ public class CoordiListMController extends HttpServlet
 		{
 			bodyshape = _bodyshape; 
 		}
-			
-		List<CoordiBoardView> coordiBoardViewList =  coordiBoardService.getList(page, gender, bodyshape);
-		for(CoordiBoardView key : coordiBoardViewList)
+		
+		String userName = "";
+		int userId = 0;
+		if(req.getSession().getAttribute("userName") != null)
 		{
+			userName = (String) req.getSession().getAttribute("userName");
+			userId = memberService.get(userName).getId();
+		}
+		
+		
+		List<CoordiBoardView> coordiBoardViewList =  coordiBoardService.getList(page, gender, bodyshape);
+		for (CoordiBoardView key : coordiBoardViewList)
+		{
+			
 			String tmpStr = key.getCi_img().replace("\\", "/");
 			String retStr = "";
-			if(tmpStr.indexOf(",") != -1)
+			if (tmpStr.indexOf(",") != -1)
 			{
-				retStr = tmpStr.substring(0,tmpStr.indexOf(","));
+				retStr = tmpStr.substring(0, tmpStr.indexOf(","));
 			}
 			else
 			{
@@ -63,10 +79,11 @@ public class CoordiListMController extends HttpServlet
 			}
 
 			key.setCi_img(retStr);
+
 			//System.out.println(key.getCi_img());
 		}
 		
-		
+		req.setAttribute("userId", userId);
 		req.setAttribute("list", coordiBoardViewList);
 		req.setAttribute("listCount", coordiBoardService.getListCount(gender, bodyshape));
 		req.getRequestDispatcher("/WEB-INF/view/coordi/list_m.jsp").forward(req, resp);

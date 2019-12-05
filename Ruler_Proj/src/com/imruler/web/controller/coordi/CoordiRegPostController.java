@@ -156,8 +156,7 @@ public class CoordiRegPostController extends HttpServlet
 		String oldFiles = "";
 		if(updateOpt == 1)
 		{
-			oldFiles = req.getParameter("old-files");
-			//System.out.println(oldFiles);
+			oldFiles = req.getParameter("old-files");	
 		}
 		
 		

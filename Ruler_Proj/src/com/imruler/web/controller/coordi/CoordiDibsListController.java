@@ -2,6 +2,8 @@ package com.imruler.web.controller.coordi;
 
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.imruler.web.entity.Dibs;
+import com.imruler.web.entity.DibsView;
 import com.imruler.web.entity.Member;
 import com.imruler.web.service.DibsService;
 import com.imruler.web.service.MemberService;
@@ -65,8 +68,22 @@ public class CoordiDibsListController extends HttpServlet
 		Member member = memberService.get(userName);
 		m_id = member.getId();
 		
-		int isDibbed = -1;
-		isDibbed = dibsService.getDibsCountByBoardId(cb_id);
+		int isDibbed = 0;
+		//isDibbed = dibsService.getDibsCountByBoardId(cb_id);
+		List<DibsView> list = new ArrayList<>();
+		list = dibsService.getDibsListById(m_id);
+		Dibs dibs = null;
+		for(DibsView key : list)
+		{
+			//System.out.println(key.getCoordiId() + ":" + cb_id);
+			if(key.getCoordiId() == cb_id)
+			{
+				dibs = key;
+				isDibbed = 1;
+				break;
+			}
+		}
+		
 		
 		int result = 0;
 		if(isDibbed == 0)		
@@ -90,7 +107,7 @@ public class CoordiDibsListController extends HttpServlet
 					resp.sendRedirect("list_m");
 			}
 			else if(returnOpt == 1)
-			{		
+			{				
 				String genderEncoded = URLEncoder.encode(gender, "UTF-8");	
 				resp.sendRedirect("post?cb_id="+cb_id+"&g="+genderEncoded);
 			}

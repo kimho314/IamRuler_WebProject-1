@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -97,7 +98,8 @@ public class CoordiPostController extends HttpServlet
 
 		default:
 			CoordiPostDetailView postDetail = coordiPostDetailService.getCoordiPostDetailById(cb_id);
-
+			ServletContext application = req.getServletContext();
+			
 			String tmpStr = postDetail.getCi_img().replace("\\", "/");
 			String[] cImgs = new String[] {""};
 			if(tmpStr != null && !tmpStr.equals(""))
@@ -110,13 +112,16 @@ public class CoordiPostController extends HttpServlet
 				{
 					cImgs[0] = tmpStr;
 				}
-				/*	
+				
 				for(String cImg : cImgs)
 				{
+					String realPath = application.getRealPath(cImg);
+					cImg = realPath;
 					System.out.println(cImg);
 				}
-				*/
-			}
+				
+			}			
+				
 						
 			
 			req.setAttribute("cImgs", cImgs);
