@@ -45,7 +45,7 @@ public class IndexController extends HttpServlet {
 			String userId = null;
 			userId = cValue;
 
-			if (userId.equals(null)) {
+			if (userId == null) {
 				userId = (String) session.getAttribute("userName");
 			}
 			if (memberService.get(userId) != null) {
