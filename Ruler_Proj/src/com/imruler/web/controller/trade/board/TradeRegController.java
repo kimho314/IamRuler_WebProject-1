@@ -59,15 +59,9 @@ public class TradeRegController extends HttpServlet {
 		if (cookie != null) {
 			for (Cookie key : cookie) {
 				Cookie c = key;
-				cValue = c.getValue();
-				break;
-			}
-		}
-		if (cookie != null) {
-			for (Cookie key : cookie) {
-				Cookie c = key;
-				cValue = c.getValue();
-				break;
+				if (c.getName().equals("userName")) {
+					cValue = c.getValue();
+				}
 			}
 		}
 		HttpSession session = request.getSession();
