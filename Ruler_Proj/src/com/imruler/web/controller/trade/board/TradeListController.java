@@ -62,6 +62,7 @@ public class TradeListController extends HttpServlet {
 		request.setAttribute("list", tradeService.getTradeList(page, field, query));
 		request.setAttribute("listCount", tradeService.tradeListCount(field, query));
 		request.getRequestDispatcher("/WEB-INF/view/trade/list.jsp").forward(request, response);
+		//request.getRequestDispatcher("list.jsp").forward(request, response);
 	}
 	
 	@Override

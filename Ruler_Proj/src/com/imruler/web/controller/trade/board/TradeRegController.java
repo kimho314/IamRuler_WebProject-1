@@ -11,17 +11,22 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import com.imruler.web.entity.Member;
 import com.imruler.web.entity.TradeBoard;
 import com.imruler.web.entity.TradeImg;
 import com.imruler.web.entity.TradeItem;
+import com.imruler.web.service.MemberService;
 import com.imruler.web.service.TradeImgService;
 import com.imruler.web.service.TradeItemService;
 import com.imruler.web.service.TradeService;
+import com.imruler.web.service.member.RulerMemberService;
 import com.imruler.web.service.ruler.RulerTradeImgService;
 import com.imruler.web.service.ruler.RulerTradeItemService;
 import com.imruler.web.service.ruler.RulerTradeService;
@@ -37,25 +42,55 @@ public class TradeRegController extends HttpServlet {
 	private TradeService tradeService;
 	private TradeImgService tradeImgService;
 	private TradeItemService tradeItemService;
+	private MemberService memberService;
 
 	public TradeRegController() {
 		tradeService = new RulerTradeService();
 		tradeImgService = new RulerTradeImgService();
 		tradeItemService = new RulerTradeItemService();
+		memberService = new RulerMemberService();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("/trade/reg.jsp").forward(request, response);
+		Cookie[] cookie = request.getCookies();
+		String cValue = null;
+		if (cookie != null) {
+			for (Cookie key : cookie) {
+				Cookie c = key;
+				cValue = c.getValue();
+			}
+		}
+		if (cookie != null) {
+			for (Cookie key : cookie) {
+				Cookie c = key;
+				cValue = c.getValue();
+			}
+		}
+		HttpSession session = request.getSession();
+	
+		String userId = cValue;
+		if (userId == null) {
+			userId = (String) session.getAttribute("userName");
+		}
+		request.getRequestDispatcher("/WEB-INF/view/trade/reg.jsp").forward(request, response);
 
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int userId = 1;
-		int boardId = 1;
+		int userId = 0;
+		String userName ="";
+		if(request.getSession().getAttribute("userName") != null)
+		{
+			userName = (String) request.getSession().getAttribute("userName");
+		}
+		Member member = memberService.get(userName);
+		userId = member.getId();
+		
+		int boardId = 0;
 		String title = "";
 		String content = "";
 		String category = "";
@@ -82,9 +117,9 @@ public class TradeRegController extends HttpServlet {
 		String complete_ = request.getParameter("complete");
 		if (complete_ != null && !complete_.equals(""))
 			complete = complete_;
-		String userId_ = request.getParameter("userId");
-		if (userId_ != null && !userId_.equals(""))
-			userId = Integer.parseInt(userId_);
+//		String userId_ = request.getParameter("userId");
+//		if (userId_ != null && !userId_.equals(""))
+//			userId = Integer.parseInt(userId_);
 		String tag_ = request.getParameter("tag");
 		if (tag_ != null && !tag_.equals(""))
 			tag = tag_;
@@ -92,13 +127,14 @@ public class TradeRegController extends HttpServlet {
 		Collection<Part> parts = request.getParts();
 
 		String fileNames = "";
-
+		
 		for (Part p : parts) {
 			if (!p.getName().equals("files"))
 				continue;
 
 			Part filePart = p;
 			String fileName = filePart.getSubmittedFileName(); // 전송한 파일명
+
 			fileNames += fileName + ",";
 
 			ServletContext application = request.getServletContext();
@@ -121,8 +157,9 @@ public class TradeRegController extends HttpServlet {
 			fos.close();
 		}
 		fileNames = fileNames.substring(0, fileNames.length()-1);
-		String userName = (String) request.getSession().getAttribute("userName");
-
+		
+		//String userName = (String) request.getSession().getAttribute("userName");
+		
 		int result = tradeService.insertTrade(new TradeBoard(title, content, tag, userId));
 		System.out.println("result: " + result);
 		boardId = tradeService.getBoardId();

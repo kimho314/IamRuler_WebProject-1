@@ -54,7 +54,7 @@ public class TradeEditController extends HttpServlet{
 		//int id = Integer.parseInt(request.getParameter("id"));
 		TradeView tradeView = tradeViewService.getTrade(id);
 		request.setAttribute("t", tradeView);
-		request.getRequestDispatcher("/trade/edit.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/trade/edit.jsp").forward(request, response);
 	}
 	
 	@Override
@@ -93,7 +93,8 @@ public class TradeEditController extends HttpServlet{
 		if (userId_ != null && !userId_.equals(""))
 			userId = Integer.parseInt(userId_);
 	
-		
+		boardId = tradeService.getBoardId();
+		System.out.println(category+region+bodyShape);
 		Collection<Part> parts = request.getParts();
 
 		String fileNames = "";
@@ -129,12 +130,14 @@ public class TradeEditController extends HttpServlet{
 		
 		String userName = (String) request.getSession().getAttribute("userName");
 		
-		int result = tradeService.updateTrade(new TradeBoard(title, content, complete));
+		
+		int result = tradeService.updateTrade(new TradeBoard(boardId, title, content, complete));
 		System.out.println("updateresult: " + result);
-		boardId = tradeService.getBoardId();
-		int result2 = tradeItemService.update(new TradeItem(bodyShape, category, region));
+		System.out.println(bodyShape);
+		int result2 = tradeItemService.update(new TradeItem(boardId, bodyShape, category, region));
 		System.out.println("updateresult2: " + result2);
-		int result3 = tradeImgService.update(new TradeImg(fileNames));
+		System.out.println(fileNames);
+		int result3 = tradeImgService.update(new TradeImg(boardId, fileNames));
 		System.out.println("updateresult3: " + result3);
 		response.sendRedirect("/trade/list");
 	}

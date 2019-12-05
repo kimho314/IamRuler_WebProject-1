@@ -36,68 +36,32 @@
 				<!-- Header -->
 				<header id="header">
 					<h1>교환 게시판</h1>
-					<nav>
-						<ul class="icons">
-							<!-- 로그인 -->
-							<li><a href="/login">로그인</a></li>
-							<li>&#124;</li>
-							<li><a href="/signup">회원가입</a></li>
-							<!-- 로그아웃 --><!--
-							<li><a href="/logout">로그아웃</span></a></li>
-							<li>&#124;</li>
-							<li><a href="/mypage/index">마이페이지</a></li> -->
-						</ul>
-					</nav>
+					<jsp:include page="../inc/nav.jsp"></jsp:include>	
 				</header>
 
-				<!-- Banner -->
-				<!-- <section id="banner">
-									<div class="content">
-										<header>
-											<h1>Hi, I’m Editorial<br />
-											by HTML5 UP</h1>
-											<p>A free and fully responsive site template</p>
-										</header>
-										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
-										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
-										</ul>
-									</div>
-									<span class="image object">
-										<img src="images/pic10.jpg" alt="" />
-									</span>
-								</section> -->
-
-				<form action="reg" method="post">
-				<input type="hidden" name="userId" value="${sessionScope.sessionID}">
+				<input type="hidden" name="boardId" value=""/>
+				<form action="" method="post" enctype="multipart/form-data">
 				<br>
 				<table class="default">
 					<tbody>
 						<tr>
 							<th class="center vertical">제목</th>
-							<td><input type="text" name="title"></td>
+							<td><input type="text" name="title" value=""></td>
 						</tr>
 						 <tr>
 							<th class="center">작성자</th>
-							<td>${sessionScope.sessionID}</td>
+							<td>${userName}</td>
 						</tr> 
 						<tr>
 							<th class="center">등록일자</th>
 							<td><%= sf.format(nowTime) %></td>
 						</tr>
 						<tr>
-							<th class="center vertical">거래여부</th>
-							<td><div class="6u 12u$(small)">
-								<input type="checkbox" id="demo-copy" name="complete">
-								<label for="demo-copy">거래완료</label>
-								</div></td>
-						</tr>
-						<tr>
 							<th class="center vertical">의류</th>
 							<td>
 								<div class="select-wrapper">
-									<select name="clothes">
-										<option value="">옷 종류</option>
+									<select name="category">
+										<option value="" selected>옷 종류</option>
 										<option value="상의">상의</option>
 										<option value="하의">하의</option>
 										<option value="아우터">아우터</option>
@@ -111,7 +75,7 @@
 							<th class="center vertical">지역</th>
 							<td>
 								<div class="select-wrapper">
-									<select name="area">
+									<select name="region">
 										<option value="">지역</option>
 										<option value="서울특별시">서울특별시</option>
 										<option value="부산광역시">부산광역시</option>
@@ -136,7 +100,7 @@
 							<th class="center vertical">체형</th>
 							<td>
 								<div class="select-wrapper">
-									<select name="body">
+									<select name="bodyShape">
 											<option value="">체형</option>
 											<option value="선택안함">선택안함</option>
 											<option value="역삼각형">작은 역삼각형</option>
@@ -148,6 +112,14 @@
 							</td>
 						</tr>
 						<tr>
+							<th class="center vertical">첨부파일</th>
+							<td><input type="file" name="files"></td>
+						</tr>
+						<!-- <tr>
+							<th class="center vertical">태그</th>
+							<td><input type="text" name="tag"></td>
+						</tr> -->
+						<tr>
 							<th class="center vertical">내용</th>
 							<td><textarea placeholder="내용을 입력하세요" rows="6" name="content"></textarea></td>
 						</tr>
@@ -155,9 +127,9 @@
 				</table>
 
 				<div class="btn center">
-						<a href="/trade/list" class="button">취소</a>
-						<input class="button special" type="submit" value="등록"/>
-					</div>
+					<a href="/trade/list" class="button">취소</a> 
+					<input class="button special" id="compsize" type="submit" value="등록" />
+				</div>
 				</form>
 				
 				<!-- Section -->
@@ -180,12 +152,9 @@
 	<div class="trade-popup"  style="position:fixed; display: none;">
 		<div class="contents">
 			<p>
-				정상적으로 등록되었습니다
+				등록중입니다
 			</p>
-			<div class="btn">
-				<!-- <a href="#" class="button special">로그인</a> -->
-				<a href="#" id=trade-popup-close class="button close">닫기</a>
-			</div>
+			
 		</div>
 	</div>
 	<div class="trade-mask"  style="position:fixed; display: none;"></div>
@@ -207,6 +176,7 @@
 				$(".trade-mask, .trade-popup").fadeOut();
 			});
 		});
-	</script>
+	</script> 
+	
 </body>
 </html>

@@ -51,8 +51,8 @@ public class JdbcTradeImgDao implements TradeImgDao{
 	@Override
 	public int update(TradeImg tradeImg) {
 		int result = 0;
-
-		String sql = "UPDATE TRADE_IMG SET IMG=? WHERE ID=?";
+		
+		String sql = "UPDATE TRADE_IMG SET IMG=? WHERE BOARD_ID=?";
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 
 		try {
@@ -62,7 +62,7 @@ public class JdbcTradeImgDao implements TradeImgDao{
 			
 			st.setString(1, tradeImg.getImg());
 			st.setInt(2, tradeImg.getId());
-
+			System.out.println(tradeImg.toString());
 			result = st.executeUpdate();
 
 			st.close();
