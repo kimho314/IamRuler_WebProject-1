@@ -34,7 +34,7 @@
             <form action="/trade/detail" method="post" name="frm">
            <!--  <form action="/trade/detail" method="post">  -->
             <div>
-            <c:if test="${ t.mUserName == userName }">
+            <c:if test="${ boardUserName == userName }">
                <div class="edel">
                   <ul class="icons">
                      <!-- <li><a href=""><span class="label gray">수정</span></a></li> -->
@@ -194,26 +194,26 @@
 													
 													<div id="name">
 														<i class="fas fa-lock"></i> 
-														<c:if test="${t.mUserName != userName && c.mUserName != userName}">
+														<c:if test="${boardUserName != userName && c.mUserName != userName}">
 														***
 														</c:if>
 														<%-- <c:if test="${t.mUserName == userName && c.mUserName != userName}">
 															${c.mUserName}
 														</c:if> --%>
-														<c:if test="${t.mUserName == userName || c.mUserName == userName}">
+														<c:if test="${boardUserName == userName || c.mUserName == userName}">
 															${c.mUserName}
 														</c:if>
 														</div>
 														
-												<!-- test -->
-												<div id="date">${c.cRegdate}${ c.mUserName}${userName}</div>
+												
+												<div id="date">${c.cRegdate}</div>
 												</div>
 												<%-- ${c.mUserName} --%>
-												<c:if test="${t.mUserName == userName || c.mUserName == userName}">
+												<c:if test="${boardUserName == userName || c.mUserName == userName}">
 												<div id="content">${c.cContent}</div>
 												</c:if>
 												
-												<c:if test="${t.mUserName != userName }">
+												<c:if test="${boardUserName != userName }">
 												<div id="content">비밀댓글입니다</div>
 												</c:if>
 											</td>
@@ -264,7 +264,7 @@
                      <a href="/trade/list" class="button">목록</a>
                   </div>
 					</form>
-                  <div>
+                 <!--  <div>
                      <br>
                      <table>
                         <tr>
@@ -276,7 +276,7 @@
                            <td><a href="">다음글이 없습니다</a></td>
                         </tr>
                      </table>
-                  </div>
+                  </div> -->
 					
                   <!-- Section -->
                   <section></section>
