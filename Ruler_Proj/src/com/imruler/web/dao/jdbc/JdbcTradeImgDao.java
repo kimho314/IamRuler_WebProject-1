@@ -54,14 +54,18 @@ public class JdbcTradeImgDao implements TradeImgDao{
 		
 		String sql = "UPDATE TRADE_IMG SET IMG=? WHERE BOARD_ID=?";
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-
+		
+		Connection con = null;
+		PreparedStatement st = null;
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "RULER", "33333");
-			PreparedStatement st = con.prepareStatement(sql);
+			con = DriverManager.getConnection(url, "RULER", "33333");
+			st = con.prepareStatement(sql);
 			
 			st.setString(1, tradeImg.getImg());
 			st.setInt(2, tradeImg.getId());
+			System.out.println(sql);
 			System.out.println(tradeImg.toString());
 			result = st.executeUpdate();
 
@@ -74,6 +78,13 @@ public class JdbcTradeImgDao implements TradeImgDao{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			try {
+				if(st != null)
+					st.close();
+				if(con != null)
+					con.close();
+			}catch(SQLException e) {}
 		}
 
 		return result;

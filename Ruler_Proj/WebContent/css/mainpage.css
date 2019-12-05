@@ -152,16 +152,16 @@ div.maingender label {
 	position: absolute;
 	max-width: 100%;
 	padding-left: 22.5%;
-	padding-top: 4%;
+	padding-top: 4.5%;
 	padding-right: 25%;
 }
 
 #mainMo {
-	position: absolute;
-	max-width: 100%;
-	padding-left: 58%;
-	padding-top: 13.5%;
-	padding-right: 20%;
+    position: absolute;
+    max-width: 100%;
+    padding-left: 59%;
+    padding-top: 13.8%;
+    padding-right: 21.3%;
 }
 
 #pants, #outer, #skirt, #onepiece {

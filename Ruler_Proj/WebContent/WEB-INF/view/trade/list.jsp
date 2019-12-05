@@ -38,7 +38,7 @@
 					<jsp:include page="../inc/nav.jsp"></jsp:include>
 				</header>
 
-				<br>
+				<%-- <br>
 				<form action="/trade/list">
 				<div>
 				<div class="select-wrapper">
@@ -94,7 +94,7 @@
 					<input type="hidden" name="p" value="${param.p}" />
 				</div>
 				</div>	
-				</form>
+				</form> --%>
 				 
 				<br>
 				<br>
