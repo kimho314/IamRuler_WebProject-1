@@ -36,7 +36,7 @@ public class MypageWithdrawController extends HttpServlet {
 		String userPwd = request.getParameter("password");
 		if (userPwd.equals(memberService.get(userId).getPwd()) || memberService.get(userId).getPwd() == null) {
 			memberService.deleteMember(memberService.get(userId).getId());
-			response.sendRedirect("/index");
+			response.sendRedirect("/sign/logout");
 		} else {
 			response.sendRedirect("withdraw?error=1"); // 비밀번호가 틀릴경우
 		}
