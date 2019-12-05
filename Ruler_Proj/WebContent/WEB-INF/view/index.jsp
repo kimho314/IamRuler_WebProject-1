@@ -709,7 +709,7 @@
 		$(function() {
 			var wrapBoxheg = resizeHeg();
 			//alert(wrapBoxheg);
-			$(".infoBtn").click(function(e) {
+			$(".infoBtn").bind("click",function(e) {
 				e.preventDefault();
 				$(".wrapBox").css({
 					"overflow-y" : "auto"
@@ -717,9 +717,9 @@
 					scrollTop : wrapBoxheg
 				}, 400).css({
 					"overflow-y" : "hidden"
-				});
+				});				
 				$(".topBtn").fadeIn();
-				$("#banner").hide();
+				$("#banner").fadeOut();
 			});
 
 			$(".moveBtn").bind("click", function(e) {
