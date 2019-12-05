@@ -8,86 +8,79 @@
 <html class="no-js">
 
 <head>
-<title>쇼핑 도우미 : 아임룰러</title>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<!--[if lte IE 8
+	<title>쇼핑 도우미 : 아임룰러</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!--[if lte IE 8
       ]><script src="assets/js/ie/html5shiv.js"></script
     ><![endif]-->
-<link rel="stylesheet" href="../css/seop.css" />
-<!--[if lte IE 9
+	<link rel="stylesheet" href="../css/seop.css" />
+	<!--[if lte IE 9
       ]><link rel="stylesheet" href="assets/css/ie9.css"
     /><![endif]-->
-<!--[if lte IE 8
+	<!--[if lte IE 8
       ]><link rel="stylesheet" href="assets/css/ie8.css"
     /><![endif]-->
-<script src="assets/js/modernizr.custom.js"></script>
-<script src="https://kit.fontawesome.com/1af26a8adc.js"
-	crossorigin="anonymous"></script>
-<script>      
-		window.addEventListener("load", function (){
+	<script src="assets/js/modernizr.custom.js"></script>
+	<script src="https://kit.fontawesome.com/1af26a8adc.js" crossorigin="anonymous"></script>
+	<script>
+		window.addEventListener("load", function () {
 			var section = document.querySelector("label#old-image-label");
 			var imgSpan = section.querySelectorAll("span");
 			var oldImgHidden = document.querySelector("input#old-image-hidden");
-			
-			var oldFiles = oldImgHidden.getAttribute("value");
-			
-			for(var i=0; i<imgSpan.length; i++)
-			{
 
-				imgSpan[i].onclick = function(e){
+			var oldFiles = oldImgHidden.getAttribute("value");
+
+			for (var i = 0; i < imgSpan.length; i++) {
+
+				imgSpan[i].onclick = function (e) {
 					//alert("old file clicked");
-					
+
 					//console.log("e.target.innerText:"+e.target.innerText);
 					// oldFiles += (e.target.innerText + ",");
-					
+
 					oldFiles = oldFiles.replace(e.target.innerText, "");
 					var tmpOldFiles = oldFiles.split(",");
 					var retOldFiles = "";
-					for(var i=0; i<tmpOldFiles.length; i++)
-					{
+					for (var i = 0; i < tmpOldFiles.length; i++) {
 						console.log(tmpOldFiles[i]);
-						if(tmpOldFiles[i] != "")
-						{
-							if(i < tmpOldFiles.length - 1)
-								retOldFiles += tmpOldFiles[i]+",";
-							if(i == tmpOldFiles.length - 1)
+						if (tmpOldFiles[i] != "") {
+							if (i < tmpOldFiles.length - 1)
+								retOldFiles += tmpOldFiles[i] + ",";
+							if (i == tmpOldFiles.length - 1)
 								retOldFiles += tmpOldFiles[i];
 						}
 					}
 					oldFiles = retOldFiles;
 					//console.log("oldFiles:"+oldFiles);
-					
+
 					// console.log(oldImgHidden.getAttribute("value"));
 					e.target.innerText = "";
 					oldImgHidden.setAttribute("value", oldFiles);
 					// console.log(oldImgHidden.getAttribute("value"));
 
-					
+
 				}
 			}
-		
-		});
-		
-        function openPopUp() {
-            document.getElementsByClassName("newpost-popup")[0].style.display = "block";
-            document.getElementsByClassName("newpost-mask")[0].style.display = "block";
-            
-        }
 
-        function closePopUp() {
-            document.getElementsByClassName("newpost-popup")[0].style.display = "none";
-            document.getElementsByClassName("newpost-mask")[0].style.display = "none";
-          
-        }
-        
-    </script>
+		});
+
+		function openPopUp() {
+			document.getElementsByClassName("newpost-popup")[0].style.display = "block";
+			document.getElementsByClassName("newpost-mask")[0].style.display = "block";
+
+		}
+
+		function closePopUp() {
+			document.getElementsByClassName("newpost-popup")[0].style.display = "none";
+			document.getElementsByClassName("newpost-mask")[0].style.display = "none";
+
+		}
+	</script>
 </head>
 
 <body>
-	<form name="frmData" action="reg_post" method="post"
-		enctype="multipart/form-data">
+	<form name="frmData" action="reg_post" method="post" enctype="multipart/form-data">
 		<!-- Wrapper -->
 		<div id="wrapper">
 
@@ -129,30 +122,32 @@
 											<input type="hidden" name="cb_id" value="${pDetail.cb_id }" />
 										</c:if>
 									</tr>
-									
+
 									<tr>
 										<td>제목</td>
-										<td colspan="4"><c:if test="${not empty pDetail }">
-												<input type="text" name="coordi-post-table-title"
-													id="demo-name" value="${pDetail.cct_title }"
-													placeholder="제목" />
-											</c:if> <c:if test="${empty pDetail }">
-												<input type="text" name="coordi-post-table-title"
-													id="demo-name" value="" placeholder="제목" />
-											</c:if></td>
+										<td colspan="4">
+											<c:if test="${not empty pDetail }">
+												<input type="text" name="coordi-post-table-title" id="demo-name"
+													value="${pDetail.cct_title }" placeholder="제목" />
+											</c:if>
+											<c:if test="${empty pDetail }">
+												<input type="text" name="coordi-post-table-title" id="demo-name"
+													value="" placeholder="제목" />
+											</c:if>
+										</td>
 									</tr>
 
 									<tr>
 										<td>작성자</td>
-										<td><input readonly="readonly" type="text"
-											name="coordi-post-table-writerId" id="demo-name"
-											value="${userName }" placeholder="작성자" /></td>
+										<td><input readonly="readonly" type="text" name="coordi-post-table-writerId"
+												id="demo-name" value="${userName }" placeholder="작성자" /></td>
 
 										<td>게시 날짜</td>
-										<td><c:set var="now" value="<%= new java.util.Date() %>" />
-											<input readonly="readonly" type="text"
-											name="coordi-post-table-regdate" id="demo-name"
-											value="<fmt:formatDate pattern="yyyy-MM-dd" value="${now }"/> "
+										<td>
+											<c:set var="now" value="<%= new java.util.Date() %>" />
+											<input readonly="readonly" type="text" name="coordi-post-table-regdate"
+												id="demo-name" value="<fmt:formatDate pattern=" yyyy-MM-dd"
+												value="${now }" /> "
 											placeholder="게시 날짜" /></td>
 									</tr>
 
@@ -162,7 +157,8 @@
 											<div class="select-wrapper">
 												<c:if test="${not empty pDetail }">
 													<select name="bodyshape-category" id="select-bodyshape">
-														<option value="${pDetail.co_bodyshape }">${pDetail.co_bodyshape }</option>
+														<option value="${pDetail.co_bodyshape }">${pDetail.co_bodyshape
+															}</option>
 														<option value="보통">보통</option>
 														<option value="작은 역삼각">작은 역삼각</option>
 														<option value="삼각">삼각</option>
@@ -188,12 +184,12 @@
 										<td>내용</td>
 										<td colspan="4">
 											<c:if test="${not empty pDetail }">
-												<textarea name="content-message" id="demo-message"
-													placeholder="내용" rows="6">${pDetail.cct_content }</textarea>
+												<textarea name="content-message" id="demo-message" placeholder="내용"
+													rows="6">${pDetail.cct_content }</textarea>
 											</c:if>
 											<c:if test="${empty pDetail }">
-												<textarea name="content-message" id="demo-message"
-													placeholder="내용" rows="6"></textarea>
+												<textarea name="content-message" id="demo-message" placeholder="내용"
+													rows="6"></textarea>
 											</c:if>
 										</td>
 									</tr>
@@ -201,16 +197,17 @@
 										<td>첨부내용</td>
 										<td colspan="4">
 											<c:if test="${empty pDetail }">
-												<input type="file" name="files[]" multiple="multiple"  />
+												<input type="file" name="files[]" multiple="multiple" />
 											</c:if>
 											<c:if test="${not empty pDetail }">
 												<input type="file" name="files[]" multiple="multiple" />
-												<label id="old-image-label" >
-												<c:forEach var="oImg" items="${oldFiles }">
-													<span>${oImg}</span>
-												</c:forEach>
+												<label id="old-image-label">
+													<c:forEach var="oImg" items="${oldFiles }">
+														<span>${oImg}</span>
+													</c:forEach>
 												</label>
-												<input id="old-image-hidden" type="hidden" name="old-files" value="${pDetail.ci_img }" />
+												<input id="old-image-hidden" type="hidden" name="old-files"
+													value="${pDetail.ci_img }" />
 											</c:if>
 										</td>
 									</tr>

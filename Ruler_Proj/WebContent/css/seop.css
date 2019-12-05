@@ -4,116 +4,116 @@
 /* ============== 체형별코디 게시판 목록 ============== */
 
 div.visual-wrapper {
-    margin:1em 0;
+    margin: 1em 0;
 }
 
 div.visual-wrapper div.visual-top .visual-top-left {
-    width:50%;     
+    width: 50%;
 }
 
 div.visual-wrapper div.visual-top .visual-top-left a {
-    margin:0 0.5em;
-    float:left;
+    margin: 0 0.5em;
+    float: left;
 }
 
 div.visual-wrapper div.visual-top .visual-top-right {
-    width:50%;  
-    float:right;   
+    width: 50%;
+    float: right;
 }
 
 div.visual-wrapper div.visual-top .visual-top-right a {
-    float:right;
+    float: right;
 }
 
 div.visual-wrapper div.visual-bottom {
-    clear:both;   
-    display:flex;
+    clear: both;
+    display: flex;
 }
 
-div.visual-wrapper div.visual-bottom div {    
+div.visual-wrapper div.visual-bottom div {
     display: inline-block;
-    width:33.3%;
+    width: 33.3%;
     text-align: center;
-    margin:1em 0;
+    margin: 1em 0;
 }
 
 div.visual-wrapper div.visual-bottom div a {
-    width:100%;
+    width: 100%;
 }
 
-div.coordi-list-table-wrapper > table{
-    width:100%;
+div.coordi-list-table-wrapper>table {
+    width: 100%;
     table-layout: fixed;
 }
 
 
 div.coordi-list-table-wrapper table.coordi-list-table td {
-    border:1px solid silver;
-    vertical-align:middle;   
-    text-align: center; 
+    border: 1px solid silver;
+    vertical-align: middle;
+    text-align: center;
 }
 
 div.coordi-list-table-wrapper table.coordi-list-table td img {
     max-width: 100%;
-    height:auto !important;
-    margin:1em 0;
+    height: auto !important;
+    margin: 1em 0;
 }
 
 div.visual-wrapper div.visual-bottom-man {
-    clear:both;
-    display:flex;
+    clear: both;
+    display: flex;
 }
 
 div.visual-wrapper div.visual-bottom-man div {
     display: inline-block;
-    width:33.3%;
+    width: 33.3%;
     text-align: center;
-    margin:1em 0;
+    margin: 1em 0;
 }
 
 div.visual-wrapper div.visual-bottom-man div a {
-    width:100%;
+    width: 100%;
 }
 
-tr.coordi-list-tr-wrapper > td {
+tr.coordi-list-tr-wrapper>td {
     list-style: none;
     position: relative;
-    padding-top:0;
-    padding-bottom:0;
-    
+    padding-top: 0;
+    padding-bottom: 0;
+
 }
 
-tr.coordi-list-tr-wrapper > td > li:first-child {    
-    width:100%;
-    height:auto; 
-    padding-bottom: 2em;   
+tr.coordi-list-tr-wrapper>td>li:first-child {
+    width: 100%;
+    height: auto;
+    padding-bottom: 2em;
 }
 
-tr.coordi-list-tr-wrapper > td  li:nth-child(2){
+tr.coordi-list-tr-wrapper>td li:nth-child(2) {
     position: absolute;
-    bottom:0;
-    left:50%;
-    transform: translate(-50%, 0);   
-   
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+
 }
 
-tr.coordi-list-tr-wrapper > td p{
-    margin:0 0;
-    
+tr.coordi-list-tr-wrapper>td p {
+    margin: 0 0;
+
 }
 
-tr.coordi-list-tr-wrapper > td > li:last-child {
+tr.coordi-list-tr-wrapper>td>li:last-child {
     position: absolute;
-    top:0;
-    right:0.3em;
+    top: 0;
+    right: 0.3em;
 }
 
-tr.coordi-list-tr-wrapper > td > li:last-child > a{
+tr.coordi-list-tr-wrapper>td>li:last-child>a {
     box-shadow: none;
-    padding:0;
+    padding: 0;
 }
 
-tr.coordi-list-tr-wrapper > td > li:last-child > a > i{
+tr.coordi-list-tr-wrapper>td>li:last-child>a>i {
     font-size: 20px;
 }
 
@@ -124,212 +124,200 @@ ul.coordi-list-page {
     text-align: center;
 }
 
-    ul.coordi-list-page li {
-        display: inline-block;
-        padding-left: 0;
-        vertical-align: middle;
+ul.coordi-list-page li {
+    display: inline-block;
+    padding-left: 0;
+    vertical-align: middle;
+}
+
+ul.coordi-list-page li>.page {
+    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    border-bottom: 0;
+    border-radius: 0.375em;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 600;
+    height: 2em;
+    line-height: 2em;
+    margin: 0 0.125em;
+    min-width: 2em;
+    padding: 0 0.5em;
+    text-align: center;
+}
+
+ul.coordi-list-page li>.page.active {
+    background-color: #ff6600;
+    color: #ffffff !important;
+}
+
+ul.coordi-list-page li>.page.active:hover {
+    background-color: #fd8230;
+}
+
+ul.coordi-list-page li>.page.active:active {
+    background-color: #fd8230;
+}
+
+ul.coordi-list-page li:first-child {
+    padding-right: 0.75em;
+}
+
+ul.coordi-list-page li:last-child {
+    padding-left: 0.75em;
+}
+
+@media screen and (max-width: 480px) {
+
+    ul.coordi-list-page li:nth-child(n+2):nth-last-child(n+2) {
+        display: none;
     }
 
-        ul.coordi-list-page li > .page {
-            -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-            -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-            -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-            border-bottom: 0;
-            border-radius: 0.375em;
-            display: inline-block;
-            font-size: 0.8em;
-            font-weight: 600;
-            height: 2em;
-            line-height: 2em;
-            margin: 0 0.125em;
-            min-width: 2em;
-            padding: 0 0.5em;
-            text-align: center;
-        }
-
-            ul.coordi-list-page li > .page.active {
-                background-color: #ff6600;
-                color: #ffffff !important;
-            }
-
-                ul.coordi-list-page li > .page.active:hover {
-                    background-color: #fd8230;
-                }
-
-                ul.coordi-list-page li > .page.active:active {
-                    background-color: #fd8230;
-                }
-
-        ul.coordi-list-page li:first-child {
-            padding-right: 0.75em;
-        }
-
-        ul.coordi-list-page li:last-child {
-            padding-left: 0.75em;
-        }
-
-    @media screen and (max-width: 480px) {
-
-        ul.coordi-list-page li:nth-child(n+2):nth-last-child(n+2) {
-            display: none;
-        }
-
-        ul.coordi-list-page li:first-child {
-            padding-right: 0;
-        }
-
+    ul.coordi-list-page li:first-child {
+        padding-right: 0;
     }
+
+}
 
 /* ============== 체형별 코디 게시판 선택한 게시글 ============== */
 
-div.visual-wrapper div.visual-top-coordi-post 
-div.visual-top-right {
-    float:right;
+div.visual-wrapper div.visual-top-coordi-post div.visual-top-right {
+    float: right;
 }
 
-div.visual-top-coordi-post  a{
-    font-family:'S-CoreDream-3' !important;
-    color:#000000 !important;
+div.visual-top-coordi-post a {
+    font-family: 'S-CoreDream-3' !important;
+    color: #000000 !important;
 
 }
 
-div.visual-top-coordi-post  a:hover{
+div.visual-top-coordi-post a:hover {
     color: #ff6600 !important;
     background-color: #ffffff !important;
 }
 
-table.coordi-post-table tr td{
-    border:1px solid #D8D8D8 !important;
+table.coordi-post-table tr td {
+    border: 1px solid #D8D8D8 !important;
 }
 
-div.coordi-post-table-wrapper table.coordi-post-table
-tr td:first-child{
+div.coordi-post-table-wrapper table.coordi-post-table tr td:first-child {
     vertical-align: middle;
     text-align: center;
 }
 
-div.coordi-post-table-wrapper table.coordi-post-table
-tr:first-child {
-    text-align:center;
+div.coordi-post-table-wrapper table.coordi-post-table tr:first-child {
+    text-align: center;
     background: #F2F2F2;
 }
 
-div.coordi-post-table-wrapper table.coordi-post-table
-tr:nth-child(2) td:nth-child(1){
-    width:25%;
+div.coordi-post-table-wrapper table.coordi-post-table tr:nth-child(2) td:nth-child(1) {
+    width: 25%;
     background: #F2F2F2;
 }
 
-div.coordi-post-table-wrapper table.coordi-post-table
-tr:nth-child(3) td:nth-child(2n+1){
-    width:25%;
+div.coordi-post-table-wrapper table.coordi-post-table tr:nth-child(3) td:nth-child(2n+1) {
+    width: 25%;
     background: #F2F2F2;
 }
 
 
-div.coordi-post-table-wrapper table.coordi-post-table
-tr:nth-child(3) td:nth-child(2n){
-    width:25%;
+div.coordi-post-table-wrapper table.coordi-post-table tr:nth-child(3) td:nth-child(2n) {
+    width: 25%;
 }
 
-div.coordi-post-table-wrapper table.coordi-post-table
-tr:nth-child(4) td:nth-child(1){
-    width:25%;
+div.coordi-post-table-wrapper table.coordi-post-table tr:nth-child(4) td:nth-child(1) {
+    width: 25%;
     background: #F2F2F2;
 }
 
-div.coordi-post-table-wrapper table.coordi-post-table
-tr:nth-child(4) td:nth-child(2) input{
-    width:32%;
+div.coordi-post-table-wrapper table.coordi-post-table tr:nth-child(4) td:nth-child(2) input {
+    width: 32%;
 }
 
-div.coordi-post-table-wrapper table.coordi-post-table
-tr:nth-child(5) td:nth-child(1){
-    width:25%;
-    background: #F2F2F2;    
+div.coordi-post-table-wrapper table.coordi-post-table tr:nth-child(5) td:nth-child(1) {
+    width: 25%;
+    background: #F2F2F2;
     /* vertical-align: middle; */
 }
 
 div.coordi-post-content {
-    
-    width:100%;
-    max-height:300px;    
+
+    width: 100%;
+    max-height: 300px;
     overflow: auto;
     background: #ffffff;
     border-radius: 1em;
-    margin-bottom:0 !important;
+    margin-bottom: 0 !important;
 }
 
 
 
-div.coordi-post-content > div.content-img-wrapper {
-    width:100%;
-    height:100%;  
-    padding:1em 0;
+div.coordi-post-content>div.content-img-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 1em 0;
     display: flex;
     flex-direction: column;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     /* justify-content: space-between; */
-    
+
 }
 
-div.coordi-post-content > div.content-img-wrapper  div{
-    margin:0.5em 0.5em;   
-    max-width:480px; 
-    max-height:600px;  
+div.coordi-post-content>div.content-img-wrapper div {
+    margin: 0.5em 0.5em;
+    max-width: 480px;
+    max-height: 600px;
 }
 
-div.coordi-post-content > div.content-img-wrapper div img{
+div.coordi-post-content>div.content-img-wrapper div img {
     display: block;
-    max-width:100%;
-    height:auto;
+    max-width: 100%;
+    height: auto;
 }
 
 tr.coordi-post-content:after {
-    clear:both;
+    clear: both;
 }
 
-div.coordi-post-icons-bottom {      
-    text-align: center;     
-    
+div.coordi-post-icons-bottom {
+    text-align: center;
+
 }
 
 div.coordi-post-icons-bottom div {
-    margin:0 3em;
-    display:inline;
+    margin: 0 3em;
+    display: inline;
 }
 
 
 /* ============== 체형별 코디 게시판 새게시글 ============== */
 
 td select#select-bodyshape {
-    color:silver;
+    color: silver;
 }
 
-table.coordi-post-table tr:nth-child(4) td:nth-child(2) 
-div.select-wrapper{
-    width:32%;
+table.coordi-post-table tr:nth-child(4) td:nth-child(2) div.select-wrapper {
+    width: 32%;
 }
 
-div.coordi-post-table-wrapper table.coordi-post-table
-tr:nth-child(6) td:nth-child(1) {
-    width:25%;
+div.coordi-post-table-wrapper table.coordi-post-table tr:nth-child(6) td:nth-child(1) {
+    width: 25%;
     background: #F2F2F2;
 }
 
-div.coordi-post-table-wrapper table.coordi-post-table
-tr:nth-child(6) td:nth-child(2) {
+div.coordi-post-table-wrapper table.coordi-post-table tr:nth-child(6) td:nth-child(2) {
     margin-top: auto;
     margin-bottom: auto;
 }
 
 div.coordi-post-icons-bottom button {
-    margin:0 2em;    
+    margin: 0 2em;
 }
 
 div.coordi-post-icons-bottom a {
-    margin:0 2em;  
+    margin: 0 2em;
 }
 
 
@@ -340,180 +328,179 @@ div.coordi-post-icons-bottom a {
     background: #fff;
     border-radius: 5px;
     z-index: 2;
-    position:fixed;
-    left:0;
-    right:0;
+    position: fixed;
+    left: 0;
+    right: 0;
 }
 
 div.newpost-mask {
     position: fixed;
-    top: 0;    
+    top: 0;
     left: 0;
     width: 100%;
-    height: 100%;  
-    background: rgba(0,0,0,.5);      
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
 }
 
-.newpost-popup{ 
-	position:absolute;
-	top:0; left:0; width:100%; 
-    	height:1px; 
-    	z-index:1;    
+.newpost-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    z-index: 1;
 }
 
-.newpost-popup .contents{ 
-	margin:10% auto; width:25em; 
-	padding:2em 1em; background:#fff; 
-	border-radius:5px; z-index:2
+.newpost-popup .contents {
+    margin: 10% auto;
+    width: 25em;
+    padding: 2em 1em;
+    background: #fff;
+    border-radius: 5px;
+    z-index: 2
 }
 
-.newpost-popup .contents p{
-	text-align:center
+.newpost-popup .contents p {
+    text-align: center
 }
 
-.newpost-popup .contents .btn{
-	width:100%; 
-	text-align:center; padding:1em 0 0;
-	border-top:1px solid #dfdfdf
+.newpost-popup .contents .btn {
+    width: 100%;
+    text-align: center;
+    padding: 1em 0 0;
+    border-top: 1px solid #dfdfdf
 }
 
 
-.newpost-popup .contents .title{
-	font-weight:bold; 
-	font-family:'S-CoreDream-8'; 
-	color:#000; font-size:1.5em; margin:0 0 .5em
+.newpost-popup .contents .title {
+    font-weight: bold;
+    font-family: 'S-CoreDream-8';
+    color: #000;
+    font-size: 1.5em;
+    margin: 0 0 .5em
 }
 
-label#old-image-label{
-    margin-top:0.5em;
+label#old-image-label {
+    margin-top: 0.5em;
 }
 
-label#old-image-label span{
-    display:inline-block;
-    margin:0.2em 0;
-    width:fit-content;
-    border:2px solid #e9e9e9
+label#old-image-label span {
+    display: inline-block;
+    margin: 0.2em 0;
+    width: fit-content;
+    border: 2px solid #e9e9e9
 }
 
 /* ============== 체형별 코디 게시판 댓글 ============== */
 
 div.coordi-comment-list-wrapper {
-    height:350px;
+    height: 350px;
 }
 
-.scroll-y {overflow-y: scroll;}
+.scroll-y {
+    overflow-y: scroll;
+}
 
 div.coordi-comment-list-wrapper ul {
     list-style: none;
-    padding-left:0;
+    padding-left: 0;
 }
 
 div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list {
     border-style: solid;
-    border-width:1px;
-    background:white;
+    border-width: 1px;
+    background: white;
     margin-bottom: 0.5em;
 }
 
-div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list
-div.coordi-comment-top-left{   
-    float:left;
-    width:50%;
+div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list div.coordi-comment-top-left {
+    float: left;
+    width: 50%;
 }
 
-div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list
-div.coordi-comment-top-left ul li {
-    display:inline;
+div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list div.coordi-comment-top-left ul li {
+    display: inline;
 }
 
-div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list
-div.coordi-comment-top-right{
-    width:50%;
-    float:right;
+div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list div.coordi-comment-top-right {
+    width: 50%;
+    float: right;
 }
 
-div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list
-div.coordi-comment-top-right ul{
-    float:right;
-    padding-right:1em;
+div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list div.coordi-comment-top-right ul {
+    float: right;
+    padding-right: 1em;
 }
 
-div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list
-div.coordi-comment-top-right ul li {
-    display:inline;    
+div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list div.coordi-comment-top-right ul li {
+    display: inline;
 }
 
-div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list
-div.coordi-comment-top-right ul li a {
-    color:silver;
+div.coordi-comment-list-wrapper ul li.coordi-comment-outer-list div.coordi-comment-top-right ul li a {
+    color: silver;
 }
 
 div.coordi-comment-bottom {
-    clear:both;
+    clear: both;
 }
 
 div.coordi-comment-bottom p {
-    padding-left:0.5em;
+    padding-left: 0.5em;
 }
 
 div.coordi-comment-reg-wrapper {
-    margin-top:2em;
-    height:220px;
-    
+    margin-top: 2em;
+    /* height: 300px; */
+    height: 35%;
+    padding-bottom: 0;
 }
 
 div.coordi-comment-reg-wrapper div.coordi-comment-reg-icons {
-    margin:1em 0;
+    margin: 1em 0;
 }
 
 div.coordi-comment-reg-wrapper ul {
-    list-style: none;   
+    list-style: none;
     border-bottom: thick solid silver;
 
 }
 
 
-div.coordi-comment-reg-wrapper div.coordi-comment-reg-icons
-ul li {
-    display:inline-block;
+div.coordi-comment-reg-wrapper div.coordi-comment-reg-icons ul li {
+    display: inline-block;
 }
 
 div.coordi-comment-reg-wrapper div.coordi-comment-content {
-    margin:0 1em;    
-    width:100%;
-    height:80%;
-    position:relative;
-    margin-left:auto;
-    margin-right:auto;
+    margin: 0 1em;
+    width: 100%;
+    height: 100px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-div.coordi-comment-reg-wrapper div.coordi-comment-content
-div.coordi-comment-content-left {    
-    width:90%;
-    height:80%;
-    position:absolute;
-    left:0;    
-    padding:0 1em;
+div.coordi-comment-reg-wrapper div.coordi-comment-content div.coordi-comment-content-left {
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    padding: 0 1em;
 }
 
-div.coordi-comment-reg-wrapper div.coordi-comment-content
-div.coordi-comment-content-left textarea {
-    width:100%;
-    height:70%;    
+div.coordi-comment-reg-wrapper div.coordi-comment-content div.coordi-comment-content-left textarea {
+    width: 100%;
+    height: 100%;
 }
 
 
-div.coordi-comment-reg-wrapper div.coordi-comment-content
-div.coordi-comment-content-right {
-    width:10%;
-    height:80%;
-    position:absolute;
-    right:0;   
-   
+div.coordi-comment-reg-wrapper div.coordi-comment-content div.coordi-comment-content-right {
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    right: 0;
 }
 
-div.coordi-comment-reg-wrapper div.coordi-comment-content
-div.coordi-comment-content-right input {
-    width:100%;
-    height:70%;       
+div.coordi-comment-reg-wrapper div.coordi-comment-content div.coordi-comment-content-right input {
+    width: 100%;
+    height: 100%;
 }
