@@ -28,6 +28,7 @@ public class LogoutController extends HttpServlet {
 		// TODO doGet
 		HttpSession session = req.getSession();
 		Cookie cookie = new Cookie("userName", null);
+		cookie.setPath("/");
 		cookie.setMaxAge(0);
 		session.invalidate();
 		resp.addCookie(cookie);
