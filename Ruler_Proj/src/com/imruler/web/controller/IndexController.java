@@ -33,12 +33,13 @@ public class IndexController extends HttpServlet {
 		HttpSession session = request.getSession();
 		if (cookie != null || session.getAttribute("userName") != null) {
 			String cValue = null;
-			
+
 			if (cookie != null) {
 				for (Cookie key : cookie) {
 					Cookie c = key;
-					cValue = c.getValue();
-					break;
+					if (c.getName().equals("userName")) {
+						cValue = c.getValue();
+					}
 				}
 			}
 			String userId = null;
@@ -49,7 +50,7 @@ public class IndexController extends HttpServlet {
 			}
 			if (memberService.get(userId) != null) {
 				request.setAttribute("userAge", memberService.get(userId).getAge());
-				System.out.println( memberService.get(userId).getAge());
+				System.out.println(memberService.get(userId).getAge());
 				request.setAttribute("userBodyshape", memberService.get(userId).getBodyshape());
 				request.setAttribute("userGender", memberService.get(userId).getGender());
 				request.setAttribute("userHeight", memberService.get(userId).getHeight());
