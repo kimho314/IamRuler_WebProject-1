@@ -10,8 +10,40 @@ addEventListener("load", function() {
       $(this).scrollTop() + $(this).innerHeight() >=
       $(this).prop("scrollHeight") * 0.95
     ) {
-      동의링크.href = "sign-up";
-      동의버튼.className = "button special";
+      $(".취급방침스크롤").scroll(function() {
+        //    console.log($(this).scrollTop() + $(this).innerHeight());
+        //    console.log($(this).prop("scrollHeight"));
+
+        if (
+          $(this).scrollTop() + $(this).innerHeight() >=
+          $(this).prop("scrollHeight") * 0.95
+        ) {
+          동의링크.href = "sign-up";
+          동의버튼.className = "button special";
+        }
+      });
+    }
+  });
+  $(".취급방침스크롤").scroll(function() {
+    //    console.log($(this).scrollTop() + $(this).innerHeight());
+    //    console.log($(this).prop("scrollHeight"));
+
+    if (
+      $(this).scrollTop() + $(this).innerHeight() >=
+      $(this).prop("scrollHeight") * 0.95
+    ) {
+      $(".약관내용스크롤").scroll(function() {
+        //    console.log($(this).scrollTop() + $(this).innerHeight());
+        //    console.log($(this).prop("scrollHeight"));
+
+        if (
+          $(this).scrollTop() + $(this).innerHeight() >=
+          $(this).prop("scrollHeight") * 0.95
+        ) {
+          동의링크.href = "sign-up";
+          동의버튼.className = "button special";
+        }
+      });
     }
   });
 });
