@@ -336,7 +336,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 		List<TradeBoard> list = new ArrayList<>();
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		String sql = "SELECT * FROM (SELECT ROWNUM NUM, B.*\r\n" + 
-				"FROM (SELECT * FROM TRADE_BOARD WHERE USER_ID=? ORDER BY REGDATE DESC) B) WHERE NUM BETWEEN ? AND ?";
+				"FROM (SELECT * FROM BOARDLISTVIEW WHERE USER_ID=? ORDER BY REGDATE DESC) B) WHERE NUM BETWEEN ? AND ?";
 		Connection con = null;
 		PreparedStatement st = null;
 		try {
