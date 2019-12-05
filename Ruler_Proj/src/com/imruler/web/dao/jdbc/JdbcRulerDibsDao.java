@@ -171,7 +171,7 @@ public class JdbcRulerDibsDao implements DibsDao
 		try
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "ACORN", "newlec");
+			Connection con = DriverManager.getConnection(url, "RULER", "33333");
 			PreparedStatement st = con.prepareStatement(sql);
 
 			st.setString(1, dibs.getMemo());
