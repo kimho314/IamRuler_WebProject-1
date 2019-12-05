@@ -1,8 +1,20 @@
-@import url(../assets/css/main.css); 
-#banner{padding-top:8em}
-#banner h1{margin-bottom:1.5em}
-#banner header p{margin-bottom:4em}
-.posts{margin-bottom:0}
+@import url(../assets/css/main.css);
+
+#banner {
+	padding-top: 8em
+}
+
+#banner h1 {
+	margin-bottom: 1.5em
+}
+
+#banner header p {
+	margin-bottom: 4em
+}
+
+.posts {
+	margin-bottom: 0
+}
 
 div.posts {
 	margin-right: auto;
@@ -25,14 +37,20 @@ input[type="text"].maintextbox {
 span.mainpagelabel {
 	padding-left: 1em;
 }
-.inforform .select-wrapper{
+
+.inforform .select-wrapper {
 	width: 50%;
 }
 /* #agecheck, #bodyshape {
 	width: 50% !important;
 }
  */
-#popup{position:absolute;top:10%;left:50%;margin-left:-12.5em}
+#popup {
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	margin-left: -12.5em
+}
 /* div.mask {
 	display: none;
 	z-index: 1000;
@@ -44,11 +62,10 @@ span.mainpagelabel {
 	background-color: rgba(0, 0, 0, 0.4);
 	overflow-x: hidden;
 } */
-
 div.contents {
-	display:none;
-	position:relative !important;
-	height:auto !important;
+	display: none;
+	position: relative !important;
+	height: auto !important;
 	margin: 10% auto;
 	width: 25em;
 	padding: 2em 1em;
@@ -56,7 +73,11 @@ div.contents {
 	border-radius: 5px;
 	z-index: 2;
 }
-header.major > :last-child{padding-top:.5em}
+
+header.major>:last-child {
+	padding-top: .5em
+}
+
 p.title {
 	font-weight: bold;
 	font-family: 'S-CoreDream-8';
@@ -66,7 +87,8 @@ p.title {
 	text-align: center;
 }
 
-#popup .contents .fa-grin-hearts, .fa-grin-beam-sweat, .fa-laugh-wink, .fa-sad-tear {
+#popup .contents .fa-grin-hearts, .fa-grin-beam-sweat, .fa-laugh-wink,
+	.fa-sad-tear {
 	font-size: 5em;
 	color: #f60;
 	margin: 0 0 .1em;
@@ -132,8 +154,8 @@ div.maingender label {
 	padding-left: 22.5%;
 	padding-top: 4%;
 	padding-right: 25%;
-	
 }
+
 #mainMo {
 	position: absolute;
 	max-width: 100%;
@@ -141,21 +163,51 @@ div.maingender label {
 	padding-top: 13.5%;
 	padding-right: 20%;
 }
-#genderM, #pants, #outer, #skirt, #onepiece{
-	display: none; /*�Ƿ�����*/
+
+#pants, #outer, #skirt, #onepiece {
+	display: none;
 }
-.actions{
+
+.actions {
 	scroll-behavior: smooth;
 }
 
-body{overflow:hidden}
-.wrapBox .innerWrapBox{position:relative;overflow-y:auto}
-.topBtn{display:none;position:fixed;bottom:3em;right:2.5em;padding:.3em;border-radius:50%;background:rgba(0,0,0,.6);color:#fff)}
+body {
+	overflow: hidden
+}
+
+.wrapBox .innerWrapBox {
+	position: relative;
+	overflow-y: auto
+}
+
+.topBtn {
+	display: none;
+	position: fixed;
+	bottom: 3em;
+	right: 2.5em;
+	padding: .3em;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, .6);
+	color: #fff)
+}
 
 @media screen and (min-width: 1680px) {
-	#banner h1{font-size:3em}
-	tr.inforform th{width:30%}
-	.posts article{width:45%}
-	.posts article:first-child{width:35%}
-	
+	#banner h1 {
+		font-size: 3em
+	}
+	tr.inforform th {
+		width: 30%
+	}
+	.posts article {
+		width: 45%
+	}
+	.posts article:first-child {
+		width: 35%
+	}
+}
+
+.features article:nth-last-child(1), .features article:nth-last-child(2)
+	{
+	margin-bottom: 3em;
 }

@@ -17,13 +17,28 @@ public class TradeBoard {
 		
 	}
 	
-//  for inserting
+	public TradeBoard(int id, String title, String content, String tag) {
+			this.id = id;
+			this.title = title;
+			this.content = content;
+			this.tag = tag;
+		}
+
+	//  for inserting
 	public TradeBoard(String title, String content, String tag, int userId) {
 		this.title = title;
 		this.content = content;
 		this.tag = tag;
 		this.userId = userId;
 	}
+	
+	
+
+	public TradeBoard(int id, String title, String content) {
+			this.id = id;
+			this.title = title;
+			this.content = content;
+		}
 
 //	for selecting
 	public TradeBoard(int id, String title, String content, String tag, int hit, Date regdate, int userId, String type) {

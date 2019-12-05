@@ -113,7 +113,7 @@ public class JdbcTradeItemDao implements TradeItemDao{
 			st.setString(2, tradeItem.getCategory());
 			st.setString(3, tradeItem.getRegion());
 			st.setInt(4, tradeItem.getItemId());
-
+			System.out.println(tradeItem.getItemId());
 			result = st.executeUpdate();
 			
 		} catch (ClassNotFoundException e) {

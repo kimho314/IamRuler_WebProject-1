@@ -35,18 +35,7 @@
 				<!-- Header -->
 				<header id="header">
 					<h1>교환 게시판</h1>
-					<nav>
-						<ul class="icons">
-							<!-- 로그인 -->
-							<li><a href="/login">로그인</a></li>
-							<li>&#124;</li>
-							<li><a href="/signup">회원가입</a></li>
-							<!-- 로그아웃 --><!--
-							<li><a href="/logout">로그아웃</span></a></li>
-							<li>&#124;</li>
-							<li><a href="/mypage/index">마이페이지</a></li> -->
-						</ul>
-					</nav>
+					<jsp:include page="../inc/nav.jsp"></jsp:include>
 				</header>
 
 				<br>
@@ -101,7 +90,7 @@
 				</div>
 
 				<div class="searchtext">
-					<input type="text" name="q" value="${param.q}" />
+					<input type="text" name="searchText" value="${param.q}" />
 					<input type="hidden" name="p" value="${param.p}" />
 				</div>
 				</div>	
@@ -125,49 +114,53 @@
 						<tbody>
 							<c:forEach var="t" items="${list}">
 							<tr>
-								<td>${t.id}</td>
+								<td><input type="hidden" name="bId"/>${t.id}</td>
 								<td><a href="detail?id=${t.id}" class="black">${t.title}</a></td>
 								<td>${t.region}</td>
 								<td>${t.category}</td>
 								<td>${t.bodyshape}</td>
 								<td>${t.regdate}</td>
-								<td></td>
+								<td>${t.tag }</td> 
 							</tr>
 							</c:forEach>
 							
 							</tbody>
 						</table>
 					</div>
-
-					<div>
-						<a href="/trade/reg" class="button special reg">글쓰기</a>
-					</div>
+					
+					<c:if test="${not empty userName}">
+						<div>
+							<a href="/trade/reg" class="button special reg">글쓰기</a>
+						</div>
+					</c:if>
 
 			<div>
 				<ul class="pagination center">
 					<c:if test="${startNum <= 5}">
-					<li><a href="javascript:alert('못가');" class="button disabled">Prev</a></li>
+						<li><a href="javascript:alert('못가');" class="button disabled">Prev</a></li>
 					</c:if>
 					<c:if test="${startNum > 5}">
-					<a class="button disabled" href="list?p=${startNum-1}">이전</a>
+						<a class="button" href="list?p=${startNum-1}">이전</a>
 					</c:if>
-					
-					<li><a href="#" class="page active">1</a></li>
-					<li><a href="#" class="page">2</a></li>
-					<li><a href="#" class="page">3</a></li>
-					<li><a href="#" class="page">4</a></li>
-					<li><a href="#" class="page">5</a></li>
-					<li><a href="#" class="page">6</a></li>
-					<li><a href="#" class="page">7</a></li>
-					<!-- <li><span>…</span></li> -->
-					<li><a href="#" class="page">8</a></li>
-					<li><a href="#" class="page">9</a></li>
-					<li><a href="#" class="page">10</a></li>
+
+
+					<c:forEach var="i" begin="0" end="4">
+						<c:if test="${lastNum >= startNum+i}">
+							<c:if test="${page == startNum+i}">
+								<c:set var="currentStyle" value="page active" />
+							</c:if>
+							<c:if test="${page != startNum+i}">
+								<c:set var="currentStyle" value="page" />
+							</c:if>
+							<li><a href="list?p=${startNum+i}&f=${param.f}&q=${param.q}" class="${currentStyle}">${startNum+i}</a></li>
+						</c:if>
+					</c:forEach>
+
 					<c:if test="${startNum+5 > lastNum}">
-					<li><a href="javascript:alert('다음페이지가 없습니다');" class="button">Next</a></li>
+						<li><a href="javascript:alert('다음페이지가 없습니다');" class="button disabled">Next</a></li>
 					</c:if>				
 					<c:if test="${startNum+5 <= lastNum}">
-						<a class="btn btn-next" href="list?p=${startNum+5}&f=${param.f}&q=${param.q}">${i+1}">다음</a>
+						<li><a class="btn btn-next" href="list?p=${startNum+5}&f=${param.f}&q=${param.q}">${i+1}">Next</a></li>
 					</c:if>
 				</ul>
 			</div>

@@ -152,8 +152,8 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 	public List<TradeComment> getCommentListByUserId(int userId, int page) { // for 내 작성글
 		List<TradeComment> list = new ArrayList<>();
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-		String sql = "SELECT * FROM (SELECT ROWNUM NUM, T.*\r\n" + 
-				"FROM (SELECT * FROM COMMENTLISTVIEW WHERE USER_ID=? ORDER BY REGDATE DESC) C)WHERE NUM BETWEEN ? AND ?;";
+		String sql = "SELECT * FROM (SELECT ROWNUM NUM, C.*\r\n" + 
+				"FROM (SELECT * FROM COMMENTLISTVIEW WHERE USER_ID=? ORDER BY REGDATE DESC) C)WHERE NUM BETWEEN ? AND ?";
 		Connection con = null;
 		PreparedStatement st = null;
 		try {
