@@ -31,7 +31,6 @@
 
 				</header>
 				<!-- Banner -->
-				<%-- ${result} --%>
 				<div class="wrapBox">
 					<section id="banner">
 						<div class="content">
@@ -55,15 +54,14 @@
 						<div class="main-img">
 							<img src="images/main_visualPc.gif" alt="" id="mainPc" />
 							<!--  -->
-							<img src="images/main_visualMo.gif" alt="" id="mainMo" />
+							<img src="images/main_visualMo.png" alt="" id="mainMo" />
 							<!--  -->
 							<img src="images/main_visualM.png" alt="" id="mainCom" />
-
 						</div>
 
 					</section>
 					<div class="innerWrapBox">
-						<form action="/index" method="post">
+						<form action="/index" method="post" name="inputInfor">
 							<input type="hidden" name="type">
 							<!-- Section -->
 							<section id="infor">
@@ -81,8 +79,7 @@
 
 									<article>
 										<!-- 내 정보 입력 -->
-										<!-- 	<form method="post" action="/index" name="bodyfrm"> -->
-										<table class="alt">
+										<table class="alt body-form">
 											<tr class="inforform">
 												<th>성별</th>
 												<td id="inforline">
@@ -100,18 +97,8 @@
 															<c:if test="${userGender == '남성'}">checked</c:if>>
 														<!--  -->
 														<label for="demo-priority-normal">남성</label>
-													</div> <%-- <c:if test="${userGender == '남성'}"><div class="maingender">
-												<input type="radio" id="demo-priority-low" name="gender" value="woman"><!--  -->
-												<label for="demo-priority-low">여성</label>
-											</div>
-
-											<div class="maingender">
-												<input type="radio" id="demo-priority-normal" name="gender" value="man" checked><!--  -->
-												<label for="demo-priority-normal">남성</label>
-											</div>
-										</c:if> --%>
-
-
+													</div>
+													
 												</td>
 											</tr>
 											<tr class="inforform">
@@ -212,43 +199,33 @@
 											<tr class="inforform">
 												<th>키</th>
 												<td id="inforline"><c:if test="${empty userHeight}">
-														<!--  -->
 														<input type="text" name="x" value="" placeholder="키 입력"
-															class="maintextbox" />
-														<!--  -->
+															class="maintextbox" onKeyPress="return numkeyCheck(event)"/>
 														<span>cm</span>
 													</c:if> <c:if test="${!empty userHeight}">
-														<!--  -->
 														<input type="text" name="x" value="${userHeight}"
-															placeholder="키 입력" class="maintextbox" />
-														<!--  -->
+															placeholder="키 입력" class="maintextbox" onKeyPress="return numkeyCheck(event)"/>
 														<span>cm</span>
-													</c:if></td>
+													</c:if>
+												</td>
 											</tr>
 
 											<tr class="inforform">
 												<th>몸무게</th>
 												<td id="inforline"><c:if test="${empty userWeight}">
-														<!--  -->
 														<input type="text" name="y" value="" placeholder="몸무게 입력"
-															class="maintextbox" />
-														<!--  -->
+															class="maintextbox" onKeyPress="return numkeyCheck(event)"/>
 														<span>kg</span>
 													</c:if> <c:if test="${!empty userWeight}">
-														<!--  -->
 														<input type="text" name="y" value="${userWeight}"
-															placeholder="몸무게 입력" class="maintextbox" />
-														<!--  -->
+															placeholder="몸무게 입력" class="maintextbox" onKeyPress="return numkeyCheck(event)"/>
 														<span>kg</span>
 													</c:if></td>
 											</tr>
 										</table>
 										<ul class="actions" id="main-nextbutton">
-											<li><a href="#clothcheck" class="button big moveBtn">다음
-													입력 →</a></li>
+											<li><a href="#clothcheck" class="button big moveBtn">다음 입력 →</a></li>
 										</ul>
-
-										<!-- </form> -->
 									</article>
 
 								</div>
@@ -333,7 +310,6 @@
 								</div>
 
 								<!-- 남성 선택 -->
-
 								<div class="features" id="genderM" style="display: none;">
 									<article id="checkTop" class="clothcheck-box">
 										<div class="iconBox">
@@ -391,44 +367,37 @@
 											src="images/main_size1.png" />
 										</span>
 									</article>
+									
 									<article>
-										<!-- 	<form method="post" action="/index"> -->
-										<!-- <input type="hidden" name="type" value="T"> -->
 										<table class="alt">
 											<tr class="inforform">
 												<th>어깨 너비</th>
 												<td id="inforline"><input type="text"
 													name="tshoulderWidth" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>가슴 단면</th>
 												<td id="inforline"><input type="text"
 													name="tchestBreadth" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>소매 길이</th>
 												<td id="inforline"><input type="text"
 													name="tsleeveLength" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>총 장</th>
 												<td id="inforline"><input type="text"
 													name="ttopTotalLength" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 										</table>
-										<!-- <div>
-									<ul class="actions" id="main-compbutton">
-										<li><input type="submit" value="비교하기 →" class="button big" id="compsize" onclick="sendFrm()"></li>
-									</ul>
-								</div> -->
-										<!-- </form> -->
 									</article>
 								</div>
 
@@ -439,49 +408,42 @@
 											src="images/main_size2.png" />
 										</span>
 									</article>
+									
 									<article>
-										<!-- <form method="post" action="/index"> -->
-										<!-- <input type="hidden" name="type" value="P"> -->
 										<table class="alt">
 											<tr class="inforform">
 												<th>허리 단면</th>
 												<td id="inforline"><input type="text"
 													name="pwaistWidth" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>허벅지 단면</th>
 												<td id="inforline"><input type="text" name="thighWidth"
-													value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
+													value="" placeholder="입력" class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>밑위 길이</th>
 												<td id="inforline"><input type="text"
 													name="crotchWidth" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>밑단 단면</th>
 												<td id="inforline"><input type="text" name="hemWidth"
-													value="" placeholder="입력" class="maintextbox" /><span>cm</span></td>
+													value="" placeholder="입력" class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>총 장</th>
 												<td id="inforline"><input type="text"
 													name="pantsTotalLength" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 										</table>
-										<!-- 	<div>
-									<ul class="actions" id="main-compbutton">
-										<li><input type="submit" value="비교하기 →" class="button big" id="compsize" onclick="sendFrm()"></li>
-									</ul>
-								</div> -->
-										<!-- </form> -->
 									</article>
 								</div>
 
@@ -493,43 +455,35 @@
 										</span>
 									</article>
 									<article>
-										<!-- <form method="post" action="/index"> -->
-										<!-- <input type="hidden" name="type" value="O"> -->
 										<table class="alt">
 											<tr class="inforform">
 												<th>어깨 너비</th>
 												<td id="inforline"><input type="text"
 													name="oshoulderWidth" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>가슴 단면</th>
 												<td id="inforline"><input type="text"
 													name="ochestBreadth" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>소매 길이</th>
 												<td id="inforline"><input type="text"
 													name="osleeveLength" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>총 장</th>
 												<td id="inforline"><input type="text"
 													name="otopTotalLength" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 										</table>
-										<!-- 		<div>
-									<ul class="actions" id="main-compbutton">
-										<li><input type="submit" value="비교하기 →" class="button big" id="compsize" onclick="sendFrm()"></li>
-									</ul>
-								</div> -->
-										<!-- </form> -->
 									</article>
 								</div>
 
@@ -541,36 +495,28 @@
 										</span>
 									</article>
 									<article>
-										<!-- <form method="post" action="/index"> -->
-										<!-- <input type="hidden" name="type" value="Sk"> -->
 										<table class="alt">
 											<tr class="inforform">
 												<th>허리 단면</th>
 												<td id="inforline"><input type="text"
 													name="skwaistWidth" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>밑단 단면</th>
 												<td id="inforline"><input type="text"
 													name="skirtHemWidth" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>총 장</th>
 												<td id="inforline"><input type="text"
 													name="skirtTotalLength" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 										</table>
-										<!-- 						<div>
-									<ul class="actions" id="main-compbutton">
-										<li><input type="submit" value="비교하기 →" class="button big" id="compsize" onclick="sendFrm()"></li>
-									</ul>
-								</div> -->
-										<!-- 	</form> -->
 									</article>
 								</div>
 
@@ -582,54 +528,41 @@
 										</span>
 									</article>
 									<article>
-										<!-- <form method="post" action="/index"> -->
-										<!-- <input type="hidden" name="type" value="Op"> -->
 										<table class="alt">
 											<tr class="inforform">
 												<th>어깨 너비</th>
 												<td id="inforline"><input type="text"
 													name="opshoulderWidth" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>가슴 단면</th>
 												<td id="inforline"><input type="text"
 													name="opchestBreadth" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>소매 길이</th>
 												<td id="inforline"><input type="text"
 													name="opsleeveLength" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)" /><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>총 장</th>
 												<td id="inforline"><input type="text"
 													name="onePieceTotalLength" value="" placeholder="입력"
-													class="maintextbox" /><span>cm</span></td>
+													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
 											</tr>
 										</table>
-										<!-- <div>
-									<ul class="actions" id="main-compbutton">
-										<li><input type="submit" value="비교하기 →" class="button big" id="compsize" onclick="sendFrm()"></li>
-									</ul>
-								</div> -->
-										<!-- 	</form> -->
 									</article>
 								</div>
 
 								<div>
 									<ul class="actions" id="main-compbutton">
-										<li>
-											<!-- <a href="#main">
-									<button id="compsize" class="button big">비교하기 →</button>
-							</a> --> <input type="submit" value="비교하기 →" class="button big"
-											id="compsize">
-										</li>
+										<li><input type="button" value="비교하기 →" class="button big" id="compsize" onclick="cfm();"></li>
 									</ul>
 								</div>
 
@@ -698,6 +631,7 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
 	<script>
+	var boxtype =  null;
 		function openpop(id) {
 			$(".mask, #" + id).fadeIn();
 
@@ -705,6 +639,7 @@
 		function typeChange(txt) {
 			document.getElementsByName("type")[0].value = txt;
 			//alert(document.getElementsByName("type")[0].value);
+			return txt;
 		}
 		$(function() {
 			var wrapBoxheg = resizeHeg();
@@ -734,7 +669,7 @@
 			$(".moveBtn2").bind("click", function(e) {
 				e.preventDefault();
 				var type = $(this).data("type");
-				typeChange(type);
+				boxtype = typeChange(type);
 				var target = $(this).attr("href");
 				var currentp = $(".innerWrapBox").scrollTop();
 				var targetp = $(target).position().top;
@@ -751,6 +686,7 @@
 			$(window).resize(function() {
 				wrapBoxheg = resizeHeg();
 			});
+			
 		});
 		function resizeHeg() {
 			var heg = $(window).height();
@@ -768,6 +704,60 @@
 			});
 			return wrapBoxheg;
 		}
+		
+		function numkeyCheck(e) { 
+			var keyValue = event.keyCode; 
+			if( ((keyValue >= 48) && (keyValue <= 57)) ) 
+				return true; 
+			else return false; }
+		function cfm(){
+            var tar = document.querySelector(".body-form").querySelectorAll(".maintextbox");
+            var sw = true;
+            for (var i = 0; i < tar.length; i++){
+               if(tar[i].value == ""){
+                  alert("정보를 입력해주세요");
+                  tar[i].focus();
+                  sw = false;
+                  break;
+               }   
+            }
+            if(sw) cfm2();
+         }
+      function cfm2(){
+         var target = null;
+         var sw = true;
+         switch (boxtype) {
+         case "T":
+            target=document.querySelector("#top");
+            break;
+         case "O":
+            target=document.querySelector("#outer");
+            break;
+         case "P":
+            target=document.querySelector("#pants");
+            break;
+         case "Sk":
+            target=document.querySelector("#skirt");
+            break;
+         case "Op":
+            target=document.querySelector("#onepiece");
+            break;
+         default:
+            target=document.querySelector("#top");
+            break;
+         }
+         
+         var inputs= target.querySelectorAll(".maintextbox");
+         for (var i = 0; i < inputs.length; i++) {
+            if(inputs[i].value == ""){
+                  alert("정보를 입력해주세요");
+                  inputs[i].focus();
+                  sw = false;
+                  break;
+               }   
+         }
+         if(sw) document.inputInfor.submit();
+      }
 	</script>
 	<c:if test="${result eq 3}">
 		<script>
