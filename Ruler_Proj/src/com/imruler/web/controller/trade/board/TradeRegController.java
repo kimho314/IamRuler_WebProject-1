@@ -60,16 +60,18 @@ public class TradeRegController extends HttpServlet {
 			for (Cookie key : cookie) {
 				Cookie c = key;
 				cValue = c.getValue();
+				break;
 			}
 		}
 		if (cookie != null) {
 			for (Cookie key : cookie) {
 				Cookie c = key;
 				cValue = c.getValue();
+				break;
 			}
 		}
 		HttpSession session = request.getSession();
-	
+
 		String userId = cValue;
 		if (userId == null) {
 			userId = (String) session.getAttribute("userName");
@@ -82,14 +84,13 @@ public class TradeRegController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int userId = 0;
-		String userName ="";
-		if(request.getSession().getAttribute("userName") != null)
-		{
+		String userName = "";
+		if (request.getSession().getAttribute("userName") != null) {
 			userName = (String) request.getSession().getAttribute("userName");
 		}
 		Member member = memberService.get(userName);
 		userId = member.getId();
-		
+
 		int boardId = 0;
 		String title = "";
 		String content = "";
@@ -117,17 +118,17 @@ public class TradeRegController extends HttpServlet {
 		String complete_ = request.getParameter("complete");
 		if (complete_ != null && !complete_.equals(""))
 			complete = complete_;
-//		String userId_ = request.getParameter("userId");
-//		if (userId_ != null && !userId_.equals(""))
-//			userId = Integer.parseInt(userId_);
+		// String userId_ = request.getParameter("userId");
+		// if (userId_ != null && !userId_.equals(""))
+		// userId = Integer.parseInt(userId_);
 		String tag_ = request.getParameter("tag");
 		if (tag_ != null && !tag_.equals(""))
 			tag = tag_;
-		
+
 		Collection<Part> parts = request.getParts();
 
 		String fileNames = "";
-		
+
 		for (Part p : parts) {
 			if (!p.getName().equals("files"))
 				continue;
@@ -156,10 +157,10 @@ public class TradeRegController extends HttpServlet {
 				fos.write(buf, 0, size);
 			fos.close();
 		}
-		fileNames = fileNames.substring(0, fileNames.length()-1);
-		
-		//String userName = (String) request.getSession().getAttribute("userName");
-		
+		fileNames = fileNames.substring(0, fileNames.length() - 1);
+
+		// String userName = (String) request.getSession().getAttribute("userName");
+
 		int result = tradeService.insertTrade(new TradeBoard(title, content, tag, userId));
 		System.out.println("result: " + result);
 		boardId = tradeService.getBoardId();
@@ -167,7 +168,7 @@ public class TradeRegController extends HttpServlet {
 		System.out.println("result2: " + result2);
 		int result3 = tradeImgService.insert(new TradeImg(boardId, fileNames));
 		System.out.println("result3: " + result3);
-		
+
 		response.sendRedirect("list");
 
 	}

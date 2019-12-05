@@ -34,14 +34,13 @@ public class IndexController extends HttpServlet {
 		if (cookie != null || session.getAttribute("userName") != null) {
 			String cValue = null;
 			
-			System.out.println(cookie);
-			System.out.println(session.getAttribute("userName"));
-			
 			if (cookie != null) {
 				for (Cookie key : cookie) {
 					Cookie c = key;
 					cValue = c.getValue();
+					break;
 				}
+				System.out.println(cValue + "1???");
 			}
 			
 			System.out.println(cValue);

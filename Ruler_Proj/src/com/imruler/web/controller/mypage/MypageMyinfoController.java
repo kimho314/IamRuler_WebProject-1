@@ -37,6 +37,7 @@ public class MypageMyinfoController extends HttpServlet {
 			for (Cookie key : cookie) {
 				Cookie c = key;
 				cValue = c.getValue();
+				break;
 			}
 		}
 
@@ -76,6 +77,7 @@ public class MypageMyinfoController extends HttpServlet {
 			for (Cookie key : cookie) {
 				Cookie c = key;
 				cValue = c.getValue();
+				break;
 			}
 		}
 
@@ -97,9 +99,9 @@ public class MypageMyinfoController extends HttpServlet {
 				String gender = req.getParameter("성별");
 				int age = Integer.parseInt(req.getParameter("연령대"));
 				String bodyshape = req.getParameter("체형");
-				
+
 				memberService.myInfoDeleteMember(memberService.get(userId).getId());
-				
+
 				int isDuplicated = memberService.isDuplicatedIdMyInfo(userId, userPwd, userPwdRequest, phone, email);
 
 				if (isDuplicated != 0) {
