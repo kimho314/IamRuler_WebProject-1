@@ -28,17 +28,22 @@ public class IndexController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		Cookie[] cookie = request.getCookies();
 		HttpSession session = request.getSession();
 		if (cookie != null || session.getAttribute("userName") != null) {
 			String cValue = null;
+			
+			System.out.println(cookie);
+			System.out.println(session.getAttribute("userName"));
+			
 			if (cookie != null) {
 				for (Cookie key : cookie) {
 					Cookie c = key;
 					cValue = c.getValue();
 				}
 			}
-
+			
 			System.out.println(cValue);
 			String userId = null;
 			userId = cValue;
@@ -46,12 +51,13 @@ public class IndexController extends HttpServlet {
 			if (userId.equals(null)) {
 				userId = (String) session.getAttribute("userName");
 			}
-			if(memberService.get(userId) != null) {
-			request.setAttribute("userAge", memberService.get(userId).getAge());
-			request.setAttribute("userBodyshape", memberService.get(userId).getBodyshape());
-			request.setAttribute("userGender", memberService.get(userId).getGender());
-			request.setAttribute("userHeight", memberService.get(userId).getHeight());
-			request.setAttribute("userWeight", memberService.get(userId).getWeight());
+			if (memberService.get(userId) != null) {
+				request.setAttribute("userAge", memberService.get(userId).getAge());
+				System.out.println( memberService.get(userId).getAge());
+				request.setAttribute("userBodyshape", memberService.get(userId).getBodyshape());
+				request.setAttribute("userGender", memberService.get(userId).getGender());
+				request.setAttribute("userHeight", memberService.get(userId).getHeight());
+				request.setAttribute("userWeight", memberService.get(userId).getWeight());
 			}
 		}
 
