@@ -45,7 +45,7 @@
 						</tr>
 						<tr>
 							<th class="center">작성자</th>
-							<td>${t.mUserName}</td>
+							<td>${userName}</td>
 						</tr>
 						<tr>
 							<th class="center">등록일자</th>
@@ -104,7 +104,7 @@
 								<div class="select-wrapper">
 									<select name="bodyShape">
 											<option value="">체형</option>
-											<option value="선택안함" <c:if test="${t.itemRegion eq '선택안함'}">selected</c:if>>선택안함</option>
+											<option value="선택안함" <c:if test="${t.itemRegion eq '보통'}">selected</c:if>>보통</option>
 											<option value="작은 역삼각형" <c:if test="${t.itemRegion eq '작은 역삼각형'}">selected</c:if>>작은 역삼각형</option>
 											<option value="큰삼각형" <c:if test="${t.itemRegion eq '큰삼각형'}">selected</c:if>>큰삼각형</option>
 											<option value="역삼각형" <c:if test="${t.itemRegion eq '역삼각형'}">selected</c:if>>역삼각형</option>

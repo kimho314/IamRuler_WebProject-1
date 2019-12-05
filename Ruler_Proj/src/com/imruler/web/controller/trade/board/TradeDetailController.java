@@ -52,9 +52,15 @@ public class TradeDetailController extends HttpServlet {
 		if (cookie != null) {
 			for (Cookie key : cookie) {
 				Cookie c = key;
-				if (c.getName().equals("userName")) {
-					cValue = c.getValue();
-				}
+				cValue = c.getValue();
+				break;
+			}
+		}
+		if (cookie != null) {
+			for (Cookie key : cookie) {
+				Cookie c = key;
+				cValue = c.getValue();
+				break;
 			}
 		}
 		HttpSession session = request.getSession();

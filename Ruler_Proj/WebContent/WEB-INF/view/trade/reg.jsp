@@ -102,7 +102,7 @@
 								<div class="select-wrapper">
 									<select name="bodyShape">
 											<option value="">체형</option>
-											<option value="선택안함">선택안함</option>
+											<option value="선택안함">보통</option>
 											<option value="역삼각형">작은 역삼각형</option>
 											<option value="큰삼각형">큰삼각형</option>
 											<option value="역삼각형">역삼각형</option>

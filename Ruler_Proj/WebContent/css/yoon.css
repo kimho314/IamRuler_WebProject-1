@@ -8,6 +8,7 @@
 	margin: 0px;
 	padding: 0px;
 	float: right;
+	padding-bottom: -1em;
 }
 
 .select-wrapper{
@@ -116,6 +117,19 @@ ul.a li{
 .inlineblock{
 	display:inline-block;
 }
+
+.reg-btn{
+	width: 7em;
+}
+
+tnwjdtkrwp2{
+	height:100%;
+}
+#tnwjdtkrwp input[type="button"]{font-size: 1em; font-weight: 0;box-shadow:none !important;border:0 !important;color:gray !important;padding:0 !important}
+#tnwjdtkrwp input[type="button"]:hover{background:none !important}
+#tnwjdtkrwp2 input[type="submit"]{font-size: 1em; font-weight: 0;box-shadow:none !important;border:0 !important;color:gray !important;padding:0 !important}
+#tnwjdtkrwp2 input[type="submit"]:hover{background:none !important}
+
 
 .trade-mask{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5)}
 .trade-popup{position:absolute;top:0;left:0;width:100%;height:1px;z-index:1}

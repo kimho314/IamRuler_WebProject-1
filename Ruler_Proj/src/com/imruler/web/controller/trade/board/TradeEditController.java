@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.List;
 
@@ -98,6 +99,7 @@ public class TradeEditController extends HttpServlet{
 		Collection<Part> parts = request.getParts();
 
 		String fileNames = "";
+		String urlPath = File.separator + "ruler_storage";
 
 		for (Part p : parts) {
 			if (!p.getName().equals("files"))
@@ -105,10 +107,9 @@ public class TradeEditController extends HttpServlet{
 
 			Part filePart = p;
 			String fileName = filePart.getSubmittedFileName(); // 전송한 파일명
-			fileNames += fileName + ",";
+			fileNames += (urlPath + File.separator + fileName + ",");
 
 			ServletContext application = request.getServletContext();
-			String urlPath = "/upload";
 			String realPath = application.getRealPath(urlPath);
 
 			File file = new File(realPath);
@@ -118,16 +119,30 @@ public class TradeEditController extends HttpServlet{
 				System.out.println("경로존재");
 
 			InputStream fis = filePart.getInputStream(); // 전송한 파일의 스트림
-			OutputStream fos = new FileOutputStream(realPath + File.separator + fileName);
-
+			try(FileOutputStream fos = new FileOutputStream(realPath + File.separator + fileName))
+			{
 			byte[] buf = new byte[1024];
 			int size = 0;
 			while ((size = fis.read(buf)) != -1)
 				fos.write(buf, 0, size);
 			fos.close();
+		}catch (Exception e)
+			{
+			// TODO: handle exception
+			response.setContentType("text/html;charset=UTF-8");
+			response.setCharacterEncoding("UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert(\"No Image File Found\");");
+			out.println("history.back(-1);");
+			out.println("</script>");
+
+			return;
 		}
-		fileNames = fileNames.substring(0, fileNames.length()-1);
-		
+		}
+			
+		fileNames = fileNames.substring(0, fileNames.length() - 1);
+
 		String userName = (String) request.getSession().getAttribute("userName");
 		
 		

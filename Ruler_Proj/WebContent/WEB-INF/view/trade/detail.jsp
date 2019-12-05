@@ -32,15 +32,12 @@
 
             <br>
             <form action="/trade/detail" method="post" name="frm">
-           <!--  <form action="/trade/detail" method="post">  -->
             <div>
             <c:if test="${ boardUserName == userName }">
-               <div class="edel">
+               <div class="edel" id="tnwjdtkrwp2">
                   <ul class="icons">
-                     <!-- <li><a href=""><span class="label gray">수정</span></a></li> -->
-                     <li><input type="submit" name="edel" value="수정" id="지우기"/></li>
+                     <li><input type="submit" name="edel" value="수정"/></li>
                      <li><span class="label">|</span></li>
-                     <!-- <li><a href=""><span class="label gray">삭제</span></a></li> -->
                      <li><input type="submit" name="edel" value="삭제"/></li> 
                   </ul>
                </div>
@@ -71,10 +68,6 @@
                            <th class="center">거래여부</th>
                            <td>${t.bTag}</td>
                         </tr>
-                       <%--  <tr>
-                           <th class="center">거래여부</th>
-                           <td colspan="3" class="left">${t.bTag}</td>
-                        </tr>  --%>
                         <tr>
                            <th class="center">첨부파일</th>
                            <td colspan="3" class="left">
@@ -87,7 +80,6 @@
                   <div>${t.bContent}</div>
                </div>
                <br>
-              <!--  </form> -->
                <script>
                	   window.addEventListener("load",function(){
                    var cid = document.querySelector("input[name=cId]");
@@ -100,7 +92,6 @@
                          cid.value = e.target.nextElementSibling.value;
                          cmd.value = "삭제";
                          alert(cmd.value);
-                         //alert(e.target);
                          document.frm.submit();
                       }
                    for (var i = 0; i < editBtn.length; i++) 
@@ -113,26 +104,20 @@
                          var cContent = document.getElementsByName("cContent")[0];
                          cContent.value = content;
                          regBtn.onclick=function(e){
-                             //cid.value = e.target.nextElementSibling.value;
                              cmd.value = "수정";
-                             //alert(cmd.value);
-                             //alert(e.targetnextElementSibling.nodeName);
                              document.frm.submit();
                           }
 
                       }
                    regBtn.onclick=function(e){
-                       //cid.value = e.target.nextElementSibling.value;
                        cmd.value = "등록";
-                       //alert(cmd.value);
-                       //alert(e.targetnextElementSibling.nodeName);
                        document.frm.submit();
                     }
                 });
                </script>
                 <input type="hidden" name="cId"/>
                <input type="hidden" name="cmd"/>
-				<table id="tradeCommentId">
+				<table id="tnwjdtkrwp">
 					<tbody>
 						<c:forEach var="c" items="${c}">
 							<c:if test="${0 ne c.cId}">
@@ -141,7 +126,7 @@
 										<td>
 											<div>
 												<c:if test="${ c.mUserName == userName }">
-												<div>
+												<div class="">
 													<ul class="a">
 														<li><input type="hidden" value="${c.cContent}">
 														<input type="button" class="gray edit-btn" name="cmd" value="수정"> 
@@ -161,105 +146,70 @@
 									</tr>
 								</c:if>
 								<c:if test="${c.cOpenStatus==1}">
-									<%-- <c:if test="${t.mUserName != userName && c.mUserName != userName }">
-										<tr>
-											<td>
-												<div>
-													<div id="name">
-														<i class="fas fa-lock"></i> ***
+									<tr>
+										<td>
+											<div>
+												<c:if test="${ c.mUserName == userName }">
+													<div>
+														<ul class="a">
+															<li><input type="hidden" value="${c.cContent}">
+															<input type="button" class="gray edit-btn"
+																name="cmd" value="수정"> <input type="hidden"
+																value="${c.cId}"></li>
+															<li><span>|</span></li>
+															<li><input type="button" class="gray delete-btn"
+																name="cmd" value="삭제"> <input type="hidden"
+																value="${c.cId}"></li>
+														</ul>
 													</div>
-													<div id="date">${c.cRegdate}</div>
-												</div>
-												<div id="content">비밀 댓글입니다.</div>
-											</td>
-										</tr>
-									</c:if> --%>
-									
-										<tr>
-											<td>
-												<div>
-													<c:if test="${ c.mUserName == userName }">
-														<div>
-															<ul class="a">
-																<li><input type="button" class="gray edit-btn"
-																	name="cmd" value="수정"> <input type="hidden"
-																	value="${c.cId}"></li>
-																<li><span>|</span></li>
-																<li><input type="button" class="gray delete-btn"
-																	name="cmd" value="삭제"> <input type="hidden"
-																	value="${c.cId}"></li>
-															</ul>
-														</div>
+												</c:if>
+												
+												<div id="name">
+													<i class="fas fa-lock"></i> 
+													<c:if test="${boardUserName != userName && c.mUserName != userName}">
+													***
 													</c:if>
+													<c:if test="${boardUserName == userName || c.mUserName == userName}">
+														${c.mUserName}
+													</c:if>
+													</div>
 													
-													<div id="name">
-														<i class="fas fa-lock"></i> 
-														<c:if test="${boardUserName != userName && c.mUserName != userName}">
-														***
-														</c:if>
-														<%-- <c:if test="${t.mUserName == userName && c.mUserName != userName}">
-															${c.mUserName}
-														</c:if> --%>
-														<c:if test="${boardUserName == userName || c.mUserName == userName}">
-															${c.mUserName}
-														</c:if>
-														</div>
-														
-												
-												<div id="date">${c.cRegdate}</div>
-												</div>
-												<%-- ${c.mUserName} --%>
-												<c:if test="${boardUserName == userName || c.mUserName == userName}">
-												<div id="content">${c.cContent}</div>
-												</c:if>
-												
-												<c:if test="${boardUserName != userName }">
-												<div id="content">비밀댓글입니다</div>
-												</c:if>
-											</td>
+											
+											<div id="date">${c.cRegdate}</div>
+											</div>
+											<c:choose>
+											<c:when test="${boardUserName == userName || c.mUserName == userName }">
+											<div id="content">${c.cContent}</div>
+											</c:when>
+											<c:when test="${boardUserName != userName && c.mUserName != userName}">
+											<div id="content">비밀댓글입니다</div>
+											</c:when>
+											</c:choose>
+										</td>
 										</tr>
-
-
 									</c:if>
 								</c:if>
-						
 						</c:forEach>
 					</tbody>
-
 				</table>
 					
 					<c:if test="${not empty userName}">
 					<input type="hidden" name="bId" value="${t.bId}"/>
                		<div class="box" id="location">
-               		<%-- <c:if test="${cmd eq '수정'}">
-                  		<textarea placeholder="댓글을 입력해주세요" rows="6" name="cContent">${c.cContent}</textarea>
-                 	 </c:if>
-                  <c:if test="${cmd not eq '수정'}">
                  	<textarea placeholder="댓글을 입력해주세요" rows="6" name="cContent"></textarea>
-                  </c:if> --%>
-                       
-                 	
-       		
-                 	<textarea placeholder="댓글을 입력해주세요" rows="6" name="cContent"></textarea>
-     
                   <div></div>
                   <div class="commentreg">
                      <div class="6u 12u$(small) inlineblock">
                         <input type="checkbox" id="secret" name="cOpenStatus"> <label for="secret">비밀글</label>
                      </div>
                      <div class="reg inlineblock">
-                     	<input class="button special reg-btn" name="cmd" value="등록">
+                     	<input class="button special reg-btn reg" name="cmd" value="등록">
                      </div>
                      <input type="hidden" name="bId" value="${t.cId}"/>
                   </div>
 				</div>
 				</c:if>
 				
-			
-				
-				
-			
-
                   <div class="btn center">
                      <a href="/trade/list" class="button">목록</a>
                   </div>
@@ -280,16 +230,12 @@
 					
                   <!-- Section -->
                   <section></section>
-
-               
             </div>
             
          </div>
       </div>
-	
       	<!-- Sidebar -->
 	<jsp:include page="../inc/aside.jsp"></jsp:include>
-
    </div>
 
    <!-- Scripts -->
