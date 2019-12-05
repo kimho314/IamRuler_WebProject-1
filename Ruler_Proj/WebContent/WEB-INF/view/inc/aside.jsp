@@ -11,7 +11,7 @@
 		<div class="inner">
 			<!-- Menu -->
 				<nav id="menu">
-					<h1 class="logo"><a href="/"><img src="../images/logo.png" alt="아임룰러" /></a></h1>
+					<h1 class="logo"><a href="/index"><img src="../images/logo.png" alt="아임룰러" /></a></h1>
 					<h2 class="hidden">메인 메뉴</h2>
 					<ul>
 						<li class="<c:if test="${pathUrl == 'index'}">on</c:if>"><a href="/index">사이즈비교</a></li>

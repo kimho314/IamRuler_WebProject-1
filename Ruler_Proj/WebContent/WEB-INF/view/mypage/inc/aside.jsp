@@ -10,7 +10,7 @@
 		<div class="inner">
 			<!-- Menu -->
 				<nav id="menu">
-					<h1 class="logo"><a href="/"><img src="../images/logo.png" alt="아임룰러" /></a></h1>
+					<h1 class="logo"><a href="/index"><img src="../images/logo.png" alt="아임룰러" /></a></h1>
 					<h2 class="hidden">마이페이지 메뉴</h2>
 					<ul>
 						<li class="<c:if test="${pathUrl == 'reg'}">on</c:if>">
