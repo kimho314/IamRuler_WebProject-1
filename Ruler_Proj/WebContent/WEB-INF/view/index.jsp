@@ -82,17 +82,17 @@
 									<tr class="inforform">
 										<th>성별</th>
 										<td id="inforline">
-										<c:if test="${userGender == '여성' || empty userGender}"><div class="maingender">
-												<input type="radio" id="demo-priority-low" name="gender" value="woman" checked><!--  -->
+										<div class="maingender">
+												<input type="radio" id="demo-priority-low" name="gender" value="woman" <c:if test="${userGender == '여성'|| empty userGender}">checked</c:if>><!--  -->
 												<label for="demo-priority-low">여성</label>
 											</div>
 
 											<div class="maingender">
-												<input type="radio" id="demo-priority-normal" name="gender" value="man"><!--  -->
+												<input type="radio" id="demo-priority-normal" name="gender" value="man" <c:if test="${userGender == '남성'}">checked</c:if>><!--  -->
 												<label for="demo-priority-normal">남성</label>
 											</div>
-										</c:if>
-										<c:if test="${userGender == '남성'}"><div class="maingender">
+										
+										<%-- <c:if test="${userGender == '남성'}"><div class="maingender">
 												<input type="radio" id="demo-priority-low" name="gender" value="woman"><!--  -->
 												<label for="demo-priority-low">여성</label>
 											</div>
@@ -101,7 +101,7 @@
 												<input type="radio" id="demo-priority-normal" name="gender" value="man" checked><!--  -->
 												<label for="demo-priority-normal">남성</label>
 											</div>
-										</c:if>
+										</c:if> --%>
 											
 											
 										</td>
@@ -243,109 +243,119 @@
 						<h2>의류 선택</h2>
 					</header>
 					<!-- 여성 선택 -->
+					<script>
+						$(function(){
+							$(".moveBtn2").click(function(e){
+								typeChange('T');
+								
+							})
+						})
+					</script>
 					<div class="features" id="genderW">
 						<article id="checkTop" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('T')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin moveBtn2" data-type=''> <span class="icon"></span>
 									<img src="images/main_ic1.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('T')" class="moveBtn">상의</a>
+									<a href="#detailsize" onclick="typeChange('T');moveBtn(this.href);" >상의</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkOuter" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('O')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin " onclick="typeChange('O');moveBtn(this.href);"> <span class="icon"></span>
 									<img src="images/main_ic3.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('O')" class="moveBtn">아우터</a>
+									<a href="#detailsize" onclick="typeChange('O');moveBtn(this.href);" class="moveBtn">아우터</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkPants" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('P')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin " onclick="typeChange('P');moveBtn(this.href);"> <span class="icon"></span>
 									<img src="images/main_ic2.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('P')" class="moveBtn">바지</a>
+									<a href="#detailsize" onclick="typeChange('P');moveBtn(this.href);">바지</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkSkirt" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('Sk')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin " onclick="typeChange('Sk');moveBtn(this.href);"> <span class="icon"></span>
 									<img src="images/main_ic4.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('Sk')" class="moveBtn">치마</a>
+									<a href="#detailsize" onclick="typeChange('Sk');moveBtn(this.href);">치마</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkOnepiece" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('Op')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin " onclick="typeChange('Op');moveBtn(this.href);"> <span class="icon"></span>
 									<img src="images/main_ic5.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('Op')" class="moveBtn">원피스</a>
+									<a href="#detailsize" onclick="typeChange('Op');moveBtn(this.href);">원피스</a>
 								</h3>
 							</div>
 						</article>
 					</div>
+					
 					<!-- 남성 선택 -->
-					<div class="features" id="genderM">
+					
+					<div class="features" id="genderM" style="display : none;">
 						<article id="checkTop" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn"> <span class="icon"></span>
+								<a href="#detailsize" class="spin " onclick="typeChange('T');moveBtn(this.href);"> <span class="icon"></span>
 									<img src="images/main_ic1.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('T')" class="moveBtn">상의</a>
+									<a href="#detailsize" onclick="typeChange('T');moveBtn(this.href);" >상의</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkOuter" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('O')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin" onclick="typeChange('O');moveBtn(this.href);"> <span class="icon"></span>
 									<img src="images/main_ic3.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('O')" class="moveBtn">아우터</a>
+									<a href="#detailsize" onclick="typeChange('O');moveBtn(this.href);" >아우터</a>
 								</h3>
 							</div>
 						</article>
 
 						<article id="checkPants" class="clothcheck-box">
 							<div class="iconBox">
-								<a href="#detailsize" class="spin moveBtn" onclick="typeChange('P')"> <span class="icon"></span>
+								<a href="#detailsize" class="spin" onclick="typeChange('P');moveBtn(this.href);"> <span class="icon"></span>
 									<img src="images/main_ic2.png" alt="#" />
 								</a>
 							</div>
 							<div class="description">
 								<h3>
-									<a href="#detailsize" onclick="typeChange('P')" class="moveBtn">바지</a>
+									<a href="#detailsize" onclick="typeChange('P');moveBtn(this.href);">바지</a>
 								</h3>
 							</div>
 						</article>
@@ -665,9 +675,14 @@
 		}	
 		function typeChange(txt){
 			document.getElementsByName("type")[0].value=txt;
-			//alert(document.getElementsByName("type")[0].value);
+			alert(document.getElementsByName("type")[0].value);
 		}
-		
+		function moveBtn(target){
+	            alert(target);
+	            var currentp = $(".innerWrapBox").scrollTop();
+	            var targetp = $(target).position().top;
+	           $(".innerWrapBox").animate({scrollTop : currentp+targetp},400);
+		}
 	      $(function(){
 	         var wrapBoxheg = resizeHeg();
 	         //alert(wrapBoxheg);
@@ -681,12 +696,12 @@
 	            $("#banner").hide();	            
 	         });
 	         
-	         $(".moveBtn").click(function(e){
+	         $(".moveBtn").bind("click",function(e){
 	            e.preventDefault();
 	            var target = $(this).attr("href");
 	            var currentp = $(".innerWrapBox").scrollTop();
 	            var targetp = $(target).position().top;
-	            $(".innerWrapBox").animate({scrollTop : currentp+targetp},400);         
+	            $(".innerWrapBox").animate({scrollTop : currentp+targetp},400);     
 	         });
 	         $(".topBtn").click(function(){
 	            $(".innerWrapBox").animate({scrollTop:0}, 400 );
@@ -725,6 +740,21 @@
 			openpop("con-error");
 		</script>
 	</c:if>
-
+<c:if test="${userGender == '여성'}">
+<script>
+$(function(){
+	$("#genderW").show();
+	$("#genderM").hide();
+});
+</script>
+</c:if>
+<c:if test="${userGender == '남성'}">
+<script>
+$(function(){
+$("#genderW").hide();
+$("#genderM").show();
+});
+</script>
+</c:if>
 </body>
 </html>
