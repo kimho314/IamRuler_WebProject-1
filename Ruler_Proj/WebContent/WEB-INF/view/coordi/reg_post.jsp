@@ -214,7 +214,7 @@
 								</table>
 							</div>
 
-							<div class="coordi-post-icons-bottom">
+							<div class="coordi-post-icons-bottom">								
 								<input type="hidden" name="gender-field" value="${param.g }">
 								<button class="popup-open" type="button" onclick="openPopUp()">등록</button>
 

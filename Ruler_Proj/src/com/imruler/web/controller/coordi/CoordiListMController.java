@@ -89,6 +89,7 @@ public class CoordiListMController extends HttpServlet
 			//System.out.println(key.getCi_img());
 		}
 		
+		req.setAttribute("gender", gender);
 		req.setAttribute("dibsList", dibsList);		
 		req.setAttribute("list", coordiBoardViewList);
 		req.setAttribute("listCount", coordiBoardService.getListCount(gender, bodyshape));

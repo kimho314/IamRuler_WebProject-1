@@ -49,7 +49,7 @@
 								</div>
 								<div class="visual-top-right">
 									<c:if test="${not empty userName }">
-									<a href="reg_post?g=${param.g}" class="button special small">글쓰기</a>
+									<a href="reg_post?g=${gender}" class="button special small">글쓰기</a>
 									</c:if>
 								</div>
 							</div>
