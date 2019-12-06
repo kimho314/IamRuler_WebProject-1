@@ -27,13 +27,18 @@ public class JdbcCoordiBoardViewDao implements CoordiBoardViewDao
 	{
 		List<CoordiBoardView> list = new ArrayList<>();
 		CoordiBoardView coordiBoardView = null;
-
-		String sql = "SELECT * FROM(\r\n" + 
-				"SELECT ROWNUM NUM, N.* FROM(\r\n" + 
-				"SELECT * FROM coordi_board_view where co_gender = " + "'" + gender + "'" + ") N\r\n" + 
-				"WHERE co_bodyshape LIKE ?)\r\n" + 
-				"WHERE NUM BETWEEN ? AND ?\r\n" + 
-				"ORDER BY cb_regdate DESC";
+		
+		String sql = "SELECT * FROM(SELECT ROWNUM NUM2, N.* FROM(SELECT ROWNUM NUM, N.* "
+				+ "FROM(SELECT * FROM coordi_board_view where co_gender = "+ "'" + gender + "'" + ") N\r\n" + 
+				"WHERE co_bodyshape LIKE ? ORDER BY cb_regdate DESC) N) WHERE NUM2 BETWEEN ? AND ?";
+		/*
+		 * String sql = "SELECT * FROM(\r\n" +
+		 * "SELECT ROWNUM NUM, N.* FROM(\r\n" +
+		 * "SELECT * FROM coordi_board_view where co_gender = " + "'" + gender + "'" + ") N\r\n" +
+		 * "WHERE co_bodyshape LIKE ?)\r\n" +
+		 * "WHERE NUM BETWEEN ? AND ?\r\n" +
+		 * "ORDER BY cb_regdate DESC";
+		 */
 		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		
 		Connection con = null;

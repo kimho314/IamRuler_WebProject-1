@@ -118,7 +118,7 @@
 								<colgroup width="20%"></colgroup>
 								
 								<tr class="coordi-list-tr-wrapper">
-									<c:forEach var="n" items="${list }" varStatus="status">
+									<c:forEach var="n" items="${list }" varStatus="status">										
 										<c:if test="${status.index >=0 && status.index < 5 }">
 											<c:if test="${empty param.b }">
 											<td>

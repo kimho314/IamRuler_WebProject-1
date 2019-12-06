@@ -72,7 +72,7 @@ public class CoordiListMController extends HttpServlet
 		List<CoordiBoardView> coordiBoardViewList =  coordiBoardService.getList(page, gender, bodyshape);
 		for (CoordiBoardView key : coordiBoardViewList)
 		{
-			
+			//System.out.println(key.toString());
 			String tmpStr = key.getCi_img().replace("\\", "/");
 			String retStr = "";
 			if (tmpStr.indexOf(",") != -1)
