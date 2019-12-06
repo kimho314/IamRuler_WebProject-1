@@ -92,31 +92,26 @@ public class TradeDetailController extends HttpServlet {
 		request.setAttribute("boardUserName", boardUserName);
 		}
 		
-		String tmpStr = tradeViewService.getTrade(id).getImg().replace("\\", "/");
-		String[] imgs = new String[] {""};
-		if(tmpStr != null && !tmpStr.equals(""))
-		{				
-			if (tmpStr.indexOf(",") != -1)
-			{
-				imgs = tmpStr.split(",");
-			}
-			else
-			{
-				imgs[0] = tmpStr;
-			}
-			
-			for(String img : imgs)
-			{
-				ServletContext application = request.getServletContext();
-				String realPath = application.getRealPath(img);
-				img = realPath;
-				System.out.println("img"+img);
-			}
-			
-		}
-		request.setAttribute("imgs", imgs);
-		
+		String tmpStr = null;
+		if (tradeViewService.getTrade(id).getImg() != null) {
+			tmpStr = tradeViewService.getTrade(id).getImg().replace("\\", "/");
+			String[] imgs = new String[] { "" };
+			if (tmpStr != null && !tmpStr.equals("")) {
+				if (tmpStr.indexOf(",") != -1) {
+					imgs = tmpStr.split(",");
+				} else {
+					imgs[0] = tmpStr;
+				}
 
+				for (String img : imgs) {
+					ServletContext application = request.getServletContext();
+					String realPath = application.getRealPath(img);
+					img = realPath;
+					System.out.println("img" + img);
+				}
+			}
+			request.setAttribute("imgs", imgs);
+		}
 		request.getRequestDispatcher("/WEB-INF/view/trade/detail.jsp").forward(request, response);
 	}
 
