@@ -68,7 +68,7 @@
 											onclick="openPopUp()">찜해제</a>
 										</c:if>
 									</c:if>
-									<c:if test="${pdetail.m_userName eq userName }">
+									<c:if test="${pdetail.m_userName eq userName && not empty pdetail.m_userName}">
 										<a href="post?cb_id=${param.cb_id }&g=${pdetail.co_gender}&opt=1"
 											class="button small"
 											style="box-shadow: none; font-size: 100%; padding: 0 1em;">수정</a>
@@ -97,9 +97,18 @@
 
 								<tr>
 									<td>작성자</td>
-									<td><input readonly type="text"
+									<td>
+										<c:if test="${not empty pdetail.m_userName }">
+										<input readonly type="text"
 										name="coordi-post-table-title" id="demo-name" value="${pdetail.m_userName }"
-										placeholder="작성자" /></td>
+										placeholder="작성자" />
+										</c:if>
+										<c:if test="${empty pdetail.m_userName }">
+										<input readonly type="text"
+										name="coordi-post-table-title" id="demo-name" value="${pdetail.m_userName }"
+										placeholder="[탈퇴한 회원 입니다]" />
+										</c:if>
+									</td>
 									<td>게시 날짜</td>
 									<td><input readonly type="text"
 										name="coordi-post-table-title" id="demo-name" value="${pdetail.cb_regdate }"

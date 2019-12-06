@@ -51,28 +51,37 @@
 						</div>
 
 						<div class="coordi-comment-list-wrapper box scroll-y">
+							
 							<ul>
 								<c:forEach var="n" items="${cmtList }" varStatus="status">
-									<li class="coordi-comment-outer-list box">
-										<div class="coordi-comment-top">
+									<li class="coordi-comment-outer-list box">										
+										<div class="coordi-comment-top">											
 											<div class="coordi-comment-top-left">
 												<ul>
 													<li>														
-														<c:if test="${n.ccmt_openStat == 1 }">
+														<c:if test="${n.ccmt_openStat == 1 }">															
 															<span><i class="fas fa-lock"></i></span>
 															<c:if test="${isWriter == 0 && n.m_userName != userName}">
 																<span>*****</span>
-															</c:if>
+															</c:if>		
+															
+															<c:if test="${not empty n.m_userName }">													
 															<c:if test="${n.m_userName == userName}">
 																<span>${n.m_userName }</span>
 															</c:if>
 															<c:if test="${isWriter == 1 && userName != n.m_userName }">
 																<span>${n.m_userName }</span>
+															</c:if>
 															</c:if>															
 														</c:if>
 														
 														<c:if test="${n.ccmt_openStat != 1 }">
+															<c:if test="${not empty n.m_userName }">
 															<span>${n.m_userName }</span>
+															</c:if>
+															<c:if test="${empty n.m_userName }">
+															<span>[탈퇴 회원]</span>
+															</c:if>
 														</c:if>														
 													</li>
 													<li>														
@@ -81,6 +90,7 @@
 												</ul>
 											</div>
 											<div class="coordi-comment-top-right">
+												<c:if test="${not empty  n.m_userName }">
 												<c:if test="${n.m_userName eq userName }">
 												<ul>
 													<li>
@@ -91,28 +101,31 @@
 													</li>
 												</ul>
 												</c:if>
+												</c:if>
 											</div>
 										</div>
-										<div class="coordi-comment-bottom">
-											<c:if test="${n.ccmt_openStat == 1 }">
-												<c:if test="${isWriter == 0 && userName != n.m_userName }">
+										<div class="coordi-comment-bottom">											
+											<c:if test="${n.ccmt_openStat == 1 }">																							
+												<c:if test="${isWriter == 0 && (userName != n.m_userName || empty  n.m_userName) }">
 													<p>비밀 댓글입니다.</p>
-												</c:if>												
+												</c:if>		
+												<c:if test="${not empty  n.m_userName }">										
 												<c:if test="${userName == n.m_userName }">
 													<p>${n.ccmt_content }</p>
 												</c:if>
 												<c:if test="${isWriter == 1 && userName != n.m_userName }">
 													<p>${n.ccmt_content }</p>
+												</c:if>												
 												</c:if>
 											</c:if>
-											
 											<c:if test="${n.ccmt_openStat != 1 }">
 												<p>${n.ccmt_content }</p>
-											</c:if>
+											</c:if>											
 										</div>
 									</li>
 								</c:forEach>
 							</ul>
+							
 						</div>
 
 						<form action="comment" method="post">
