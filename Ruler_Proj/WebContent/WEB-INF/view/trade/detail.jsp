@@ -37,7 +37,7 @@
                <div class="edel" id="tnwjdtkrwp2">
                   <ul class="icons">
                      <li><input type="submit" name="edel" value="수정"/></li>
-                     <li><span class="label">|</span></li>
+                     <!-- <li><span class="label">|</span></li> -->
                      <li><input type="submit" name="edel" value="삭제"/></li> 
                   </ul>
                </div>
@@ -52,8 +52,13 @@
 
                         <tr>
                            <th class="center">작성자</th>
-                           <td>${boardUserName}</td>
-                           <th class="center">등록일자</th>
+                           <c:if test="${boardUserName != null}">
+                          <td>${boardUserName}</td>
+                          </c:if>
+							<c:if test="${boardUserName == null}">
+								<td>[탈퇴한 회원입니다]</td>
+							</c:if>
+							<th class="center">등록일자</th>
                            <td>${t.bRegdate}</td>
                         </tr>
                         <tr>
@@ -131,13 +136,16 @@
 														<li><input type="hidden" value="${c.cContent}">
 														<input type="button" class="gray edit-btn" name="cmd" value="수정"> 
 														<input type="hidden" value="${c.cId}"></li>
-														<li><span>|</span></li>
+														<!-- <li><span>|</span></li> -->
 														<li><input type="button" class="gray delete-btn"
 															name="cmd" value="삭제"> <input type="hidden"
 															value="${c.cId}"></li>
 													</ul>
 												</div>
 												</c:if>
+												<c:if test="${c.mUserName == null}">
+														<span>[탈퇴한 회원입니다]</span>
+													</c:if>
 												<div id="name">${c.mUserName}</div>
 												<div id="date">${c.cRegdate}</div>
 											</div>
@@ -156,7 +164,7 @@
 															<input type="button" class="gray edit-btn"
 																name="cmd" value="수정"> <input type="hidden"
 																value="${c.cId}"></li>
-															<li><span>|</span></li>
+															<!-- <li><span>|</span></li> -->
 															<li><input type="button" class="gray delete-btn"
 																name="cmd" value="삭제"> <input type="hidden"
 																value="${c.cId}"></li>
@@ -171,6 +179,9 @@
 													</c:if>
 													<c:if test="${boardUserName == userName || c.mUserName == userName}">
 														${c.mUserName}
+													</c:if>
+													<c:if test="${c.mUserName == null}">
+														<span>[탈퇴한 회원입니다]</span>
 													</c:if>
 													</div>
 													

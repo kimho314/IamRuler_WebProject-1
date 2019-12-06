@@ -125,9 +125,9 @@ ul.a li{
 tnwjdtkrwp2{
 	height:100%;
 }
-#tnwjdtkrwp input[type="button"]{font-size: 1em; font-weight: 0;box-shadow:none !important;border:0 !important;color:gray !important;padding:0 !important}
+#tnwjdtkrwp input[type="button"]{font-family: 'S-CoreDream-3', sans-serif; font-size: 1em; font-weight: 0;box-shadow:none !important;border:0 !important;color:black !important;padding:0 !important}
 #tnwjdtkrwp input[type="button"]:hover{background:none !important}
-#tnwjdtkrwp2 input[type="submit"]{font-size: 1em; font-weight: 0;box-shadow:none !important;border:0 !important;color:gray !important;padding:0 !important}
+#tnwjdtkrwp2 input[type="submit"]{font-family: 'S-CoreDream-3'; font-size: 1em; font-weight: 0;box-shadow:none !important;border:0 !important;color:black !important;padding:0 !important}
 #tnwjdtkrwp2 input[type="submit"]:hover{background:none !important}
 
 

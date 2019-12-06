@@ -80,20 +80,11 @@ public class TradeDetailController extends HttpServlet {
 		if (memberService.get(boardUserId) != null) {
 			boardUserName = memberService.get(boardUserId).getUserName();
 		}
-//		int num = Integer.parseInt(secret);
+
 		TradeView tradeView = tradeViewService.getTrade(id);
 		List<TradeView> tradeView2 = tradeViewService.getComment(id);
-		//List<TradeBoardView> tradeBoardView = tradeService.getTradeList(id);
-		//TradeBoard tradeBoard = tradeService.getTrade(id);
-		
 
-//		String cmd="";
-//		String cmd_ = request.getParameter("cmd");
-//		if(cmd_!=null && !cmd_.equals(""))
-//			 cmd=cmd_;
-		
-		//request.setAttribute("cmd", cmd);
-		
+		System.out.println("boardid"+id);
 		request.setAttribute("t", tradeView);
 		request.setAttribute("c", tradeView2);
 		if (memberService.get(boardUserId) != null) {
@@ -118,7 +109,7 @@ public class TradeDetailController extends HttpServlet {
 		int cBId = 1;
 		int cOpenStatus = 1;
 		String cOpenStatusString = "";
-		
+		System.out.println("CMD" + cmd);
 		int bId = 1;
 		String bId_ = request.getParameter("bId");
 		if (bId_ != null && !bId_.equals(""))
@@ -131,9 +122,8 @@ public class TradeDetailController extends HttpServlet {
 				response.sendRedirect("/trade/edit?bId="+bId);
 				break;
 			case "삭제":
-				int id = tradeService.getBoardId();
-				int boardId = id;
-				int result = tradeService.deleteTrade(id);
+				int boardId = bId;
+				int result = tradeService.deleteTrade(boardId);
 				System.out.println("result: " + result);
 				int result2 = tradeItemService.deleteByTradeBoardId(boardId);
 				System.out.println("result2: " + result2);
@@ -160,12 +150,6 @@ public class TradeDetailController extends HttpServlet {
 				}
 				Member member = memberService.get(cUserName);
 				cUserId = member.getId();
-				// String cUserName = memberService.get(cUserId).getUserName();
-
-				// if(cUserId_1!=null && !cUserId_1.equals(""))
-				// String cUserId_ = request.getParameter("cUserId");
-				// if(cUserId_!=null && !cUserId_.equals(""))
-				// cUserId = Integer.parseInt(cUserId_);
 				String cBId_ = request.getParameter("bId");
 				if (cBId_ != null && !cBId_.equals(""))
 					cBId = Integer.parseInt(cBId_);
@@ -210,7 +194,6 @@ public class TradeDetailController extends HttpServlet {
 				int edit = tradeCommentService.updateTradeComment(new TradeComment(cId, cContent, cUserId, cBId));
 				System.out.println(tradeCommentService.toString());
 				response.sendRedirect("/trade/detail?id=" + cBId);
-				// response.sendRedirect("/trade/detail?id="+cBId);
 				break;
 			case "삭제":
 				cId_ = request.getParameter("cId");
