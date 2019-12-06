@@ -49,10 +49,11 @@ public class RulerMemberService implements MemberService {
 		}
 
 		for (Member key : member) { // 유저 아이디가 중복되는지 확인
-			if (key.getUserName().equals(userId)) {
-				System.out.println("아이디 중복");
-				return 1;
-			}
+			if (key.getUserName() != null)
+				if (key.getUserName().equals(userId)) {
+					System.out.println("아이디 중복");
+					return 1;
+				}
 		}
 
 		if (userPwd.length() <= 3) { // 비밀번호 길이확인
@@ -72,17 +73,19 @@ public class RulerMemberService implements MemberService {
 		}
 
 		for (Member key : member) { // 핸드폰 번호가 중복되는지 확인
-			if (key.getPhone().equals(phone)) {
-				System.out.println("핸드폰번호 중복");
-				return 3;
-			}
+			if (key.getPhone() != null)
+				if (key.getPhone().equals(phone)) {
+					System.out.println("핸드폰번호 중복");
+					return 3;
+				}
 		}
 
 		for (Member key : member) { // 이메일이 중복되는지 확인
-			if (key.getEmail().equals(email)) {
-				System.out.println("이메일 중복");
-				return 4;
-			}
+			if (key.getEmail() != null)
+				if (key.getEmail().equals(email)) {
+					System.out.println("이메일 중복");
+					return 4;
+				}
 		}
 
 		if (email.substring(email.indexOf(".")).length() != 4) {
