@@ -64,9 +64,9 @@
 													<caption class="hidden">게시글 목록</caption>
 													<colgroup>
 														<col style="width:20%"/>
-														<col style="width:50%"/>
+														<col style="width:60%"/>
 														<col style="width:20%"/>
-														<col style="width:10%"/>
+														<%-- <col style="width:10%"/> --%>
 													</colgroup>
 													<thead>
 														<tr>
@@ -139,7 +139,7 @@
 													</colgroup>
 													<thead>
 														<tr>
-															<th>게시글 제목</th>
+															<th>게시글 번호</th>
 															<th>댓글</th>
 															<th>작성일</th>
 														</tr>
