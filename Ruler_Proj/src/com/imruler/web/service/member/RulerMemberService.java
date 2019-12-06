@@ -108,7 +108,7 @@ public class RulerMemberService implements MemberService {
 		}
 
 		for (Member key : member) { // 핸드폰 번호가 중복되는지 확인
-			if (!key.equals(null)) {
+			if (key != null) {
 				if (key.getPhone() != null) {
 					if (key.getPhone().equals(phone)) {
 						return 2;
@@ -121,7 +121,7 @@ public class RulerMemberService implements MemberService {
 		}
 
 		for (Member key : member) { // 이메일이 중복되는지 확인
-			if (!key.equals(null)) {
+			if (key != null) {
 				if (key.getEmail() != null) {
 					if (key.getEmail().equals(email)) {
 						return 3;
@@ -175,11 +175,13 @@ public class RulerMemberService implements MemberService {
 		List<Member> member = memberDao.getList();
 		String userId = "해당하는 아이디가 없습니다.";
 		for (Member key : member) { // 핸드폰 번호가 중복되는지 확인
-			if (!key.equals(null)) {
-				if (key.getEmail().equals(email)) {
-					userId = "아이디는 \'" + key.getUserName() + "\' 입니다.";
-					System.out.println("아이디찾기");
-					return userId;
+			if (key != null) {
+				if (key.getEmail() != null) {
+					if (key.getEmail().equals(email)) {
+						userId = "아이디는 \'" + key.getUserName() + "\' 입니다.";
+						System.out.println("아이디찾기");
+						return userId;
+					}
 				}
 			}
 		}
@@ -193,11 +195,13 @@ public class RulerMemberService implements MemberService {
 		List<Member> member = memberDao.getList();
 		String userPwd = "해당하는 아이디가 없거나 핸드폰 번호가 틀립니다.";
 		for (Member key : member) { // 핸드폰 번호가 중복되는지 확인
-			if (!key.equals(null)) {
-				if (key.getUserName().equals(userId) && key.getPhone().equals(phone)) {
-					userPwd = "비밀번호는 \'" + key.getPwd() + "\' 입니다.";
-					System.out.println("비밀번호찾기");
-					return userPwd;
+			if (key != null) {
+				if (key.getUserName() != null && key.getPhone() != null) {
+					if (key.getUserName().equals(userId) && key.getPhone().equals(phone)) {
+						userPwd = "비밀번호는 \'" + key.getPwd() + "\' 입니다.";
+						System.out.println("비밀번호찾기");
+						return userPwd;
+					}
 				}
 			}
 		}
