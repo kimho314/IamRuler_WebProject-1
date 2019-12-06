@@ -139,12 +139,24 @@
 														</c:forEach>
 														
 														<c:if test="${DibFlag == 0}">
+															<c:if test="${not empty param.b }">
 															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="far fa-star"></i></a>
+															</c:if>
+															<c:if test="${empty param.b }">
+															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="far fa-star"></i></a>
+															</c:if>
 														</c:if>
 														<c:if test="${DibFlag == 1}">
+															<c:if test="${not empty param.b }">
 															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="fas fa-star"></i></a>
+															</c:if>
+															<c:if test="${empty param.b }">
+															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="fas fa-star"></i></a>
+															</c:if>
 														</c:if>
 													</c:if>
 												</li>
@@ -170,12 +182,24 @@
 														</c:forEach>
 														
 														<c:if test="${DibFlag == 0}">
+															<c:if test="${not empty param.b }">
 															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="far fa-star"></i></a>
+															</c:if>
+															<c:if test="${empty param.b }">
+															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="far fa-star"></i></a>
+															</c:if>
 														</c:if>
 														<c:if test="${DibFlag == 1}">
+															<c:if test="${not empty param.b }">
 															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="fas fa-star"></i></a>
+															</c:if>
+															<c:if test="${empty param.b }">
+															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="fas fa-star"></i></a>
+															</c:if>
 														</c:if>
 													</c:if>
 												</li>
@@ -208,12 +232,24 @@
 														</c:forEach>
 														
 														<c:if test="${DibFlag == 0}">
+															<c:if test="${not empty param.b }">
 															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="far fa-star"></i></a>
+															</c:if>
+															<c:if test="${empty param.b }">
+															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="far fa-star"></i></a>
+															</c:if>
 														</c:if>
 														<c:if test="${DibFlag == 1}">
+															<c:if test="${not empty param.b }">
 															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="fas fa-star"></i></a>
+															</c:if>
+															<c:if test="${empty param.b }">
+															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="fas fa-star"></i></a>
+															</c:if>
 														</c:if>
 													</c:if>
 												</li>
@@ -239,12 +275,24 @@
 														</c:forEach>
 														
 														<c:if test="${DibFlag == 0}">
+															<c:if test="${not empty param.b }">
 															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="far fa-star"></i></a>
+															</c:if>
+															<c:if test="${empty param.b }">
+															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="far fa-star"></i></a>
+															</c:if>
 														</c:if>
 														<c:if test="${DibFlag == 1}">
+															<c:if test="${not empty param.b }">
 															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}&b=${n.co_bodyshape}" class="button small">
 															<i class="fas fa-star"></i></a>
+															</c:if>
+															<c:if test="${empty param.b }">
+															<a href="reg_dibs?g=남성&m_name=${userName }&cb_id=${n.cb_id}" class="button small">
+															<i class="fas fa-star"></i></a>
+															</c:if>
 														</c:if>
 													</c:if>
 												</li>

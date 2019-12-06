@@ -63,8 +63,8 @@
 											onclick="openPopUp()">찜하기</a>
 										</c:if>
 										<c:if test="${dibFlag == 1}">
-										<a href="#" class="button small"
-											style="color:#ff6600 !important; font-size: 100%; padding: 0 1em;"
+										<a href="#" class="button small special"
+											style="color:#ffffff !important; font-size: 100%; padding: 0 1em;"
 											onclick="openPopUp()">찜해제</a>
 										</c:if>
 									</c:if>
