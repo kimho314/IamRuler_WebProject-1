@@ -37,7 +37,7 @@ public class RulerIndexService implements IndexDao {
 			if (bodyshape.equals("nomal")) {
 				ManNomal nomal = new ManNomal();
 				int[] size = nomal.ManNomal(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -50,7 +50,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("smallInverseTriangle")) {
 				ManSmallInverseTriangle msit = new ManSmallInverseTriangle();
 				int[] size = msit.ManSmallInverseTriangle(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -63,7 +63,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("inverseTriangle")) {
 				ManInverseTriangle mit = new ManInverseTriangle();
 				int[] size = mit.ManInverseTriangle(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -76,7 +76,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("square")) {
 				ManSquare square = new ManSquare();
 				int[] size = square.ManSquare(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -89,7 +89,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("triangle")) {
 				ManTriangle triangle = new ManTriangle();
 				int[] size = triangle.ManTriangle(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -104,7 +104,7 @@ public class RulerIndexService implements IndexDao {
 			if (bodyshape.equals("nomal")) {
 				WomanNomal nomal = new WomanNomal();
 				int[] size = nomal.WomanNomal(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -117,7 +117,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("smallInverseTriangle")) {
 				WomanSmallInverseTriangle msit = new WomanSmallInverseTriangle();
 				int[] size = msit.WomanSmallInverseTriangle(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -130,7 +130,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("inverseTriangle")) {
 				WomanInverseTriangle mit = new WomanInverseTriangle();
 				int[] size = mit.WomanInverseTriangle(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -143,7 +143,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("square")) {
 				WomanSquare square = new WomanSquare();
 				int[] size = square.WomanSquare(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -156,7 +156,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("triangle")) {
 				WomanTriangle triangle = new WomanTriangle();
 				int[] size = triangle.WomanTriangle(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -178,7 +178,7 @@ public class RulerIndexService implements IndexDao {
 			if (bodyshape.equals("nomal")) {
 				ManNomal nomal = new ManNomal();
 				int[] size = nomal.ManNomal(x, y);
-				if (size[0]+2 < shoulderWidth && size[1]+5 < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+5 < shoulderWidth && size[1]+8 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0]+2 <= shoulderWidth && size[1]+5 <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -191,7 +191,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("smallInverseTriangle")) {
 				ManSmallInverseTriangle msit = new ManSmallInverseTriangle();
 				int[] size = msit.ManSmallInverseTriangle(x, y);
-				if (size[0]+2 < shoulderWidth && size[1]+5 < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+5 < shoulderWidth && size[1]+8 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0]+2 <= shoulderWidth && size[1]+5 <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -204,7 +204,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("inverseTriangle")) {
 				ManInverseTriangle mit = new ManInverseTriangle();
 				int[] size = mit.ManInverseTriangle(x, y);
-				if (size[0]+2 < shoulderWidth && size[1]+5 < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+5 < shoulderWidth && size[1]+8 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0]+2 <= shoulderWidth && size[1]+5 <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -217,7 +217,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("square")) {
 				ManSquare square = new ManSquare();
 				int[] size = square.ManSquare(x, y);
-				if (size[0]+2 < shoulderWidth && size[1]+5 < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+5 < shoulderWidth && size[1]+8 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0]+2 <= shoulderWidth && size[1]+5 <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -230,7 +230,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("triangle")) {
 				ManTriangle triangle = new ManTriangle();
 				int[] size = triangle.ManTriangle(x, y);
-				if (size[0]+2 < shoulderWidth && size[1]+5 < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+5 < shoulderWidth && size[1]+8 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0]+2 <= shoulderWidth && size[1]+5 <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -245,7 +245,7 @@ public class RulerIndexService implements IndexDao {
 			if (bodyshape.equals("nomal")) {
 				WomanNomal nomal = new WomanNomal();
 				int[] size = nomal.WomanNomal(x, y);
-				if (size[0]+2 < shoulderWidth && size[1]+5 < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+5 < shoulderWidth && size[1]+8 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0]+2 <= shoulderWidth && size[1]+5 <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -258,7 +258,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("smallInverseTriangle")) {
 				WomanSmallInverseTriangle msit = new WomanSmallInverseTriangle();
 				int[] size = msit.WomanSmallInverseTriangle(x, y);
-				if (size[0]+2 < shoulderWidth && size[1]+5 < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+5 < shoulderWidth && size[1]+8 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0]+2 <= shoulderWidth && size[1]+5 <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -271,7 +271,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("inverseTriangle")) {
 				WomanInverseTriangle mit = new WomanInverseTriangle();
 				int[] size = mit.WomanInverseTriangle(x, y);
-				if (size[0]+2 < shoulderWidth && size[1]+5 < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+5 < shoulderWidth && size[1]+8 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0]+2 <= shoulderWidth && size[1]+5 <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -284,7 +284,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("square")) {
 				WomanSquare square = new WomanSquare();
 				int[] size = square.WomanSquare(x, y);
-				if (size[0]+2 < shoulderWidth && size[1]+5 < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+5 < shoulderWidth && size[1]+8 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0]+2 <= shoulderWidth && size[1]+5 <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -297,7 +297,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("triangle")) {
 				WomanTriangle triangle = new WomanTriangle();
 				int[] size = triangle.WomanTriangle(x, y);
-				if (size[0]+2 < shoulderWidth && size[1]+5 < chestBreadth && size[2] < sleeveLength && size[7] < topTotalLength) {
+				if (size[0]+5 < shoulderWidth && size[1]+8 < chestBreadth && size[2]+3 < sleeveLength && size[7]+3 < topTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0]+2 <= shoulderWidth && size[1]+5 <= chestBreadth && size[2] <= sleeveLength && size[7] <= topTotalLength) {
@@ -319,7 +319,7 @@ public class RulerIndexService implements IndexDao {
 			if (bodyshape.equals("nomal")) {
 				ManNomal nomal = new ManNomal();
 				int[] size = nomal.ManNomal(x, y);
-				if (size[2] < waistWidth && size[4] < crotchWidth && size[5] < thighWidth && size[6] < hemWidth && size[8]< pantsTotalLength) {
+				if (size[2]+3 < waistWidth && size[4]+3 < crotchWidth && size[5]+3 < thighWidth && size[6]+3 < hemWidth && size[8]+3 < pantsTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[4] <= crotchWidth && size[5] <= thighWidth && size[6] <= hemWidth && size[8] <= pantsTotalLength) {
@@ -332,7 +332,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("smallInverseTriangle")) {
 				ManSmallInverseTriangle msit = new ManSmallInverseTriangle();
 				int[] size = msit.ManSmallInverseTriangle(x, y);
-				if (size[2] < waistWidth && size[4] < crotchWidth && size[5] < thighWidth && size[6] < hemWidth && size[8]< pantsTotalLength) {
+				if (size[2]+3 < waistWidth && size[4]+3 < crotchWidth && size[5]+3 < thighWidth && size[6]+3 < hemWidth && size[8]+3 < pantsTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[4] <= crotchWidth && size[5] <= thighWidth && size[6] <= hemWidth && size[8] <= pantsTotalLength) {
@@ -345,7 +345,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("inverseTriangle")) {
 				ManInverseTriangle mit = new ManInverseTriangle();
 				int[] size = mit.ManInverseTriangle(x, y);
-				if (size[2] < waistWidth && size[4] < crotchWidth && size[5] < thighWidth && size[6] < hemWidth && size[8]< pantsTotalLength) {
+				if (size[2]+3 < waistWidth && size[4]+3 < crotchWidth && size[5]+3 < thighWidth && size[6]+3 < hemWidth && size[8]+3 < pantsTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[4] <= crotchWidth && size[5] <= thighWidth && size[6] <= hemWidth && size[8] <= pantsTotalLength) {
@@ -358,7 +358,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("square")) {
 				ManSquare square = new ManSquare();
 				int[] size = square.ManSquare(x, y);
-				if (size[2] < waistWidth && size[4] < crotchWidth && size[5] < thighWidth && size[6] < hemWidth && size[8]< pantsTotalLength) {
+				if (size[2]+3 < waistWidth && size[4]+3 < crotchWidth && size[5]+3 < thighWidth && size[6]+3 < hemWidth && size[8]+3 < pantsTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[4] <= crotchWidth && size[5] <= thighWidth && size[6] <= hemWidth && size[8] <= pantsTotalLength) {
@@ -371,7 +371,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("triangle")) {
 				ManTriangle triangle = new ManTriangle();
 				int[] size = triangle.ManTriangle(x, y);
-				if (size[2] < waistWidth && size[4] < crotchWidth && size[5] < thighWidth && size[6] < hemWidth && size[8]< pantsTotalLength) {
+				if (size[2]+3 < waistWidth && size[4]+3 < crotchWidth && size[5]+3 < thighWidth && size[6]+3 < hemWidth && size[8]+3 < pantsTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[4] <= crotchWidth && size[5] <= thighWidth && size[6] <= hemWidth && size[8] <= pantsTotalLength) {
@@ -386,7 +386,7 @@ public class RulerIndexService implements IndexDao {
 			if (bodyshape.equals("nomal")) {
 				WomanNomal nomal = new WomanNomal();
 				int[] size = nomal.WomanNomal(x, y);
-				if (size[2] < waistWidth && size[4] < crotchWidth && size[5] < thighWidth && size[6] < hemWidth && size[8]< pantsTotalLength) {
+				if (size[2]+3 < waistWidth && size[4]+3 < crotchWidth && size[5]+3 < thighWidth && size[6]+3 < hemWidth && size[8]+3 < pantsTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[4] <= crotchWidth && size[5] <= thighWidth && size[6] <= hemWidth && size[8] <= pantsTotalLength) {
@@ -399,7 +399,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("smallInverseTriangle")) {
 				WomanSmallInverseTriangle msit = new WomanSmallInverseTriangle();
 				int[] size = msit.WomanSmallInverseTriangle(x, y);
-				if (size[2] < waistWidth && size[4] < crotchWidth && size[5] < thighWidth && size[6] < hemWidth && size[8]< pantsTotalLength) {
+				if (size[2]+3 < waistWidth && size[4]+3 < crotchWidth && size[5]+3 < thighWidth && size[6]+3 < hemWidth && size[8]+3 < pantsTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[4] <= crotchWidth && size[5] <= thighWidth && size[6] <= hemWidth && size[8] <= pantsTotalLength) {
@@ -412,7 +412,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("inverseTriangle")) {
 				WomanInverseTriangle mit = new WomanInverseTriangle();
 				int[] size = mit.WomanInverseTriangle(x, y);
-				if (size[2] < waistWidth && size[4] < crotchWidth && size[5] < thighWidth && size[6] < hemWidth && size[8]< pantsTotalLength) {
+				if (size[2]+3 < waistWidth && size[4]+3 < crotchWidth && size[5]+3 < thighWidth && size[6]+3 < hemWidth && size[8]+3 < pantsTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[4] <= crotchWidth && size[5] <= thighWidth && size[6] <= hemWidth && size[8] <= pantsTotalLength) {
@@ -425,7 +425,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("square")) {
 				WomanSquare square = new WomanSquare();
 				int[] size = square.WomanSquare(x, y);
-				if (size[2] < waistWidth && size[4] < crotchWidth && size[5] < thighWidth && size[6] < hemWidth && size[8]< pantsTotalLength) {
+				if (size[2]+3 < waistWidth && size[4]+3 < crotchWidth && size[5]+3 < thighWidth && size[6]+3 < hemWidth && size[8]+3 < pantsTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[4] <= crotchWidth && size[5] <= thighWidth && size[6] <= hemWidth && size[8] <= pantsTotalLength) {
@@ -438,7 +438,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("triangle")) {
 				WomanTriangle triangle = new WomanTriangle();
 				int[] size = triangle.WomanTriangle(x, y);
-				if (size[2] < waistWidth && size[4] < crotchWidth && size[5] < thighWidth && size[6] < hemWidth && size[8]< pantsTotalLength) {
+				if (size[2]+3 < waistWidth && size[4]+3 < crotchWidth && size[5]+3 < thighWidth && size[6]+3 < hemWidth && size[8]+3 < pantsTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[4] <= crotchWidth && size[5] <= thighWidth && size[6] <= hemWidth && size[8] <= pantsTotalLength) {
@@ -460,7 +460,7 @@ public class RulerIndexService implements IndexDao {
 			if (bodyshape.equals("nomal")) {
 				WomanNomal nomal = new WomanNomal();
 				int[] size = nomal.WomanNomal(x, y);
-				if (size[2] < waistWidth && size[6] < skirtHemWidth && size[11] < skirtTotalLength) {
+				if (size[2]+3 < waistWidth && size[6]+3 < skirtHemWidth && size[11]+3 < skirtTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[6] <= skirtHemWidth && size[11] <= skirtTotalLength) {
@@ -473,7 +473,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("smallInverseTriangle")) {
 				WomanSmallInverseTriangle msit = new WomanSmallInverseTriangle();
 				int[] size = msit.WomanSmallInverseTriangle(x, y);
-				if (size[2] < waistWidth && size[6] < skirtHemWidth && size[11] < skirtTotalLength) {
+				if (size[2]+3 < waistWidth && size[6]+3 < skirtHemWidth && size[11]+3 < skirtTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[6] <= skirtHemWidth && size[11] <= skirtTotalLength) {
@@ -486,7 +486,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("inverseTriangle")) {
 				WomanInverseTriangle mit = new WomanInverseTriangle();
 				int[] size = mit.WomanInverseTriangle(x, y);
-				if (size[2] < waistWidth && size[6] < skirtHemWidth && size[11] < skirtTotalLength) {
+				if (size[2]+3 < waistWidth && size[6]+3 < skirtHemWidth && size[11]+3 < skirtTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[6] <= skirtHemWidth && size[11] <= skirtTotalLength) {
@@ -499,7 +499,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("square")) {
 				WomanSquare square = new WomanSquare();
 				int[] size = square.WomanSquare(x, y);
-				if (size[2] < waistWidth && size[6] < skirtHemWidth && size[11] < skirtTotalLength) {
+				if (size[2]+3 < waistWidth && size[6]+3 < skirtHemWidth && size[11]+3 < skirtTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[6] <= skirtHemWidth && size[11] <= skirtTotalLength) {
@@ -512,7 +512,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("triangle")) {
 				WomanTriangle triangle = new WomanTriangle();
 				int[] size = triangle.WomanTriangle(x, y);
-				if (size[2] < waistWidth && size[6] < skirtHemWidth && size[11] < skirtTotalLength) {
+				if (size[2]+3 < waistWidth && size[6]+3 < skirtHemWidth && size[11]+3 < skirtTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[2] <= waistWidth && size[6] <= skirtHemWidth && size[11] <= skirtTotalLength) {
@@ -534,7 +534,7 @@ public class RulerIndexService implements IndexDao {
 			if (bodyshape.equals("nomal")) {
 				WomanNomal nomal = new WomanNomal();
 				int[] size = nomal.WomanNomal(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[3] < sleeveLength && size[10] < onePieceTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[3]+3 < sleeveLength && size[10]+3 < onePieceTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[3] <= sleeveLength && size[10] <= onePieceTotalLength) {
@@ -547,7 +547,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("smallInverseTriangle")) {
 				WomanSmallInverseTriangle msit = new WomanSmallInverseTriangle();
 				int[] size = msit.WomanSmallInverseTriangle(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[3] < sleeveLength && size[10] < onePieceTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[3]+3 < sleeveLength && size[10]+3 < onePieceTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[3] <= sleeveLength && size[10] <= onePieceTotalLength) {
@@ -560,7 +560,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("inverseTriangle")) {
 				WomanInverseTriangle mit = new WomanInverseTriangle();
 				int[] size = mit.WomanInverseTriangle(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[3] < sleeveLength && size[10] < onePieceTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[3]+3 < sleeveLength && size[10]+3 < onePieceTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[3] <= sleeveLength && size[10] <= onePieceTotalLength) {
@@ -573,7 +573,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("square")) {
 				WomanSquare square = new WomanSquare();
 				int[] size = square.WomanSquare(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[3] < sleeveLength && size[10] < onePieceTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[3]+3 < sleeveLength && size[10]+3 < onePieceTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[3] <= sleeveLength && size[10] <= onePieceTotalLength) {
@@ -586,7 +586,7 @@ public class RulerIndexService implements IndexDao {
 			} else if (bodyshape.equals("triangle")) {
 				WomanTriangle triangle = new WomanTriangle();
 				int[] size = triangle.WomanTriangle(x, y);
-				if (size[0] < shoulderWidth && size[1] < chestBreadth && size[3] < sleeveLength && size[10] < onePieceTotalLength) {
+				if (size[0]+3 < shoulderWidth && size[1]+3 < chestBreadth && size[3]+3 < sleeveLength && size[10]+3 < onePieceTotalLength) {
 					//System.out.println("사이즈가 큼");
 					return 1;
 				} else if (size[0] <= shoulderWidth && size[1] <= chestBreadth && size[3] <= sleeveLength && size[10] <= onePieceTotalLength) {
@@ -600,5 +600,4 @@ public class RulerIndexService implements IndexDao {
 		}
 		return 0;
 	}
-
 }

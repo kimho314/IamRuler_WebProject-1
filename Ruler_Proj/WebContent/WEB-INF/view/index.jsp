@@ -195,16 +195,15 @@
 													</div>
 												</td>
 											</tr>
-
 											<tr class="inforform">
 												<th>키</th>
 												<td id="inforline"><c:if test="${empty userHeight}">
 														<input type="text" name="x" value="" placeholder="키 입력"
-															class="maintextbox" onKeyPress="return numkeyCheck(event)"/>
+															class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"  />
 														<span>cm</span>
 													</c:if> <c:if test="${!empty userHeight}">
 														<input type="text" name="x" value="${userHeight}"
-															placeholder="키 입력" class="maintextbox" onKeyPress="return numkeyCheck(event)"/>
+															placeholder="키 입력" class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/>
 														<span>cm</span>
 													</c:if>
 												</td>
@@ -214,11 +213,11 @@
 												<th>몸무게</th>
 												<td id="inforline"><c:if test="${empty userWeight}">
 														<input type="text" name="y" value="" placeholder="몸무게 입력"
-															class="maintextbox" onKeyPress="return numkeyCheck(event)"/>
+															class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/>
 														<span>kg</span>
 													</c:if> <c:if test="${!empty userWeight}">
 														<input type="text" name="y" value="${userWeight}"
-															placeholder="몸무게 입력" class="maintextbox" onKeyPress="return numkeyCheck(event)"/>
+															placeholder="몸무게 입력" class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/>
 														<span>kg</span>
 													</c:if></td>
 											</tr>
@@ -374,28 +373,28 @@
 												<th>어깨 너비</th>
 												<td id="inforline"><input type="text"
 													name="tshoulderWidth" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>가슴 단면</th>
 												<td id="inforline"><input type="text"
 													name="tchestBreadth" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>소매 길이</th>
 												<td id="inforline"><input type="text"
 													name="tsleeveLength" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>총 장</th>
 												<td id="inforline"><input type="text"
 													name="ttopTotalLength" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 										</table>
 									</article>
@@ -415,33 +414,33 @@
 												<th>허리 단면</th>
 												<td id="inforline"><input type="text"
 													name="pwaistWidth" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>허벅지 단면</th>
 												<td id="inforline"><input type="text" name="thighWidth"
-													value="" placeholder="입력" class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													value="" placeholder="입력" class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>밑위 길이</th>
 												<td id="inforline"><input type="text"
 													name="crotchWidth" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>밑단 단면</th>
 												<td id="inforline"><input type="text" name="hemWidth"
-													value="" placeholder="입력" class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													value="" placeholder="입력" class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>총 장</th>
 												<td id="inforline"><input type="text"
 													name="pantsTotalLength" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 										</table>
 									</article>
@@ -460,28 +459,28 @@
 												<th>어깨 너비</th>
 												<td id="inforline"><input type="text"
 													name="oshoulderWidth" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>가슴 단면</th>
 												<td id="inforline"><input type="text"
 													name="ochestBreadth" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>소매 길이</th>
 												<td id="inforline"><input type="text"
 													name="osleeveLength" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>총 장</th>
 												<td id="inforline"><input type="text"
 													name="otopTotalLength" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 										</table>
 									</article>
@@ -500,21 +499,21 @@
 												<th>허리 단면</th>
 												<td id="inforline"><input type="text"
 													name="skwaistWidth" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>밑단 단면</th>
 												<td id="inforline"><input type="text"
 													name="skirtHemWidth" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>총 장</th>
 												<td id="inforline"><input type="text"
 													name="skirtTotalLength" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 										</table>
 									</article>
@@ -533,28 +532,28 @@
 												<th>어깨 너비</th>
 												<td id="inforline"><input type="text"
 													name="opshoulderWidth" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>가슴 단면</th>
 												<td id="inforline"><input type="text"
 													name="opchestBreadth" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>소매 길이</th>
 												<td id="inforline"><input type="text"
 													name="opsleeveLength" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)" /><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;" /><span>cm</span></td>
 											</tr>
 
 											<tr class="inforform">
 												<th>총 장</th>
 												<td id="inforline"><input type="text"
 													name="onePieceTotalLength" value="" placeholder="입력"
-													class="maintextbox" onKeyPress="return numkeyCheck(event)"/><span>cm</span></td>
+													class="maintextbox" onKeyDown="return numkeyCheck(this)" onkeyup="removeChar(event)" style="ime-mode:disabled;"/><span>cm</span></td>
 											</tr>
 										</table>
 									</article>
@@ -644,6 +643,7 @@
 		$(function() {
 			var wrapBoxheg = resizeHeg();
 			//alert(wrapBoxheg);
+			
 			$(".infoBtn").bind("click",function(e) {
 				e.preventDefault();
 				$(".wrapBox").css({
@@ -705,11 +705,21 @@
 			return wrapBoxheg;
 		}
 		
-		function numkeyCheck(e) { 
+		function numkeyCheck(e) {
 			var keyValue = event.keyCode; 
-			if( ((keyValue >= 48) && (keyValue <= 57)) ) 
-				return true; 
-			else return false; }
+			if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 )
+	            return;
+			else if((keyValue < 48) || (keyValue > 57)) 
+				return false;
+		}
+		function removeChar(event) {
+	        event = event || window.event;
+	        var keyID = (event.which) ? event.which : event.keyCode;
+	        if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 )
+	            return;
+	        else
+	            event.target.value = event.target.value.replace(/[^0-9]/g, "");
+	    }
 		function cfm(){
             var tar = document.querySelector(".body-form").querySelectorAll(".maintextbox");
             var sw = true;
