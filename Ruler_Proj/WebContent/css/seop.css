@@ -193,6 +193,10 @@ div.visual-top-coordi-post a {
 
 }
 
+div.visual-top-coordi-post a.special:hover{
+	background-color:#ff6600 !important;
+}
+
 div.visual-top-coordi-post a:hover {
     color: #ff6600 !important;
     background-color: #ffffff !important;
