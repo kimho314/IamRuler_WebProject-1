@@ -3,6 +3,7 @@ package com.imruler.web.controller.trade.board;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -90,6 +91,31 @@ public class TradeDetailController extends HttpServlet {
 		if (memberService.get(boardUserId) != null) {
 		request.setAttribute("boardUserName", boardUserName);
 		}
+		
+		String tmpStr = tradeViewService.getTrade(id).getImg().replace("\\", "/");
+		String[] imgs = new String[] {""};
+		if(tmpStr != null && !tmpStr.equals(""))
+		{				
+			if (tmpStr.indexOf(",") != -1)
+			{
+				imgs = tmpStr.split(",");
+			}
+			else
+			{
+				imgs[0] = tmpStr;
+			}
+			
+			for(String img : imgs)
+			{
+				ServletContext application = request.getServletContext();
+				String realPath = application.getRealPath(img);
+				img = realPath;
+				System.out.println("img"+img);
+			}
+			
+		}
+		request.setAttribute("imgs", imgs);
+		
 
 		request.getRequestDispatcher("/WEB-INF/view/trade/detail.jsp").forward(request, response);
 	}

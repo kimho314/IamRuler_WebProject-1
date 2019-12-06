@@ -158,22 +158,11 @@ public class TradeRegController extends HttpServlet {
 			fos.close();
 		}catch (Exception e)
 			{
-			// TODO: handle exception
-			response.setContentType("text/html;charset=UTF-8");
-			response.setCharacterEncoding("UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert(\"No Image File Found\");");
-			out.println("history.back(-1);");
-			out.println("</script>");
-
-			return;
+			break;
 		}
 		}
 			
 		fileNames = fileNames.substring(0, fileNames.length() - 1);
-
-		// String userName = (String) request.getSession().getAttribute("userName");
 
 		int result = tradeService.insertTrade(new TradeBoard(title, content, tag, userId));
 		System.out.println("result: " + result);

@@ -73,16 +73,21 @@
                            <th class="center">거래여부</th>
                            <td>${t.bTag}</td>
                         </tr>
-                        <tr>
+                        <%-- <tr>
                            <th class="center">첨부파일</th>
                            <td colspan="3" class="left">
                            		<c:forTokens var="fileName" items="${t.img}" delims=",">
-                               		<a download href="/upload/${fileName}　" class="black">${fileName}</a>
+                               		<a download href="/upload/${fileName}"  class="black">${fileName}</a>
                                 </c:forTokens></td>
-                        </tr>
+                        </tr> --%>
                      </tbody>
                   </table>
                   <div>${t.bContent}</div>
+                  <div class="content-img-wrapper">
+				<c:forEach var="c" items="${imgs }">
+               <div><img src="../..${c }"></div>                                               
+               </c:forEach>                                                
+              	</div>
                </div>
                <br>
                <script>
@@ -180,9 +185,9 @@
 													<c:if test="${boardUserName == userName || c.mUserName == userName}">
 														${c.mUserName}
 													</c:if>
-													<c:if test="${c.mUserName == null}">
+													<%-- <c:if test="${c.mUserName == null}">
 														<span>[탈퇴한 회원입니다]</span>
-													</c:if>
+													</c:if> --%>
 													</div>
 													
 											
