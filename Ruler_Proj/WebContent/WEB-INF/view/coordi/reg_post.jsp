@@ -99,14 +99,14 @@
 							<div class="visual-wrapper">
 								<div class="visual-top-coordi-post">
 									<div class="visual-top-right">
-										<c:if test="${empty pDetail }">
+										<%-- <c:if test="${empty pDetail }">
 											<a href="#" class="button small"
 												style="box-shadow: none; font-size: 1em; padding: 0 1em;">수정
 											</a>
 											<a href="#" class="button small"
 												style="box-shadow: none; font-size: 1em; padding: 0 1em;">삭제
 											</a>
-										</c:if>
+										</c:if> --%>
 									</div>
 								</div>
 

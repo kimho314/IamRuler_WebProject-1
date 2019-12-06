@@ -42,7 +42,10 @@ public class TradeEditController extends HttpServlet{
 	private TradeItemService tradeItemService;
 	private TradeViewService tradeViewService;
 	
+	private int id;
+	
 	public TradeEditController() {
+		id = 0;
 		tradeService = new RulerTradeService();
 		tradeImgService = new RulerTradeImgService();
 		tradeItemService = new RulerTradeItemService();
@@ -51,10 +54,10 @@ public class TradeEditController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = tradeService.getBoardId();
+		id = Integer.parseInt(request.getParameter("bId"));
 		//int id = Integer.parseInt(request.getParameter("id"));
 		TradeView tradeView = tradeViewService.getTrade(id);
-		request.setAttribute("t", tradeView);
+		request.setAttribute("t", tradeView);		
 		request.getRequestDispatcher("/WEB-INF/view/trade/edit.jsp").forward(request, response);
 	}
 	
@@ -94,7 +97,9 @@ public class TradeEditController extends HttpServlet{
 		if (userId_ != null && !userId_.equals(""))
 			userId = Integer.parseInt(userId_);
 	
-		boardId = tradeService.getBoardId();
+		//boardId = tradeService.getBoardId();
+		boardId = id;
+		System.out.println("edit boardId:" + boardId);
 		System.out.println(category+region+bodyShape);
 		Collection<Part> parts = request.getParts();
 

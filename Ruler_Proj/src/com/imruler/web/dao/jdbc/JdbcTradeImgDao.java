@@ -64,7 +64,7 @@ public class JdbcTradeImgDao implements TradeImgDao{
 			st = con.prepareStatement(sql);
 			
 			st.setString(1, tradeImg.getImg());
-			st.setInt(2, tradeImg.getId());
+			st.setInt(2, tradeImg.getBoardId());
 			System.out.println(sql);
 			System.out.println(tradeImg.toString());
 			result = st.executeUpdate();

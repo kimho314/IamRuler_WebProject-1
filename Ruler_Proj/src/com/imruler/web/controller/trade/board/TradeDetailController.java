@@ -58,7 +58,7 @@ public class TradeDetailController extends HttpServlet {
 		}
 		if (cookie != null) {
 			for (Cookie key : cookie) {
-				Cookie c = key;
+				Cookie c = key; 
 				cValue = c.getValue();
 				break;
 			}
@@ -85,7 +85,7 @@ public class TradeDetailController extends HttpServlet {
 		List<TradeView> tradeView2 = tradeViewService.getComment(id);
 		//List<TradeBoardView> tradeBoardView = tradeService.getTradeList(id);
 		//TradeBoard tradeBoard = tradeService.getTrade(id);
-		System.out.println("boardid"+id);
+		
 
 //		String cmd="";
 //		String cmd_ = request.getParameter("cmd");
@@ -93,6 +93,7 @@ public class TradeDetailController extends HttpServlet {
 //			 cmd=cmd_;
 		
 		//request.setAttribute("cmd", cmd);
+		
 		request.setAttribute("t", tradeView);
 		request.setAttribute("c", tradeView2);
 		if (memberService.get(boardUserId) != null) {
@@ -117,16 +118,17 @@ public class TradeDetailController extends HttpServlet {
 		int cBId = 1;
 		int cOpenStatus = 1;
 		String cOpenStatusString = "";
-		System.out.println("CMD" + cmd);
+		
 		int bId = 1;
 		String bId_ = request.getParameter("bId");
 		if (bId_ != null && !bId_.equals(""))
 			bId = Integer.parseInt(bId_);
-
+		System.out.println("boardid"+bId);
+		
 		if (edel != null && !edel.equals("")) {
 			switch (edel) {
 			case "수정":
-				response.sendRedirect("/trade/edit");
+				response.sendRedirect("/trade/edit?bId="+bId);
 				break;
 			case "삭제":
 				int id = tradeService.getBoardId();
