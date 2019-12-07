@@ -15,17 +15,19 @@ import com.imruler.web.service.MemberService;
 import com.imruler.web.service.member.RulerMemberService;
 
 @WebServlet("/mypage/myinfo")
-public class MypageMyinfoController extends HttpServlet {
+public class MypageMyinfoController extends HttpServlet
+{
 	private MemberService memberService;
 
-	public MypageMyinfoController() {
+	public MypageMyinfoController()
+	{
 		// TODO Auto-generated constructor stub
 		memberService = new RulerMemberService();
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		HttpSession session = request.getSession();
 		Cookie[] cookie = request.getCookies();
 		String cValue = null;
@@ -33,26 +35,33 @@ public class MypageMyinfoController extends HttpServlet {
 		String age = null;
 		String height = null;
 		String weight = null;
-		if (cookie != null) {
-			for (Cookie key : cookie) {
+		
+		if (cookie != null)
+		{
+			for (Cookie key : cookie)
+			{
 				Cookie c = key;
-				if (c.getName().equals("userName")) {
+				if (c.getName().equals("userName"))
+				{
 					cValue = c.getValue();
 				}
 			}
 		}
 
 		userId = cValue;
-		if (userId == null) {
+		
+		if (userId == null)
+		{
 			userId = (String) session.getAttribute("userName");
 		}
 
-		if (userId != null) {
+		if (userId != null)
+		{
 			age = String.valueOf(memberService.get(userId).getAge());
 			height = String.valueOf(memberService.get(userId).getHeight());
 			weight = String.valueOf(memberService.get(userId).getWeight());
 
-			System.out.println(memberService.get(userId).getGender());
+			//System.out.println(memberService.get(userId).getGender());
 
 			request.setAttribute("userId", userId); // 아이디
 			request.setAttribute("gender", memberService.get(userId).getGender()); // 성별
@@ -63,35 +72,45 @@ public class MypageMyinfoController extends HttpServlet {
 			request.setAttribute("weight", weight); // 몸무게
 			request.setAttribute("bodyshape", memberService.get(userId).getBodyshape()); // 몸무게
 			request.getRequestDispatcher("/WEB-INF/view/mypage/myinfo.jsp").forward(request, response);
-		} else {
+		}
+		else
+		{
 			response.sendRedirect("/index");
 		}
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+	{
 		HttpSession session = req.getSession();
 		Cookie[] cookie = req.getCookies();
 		String cValue = null;
 		String userId = null;
-		if (cookie != null) {
-			for (Cookie key : cookie) {
+		
+		if (cookie != null)
+		{
+			for (Cookie key : cookie)
+			{
 				Cookie c = key;
-				if (c.getName().equals("userName")) {
+				if (c.getName().equals("userName"))
+				{
 					cValue = c.getValue();
 				}
 			}
 		}
 
 		userId = cValue;
-		if (userId == null) {
+		if (userId == null)
+		{
 			userId = (String) session.getAttribute("userName");
 		}
 
-		if (userId != null) {
+		if (userId != null)
+		{
 			if (!req.getParameter("비밀번호").equals("") && !req.getParameter("비밀번호확인").equals("")
 					&& !req.getParameter("전화번호").equals("") && !req.getParameter("이메일").equals("")
-					&& !req.getParameter("키").equals("") && !req.getParameter("체중").equals("")) {
+					&& !req.getParameter("키").equals("") && !req.getParameter("체중").equals(""))
+			{
 				String userPwd = req.getParameter("비밀번호");
 				String userPwdRequest = req.getParameter("비밀번호확인");
 				String phone = req.getParameter("전화번호");
@@ -106,14 +125,19 @@ public class MypageMyinfoController extends HttpServlet {
 
 				int isDuplicated = memberService.isDuplicatedIdMyInfo(userId, userPwd, userPwdRequest, phone, email);
 
-				if (isDuplicated != 0) {
+				if (isDuplicated != 0)
+				{
 					resp.sendRedirect("myinfo?error=" + isDuplicated);
-				} else {
+				}
+				else
+				{
 					memberService.updateMember(
 							new Member(userId, userPwd, phone, email, height, weidth, gender, age, bodyshape));
 					resp.sendRedirect("/index");
 				}
-			} else {
+			}
+			else
+			{
 				resp.sendRedirect("myinfo?error=0");
 			}
 		}

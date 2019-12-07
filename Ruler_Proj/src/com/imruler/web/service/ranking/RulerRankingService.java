@@ -14,32 +14,38 @@ import com.imruler.web.dao.jdbc.JdbcRulerRankingDao;
 import com.imruler.web.entity.Ogtag;
 import com.imruler.web.entity.Ranking;
 import com.imruler.web.service.RankingService;
-	
-public class RulerRankingService implements RankingService{
+
+public class RulerRankingService implements RankingService
+{
 	private RankingDao rankingdao;
-	
-	public RulerRankingService() {
+
+	public RulerRankingService()
+	{
 		rankingdao = new JdbcRulerRankingDao();
 	}
+
 	@Override
-	public List<Ranking> getRankingList() {
+	public List<Ranking> getRankingList()
+	{
 		return rankingdao.getList();
 	}
 
 	@Override
-	public int insertRanking(Ranking ranking) {
+	public int insertRanking(Ranking ranking)
+	{
 		return rankingdao.insert(ranking);
 	}
+
 	@Override
-	public List<Ranking> getRankingList(int type) {
+	public List<Ranking> getRankingList(int type)
+	{
 		return rankingdao.getListByType(type);
 	}
 
-	
-//	private List<Ogtag> getOgList(List<Ranking> rankingList) { // url을 통한 쇼핑몰 이름, 경로, 대표이미지 크롤링 
-//		List<Ogtag> list = new ArrayList<>();
-//		for (Ranking r : rankingList)
-//			list.add(getOgtag(r.getUrl()));
-//		return  list;
-//	}
+	//	private List<Ogtag> getOgList(List<Ranking> rankingList) { // url을 통한 쇼핑몰 이름, 경로, 대표이미지 크롤링 
+	//		List<Ogtag> list = new ArrayList<>();
+	//		for (Ranking r : rankingList)
+	//			list.add(getOgtag(r.getUrl()));
+	//		return  list;
+	//	}
 }

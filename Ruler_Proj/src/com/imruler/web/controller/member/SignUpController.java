@@ -35,14 +35,17 @@ public class SignUpController extends HttpServlet {
 				&& !req.getParameter("비밀번호확인").equals("") && !req.getParameter("전화번호").equals("")
 				&& !req.getParameter("이메일1").equals("") && !req.getParameter("이메일2").equals("")
 				&& !req.getParameter("키").equals("") && !req.getParameter("체중").equals("")) {
+			
 			String userId = req.getParameter("아이디");
 			String userPwd = req.getParameter("비밀번호");
 			String userPwdRequest = req.getParameter("비밀번호확인");
 			String phone = "";
+			
 			if (req.getParameter("전화번호").length() == 11) {
 				phone = req.getParameter("전화번호").substring(0, 3) + "-" + req.getParameter("전화번호").substring(3, 7) + "-"
 						+ req.getParameter("전화번호").substring(7, 11);
 			}
+			
 			String email = req.getParameter("이메일1") + "@" + req.getParameter("이메일2");
 			int height = Integer.parseInt(req.getParameter("키"));
 			int weidth = Integer.parseInt(req.getParameter("체중"));

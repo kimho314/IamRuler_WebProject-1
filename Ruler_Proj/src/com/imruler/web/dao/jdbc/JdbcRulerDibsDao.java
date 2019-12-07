@@ -143,6 +143,7 @@ public class JdbcRulerDibsDao implements DibsDao
 			st.setInt(1, dibs.getMemberId());
 			st.setString(2, dibs.getMemo());
 			st.setInt(3, dibs.getCoordiId());
+
 			result = st.executeUpdate();
 			st.close();
 			con.close();

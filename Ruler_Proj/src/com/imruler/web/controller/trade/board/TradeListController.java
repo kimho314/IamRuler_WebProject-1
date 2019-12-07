@@ -52,6 +52,7 @@ public class TradeListController extends HttpServlet {
 //		String clothes_ = request.getParameter("clothes");
 //		if(clothes_!=null && !area_.equals(""))
 //			clothes=clothes_;
+		
 		String searchText_ = request.getParameter("searchText");
 		if(searchText_!=null && !searchText_.equals(""))
 			searchText=searchText_;
@@ -62,22 +63,11 @@ public class TradeListController extends HttpServlet {
 		request.setAttribute("list", tradeService.getTradeList(page, field, query));
 		request.setAttribute("listCount", tradeService.tradeListCount(field, query));
 		request.getRequestDispatcher("/WEB-INF/view/trade/list.jsp").forward(request, response);
-		//request.getRequestDispatcher("list.jsp").forward(request, response);
 		
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
-		//request.getRequestDispatcher("/trade/list.jsp").forward(request, response);
-		
-		
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+				
 	}
-	
-
-	
-
 }

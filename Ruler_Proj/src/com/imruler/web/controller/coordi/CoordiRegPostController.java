@@ -152,7 +152,7 @@ public class CoordiRegPostController extends HttpServlet
 		{
 			gender = _gender;
 		}
-		//System.out.println(gender);
+
 		// if it is for updating get names of old image files
 		String oldFiles = "";
 		if(updateOpt == 1)

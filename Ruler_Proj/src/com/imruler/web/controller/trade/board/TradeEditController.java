@@ -36,33 +36,37 @@ import com.imruler.web.service.ruler.RulerTradeService;
 		maxFileSize = 1024 * 1024 * 10, /**/
 		maxRequestSize = 1024 * 1024 * 10 * 5/**/
 )
-public class TradeEditController extends HttpServlet{
+public class TradeEditController extends HttpServlet
+{
 	private TradeService tradeService;
 	private TradeImgService tradeImgService;
 	private TradeItemService tradeItemService;
 	private TradeViewService tradeViewService;
-	
+
 	private int id;
-	
-	public TradeEditController() {
+
+	public TradeEditController()
+	{
 		id = 0;
 		tradeService = new RulerTradeService();
 		tradeImgService = new RulerTradeImgService();
 		tradeItemService = new RulerTradeItemService();
 		tradeViewService = new RulerTradeService();
 	}
-	
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		id = Integer.parseInt(request.getParameter("bId"));
 		//int id = Integer.parseInt(request.getParameter("id"));
 		TradeView tradeView = tradeViewService.getTrade(id);
-		request.setAttribute("t", tradeView);		
+		request.setAttribute("t", tradeView);
 		request.getRequestDispatcher("/WEB-INF/view/trade/edit.jsp").forward(request, response);
 	}
-	
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		int userId = 1;
 		int boardId = 1;
 		String title = "";
@@ -75,38 +79,48 @@ public class TradeEditController extends HttpServlet{
 		String title_ = request.getParameter("title");
 		if (title_ != null && !title_.equals(""))
 			title = title_;
+
 		String content_ = request.getParameter("content");
 		if (content_ != null && !content_.equals(""))
 			content = content_;
+
 		String category_ = request.getParameter("category");
 		if (category_ != null && !category_.equals(""))
 			category = category_;
+
 		String region_ = request.getParameter("region");
 		if (region_ != null && !region_.equals(""))
 			region = region_;
+
 		String bodyShape_ = request.getParameter("bodyShape");
 		if (bodyShape_ != null && !bodyShape_.equals(""))
 			bodyShape = bodyShape_;
+
 		String complete_ = request.getParameter("complete");
 		if (complete_ != null && !complete_.equals(""))
 			complete = complete_;
-			if (complete.contentEquals("on")){
-				complete = "거래완료";
-			}
+		if (complete.contentEquals("on"))
+		{
+			complete = "거래완료";
+		}
+
 		String userId_ = request.getParameter("userId");
 		if (userId_ != null && !userId_.equals(""))
 			userId = Integer.parseInt(userId_);
-	
+
 		//boardId = tradeService.getBoardId();
 		boardId = id;
-		System.out.println("edit boardId:" + boardId);
-		System.out.println(category+region+bodyShape);
+		/*
+		 * System.out.println("edit boardId:" + boardId);
+		 * System.out.println(category+region+bodyShape);
+		 */
 		Collection<Part> parts = request.getParts();
 
 		String fileNames = "";
 		String urlPath = File.separator + "ruler_storage";
 
-		for (Part p : parts) {
+		for (Part p : parts)
+		{
 			if (!p.getName().equals("files"))
 				continue;
 
@@ -124,32 +138,28 @@ public class TradeEditController extends HttpServlet{
 				System.out.println("경로존재");
 
 			InputStream fis = filePart.getInputStream(); // 전송한 파일의 스트림
-			try(FileOutputStream fos = new FileOutputStream(realPath + File.separator + fileName))
+			try (FileOutputStream fos = new FileOutputStream(realPath + File.separator + fileName))
 			{
-			byte[] buf = new byte[1024];
-			int size = 0;
-			while ((size = fis.read(buf)) != -1)
-				fos.write(buf, 0, size);
-			fos.close();
-		}catch (Exception e)
+				byte[] buf = new byte[1024];
+				int size = 0;
+				while ((size = fis.read(buf)) != -1)
+					fos.write(buf, 0, size);
+				fos.close();
+			}
+			catch (Exception e)
 			{
-			break;
+				break;
+			}
 		}
-		}
-			
+
 		fileNames = fileNames.substring(0, fileNames.length() - 1);
 
 		String userName = (String) request.getSession().getAttribute("userName");
-		
-		
-		int result = tradeService.updateTrade(new TradeBoard(boardId, title, content, complete));
-		System.out.println("updateresult: " + result);
-		System.out.println(bodyShape);
-		int result2 = tradeItemService.update(new TradeItem(boardId, bodyShape, category, region));
-		System.out.println("updateresult2: " + result2);
-		System.out.println(fileNames);
+
+		int result = tradeService.updateTrade(new TradeBoard(boardId, title, content, complete));	
+		int result2 = tradeItemService.update(new TradeItem(boardId, bodyShape, category, region));		
 		int result3 = tradeImgService.update(new TradeImg(boardId, fileNames));
-		System.out.println("updateresult3: " + result3);
+		
 		response.sendRedirect("/trade/list");
 	}
 

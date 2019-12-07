@@ -13,32 +13,37 @@ import com.imruler.web.service.MemberService;
 import com.imruler.web.service.member.RulerMemberService;
 
 @WebServlet("/mypage/withdraw")
-public class MypageWithdrawController extends HttpServlet {
+public class MypageWithdrawController extends HttpServlet
+{
 	private MemberService memberService;
 
-	public MypageWithdrawController() {
+	public MypageWithdrawController()
+	{
 		// TODO Auto-generated constructor stub
 		memberService = new RulerMemberService();
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		request.getRequestDispatcher("/WEB-INF/view/mypage/withdraw.jsp").forward(request, response);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userName");
 		String userPwd = request.getParameter("password");
-		if (userPwd.equals(memberService.get(userId).getPwd()) || memberService.get(userId).getPwd() == null) {
+		
+		if (userPwd.equals(memberService.get(userId).getPwd()) || memberService.get(userId).getPwd() == null)
+		{
 			memberService.deleteMember(memberService.get(userId).getId());
 			response.sendRedirect("/sign/logout");
-		} else {
-			response.sendRedirect("withdraw?error=1"); // 비밀번호가 틀릴경우
+		}
+		else
+		{
+			response.sendRedirect("withdraw?error=1"); // ��й�ȣ�� Ʋ�����
 		}
 	}
 }

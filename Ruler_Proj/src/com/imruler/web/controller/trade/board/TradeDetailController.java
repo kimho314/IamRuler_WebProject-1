@@ -50,6 +50,7 @@ public class TradeDetailController extends HttpServlet {
 			throws ServletException, IOException {
 		Cookie[] cookie = request.getCookies();
 		String cValue = null;
+		
 		if (cookie != null) {
 			for (Cookie key : cookie) {
 				Cookie c = key;
@@ -57,6 +58,7 @@ public class TradeDetailController extends HttpServlet {
 				break;
 			}
 		}
+		
 		if (cookie != null) {
 			for (Cookie key : cookie) {
 				Cookie c = key; 
@@ -64,6 +66,7 @@ public class TradeDetailController extends HttpServlet {
 				break;
 			}
 		}
+		
 		HttpSession session = request.getSession();
 
 		String userId = cValue;
@@ -76,6 +79,7 @@ public class TradeDetailController extends HttpServlet {
 		if (secret == null) {
 			secret = "0";
 		}
+		
 		String boardUserName = null;
 		int boardUserId = tradeService.getBoardUserId(id);
 		if (memberService.get(boardUserId) != null) {
@@ -85,9 +89,10 @@ public class TradeDetailController extends HttpServlet {
 		TradeView tradeView = tradeViewService.getTrade(id);
 		List<TradeView> tradeView2 = tradeViewService.getComment(id);
 
-		System.out.println("boardid"+id);
+		//System.out.println("boardid"+id);
 		request.setAttribute("t", tradeView);
 		request.setAttribute("c", tradeView2);
+		
 		if (memberService.get(boardUserId) != null) {
 		request.setAttribute("boardUserName", boardUserName);
 		}
@@ -118,8 +123,10 @@ public class TradeDetailController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		
 		String cmd = request.getParameter("cmd");
 		String edel = request.getParameter("edel");
 
@@ -133,9 +140,10 @@ public class TradeDetailController extends HttpServlet {
 		System.out.println("CMD" + cmd);
 		int bId = 1;
 		String bId_ = request.getParameter("bId");
+		
 		if (bId_ != null && !bId_.equals(""))
 			bId = Integer.parseInt(bId_);
-		System.out.println("boardid"+bId);
+		//System.out.println("boardid"+bId);
 		
 		if (edel != null && !edel.equals("")) {
 			switch (edel) {
@@ -145,65 +153,79 @@ public class TradeDetailController extends HttpServlet {
 			case "삭제":
 				int boardId = bId;
 				int result = tradeService.deleteTrade(boardId);
-				System.out.println("result: " + result);
+				//System.out.println("result: " + result);
 				int result2 = tradeItemService.deleteByTradeBoardId(boardId);
-				System.out.println("result2: " + result2);
+				//System.out.println("result2: " + result2);
 				int result3 = tradeImgService.deleteByTradeBoardId(boardId);
-				System.out.println("result3: " + result3);
+				//System.out.println("result3: " + result3);
 				int result4 = tradeCommentService.deleteTradeComment(boardId);
-				System.out.println("result4: " + result4);
+				//System.out.println("result4: " + result4);
 				response.sendRedirect("/trade/list");
 				break;
 			}
 		}
+		
 		if (cmd != null && !cmd.equals("")) {
 			switch (cmd) {
 			case "등록":
 				cId_ = request.getParameter("cId");
 				if (cId_ != null && !cId_.equals(""))
 					cId = Integer.parseInt(cId_);
+				
 				String cContent_ = request.getParameter("cContent");
 				if (cContent_ != null && !cContent_.contentEquals(""))
 					cContent = cContent_;
+				
 				String cUserName = "";
 				if (request.getSession().getAttribute("userName") != null) {
 					cUserName = (String) request.getSession().getAttribute("userName");
 				}
+				
 				Member member = memberService.get(cUserName);
 				cUserId = member.getId();
 				String cBId_ = request.getParameter("bId");
 				if (cBId_ != null && !cBId_.equals(""))
 					cBId = Integer.parseInt(cBId_);
+				
 				String cOpenStatus_ = request.getParameter("cOpenStatus");
 				if (cOpenStatus_ != null && !cOpenStatus_.equals(""))
 					cOpenStatusString = cOpenStatus_;
+				
 				if (cOpenStatusString.equals("on")) {
 					cOpenStatus = 1;
 				} else {
 					cOpenStatus = 0;
 				}
+				
 				int result = tradeCommentService
 						.insertTradeComment(new TradeComment(cContent, cUserId, cBId, cOpenStatus));
 
-				System.out.println("cId:" + cId + "cBId:" + cBId + "cContent:" + cContent + "cUserId:" + cUserId
-						+ "openStatus" + cOpenStatus);
-				System.out.println("result" + result);
+				/*
+				 * System.out.println("cId:" + cId + "cBId:" + cBId + "cContent:" + cContent + "cUserId:" + cUserId
+				 * + "openStatus" + cOpenStatus);
+				 * System.out.println("result" + result);
+				 */
 
 				response.sendRedirect("/trade/detail?id=" + bId);
 				break;
+			
 			case "수정":
 				cId_ = request.getParameter("cId");
 				if (cId_ != null && !cId_.equals(""))
 					cId = Integer.parseInt(cId_);
+				
 				String cContent_1 = request.getParameter("cContent");
 				if (cContent_1 != null && !cContent_1.contentEquals(""))
 					cContent = cContent_1;
+				
 				String cUserId_ = request.getParameter("cUserId");
 				if (cUserId_ != null && !cUserId_.equals(""))
 					cUserId = Integer.parseInt(cUserId_);
+				
 				String cBId_1 = request.getParameter("bId");
 				if (cBId_1 != null && !cBId_1.equals(""))
 					cBId = Integer.parseInt(cBId_1);
+				
 				String cOpenStatus_1 = request.getParameter("cOpenStatus");
 				if (cOpenStatus_1 != null && !cOpenStatus_1.equals(""))
 					cOpenStatusString = cOpenStatus_1;
@@ -212,18 +234,19 @@ public class TradeDetailController extends HttpServlet {
 				} else {
 					cOpenStatus = 0;
 				}
+				
 				int edit = tradeCommentService.updateTradeComment(new TradeComment(cId, cContent, cUserId, cBId));
-				System.out.println(tradeCommentService.toString());
+				//System.out.println(tradeCommentService.toString());
 				response.sendRedirect("/trade/detail?id=" + cBId);
 				break;
+			
 			case "삭제":
 				cId_ = request.getParameter("cId");
 				if (cId_ != null && !cId_.equals(""))
 					cId = Integer.parseInt(cId_);
-				System.out.println(cId_);
-				System.out.println(cId);
+
 				int del = tradeCommentService.deleteTradeComment(cId);
-				System.out.println("cId:" + cId + "삭제됐니" + del);
+				//System.out.println("cId:" + cId + "삭제됐니" + del);
 				response.sendRedirect("/trade/detail?id=" + bId);
 				break;
 			}

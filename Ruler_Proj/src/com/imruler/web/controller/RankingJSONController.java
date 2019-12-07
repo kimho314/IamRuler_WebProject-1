@@ -16,18 +16,24 @@ import com.imruler.web.service.RankingService;
 import com.imruler.web.service.ranking.RulerRankingService;
 
 @WebServlet("/rank-json") // 진행중
-public class RankingJSONController extends HttpServlet{
+public class RankingJSONController extends HttpServlet
+{
 	private RankingService rankingService;
-	public RankingJSONController() {
+
+	public RankingJSONController()
+	{
 		rankingService = new RulerRankingService();
 	}
-	
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		String type = request.getParameter("type");
 		List<Ranking> list = null;
-		if(type != null && !type.equals("")) 
-			switch (type) {
+		
+		if (type != null && !type.equals(""))
+			switch (type)
+			{
 			case "0":
 				list = rankingService.getRankingList(0);
 				break;
@@ -37,15 +43,15 @@ public class RankingJSONController extends HttpServlet{
 			}
 		else
 			list = rankingService.getRankingList();//전체리스트
-		
-		 Gson gson = new Gson();
-		 String json = gson.toJson(list);
-		 
+
+		Gson gson = new Gson();
+		String json = gson.toJson(list);
+
 		response.setCharacterEncoding("UTF-8"); //작성된 코드의 인코딩방식 설정
 		response.setContentType("text/html;charset=UTF-8"); // 브라우저의 응답헤더로 보내짐
-		
+
 		PrintWriter out = response.getWriter();
 		out.print(json);
-		
+
 	}
 }

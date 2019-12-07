@@ -13,7 +13,7 @@ public class JdbcTradeImgDao implements TradeImgDao{
 	@Override
 	public int insert(TradeImg tradeImg) {
 		int result=0;
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		String sql = "INSERT INTO TRADE_IMG (ID, BOARD_ID, IMG) VALUES((SELECT NVL(MAX(ID),0)+1 FROM TRADE_IMG),?,?)";
 		
 		Connection con = null;
@@ -53,7 +53,7 @@ public class JdbcTradeImgDao implements TradeImgDao{
 		int result = 0;
 		
 		String sql = "UPDATE TRADE_IMG SET IMG=? WHERE BOARD_ID=?";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		
 		Connection con = null;
 		PreparedStatement st = null;
@@ -97,7 +97,7 @@ public class JdbcTradeImgDao implements TradeImgDao{
 		PreparedStatement st = null;
 		int result = 0;
 
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		String sql = "DELETE TRADE_IMG WHERE ID=?";
 
 		try {
@@ -137,7 +137,7 @@ public class JdbcTradeImgDao implements TradeImgDao{
 		PreparedStatement st = null;
 		int result = 0;
 
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		String sql = "DELETE TRADE_IMG WHERE BOARD_ID=?";
 
 		try {

@@ -42,12 +42,14 @@ public class IndexController extends HttpServlet {
 					}
 				}
 			}
+			
 			String userId = null;
 			userId = cValue;
 
 			if (userId == null) {
 				userId = (String) session.getAttribute("userName");
 			}
+			
 			if (memberService.get(userId) != null) {
 				request.setAttribute("userAge", memberService.get(userId).getAge());
 				System.out.println(memberService.get(userId).getAge());
@@ -93,6 +95,7 @@ public class IndexController extends HttpServlet {
 		String shoulderWidth1_ = request.getParameter("tshoulderWidth");
 		String shoulderWidth2_ = request.getParameter("oshoulderWidth");
 		String shoulderWidth3_ = request.getParameter("opshoulderWidth");
+		
 		if (type.equals("T") && shoulderWidth1_ != null && !shoulderWidth1_.equals(""))
 			shoulderWidth = Integer.parseInt(shoulderWidth1_);
 		if (type.equals("O") && shoulderWidth2_ != null && !shoulderWidth2_.equals(""))
@@ -103,6 +106,7 @@ public class IndexController extends HttpServlet {
 		String chestBreadth1_ = request.getParameter("tchestBreadth");
 		String chestBreadth2_ = request.getParameter("ochestBreadth");
 		String chestBreadth3_ = request.getParameter("opchestBreadth");
+		
 		if (type.equals("T") && chestBreadth1_ != null && !chestBreadth1_.equals(""))
 			chestBreadth = Integer.parseInt(chestBreadth1_);
 		if (type.equals("O") && chestBreadth2_ != null && !chestBreadth2_.equals(""))
@@ -113,6 +117,7 @@ public class IndexController extends HttpServlet {
 		String sleeveLength1_ = request.getParameter("tsleeveLength");
 		String sleeveLength2_ = request.getParameter("osleeveLength");
 		String sleeveLength3_ = request.getParameter("opsleeveLength");
+		
 		if (type.equals("T") && sleeveLength1_ != null && !sleeveLength1_.equals(""))
 			sleeveLength = Integer.parseInt(sleeveLength1_);
 		if (type.equals("O") && sleeveLength2_ != null && !sleeveLength2_.equals(""))
@@ -122,6 +127,7 @@ public class IndexController extends HttpServlet {
 
 		String topTotalLength1_ = request.getParameter("ttopTotalLength");
 		String topTotalLength2_ = request.getParameter("otopTotalLength");
+		
 		if (type.equals("T") && topTotalLength1_ != null && !topTotalLength1_.equals(""))
 			topTotalLength = Integer.parseInt(topTotalLength1_);
 		if (type.equals("O") && topTotalLength2_ != null && !topTotalLength2_.equals(""))
@@ -129,6 +135,7 @@ public class IndexController extends HttpServlet {
 
 		String waistWidth1_ = request.getParameter("pwaistWidth");
 		String waistWidth2_ = request.getParameter("skwaistWidth");
+		
 		if (type.equals("P") && waistWidth1_ != null && !waistWidth1_.equals(""))
 			waistWidth = Integer.parseInt(waistWidth1_);
 		if (type.equals("Sk") && waistWidth2_ != null && !waistWidth2_.equals(""))
@@ -147,6 +154,7 @@ public class IndexController extends HttpServlet {
 			x = Integer.parseInt(x_);
 		if (y_ != null && !y_.equals(""))
 			y = Integer.parseInt(y_);
+		
 		if (gender_ != null && !gender_.equals(""))
 			gender = gender_;
 		if (bodyshape_ != null && !bodyshape_.equals(""))
@@ -167,9 +175,11 @@ public class IndexController extends HttpServlet {
 		if (onePieceTotalLength_ != null && !onePieceTotalLength_.equals(""))
 			onePieceTotalLength = Integer.parseInt(onePieceTotalLength_);
 
-		System.out.println(type);
-		System.out.println(gender);
-		System.out.println("비교하러옴");
+		/*
+		 * System.out.println(type);
+		 * System.out.println(gender);
+		 * System.out.println("비교하러옴");
+		 */
 
 		int cloth = 0;
 
@@ -194,7 +204,6 @@ public class IndexController extends HttpServlet {
 		}
 
 		request.setAttribute("result", cloth);
-
 		request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
 
 	}

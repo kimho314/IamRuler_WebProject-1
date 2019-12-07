@@ -28,13 +28,14 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 	@Override
 	public List<TradeBoardView> getList(int page, String field, String query) {
 		List<TradeBoardView> list = new ArrayList<TradeBoardView>();
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		String sql = "SELECT * FROM (SELECT ROWNUM NUM, T.* " +
 						"FROM (SELECT * FROM TRADEBOARDVIEW WHERE " + field +
 						" LIKE ? ORDER BY B_REGDATE DESC) T" + 
 						")WHERE NUM BETWEEN ? AND ?";
 		Connection con = null;
 		PreparedStatement st = null;
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, "RULER", "33333");
@@ -84,7 +85,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 		Connection con = null;
 		PreparedStatement st = null;
 		
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		String sql = "INSERT INTO TRADE_BOARD(ID, TITLE, CONTENT, TAG, USER_ID) VALUES((SELECT NVL(MAX(ID),0)+1 FROM TRADE_BOARD), ?,?,?,?)";
 		
 		
@@ -124,7 +125,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 		int result = 0;
 
 		String sql = "UPDATE TRADE_BOARD SET TITLE=?,CONTENT=?,TAG=? WHERE ID=?";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		
 		Connection con = null;
 		PreparedStatement st = null;
@@ -165,7 +166,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 		int result = 0;
 
 		String sql = "DELETE FROM TRADE_BOARD WHERE ID=?";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 	
 		Connection con = null;
 		PreparedStatement st = null;
@@ -202,7 +203,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 
 		String sql = "SELECT * FROM (SELECT * FROM TRADE_BOARD ORDER BY REGDATE DESC)"
 				+ "WHERE REGDATE < (SELECT REGDATE FROM TRADE_BOARD WHERE ID=?) AND ROWNUM=1";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		
 		Connection con = null;
 		PreparedStatement st = null;
@@ -250,7 +251,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 
 		String sql = "SELECT * FROM (SELECT * FROM TRADE_BOARD ORDER BY REGDATE ASC)"
 				+ "WHERE REGDATE > (SELECT REGDATE FROM TRADE_BOARD WHERE ID=?) AND ROWNUM=1";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		
 		Connection con = null;
 		PreparedStatement st = null;
@@ -297,7 +298,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 		int count=0;
 		
 		String sql = "SELECT COUNT(ID) COUNT FROM TRADE_BOARD WHERE "+field+" LIKE ? ";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		
 		Connection con = null;
 		PreparedStatement st = null;
@@ -334,11 +335,12 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 	@Override
 	public List<TradeBoard> getListByUserId(int userId, int page) { // for 내 작성글 
 		List<TradeBoard> list = new ArrayList<>();
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		String sql = "SELECT * FROM (SELECT ROWNUM NUM, B.*\r\n" + 
 				"FROM (SELECT * FROM BOARDLISTVIEW WHERE USER_ID=? ORDER BY REGDATE DESC) B) WHERE NUM BETWEEN ? AND ?";
 		Connection con = null;
 		PreparedStatement st = null;
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, "RULER", "33333");
@@ -380,7 +382,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 	public int getBoardId() {
 		int result = 0;
 		String sql = "SELECT MAX(ID) MAX_ID FROM TRADE_BOARD";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
 		Connection con = null;
 		PreparedStatement st = null;
@@ -418,7 +420,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 		 int count=0;
 	      
 	      String sql = "SELECT COUNT(ID) COUNT FROM BOARDLISTVIEW WHERE USER_ID=?";
-	      String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+	      String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 	      
 	      Connection con = null;
 	      PreparedStatement st = null;
@@ -459,7 +461,7 @@ public class JdbcTradeBoardDao implements TradeBoardDao {
 	public int getBoardUserId(int b_id) {
 		int userId = 0;
 		String sql = "SELECT user_id FROM TRADE_BOARD where id=?";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
 		Connection con = null;
 		PreparedStatement st = null;

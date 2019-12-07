@@ -22,7 +22,7 @@ public class JdbcTradeViewDao implements TradeViewDao{
 		Connection con = null;
 		PreparedStatement st = null;
 		String sql = "SELECT * FROM TRADEVIEW WHERE B_ID=?";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -98,7 +98,7 @@ public class JdbcTradeViewDao implements TradeViewDao{
 //				+ "C.ID C_ID, C.BOARD_ID C_BOARD_ID FROM TRADE_COMMENT C LEFT OUTER JOIN MEMBER M ON C.USER_ID=M.ID)";
 		
 		String sql = "SELECT * FROM TRADEVIEW WHERE B_ID=? ORDER BY C_REGDATE DESC";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");

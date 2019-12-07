@@ -65,7 +65,7 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 	public int insertTradeComment(TradeComment tradeComment) {
 		int result = 0;
 		
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		String sql = "INSERT INTO TRADE_COMMENT(ID, CONTENT, USER_ID, REGDATE, BOARD_ID, OPEN_STATUS) VALUES((SELECT NVL(MAX(ID),0)+1 FROM TRADE_COMMENT), ?,?,SYSTIMESTAMP,?,?)";
 		
 		Connection con = null;
@@ -110,7 +110,7 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 		PreparedStatement st = null;
 		int result = 0;
 
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		String sql = "DELETE TRADE_COMMENT WHERE ID=?";
 
 		try {
@@ -151,11 +151,12 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 	@Override
 	public List<TradeComment> getCommentListByUserId(int userId, int page) { // for 내 작성글
 		List<TradeComment> list = new ArrayList<>();
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		String sql = "SELECT * FROM (SELECT ROWNUM NUM, C.*\r\n" + 
 				"FROM (SELECT * FROM COMMENTLISTVIEW WHERE USER_ID=? ORDER BY REGDATE DESC) C)WHERE NUM BETWEEN ? AND ?";
 		Connection con = null;
 		PreparedStatement st = null;
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, "RULER", "33333");
@@ -203,7 +204,7 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 			int result = 0;
 
 			String sql = "UPDATE TRADE_COMMENT SET CONTENT=? WHERE ID=?";
-			String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+			String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -244,7 +245,7 @@ public class JdbcTradeCommentDao implements TradeCommentDao {
 		int count=0;
 	      
 	      String sql = "SELECT COUNT(ID) COUNT FROM COMMENTLISTVIEW WHERE USER_ID=?";
-	      String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+	      String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 	      
 	      Connection con = null;
 	      PreparedStatement st = null;

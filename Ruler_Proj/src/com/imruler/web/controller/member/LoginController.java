@@ -54,6 +54,7 @@ public class LoginController extends HttpServlet {
 			}
 		}
 	}
+	
 	public void cookie(HttpServletRequest req, HttpServletResponse resp, String userId) throws IOException {
 		Cookie cookie = new Cookie("userName", userId);
 		cookie.setPath("/");

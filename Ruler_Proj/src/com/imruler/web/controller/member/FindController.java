@@ -37,6 +37,7 @@ public class FindController extends HttpServlet {
 		} else if (req.getParameter("찾기").equals("비밀번호찾기")) {
 			btn = 2;
 		}
+		
 		String email = req.getParameter("email");
 		String userId = req.getParameter("userId");
 		String phone = req.getParameter("phone");

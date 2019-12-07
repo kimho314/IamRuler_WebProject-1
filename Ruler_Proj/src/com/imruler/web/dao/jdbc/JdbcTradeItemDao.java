@@ -51,11 +51,12 @@ public class JdbcTradeItemDao implements TradeItemDao{
 //	
 //		return tradeBoard;
 //	}
+	
 	@Override
 	public int insert(TradeItem tradeItem) {
 			int result = 0;
 			 
-			String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+			String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 			String sql = "INSERT INTO TRADE_ITEM(ID, BODYSHAPE, CATEGORY, REGION) VALUES(?,?,?,?)";
 			
 			Connection con = null;
@@ -102,7 +103,7 @@ public class JdbcTradeItemDao implements TradeItemDao{
 		int result = 0;
 
 		String sql = "UPDATE TRADE_ITEM SET BODYSHAPE=?,CATEGORY=?,REGION=? WHERE ID=?";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -134,7 +135,7 @@ public class JdbcTradeItemDao implements TradeItemDao{
 		PreparedStatement st = null;
 		int result = 0;
 
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@112.223.37.243:1521/xepdb1";
 		String sql = "DELETE TRADE_ITEM WHERE ID=?";
 
 		try {
