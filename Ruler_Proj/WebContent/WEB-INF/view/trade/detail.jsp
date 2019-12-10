@@ -32,8 +32,8 @@
 
             <br>
             <form action="/trade/detail" method="post" name="frm">
-            <div>
-            <c:if test="${ boardUserName == userName }">
+            <div>          
+            <c:if test="${ boardUserName == userName && not empty boardUserName}">
                <div class="edel" id="tnwjdtkrwp2">
                   <ul class="icons">
                      <li><input type="submit" name="edel" value="수정"/></li>
@@ -41,7 +41,7 @@
                      <li><input type="submit" name="edel" value="삭제"/></li> 
                   </ul>
                </div>
-               </c:if>
+               </c:if>               
                <div>
                   <table class="center">
                      <tbody>
@@ -52,10 +52,10 @@
 
                         <tr>
                            <th class="center">작성자</th>
-                           <c:if test="${boardUserName != null}">
-                          <td>${boardUserName}</td>
-                          </c:if>
-							<c:if test="${boardUserName == null}">
+                           	<c:if test="${not empty boardUserName}">
+                          		<td>${boardUserName}</td>
+                          	</c:if>
+							<c:if test="${empty boardUserName}">
 								<td>[탈퇴한 회원입니다]</td>
 							</c:if>
 							<th class="center">등록일자</th>
@@ -131,11 +131,11 @@
 					<tbody>
 						<c:forEach var="c" items="${c}">
 							<c:if test="${0 ne c.cId}">
-								<c:if test="${c.cOpenStatus==0 }">
+								<c:if test="${c.cOpenStatus == 0 }">
 									<tr>
 										<td>
 											<div>
-												<c:if test="${ c.mUserName == userName }">
+												<c:if test="${ c.mUserName == userName && not empty c.mUserName}">
 												<div class="">
 													<ul class="a">
 														<li><input type="hidden" value="${c.cContent}">
@@ -148,23 +148,26 @@
 													</ul>
 												</div>
 												</c:if>
-												<c:if test="${c.mUserName == null}">
-														<span>[탈퇴한 회원입니다]</span>
-													</c:if>
-												<div id="name">${c.mUserName}</div>
+												<c:if test="${empty c.mUserName}">
+													<span>[탈퇴 회원]</span>
+												</c:if>
+												<c:if test="${not empty c.mUserName}">
+													<div id="name">${c.mUserName}</div>
+												</c:if>
 												<div id="date">${c.cRegdate}</div>
 											</div>
 											<div id="content">${c.cContent}</div>
 										</td>
 									</tr>
 								</c:if>
-								<c:if test="${c.cOpenStatus==1}">
+								<c:if test="${c.cOpenStatus == 1}">
 									<tr>
 										<td>
 											<div>
-												<c:if test="${ c.mUserName == userName }">
+												<c:if test="${ c.mUserName == userName && not empty c.mUserName}">
 													<div>
 														<ul class="a">
+															<c:if test="${not empty c.mUserName }]">
 															<li><input type="hidden" value="${c.cContent}">
 															<input type="button" class="gray edit-btn"
 																name="cmd" value="수정"> <input type="hidden"
@@ -173,34 +176,63 @@
 															<li><input type="button" class="gray delete-btn"
 																name="cmd" value="삭제"> <input type="hidden"
 																value="${c.cId}"></li>
+															</c:if>
 														</ul>
 													</div>
 												</c:if>
 												
 												<div id="name">
 													<i class="fas fa-lock"></i> 
-													<c:if test="${boardUserName != userName && c.mUserName != userName}">
-													***
+													<c:if test="${not empty boardUserName }">
+													<c:if test="${boardUserName != userName}">
+														<c:if test="${c.mUserName != userName }">
+															<span>***</span>
+														</c:if>
+														<c:if test="${c.mUserName == userName }">
+															<span>${c.mUserName}</span>
+														</c:if>
 													</c:if>
-													<c:if test="${boardUserName == userName || c.mUserName == userName}">
-														${c.mUserName}
+													<c:if test="${boardUserName == userName}">
+														<c:if test="${not empty c.mUserName }">
+															${c.mUserName}
+														</c:if>
+														<c:if test="${empty c.mUserName }">
+															<span>[탈퇴회원]</span>
+														</c:if>
+													</c:if>		
+													
 													</c:if>
-													<%-- <c:if test="${c.mUserName == null}">
-														<span>[탈퇴한 회원입니다]</span>
-													</c:if> --%>
-													</div>
+													<c:if test="${empty boardUserName }">
+														<c:if test="${not empty c.mUserName }">										
+														<c:if test="${c.mUserName != userName }">
+															<span>***</span>
+														</c:if>											
+															<c:if test="${c.mUserName == userName }">
+															${c.mUserName}
+															</c:if>
+														</c:if>
+														<c:if test="${empty c.mUserName }">
+															<span>***</span>
+														</c:if>
+													</c:if>																									
+												</div>
 													
 											
 											<div id="date">${c.cRegdate}</div>
 											</div>
+											<c:if test="${not empty boardUserName && not empty c.mUserName }">
 											<c:choose>
 											<c:when test="${boardUserName == userName || c.mUserName == userName }">
-											<div id="content">${c.cContent}</div>
+												<div id="content">${c.cContent}</div>
 											</c:when>
 											<c:when test="${boardUserName != userName && c.mUserName != userName}">
-											<div id="content">비밀댓글입니다</div>
+												<div id="content">비밀댓글입니다</div>
 											</c:when>
 											</c:choose>
+											</c:if>
+											<c:if test="${empty boardUserName || empty c.mUserName }">
+												<div id="content">비밀댓글입니다</div>
+											</c:if>
 										</td>
 										</tr>
 									</c:if>

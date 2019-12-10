@@ -52,20 +52,15 @@ public class TradeDetailController extends HttpServlet {
 		String cValue = null;
 		
 		if (cookie != null) {
-			for (Cookie key : cookie) {
-				Cookie c = key;
-				cValue = c.getValue();
-				break;
+			for (Cookie key : cookie) {				
+				if(key.getName().equals("userName"))
+				{
+					cValue = key.getValue();
+					break;					
+				}
 			}
 		}
-		
-		if (cookie != null) {
-			for (Cookie key : cookie) {
-				Cookie c = key; 
-				cValue = c.getValue();
-				break;
-			}
-		}
+				
 		
 		HttpSession session = request.getSession();
 
@@ -82,6 +77,7 @@ public class TradeDetailController extends HttpServlet {
 		
 		String boardUserName = null;
 		int boardUserId = tradeService.getBoardUserId(id);
+		
 		if (memberService.get(boardUserId) != null) {
 			boardUserName = memberService.get(boardUserId).getUserName();
 		}
@@ -89,12 +85,11 @@ public class TradeDetailController extends HttpServlet {
 		TradeView tradeView = tradeViewService.getTrade(id);
 		List<TradeView> tradeView2 = tradeViewService.getComment(id);
 
-		//System.out.println("boardid"+id);
 		request.setAttribute("t", tradeView);
 		request.setAttribute("c", tradeView2);
 		
 		if (memberService.get(boardUserId) != null) {
-		request.setAttribute("boardUserName", boardUserName);
+			request.setAttribute("boardUserName", boardUserName);
 		}
 		
 		String tmpStr = null;
@@ -111,8 +106,7 @@ public class TradeDetailController extends HttpServlet {
 				for (String img : imgs) {
 					ServletContext application = request.getServletContext();
 					String realPath = application.getRealPath(img);
-					img = realPath;
-					System.out.println("img" + img);
+					img = realPath;					
 				}
 			}
 			request.setAttribute("imgs", imgs);
@@ -153,13 +147,10 @@ public class TradeDetailController extends HttpServlet {
 			case "삭제":
 				int boardId = bId;
 				int result = tradeService.deleteTrade(boardId);
-				//System.out.println("result: " + result);
 				int result2 = tradeItemService.deleteByTradeBoardId(boardId);
-				//System.out.println("result2: " + result2);
 				int result3 = tradeImgService.deleteByTradeBoardId(boardId);
-				//System.out.println("result3: " + result3);
 				int result4 = tradeCommentService.deleteTradeComment(boardId);
-				//System.out.println("result4: " + result4);
+			
 				response.sendRedirect("/trade/list");
 				break;
 			}
@@ -236,7 +227,7 @@ public class TradeDetailController extends HttpServlet {
 				}
 				
 				int edit = tradeCommentService.updateTradeComment(new TradeComment(cId, cContent, cUserId, cBId));
-				//System.out.println(tradeCommentService.toString());
+				
 				response.sendRedirect("/trade/detail?id=" + cBId);
 				break;
 			
@@ -246,7 +237,7 @@ public class TradeDetailController extends HttpServlet {
 					cId = Integer.parseInt(cId_);
 
 				int del = tradeCommentService.deleteTradeComment(cId);
-				//System.out.println("cId:" + cId + "삭제됐니" + del);
+				
 				response.sendRedirect("/trade/detail?id=" + bId);
 				break;
 			}
